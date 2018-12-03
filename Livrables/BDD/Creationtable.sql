@@ -31,16 +31,43 @@ CREATE TABLE Recette(
 
 
 #------------------------------------------------------------
+# Table: Ustensibles
+#------------------------------------------------------------
+
+CREATE TABLE Ustensibles(
+        id       Int  Auto_increment  NOT NULL ,
+        nom      Varchar (50) NOT NULL ,
+        quantite Int NOT NULL
+	,CONSTRAINT Ustensibles_PK PRIMARY KEY (id)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: CONTIENT
+#------------------------------------------------------------
+
+CREATE TABLE CONTIENT(
+        id         Int NOT NULL ,
+        recetteNom Varchar (150) NOT NULL ,
+        quantite   Int NOT NULL
+	,CONSTRAINT CONTIENT_PK PRIMARY KEY (id,recetteNom)
+
+	,CONSTRAINT CONTIENT_Produit_FK FOREIGN KEY (id) REFERENCES Produit(id)
+	,CONSTRAINT CONTIENT_Recette0_FK FOREIGN KEY (recetteNom) REFERENCES Recette(recetteNom)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
 # Table: UTILISER
 #------------------------------------------------------------
 
 CREATE TABLE UTILISER(
-        id         Int NOT NULL ,
         recetteNom Varchar (150) NOT NULL ,
+        id         Int NOT NULL ,
         quantite   Int NOT NULL
-	,CONSTRAINT UTILISER_PK PRIMARY KEY (id,recetteNom)
+	,CONSTRAINT UTILISER_PK PRIMARY KEY (recetteNom,id)
 
-	,CONSTRAINT UTILISER_Produit_FK FOREIGN KEY (id) REFERENCES Produit(id)
-	,CONSTRAINT UTILISER_Recette0_FK FOREIGN KEY (recetteNom) REFERENCES Recette(recetteNom)
+	,CONSTRAINT UTILISER_Recette_FK FOREIGN KEY (recetteNom) REFERENCES Recette(recetteNom)
+	,CONSTRAINT UTILISER_Ustensibles0_FK FOREIGN KEY (id) REFERENCES Ustensibles(id)
 )ENGINE=InnoDB;
 
