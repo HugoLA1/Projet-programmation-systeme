@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B482C723-62F7-4E12-8E22-737639C1C1A5}</ProjectGuid>
+    <ProjectGuid>{C81D22BF-A88D-4443-9985-9AD66EC26F70}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>MasterChefInfo</RootNamespace>
     <AssemblyName>MasterChefInfo</AssemblyName>
