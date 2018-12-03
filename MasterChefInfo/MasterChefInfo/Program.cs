@@ -14,6 +14,7 @@ namespace MasterChefInfo
         [STAThread]
         static void Main()
         {
+            //Théo
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
