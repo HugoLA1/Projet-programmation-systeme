@@ -67,7 +67,7 @@
 
 | <a href="https://github.com/Theogorath" target="_blank">**Theogorath**</a> | <a href="https://github.com/Logan06250" target="_blank">**Logan06250**</a> | <a href="https://github.com/HugoLA1" target="_blank">**HugoLA1**</a> |
 | :---: |:---:| :---:|
-| [![Theogorath](https://avatars0.githubusercontent.com/u/23248136?&v=4&s=200)](https://github.com/Theogorath)    | [![Logan06250](https://avatars3.githubusercontent.com/u/23254947?s=200&v=4)](http://fvcproductions.com) | [![HugoLA1](https://avatars2.githubusercontent.com/u/23254786?s=200&v=4)](http://fvcproductions.com)  |
+| [![Theogorath](https://avatars0.githubusercontent.com/u/23248136?&v=4&s=200)](https://github.com/Theogorath)    | [![Logan06250](https://avatars3.githubusercontent.com/u/23254947?s=200&v=4)](https://github.com/Logan06250) | [![HugoLA1](https://avatars2.githubusercontent.com/u/23254786?s=200&v=4)](https://github.com/HugoLA1)  |
 | <a href="https://github.com/Theogorath" target="_blank">`Voir le GitHub de Theogorath`</a> | <a href="http://github.com/Logan06250" target="_blank">`Voir le GitHub de Logan06250`</a> | <a href="http://github.com/HugoLA1" target="_blank">`Voir le GitHub de HugoLA1`</a> |
 
 - **Chef de Projet** : Logan06250
