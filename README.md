@@ -17,7 +17,7 @@
 
 ***Vue d'ensemble du projet XMIND*** 📊
 
-[![XMIND](https://github.com/Theogorath/Projet-programmation-systeme/blob/81a854943e66fe7c1e00ce4493f1f3a1050af9a8/Livrables/XMind.png?raw=true)]()
+[![XMIND](https://github.com/Theogorath/Projet-programmation-systeme/blob/master/Livrables/Objectifs%20du%20projet/XMind.png?raw=true)]()
 
 
 
