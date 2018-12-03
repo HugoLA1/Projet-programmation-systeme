@@ -24,7 +24,8 @@ CREATE TABLE Recette(
         recetteNom   Varchar (150) NOT NULL ,
         Produits     Varchar (250) ,
         prix         DECIMAL (15,3)  ,
-        instructions Varchar (150) NOT NULL
+        instructions Varchar (150) NOT NULL ,
+        categorie    Varchar (50) NOT NULL
 	,CONSTRAINT Recette_PK PRIMARY KEY (recetteNom)
 )ENGINE=InnoDB;
 
