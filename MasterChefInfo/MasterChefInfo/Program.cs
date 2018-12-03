@@ -15,6 +15,7 @@ namespace MasterChefInfo
         static void Main()
         {
             //Théo
+            //Logan
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
