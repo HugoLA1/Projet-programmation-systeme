@@ -49,7 +49,7 @@
 
 ### Setup
 - Il faut tout d'abord installer la base de donnée, vous devez crée une table "masterchefinfo" sur un serveur Mysql, puis lancer le script d'exécution (`https://github.com/Theogorath/Projet-programmation-systeme/Livrables/BDD/masterchefinfo.sql`)</br>
-<a href="" ><img src="http://www.hashin.in/hash/_layout/images/expertise/mysql.png"></a>
+![](MCD-MLD.gif)
 ---
 
 ## Ameliorations
