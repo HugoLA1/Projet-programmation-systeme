@@ -17,7 +17,7 @@
 
 ***Vue d'ensemble du projet XMIND*** 📊
 
-[![XMIND](https://github.com/Theogorath/Projet-programmation-systeme/blob/81a854943e66fe7c1e00ce4493f1f3a1050af9a8/Livrables/XMind.png?raw=true)]()
+[![XMIND](https://github.com/Theogorath/Projet-programmation-systeme/blob/master/Livrables/Objectifs%20du%20projet/XMind.png?raw=true)]()
 
 
 
@@ -48,9 +48,8 @@
 - Cloner le repo vers la machine local en utilisant le lien suivant : `https://github.com/Theogorath/Projet-programmation-systeme.git`
 
 ### Setup
-
-- A venir
-
+- Il faut tout d'abord installer la base de donnée, vous devez crée une table "masterchefinfo" sur un serveur Mysql, puis lancer le script d'exécution (Projet-programmation-systeme/Livrables/BDD/masterchefinfo.sql)
+<a href="" ><img src="http://www.hashin.in/hash/_layout/images/expertise/mysql.png"></a>
 ---
 
 ## Ameliorations
