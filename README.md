@@ -1,4 +1,4 @@
-<a href="" ><img src="https://github.com/Theogorath/Projet-programmation-systeme/blob/81a854943e66fe7c1e00ce4493f1f3a1050af9a8/Livrables/XMind.png?raw=true"></a>
+<a href="" ><img src="https://i.twic.pics/v1/https://s3-eu-west-1.amazonaws.com/assets.atout-on-line.com/images/ingenieur/2016/logos_ecoles/exia_cesi_360.jpg"></a>
 
 ***Projet programmation Système A3***
 
@@ -17,7 +17,7 @@
 
 ***Vue d'ensemble du projet XMIND*** 📊
 
-[![INSERT YOUR GRAPHIC HERE](http://i.imgur.com/dt8AUb6.png)]()
+[![INSERT YOUR GRAPHIC HERE](https://github.com/Theogorath/Projet-programmation-systeme/blob/81a854943e66fe7c1e00ce4493f1f3a1050af9a8/Livrables/XMind.png?raw=true)]()
 
 
 
