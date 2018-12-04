@@ -8,5 +8,12 @@ namespace MasterChefInfo
 {
     class Client
     {
+
+        Command appetizer { get; set; }
+        Command dish { get; set; }
+        Command dessert { get; set; }
+
+        Command CurrentCommand { get; set; }
+
     }
 }

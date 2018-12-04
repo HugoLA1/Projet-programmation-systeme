@@ -8,5 +8,12 @@ namespace MasterChefInfo
 {
     class DishWasher
     {
+        int posX;
+        int posY;
+
+        public DishWasher()
+        {
+
+        }
     }
 }

@@ -8,5 +8,12 @@ namespace MasterChefInfo
 {
     class KitchenPorter
     {
+        int posX;
+        int posY;
+
+        public KitchenPorter()
+        {
+
+        }
     }
 }

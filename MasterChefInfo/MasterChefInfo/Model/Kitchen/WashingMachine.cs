@@ -8,5 +8,12 @@ namespace MasterChefInfo
 {
     class WashingMachine
     {
+        int posX;
+        int posY;
+
+        public WashingMachine()
+        {
+
+        }
     }
 }

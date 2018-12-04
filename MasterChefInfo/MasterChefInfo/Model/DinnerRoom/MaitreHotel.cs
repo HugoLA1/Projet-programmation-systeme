@@ -8,5 +8,11 @@ namespace MasterChefInfo
 {
     class MaitreHotel
     {
+        int posX;
+        int posY;
+
+        public MaitreHotel() {
+
+        }
     }
 }
