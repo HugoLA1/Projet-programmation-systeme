@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 04 Décembre 2018 à 08:27
+-- Généré le :  Mar 04 Décembre 2018 à 09:14
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -189,7 +189,8 @@ INSERT INTO `produit` (`id`, `nom`, `type`, `stock`) VALUES
 (36, 'Vin rosé', 'Alcool', 1000),
 (37, 'Eau', 'Soft', 1000),
 (38, 'Jus de fruit', 'Soft', 1000),
-(39, 'Soda', 'Soft', 1000);
+(39, 'Soda', 'Soft', 1000),
+(40, 'Café', 'Produit longue conservation', 1000);
 
 -- --------------------------------------------------------
 
@@ -360,7 +361,7 @@ ALTER TABLE `utiliser`
 -- AUTO_INCREMENT pour la table `produit`
 --
 ALTER TABLE `produit`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 --
 -- AUTO_INCREMENT pour la table `ustensibles`
 --
