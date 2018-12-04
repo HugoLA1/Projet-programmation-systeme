@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MasterChefInfo.Controller
+namespace MasterChefInfo
 {
-    class KitchenPorterController
+    class TableController
     {
     }
 }

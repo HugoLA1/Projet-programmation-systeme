@@ -51,21 +51,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\CleanningRoomController.cs" />
+    <Compile Include="Controller\CleaningRoom\CleanningRoomController.cs" />
     <Compile Include="Controller\ClientGeneratorController.cs" />
     <Compile Include="Controller\Controller.cs" />
-    <Compile Include="Controller\DinnerRoomController.cs" />
-    <Compile Include="Controller\DishWasherController.cs" />
+    <Compile Include="Controller\DinnerRoom\DinnerRoomController.cs" />
+    <Compile Include="Controller\CleaningRoom\DishWasherController.cs" />
     <Compile Include="Controller\GroupClientController.cs" />
-    <Compile Include="Controller\KitchenController.cs" />
-    <Compile Include="Controller\KitchenPorterController.cs" />
-    <Compile Include="Controller\MaitreHotelController.cs" />
-    <Compile Include="Controller\MasterChefController.cs" />
-    <Compile Include="Controller\SectionChefController.cs" />
-    <Compile Include="Controller\SquareSupervisorController.cs" />
-    <Compile Include="Controller\TableController.cs" />
-    <Compile Include="Controller\WaiterController.cs" />
-    <Compile Include="Controller\WashingMachineController.cs" />
+    <Compile Include="Controller\Kitchen\KitchenAssitantController.cs" />
+    <Compile Include="Controller\Kitchen\KitchenController.cs" />
+    <Compile Include="Controller\CleaningRoom\KitchenPorterController.cs" />
+    <Compile Include="Controller\DinnerRoom\MaitreHotelController.cs" />
+    <Compile Include="Controller\Kitchen\MasterChefController.cs" />
+    <Compile Include="Controller\Kitchen\SectionChefController.cs" />
+    <Compile Include="Controller\DinnerRoom\SquareSupervisorController.cs" />
+    <Compile Include="Controller\DinnerRoom\TableController.cs" />
+    <Compile Include="Controller\DinnerRoom\WaiterController.cs" />
+    <Compile Include="Controller\CleaningRoom\WashingMachineController.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
