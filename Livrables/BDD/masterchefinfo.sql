@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 03 Décembre 2018 à 15:29
+-- Généré le :  Mar 04 Décembre 2018 à 08:03
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -40,8 +40,12 @@ INSERT INTO `contient` (`id`, `recetteNom`, `quantite`) VALUES
 (1, 'Pizza Jeva', 1),
 (2, 'Pizza Gorath', 1),
 (3, 'Pizza Gorath', 1),
+(3, 'Salade Mixte', 1),
 (4, 'Pizza Gorath', 1),
+(4, 'Salade Cesar', 1),
+(4, 'Salade Mixte', 1),
 (5, 'Pizza Jeva', 1),
+(5, 'Salade Méditérranienne', 1),
 (6, 'Pizza CCTL', 1),
 (6, 'Pizza Gorath', 1),
 (6, 'Pizza Jeva', 1),
@@ -62,8 +66,24 @@ INSERT INTO `contient` (`id`, `recetteNom`, `quantite`) VALUES
 (7, 'Pizza Reine', 1),
 (7, 'Pizza Vegan', 1),
 (8, 'Pizza Vegan', 1),
+(8, 'Salade Anchois', 1),
+(8, 'Salade Campagnarde', 1),
+(8, 'Salade Cesar', 1),
+(8, 'Salade Méditérranienne', 1),
+(8, 'Salade Mixte', 1),
+(8, 'Salade Nordique', 1),
+(8, 'Salade Poulet', 1),
+(8, 'Salade Royal', 1),
+(8, 'Salade Simple', 1),
+(8, 'Salade Végétarienne', 1),
 (9, 'Pizza CCTL', 1),
 (9, 'Pizza Juzzepe', 1),
+(9, 'Salade Cesar', 1),
+(9, 'Salade Méditérranienne', 1),
+(9, 'Salade Mixte', 1),
+(9, 'Salade Poulet', 1),
+(9, 'Salade Royal', 1),
+(9, 'Salade Végétarienne', 1),
 (10, 'Pizza Jeva', 1),
 (10, 'Pizza Juzzepe', 1),
 (10, 'Pizza Marguerite', 1),
@@ -73,17 +93,47 @@ INSERT INTO `contient` (`id`, `recetteNom`, `quantite`) VALUES
 (11, 'Pizza Gorath', 1),
 (11, 'Pizza Londonienne', 1),
 (11, 'Pizza Mexicaine', 1),
+(11, 'Salade Campagnarde', 1),
+(12, 'Salade Nordique', 1),
 (13, 'Pizza CCTL', 1),
 (13, 'Pizza Montagnarde', 1),
+(13, 'Salade Campagnarde', 1),
+(13, 'Salade Royal', 1),
 (14, 'Pizza Reine', 1),
+(14, 'Salade Cesar', 1),
 (15, 'Pizza Marguerite', 1),
+(15, 'Salade Méditérranienne', 1),
 (16, 'Pizza CCTL', 1),
 (16, 'Pizza Reine', 1),
 (16, 'Pizza Vegan', 1),
+(16, 'Salade Campagnarde', 1),
+(16, 'Salade Végétarienne', 1),
 (17, 'Pizza Jeva', 1),
 (18, 'Pizza CCTL', 1),
 (18, 'Pizza Mexicaine', 1),
-(19, 'Pizza Londonienne', 1);
+(18, 'Salade Royal', 1),
+(19, 'Pizza Londonienne', 1),
+(19, 'Salade Nordique', 1),
+(22, 'Glace Chocolat', 1),
+(23, 'Glace Vanille', 1),
+(24, 'Glace Framboise', 1),
+(25, 'Glace Fraise', 1),
+(26, 'Glace Mangue', 1),
+(27, 'Glace Ananas', 1),
+(28, 'Glace Caramel', 1),
+(29, 'Glace Yaourt', 1),
+(30, 'Glace Pistache', 1),
+(31, 'Glace Pomme', 1),
+(32, 'Glace Ananas', 1),
+(32, 'Glace Caramel', 1),
+(32, 'Glace Chocolat', 1),
+(32, 'Glace Fraise', 1),
+(32, 'Glace Framboise', 1),
+(32, 'Glace Mangue', 1),
+(32, 'Glace Pistache', 1),
+(32, 'Glace Pomme', 1),
+(32, 'Glace Vanille', 1),
+(32, 'Glace Yaourt', 1);
 
 -- --------------------------------------------------------
 
@@ -121,7 +171,18 @@ INSERT INTO `produit` (`id`, `nom`, `type`, `stock`) VALUES
 (16, 'Champignon', 'Produit frais', 1000),
 (17, 'Anchois', 'Produit longue conservation', 1000),
 (18, 'Chorrizo', 'Produit longue conservation', 1000),
-(19, 'Bacon', 'Produit longue conservation', 1000);
+(19, 'Bacon', 'Produit longue conservation', 1000),
+(22, 'Glace Chocolat', 'Produit congelé', 1000),
+(23, 'Glace Vanille', 'Produit congelé', 1000),
+(24, 'Glace Frambroise', 'Produit congelé', 1000),
+(25, 'Glace Fraise', 'Produit congelé', 1000),
+(26, 'Glace Mangue', 'Produit congelé', 1000),
+(27, 'Glace Ananas', 'Produit congelé', 1000),
+(28, 'Glace Caramel', 'Produit congelé', 1000),
+(29, 'Glace Yaourt', 'Produit congelé', 1000),
+(30, 'Glace Pistache', 'Produit congelé', 1000),
+(31, 'Glace Pomme', 'Produit congelé', 1000),
+(32, 'Spéculoos', 'Produit longue conservation', 1000);
 
 -- --------------------------------------------------------
 
@@ -141,6 +202,16 @@ CREATE TABLE `recette` (
 --
 
 INSERT INTO `recette` (`recetteNom`, `prix`, `instructions`, `categorie`) VALUES
+('Glace Ananas', '5.000', 'Ajouter; Servir;', 'Dessert'),
+('Glace Caramel', '5.000', 'Ajouter; Servir;', 'Dessert'),
+('Glace Chocolat', '5.000', 'Ajouter; Servir;', 'Dessert'),
+('Glace Fraise', '5.000', 'Ajouter; Servir;', 'Dessert'),
+('Glace Framboise', '5.000', 'Ajouter; Servir;', 'Dessert'),
+('Glace Mangue', '5.000', 'Ajouter; Servir;', 'Dessert'),
+('Glace Pistache', '5.000', 'Ajouter; Servir;', 'Dessert'),
+('Glace Pomme', '5.000', 'Ajouter; Servir;', 'Dessert'),
+('Glace Vanille', '5.000', 'Ajouter; Servir;', 'Dessert'),
+('Glace Yaourt', '5.000', 'Ajouter; Servir;', 'Dessert'),
 ('Pizza CCTL', '20.000', 'Ajouter; Four; Servir;', 'Plat'),
 ('Pizza Gorath', '15.000', 'Ajouter; Four; Servir;', 'Plat'),
 ('Pizza Jeva', '10.000', 'Ajouter; Four; Servir;', 'Plat'),
@@ -150,7 +221,17 @@ INSERT INTO `recette` (`recetteNom`, `prix`, `instructions`, `categorie`) VALUES
 ('Pizza Mexicaine', '13.000', 'Ajouter; Four; Servir;', 'Plat'),
 ('Pizza Montagnarde', '12.000', 'Ajouter; Four; Servir;', 'Plat'),
 ('Pizza Reine', '10.000', 'Ajouter; Four; Servir;', 'Plat'),
-('Pizza Vegan', '11.000', 'Ajouter; Four; Servir;', 'Plat');
+('Pizza Vegan', '11.000', 'Ajouter; Four; Servir;', 'Plat'),
+('Salade Anchois', '8.000', 'Ajouter ; Mélanger ;', 'Entrée'),
+('Salade Campagnarde', '10.000', 'Ajouter; Mélanger; Servir;', 'Entrée'),
+('Salade Cesar', '10.000', 'Ajouter; Mélanger; Servir;', 'Entrée'),
+('Salade Méditérranienne', '9.000', 'Ajouter; Mélanger; Servir;', 'Entrée'),
+('Salade Mixte', '12.000', 'Ajouter; Mélanger; Servir;', 'Entrée'),
+('Salade Nordique', '11.000', 'Ajouter; Mélanger; Servir;', 'Entrée'),
+('Salade Poulet', '9.000', 'Ajouter; Mélanger; Servir;', 'Entrée'),
+('Salade Royal', '13.000', 'Ajouter; Mélanger; Servir;', 'Entrée'),
+('Salade Simple', '6.500', 'Ajouter; Mélanger; Servir;', 'Entrée'),
+('Salade Végétarienne', '8.000', 'Ajouter; Mélanger; Servir;', 'Entrée');
 
 -- --------------------------------------------------------
 
@@ -160,17 +241,16 @@ INSERT INTO `recette` (`recetteNom`, `prix`, `instructions`, `categorie`) VALUES
 
 CREATE TABLE `ustensibles` (
   `id` int(11) NOT NULL,
-  `nom` varchar(50) NOT NULL,
-  `stock` int(11) NOT NULL
+  `nom` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `ustensibles`
 --
 
-INSERT INTO `ustensibles` (`id`, `nom`, `stock`) VALUES
-(1, 'Cuillère en bois', 50),
-(2, 'Four', 2);
+INSERT INTO `ustensibles` (`id`, `nom`) VALUES
+(1, 'Cuillère en bois'),
+(2, 'Four');
 
 -- --------------------------------------------------------
 
@@ -188,6 +268,16 @@ CREATE TABLE `utiliser` (
 --
 
 INSERT INTO `utiliser` (`recetteNom`, `id`) VALUES
+('Glace Ananas', 1),
+('Glace Caramel', 1),
+('Glace Chocolat', 1),
+('Glace Fraise', 1),
+('Glace Framboise', 1),
+('Glace Mangue', 1),
+('Glace Pistache', 1),
+('Glace Pomme', 1),
+('Glace Vanille', 1),
+('Glace Yaourt', 1),
 ('Pizza CCTL', 1),
 ('Pizza Gorath', 1),
 ('Pizza Jeva', 1),
@@ -198,6 +288,16 @@ INSERT INTO `utiliser` (`recetteNom`, `id`) VALUES
 ('Pizza Montagnarde', 1),
 ('Pizza Reine', 1),
 ('Pizza Vegan', 1),
+('Salade Anchois', 1),
+('Salade Campagnarde', 1),
+('Salade Cesar', 1),
+('Salade Méditérranienne', 1),
+('Salade Mixte', 1),
+('Salade Nordique', 1),
+('Salade Poulet', 1),
+('Salade Royal', 1),
+('Salade Simple', 1),
+('Salade Végétarienne', 1),
 ('Pizza CCTL', 2),
 ('Pizza Gorath', 2),
 ('Pizza Jeva', 2),
@@ -253,7 +353,7 @@ ALTER TABLE `utiliser`
 -- AUTO_INCREMENT pour la table `produit`
 --
 ALTER TABLE `produit`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT pour la table `ustensibles`
 --
