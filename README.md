@@ -24,6 +24,7 @@
 ## Table des matières 🏷️
 
 - [Installation](#installation)
+- [Architecture](#architecture)
 - [Ameliorations](#ameliorations)
 - [Team](#team)
 - [FAQ](#faq)
@@ -50,8 +51,24 @@
 ### Setup
 - Il faut tout d'abord installer la base de donnée, vous devez crée une table "masterchefinfo" sur un serveur Mysql, puis lancer le script d'exécution (`https://github.com/Theogorath/Projet-programmation-systeme/Livrables/BDD/masterchefinfo.sql`)</br>
 
-- Voici l'architecture MDC/MLD : </br>
-![](MCD-MLD.gif)
+
+---
+
+## Architecture
+
+### BDD
+
+Voici l'architecture MDC/MLD : </br>
+- ![](MCD-MLD.gif)
+
+### Desgin Patterns
+Choix techniques :
+- Observer : Pour que la vue puisse observer le modéle
+- MVC : Pour structurer le programme
+- Singleton : Pour eviter plusieurs instanciations d'une classe
+- Facade : Pour simplifier l'utilisation des méthodes
+- #
+
 ---
 
 ## Ameliorations
