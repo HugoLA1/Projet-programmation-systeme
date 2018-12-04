@@ -10,12 +10,19 @@ namespace MasterChefInfo
     {
         List<Square> squares;
         MaitreHotel maitreHotel;
+        int menu;
 
         public DinnerRoom()
         {
             squares.Add(new Square());
             squares.Add(new Square());
             maitreHotel = new MaitreHotel();
+            menu = 40;
+        }
+
+        public void AddGroupClient(GroupClient groupClient)
+        {
+
         }
     }
 }

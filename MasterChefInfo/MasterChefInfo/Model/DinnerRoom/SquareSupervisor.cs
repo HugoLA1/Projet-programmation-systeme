@@ -8,5 +8,12 @@ namespace MasterChefInfo
 {
     class SquareSupervisor
     {
+        int posX;
+        int posY;
+
+        public SquareSupervisor()
+        {
+
+        }
     }
 }

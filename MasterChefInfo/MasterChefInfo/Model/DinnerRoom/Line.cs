@@ -8,5 +8,13 @@ namespace MasterChefInfo
 {
     class Line
     {
+
+        List<Table> tables;
+
+        public Line()
+        {
+
+        }
+
     }
 }

@@ -9,11 +9,11 @@ namespace MasterChefInfo
     class Model
     {
 
-        DataBaseExchanger BDD;
-        RequestMapper requestMapper;
-        DinnerRoom dinnerRoom;
-        Kitchen kitchen;
-        Counter counter;
+        public DataBaseExchanger BDD;
+        public RequestMapper requestMapper;
+        public DinnerRoom dinnerRoom;
+        public Kitchen kitchen;
+        public Counter counter;
                 
         public Model()
         {

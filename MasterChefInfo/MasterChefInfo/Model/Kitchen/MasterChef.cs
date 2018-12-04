@@ -8,5 +8,17 @@ namespace MasterChefInfo
 {
     class MasterChef
     {
+
+        List<SectionChef> sectionChefs;
+        List<Command> commandsToDo;
+
+        public MasterChef()
+        {
+            sectionChefs.Add(new SectionChef());
+            sectionChefs.Add(new SectionChef());
+
+
+        }
+
     }
 }

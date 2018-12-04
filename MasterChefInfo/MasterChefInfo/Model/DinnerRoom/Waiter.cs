@@ -8,5 +8,12 @@ namespace MasterChefInfo
 {
     class Waiter
     {
+        int posX;
+        int posY;
+
+        public Waiter()
+        {
+
+        }
     }
 }
