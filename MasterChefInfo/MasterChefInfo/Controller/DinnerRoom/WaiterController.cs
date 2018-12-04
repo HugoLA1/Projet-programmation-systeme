@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MasterChefInfo
 {
-    class ClientGeneratorController
+    class WaiterController
     {
     }
 }
