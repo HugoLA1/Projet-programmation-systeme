@@ -8,9 +8,9 @@ namespace MasterChefInfo
 {
     class DinnerRoom
     {
-        List<Square> squares;
-        MaitreHotel maitreHotel;
-        int menu;
+        public List<Square> squares { get; set; }
+        public MaitreHotel maitreHotel { get; set; }
+        public int menu { get; set; }
 
         public DinnerRoom()
         {

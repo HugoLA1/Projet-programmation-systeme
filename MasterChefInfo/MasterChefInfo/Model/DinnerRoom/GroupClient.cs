@@ -8,11 +8,8 @@ namespace MasterChefInfo
 {
     class GroupClient
     {
-
-        enum DishState { WaitMenu, Choosing, WaitDoOrderApetizer, WaitBreadAndWater, WaitCommandApetizer, EatingApetizer, FinishedApetizer, WaitDoOrderDish, EatingDish, FinishedDish, WaitDoOrderDessert, EatingDessert, FinishedDessert, WaitNote };
-
-        List<Client> clients;
-        int clientNumber;
-        DishState dishState;
+        public List<Client> clients { get; set; }
+        public int clientNumber { get; set; }
+        public DishState dishState { get; set; }
     }
 }

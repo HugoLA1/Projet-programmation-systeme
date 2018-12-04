@@ -8,5 +8,15 @@ namespace MasterChefInfo
 {
     class Counter
     {
+
+        public int posX { get; set; }
+        public int posY { get; set; }
+
+        public List<Command> waitingCommand { get; set; }
+
+        public Counter()
+        {
+
+        }
     }
 }

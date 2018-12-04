@@ -8,8 +8,8 @@ namespace MasterChefInfo
 {
     class CookingRoom
     {
-        MasterChef masterChef;
-        List<Ustensil> usedUstensil;
+        public MasterChef masterChef { get; set; }
+        public List<Ustensil> usedUstensil { get; set; }
 
         public CookingRoom()
         {

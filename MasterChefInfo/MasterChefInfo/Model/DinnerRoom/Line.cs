@@ -9,7 +9,7 @@ namespace MasterChefInfo
     class Line
     {
 
-        List<Table> tables;
+        public List<Table> tables { get; set; }
 
         public Line()
         {

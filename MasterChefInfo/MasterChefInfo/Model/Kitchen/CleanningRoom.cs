@@ -8,9 +8,9 @@ namespace MasterChefInfo
 {
     class CleanningRoom
     {
-        List<Ustensil> dirtyUstensil;
-        WashingMachine washingMachine;
-        DishWasher dishWasher;
+        public List<Ustensil> dirtyUstensil { get; set; }
+        public WashingMachine washingMachine { get; set; }
+        public DishWasher dishWasher { get; set; }
 
         public CleanningRoom()
         {

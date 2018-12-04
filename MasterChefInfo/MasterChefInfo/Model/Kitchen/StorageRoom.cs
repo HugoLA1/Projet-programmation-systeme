@@ -8,5 +8,31 @@ namespace MasterChefInfo
 {
     class StorageRoom
     {
+        public List<Ustensil> cleanUstensil { get; set; }
+
+        public StorageRoom()
+        {
+
+        }
+
+        public void RemoveFood(String name)
+        {
+
+        }
+
+        public void UseUstentil(Ustensil ustensil)
+        {
+
+        }
+
+        public Ustensil GetUstentil(UstensilType type)
+        {
+            return new Ustensil();
+        }
+
+        public void AddCleanUstensil()
+        {
+
+        }
     }
 }

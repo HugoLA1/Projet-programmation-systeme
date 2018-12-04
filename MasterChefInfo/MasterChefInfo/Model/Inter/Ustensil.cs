@@ -8,5 +8,9 @@ namespace MasterChefInfo
 {
     class Ustensil
     {
+        public int posX { get; set; }
+        public int posY { get; set; }
+
+        public UstensilType type { get; set; }
     }
 }

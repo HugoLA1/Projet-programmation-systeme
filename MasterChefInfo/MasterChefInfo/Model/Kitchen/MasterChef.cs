@@ -9,15 +9,15 @@ namespace MasterChefInfo
     class MasterChef
     {
 
-        List<SectionChef> sectionChefs;
-        List<Command> commandsToDo;
+        public List<SectionChef> sectionChefs { get; set; }
+        public List<Command> commandsToDo { get; set; }
+        public int posX { get; set; }
+        public int posY { get; set; }
 
         public MasterChef()
         {
             sectionChefs.Add(new SectionChef());
             sectionChefs.Add(new SectionChef());
-
-
         }
 
     }

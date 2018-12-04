@@ -8,14 +8,14 @@ namespace MasterChefInfo
 {
     class Table
     {
-        int places;
-        int posX;
-        int posY;
+        public int places { get; set; }
+        public int posX { get; set; }
+        public int posY { get; set; }
 
-        int menus;
-        int bread;
-        int water;
+        public int menus { get; set; }
+        public int bread { get; set; }
+        public int water { get; set; }
 
-        GroupClient groupClient;
+        public GroupClient groupClient { get; set; }
     }
 }

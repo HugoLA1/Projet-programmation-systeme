@@ -9,12 +9,12 @@ namespace MasterChefInfo
     class Model
     {
 
-        public DataBaseExchanger BDD;
-        public RequestMapper requestMapper;
-        public DinnerRoom dinnerRoom;
-        public Kitchen kitchen;
-        public Counter counter;
-                
+        public DataBaseExchanger BDD { get; set; }
+        public RequestMapper requestMapper { get; set; }
+        public DinnerRoom dinnerRoom { get; set; }
+        public Kitchen kitchen { get; set; }
+        public Counter counter { get; set; }
+
         public Model()
         {
             BDD = new DataBaseExchanger();
@@ -23,6 +23,5 @@ namespace MasterChefInfo
             kitchen = new Kitchen();
             counter = new Counter();
         }
-
     }
 }

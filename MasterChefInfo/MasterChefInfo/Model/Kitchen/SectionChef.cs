@@ -8,5 +8,13 @@ namespace MasterChefInfo
 {
     class SectionChef
     {
+        public int posX { get; set; }
+        public int posY { get; set; }
+
+        public SectionChef()
+        {
+
+        }
+
     }
 }

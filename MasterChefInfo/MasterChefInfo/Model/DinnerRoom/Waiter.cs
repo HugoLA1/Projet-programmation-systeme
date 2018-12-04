@@ -8,8 +8,8 @@ namespace MasterChefInfo
 {
     class Waiter
     {
-        int posX;
-        int posY;
+        public int posX { get; set; }
+        public int posY { get; set; }
 
         public Waiter()
         {

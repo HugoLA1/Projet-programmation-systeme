@@ -8,10 +8,10 @@ namespace MasterChefInfo
 {
     class Square
     {
-        List<Line> lines;
-        List<Waiter> waiters;
-        SquareSupervisor squareSupervisor;
-        
+        public List<Line> lines { get; set; }
+        public List<Waiter> waiters { get; set; }
+        public SquareSupervisor squareSupervisor { get; set; }
+
 
         public Square()
         {

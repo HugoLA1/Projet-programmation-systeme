@@ -9,11 +9,11 @@ namespace MasterChefInfo
     class Client
     {
 
-        Command appetizer { get; set; }
-        Command dish { get; set; }
-        Command dessert { get; set; }
+        public Command appetizer { get; set; }
+        public Command dish { get; set; }
+        public Command dessert { get; set; }
 
-        Command CurrentCommand { get; set; }
+        public Command CurrentCommand { get; set; }
 
     }
 }
