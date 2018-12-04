@@ -33,6 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.0.13.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data.EntityFramework, Version=8.0.13.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySQL.Data.EntityFrameworkCore, Version=8.0.13.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySQL.Data.EntityFrameworkCore.Design, Version=8.0.13.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Web, Version=8.0.13.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,14 +51,57 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\CleaningRoom\CleanningRoomController.cs" />
+    <Compile Include="Controller\ClientGeneratorController.cs" />
+    <Compile Include="Controller\Controller.cs" />
+    <Compile Include="Controller\DinnerRoom\DinnerRoomController.cs" />
+    <Compile Include="Controller\CleaningRoom\DishWasherController.cs" />
+    <Compile Include="Controller\GroupClientController.cs" />
+    <Compile Include="Controller\Kitchen\KitchenAssitantController.cs" />
+    <Compile Include="Controller\Kitchen\KitchenController.cs" />
+    <Compile Include="Controller\CleaningRoom\KitchenPorterController.cs" />
+    <Compile Include="Controller\DinnerRoom\MaitreHotelController.cs" />
+    <Compile Include="Controller\Kitchen\MasterChefController.cs" />
+    <Compile Include="Controller\Kitchen\SectionChefController.cs" />
+    <Compile Include="Controller\DinnerRoom\SquareSupervisorController.cs" />
+    <Compile Include="Controller\DinnerRoom\TableController.cs" />
+    <Compile Include="Controller\DinnerRoom\WaiterController.cs" />
+    <Compile Include="Controller\CleaningRoom\WashingMachineController.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Kitchen\CleanningRoom.cs" />
+    <Compile Include="Model\DinnerRoom\Client.cs" />
+    <Compile Include="Model\Clock.cs" />
+    <Compile Include="Model\Inter\Command.cs" />
+    <Compile Include="Model\Kitchen\CookingRoom.cs" />
+    <Compile Include="Model\Inter\Counter.cs" />
+    <Compile Include="Model\BD\DataBaseExchanger.cs" />
+    <Compile Include="Model\DinnerRoom\DinnerRoom.cs" />
+    <Compile Include="Model\Kitchen\DishWasher.cs" />
+    <Compile Include="Model\DinnerRoom\GroupClient.cs" />
+    <Compile Include="Model\ISubject.cs" />
+    <Compile Include="Model\Kitchen\Kitchen.cs" />
+    <Compile Include="Model\Kitchen\KitchenPorter.cs" />
+    <Compile Include="Model\DinnerRoom\Line.cs" />
+    <Compile Include="Model\DinnerRoom\MaitreHotel.cs" />
+    <Compile Include="Model\Kitchen\MasterChef.cs" />
+    <Compile Include="Model\Model.cs" />
+    <Compile Include="Model\BD\RequestMapper.cs" />
+    <Compile Include="Model\Kitchen\SectionChef.cs" />
+    <Compile Include="Model\DinnerRoom\Square.cs" />
+    <Compile Include="Model\DinnerRoom\SquareSupervisor.cs" />
+    <Compile Include="Model\Kitchen\StorageRoom.cs" />
+    <Compile Include="Model\DinnerRoom\Table.cs" />
+    <Compile Include="Model\Inter\Ustensil.cs" />
+    <Compile Include="Model\DinnerRoom\Waiter.cs" />
+    <Compile Include="Model\Kitchen\WashingMachine.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vue\IObserver.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -76,5 +124,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
