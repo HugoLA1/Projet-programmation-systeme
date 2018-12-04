@@ -8,5 +8,14 @@ namespace MasterChefInfo
 {
     class DinnerRoom
     {
+        List<Square> squares;
+        MaitreHotel maitreHotel;
+
+        public DinnerRoom()
+        {
+            squares.Add(new Square());
+            squares.Add(new Square());
+            maitreHotel = new MaitreHotel();
+        }
     }
 }
