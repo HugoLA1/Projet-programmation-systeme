@@ -8,5 +8,6 @@ namespace MasterChefInfo
 {
     class WashingMachineController
     {
+
     }
 }

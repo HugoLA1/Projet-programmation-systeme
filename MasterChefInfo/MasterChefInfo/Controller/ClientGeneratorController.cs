@@ -8,5 +8,9 @@ namespace MasterChefInfo
 {
     class ClientGeneratorController
     {
+        public GroupClient CreateNewGroupClient()
+        {
+            return;
+        }
     }
 }

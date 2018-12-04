@@ -8,5 +8,19 @@ namespace MasterChefInfo
 {
     class WaiterController
     {
+        public void MoveToTable(Table table)
+        {
+
+        }
+
+        public void PutBreadAndWater(Table table)
+        {
+
+        }
+
+        public void ServeDish(Table table)
+        {
+
+        }
     }
 }

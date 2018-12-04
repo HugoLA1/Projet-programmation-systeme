@@ -8,5 +8,34 @@ namespace MasterChefInfo
 {
     class SquareSupervisorController
     {
+        public SquareSupervisor GetSquareSupervisor(Square square)
+        {
+            return;
+        }
+
+        public void EscortClient(GroupClient groupClient)
+        {
+
+        }
+
+        public void MoveToTable(Table table)
+        {
+
+        }
+
+        public void SearchMenu (Table table)
+        {
+
+        }
+
+        public void CollectMenu(Table table)
+        {
+
+        }
+
+        public void GetCommande(Table table)
+        {
+
+        }
     }
 }
