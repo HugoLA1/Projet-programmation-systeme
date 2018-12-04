@@ -11,5 +11,6 @@ namespace MasterChefInfo
         public List<Client> clients { get; set; }
         public int clientNumber { get; set; }
         public DishState dishState { get; set; }
+        public int finalPrice { get; set; }
     }
 }
