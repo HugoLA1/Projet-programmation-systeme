@@ -11,7 +11,7 @@ namespace MasterChefInfo
 
         public Command appetizer { get; set; }
         public Command dish { get; set; }
-        public Command dessert { get; set; }
+        public Command desert { get; set; }
 
         public Command CurrentCommand { get; set; }
 
