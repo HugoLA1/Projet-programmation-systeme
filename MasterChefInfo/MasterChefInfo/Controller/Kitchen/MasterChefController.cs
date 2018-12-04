@@ -8,5 +8,9 @@ namespace MasterChefInfo
 {
     class MasterChefController
     {
+        public void GiveOrder()
+        {
+
+        }
     }
 }

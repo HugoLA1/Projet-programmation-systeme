@@ -8,5 +8,9 @@ namespace MasterChefInfo
 {
     class MaitreHotelController
     {
+        public void AssignToTable()
+        {
+
+        }
     }
 }

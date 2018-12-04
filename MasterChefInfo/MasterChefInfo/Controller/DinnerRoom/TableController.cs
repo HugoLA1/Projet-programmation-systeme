@@ -8,5 +8,14 @@ namespace MasterChefInfo
 {
     class TableController
     {
+        public Table GetTableAvailable(int client)
+        {
+            return;
+        }
+
+        public void ChangeDishState(Table table)
+        {
+
+        }
     }
 }

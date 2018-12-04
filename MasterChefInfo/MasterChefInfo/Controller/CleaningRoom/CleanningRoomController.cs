@@ -8,5 +8,8 @@ namespace MasterChefInfo
 {
     class CleanningRoomController
     {
+        public WashingMachineController washingMachineController;
+        public DishWasherController dishWasherController;
+        public KitchenPorterController kitchenPorterController;
     }
 }
