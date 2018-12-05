@@ -12,7 +12,7 @@ namespace MasterChefInfo
         public int posX { get; set; }
         public int posY { get; set; }
 
-        public List<Command> waitingCommand { get; set; }
+        public List<GroupCommand> waitingGroupCommand { get; set; }
 
         public Counter()
         {
