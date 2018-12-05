@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace MasterChefInfo
 {
+    /// <summary>
+    /// Classe du chef de cuisine
+    /// </summary>
     class MasterChef
     {
-
         public List<SectionChef> sectionChefs { get; set; }
         public List<Command> commandsToDo { get; set; }
         public int posX { get; set; }

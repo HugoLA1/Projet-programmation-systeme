@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MasterChefInfo
 {
+    /// <summary>
+    /// Classe de la cuisine
+    /// </summary>
     class Kitchen
     {
         public CleanningRoom cleanningRoom { get; set; }

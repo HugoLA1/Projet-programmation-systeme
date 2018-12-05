@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MasterChefInfo
 {
+    /// <summary>
+    /// Classe des serveurs
+    /// </summary>
     class Waiter
     {
         public int posX { get; set; }
@@ -13,6 +16,9 @@ namespace MasterChefInfo
 
         public bool isAvailable;
 
+        /// <summary>
+        /// Contient la disponibilité des serveurs
+        /// </summary>
         public Waiter()
         {
             isAvailable = true;

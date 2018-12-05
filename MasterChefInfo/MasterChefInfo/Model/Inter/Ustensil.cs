@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MasterChefInfo
 {
+    /// <summary>
+    /// Classe des ustensibles
+    /// </summary>
     class Ustensil
     {
         public int posX { get; set; }

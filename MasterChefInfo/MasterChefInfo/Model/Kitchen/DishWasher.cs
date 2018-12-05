@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MasterChefInfo
 {
+    /// <summary>
+    /// Classe du lave vaiselle
+    /// </summary>
     class DishWasher
     {
         public int posX { get; set; }

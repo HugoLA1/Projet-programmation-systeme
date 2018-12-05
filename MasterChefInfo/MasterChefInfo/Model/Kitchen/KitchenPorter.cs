@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MasterChefInfo
 {
+    /// <summary>
+    /// Classe du plongeur
+    /// </summary>
     class KitchenPorter
     {
         public int posX { get; set; }

@@ -15,9 +15,6 @@ namespace MasterChefInfo
         static void Main()
         {
             Controller controller = new Controller();
-            //Théo
-            //Logan
-            //Hugo
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());

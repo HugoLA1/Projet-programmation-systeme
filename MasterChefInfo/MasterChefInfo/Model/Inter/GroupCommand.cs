@@ -8,6 +8,9 @@ namespace MasterChefInfo
 {
     class GroupCommand
     {
+        /// <summary>
+        /// Classe des commandes de groupe
+        /// </summary>
         public List<Command> commands { get; set; }
         public int nbCommand { get; set; }
         public Table table { get; set; }

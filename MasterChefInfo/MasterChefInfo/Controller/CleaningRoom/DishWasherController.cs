@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace MasterChefInfo
 {
+    /// <summary>
+    /// Classe qui contrôle le lave vaiselle
+    /// </summary>
     class DishWasherController
     {
     }

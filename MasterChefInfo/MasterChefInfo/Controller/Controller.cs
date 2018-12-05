@@ -8,7 +8,9 @@ using System.Threading.Tasks;
 
 namespace MasterChefInfo
 {
-
+    /// <summary>
+    /// Classe du controlleur
+    /// </summary>
     class Controller
     {
         public Model model;

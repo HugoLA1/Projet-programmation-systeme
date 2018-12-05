@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MasterChefInfo
 {
+    /// <summary>
+    /// Classe des salles principales
+    /// </summary>
     class DinnerRoom
     {
         public List<GroupClient> waitingGroupClients;

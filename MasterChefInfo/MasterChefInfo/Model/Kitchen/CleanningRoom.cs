@@ -5,7 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MasterChefInfo
-{
+{    
+    /// <summary>
+     /// Classe de l'espace de nétoyage (plonge)
+     /// </summary>
     class CleanningRoom
     {
         public List<Ustensil> dirtyUstensil { get; set; }
