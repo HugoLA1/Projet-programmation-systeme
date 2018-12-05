@@ -31,15 +31,18 @@ namespace MasterChefInfo
             {
                 if(model.dinnerRoom.waitingGroupClients.Count > 0)
                 {
-                    MessageBox.Show(model.dinnerRoom.waitingGroupClients[0].clients[0].appetizer.name);
+                    GroupClient groupClient = model.dinnerRoom.waitingGroupClients[0];
+                    model.dinnerRoom.waitingGroupClients.Remove(groupClient);
+                    AssignToTable(groupClient);
+
                 }
                 Thread.Sleep(100);
             }
         }
 
-        public void AssignToTable()
+        public void AssignToTable(GroupClient groupClient)
         {
-
+            foreach(Table table in )
         }
     }
 }

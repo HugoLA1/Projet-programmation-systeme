@@ -13,8 +13,8 @@ namespace MasterChefInfo
 
         public Line()
         {
+            tables = new List<Table> { };7
 
         }
-
     }
 }
