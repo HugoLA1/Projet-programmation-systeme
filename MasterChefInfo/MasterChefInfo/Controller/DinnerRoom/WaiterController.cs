@@ -8,17 +8,26 @@ using System.Windows.Forms;
 
 namespace MasterChefInfo
 {
+    /// <summary>
+    /// La classe permettant de controler les serveurs
+    /// </summary>
     class WaiterController
     {
         Model model;
         Thread threadW;
 
+        /// <summary>
+        /// Créer un thread
+        /// </summary>
         public void CreateThread()
         {
             threadW = new Thread(new ThreadStart(WatchLoop));
             threadW.Start();
         }
 
+        /// <summary>
+        /// Surveille les variations des états et lance la méthode adapté en fonction (Ici : Apporter Pain/eau, Débarasser quand un plat est fini, Lancer le prochain plat)
+        /// </summary>
         public void WatchLoop()
         {
             while (Thread.CurrentThread.IsAlive)
@@ -86,31 +95,49 @@ namespace MasterChefInfo
             }
         }
 
+        /// <summary>
+        /// Méthode permettant de servir les desserts
+        /// </summary>
         private void ServeDesert(Table table, Waiter waiter, GroupCommand groupCommand)
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Méthode permettant de servir les entrées
+        /// </summary>
         private void ServeApetizer(Table table, Waiter waiter, GroupCommand groupCommand)
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Méthode permettant de se déplacer
+        /// </summary>
         public void MoveToTable(Table table, Waiter waiter)
         {
 
         }
 
+        /// <summary>
+        /// Méthode permettant de servir le pain et l'eau
+        /// </summary>
         public void PutBreadAndWater(Table table, Waiter waiter)
         {
 
         }
 
+        /// <summary>
+        /// Méthode permettant de servir les plats
+        /// </summary>
         public void ServeDish(Table table, Waiter waiter, GroupCommand groupCommand)
         {
 
         }
 
+        /// <summary>
+        /// Méthode permettant de débarasser la table
+        /// </summary>
         public void CleanTable(Table table, Waiter waiter)
         {
 
