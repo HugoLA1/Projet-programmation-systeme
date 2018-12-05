@@ -45,23 +45,33 @@ namespace MasterChefInfo
                                     switch (model.dinnerRoom.squares[s].lines[l].tables[t].groupClient.dishState)
                                     {
                                         case DishState.WaitBreadAndWater:
-                                            PutBreadAndWater(model.dinnerRoom.squares[s].lines[l].tables[t], model.dinnerRoom.squares[s].waiters[w]);
+                                            model.dinnerRoom.squares[s].waiters[w].isAvailable = false;
+                                            Thread threadBAW = new Thread(() => CleanTable(model.dinnerRoom.squares[s].lines[l].tables[t], model.dinnerRoom.squares[s].waiters[w]));
+                                            threadBAW.Start();
                                             break;
                                         case DishState.FinishedApetizer:
-                                            CleanTable(model.dinnerRoom.squares[s].lines[l].tables[t], model.dinnerRoom.squares[s].waiters[w]);
+                                            model.dinnerRoom.squares[s].waiters[w].isAvailable = false;
+                                            Thread threadFA = new Thread(() => CleanTable(model.dinnerRoom.squares[s].lines[l].tables[t], model.dinnerRoom.squares[s].waiters[w]));
+                                            threadFA.Start();
                                             break;
                                         case DishState.FinishedDish:
-                                            CleanTable(model.dinnerRoom.squares[s].lines[l].tables[t], model.dinnerRoom.squares[s].waiters[w]);
+                                            model.dinnerRoom.squares[s].waiters[w].isAvailable = false;
+                                            Thread threadFDi = new Thread(() => CleanTable(model.dinnerRoom.squares[s].lines[l].tables[t], model.dinnerRoom.squares[s].waiters[w]));
+                                            threadFDi.Start();
                                             break;
                                         case DishState.FinishedDesert:
-                                            CleanTable(model.dinnerRoom.squares[s].lines[l].tables[t], model.dinnerRoom.squares[s].waiters[w]);
+                                            model.dinnerRoom.squares[s].waiters[w].isAvailable = false;
+                                            Thread threadFDe = new Thread(() => CleanTable(model.dinnerRoom.squares[s].lines[l].tables[t], model.dinnerRoom.squares[s].waiters[w]));
+                                            threadFDe.Start();
                                             break;
                                         case DishState.WaitGetApetizer:
                                             foreach (GroupCommand groupCommand in model.counter.waitingGroupCommand)
                                             {
                                                 if (groupCommand.table == model.dinnerRoom.squares[s].lines[l].tables[t])
                                                 {
-                                                    ServeApetizer(model.dinnerRoom.squares[s].lines[l].tables[t], model.dinnerRoom.squares[s].waiters[w], groupCommand);
+                                                    model.dinnerRoom.squares[s].waiters[w].isAvailable = false;
+                                                    Thread threadSA = new Thread(() => ServeApetizer(model.dinnerRoom.squares[s].lines[l].tables[t], model.dinnerRoom.squares[s].waiters[w], groupCommand));
+                                                    threadSA.Start();
                                                 }
                                             }
                                             break;
@@ -71,7 +81,9 @@ namespace MasterChefInfo
                                             {
                                                 if (groupCommand.table == model.dinnerRoom.squares[s].lines[l].tables[t])
                                                 {
-                                                    ServeDish(model.dinnerRoom.squares[s].lines[l].tables[t], model.dinnerRoom.squares[s].waiters[w], groupCommand);
+                                                    model.dinnerRoom.squares[s].waiters[w].isAvailable = false;
+                                                    Thread threadSDi = new Thread(() => ServeDish(model.dinnerRoom.squares[s].lines[l].tables[t], model.dinnerRoom.squares[s].waiters[w], groupCommand));
+                                                    threadSDi.Start();
                                                 }
                                             }
                                             break;
@@ -81,10 +93,12 @@ namespace MasterChefInfo
                                             {
                                                 if (groupCommand.table == model.dinnerRoom.squares[s].lines[l].tables[t])
                                                 {
-                                                    ServeDesert(model.dinnerRoom.squares[s].lines[l].tables[t], model.dinnerRoom.squares[s].waiters[w], groupCommand);
+                                                    model.dinnerRoom.squares[s].waiters[w].isAvailable = false;
+                                                    Thread threadSDe = new Thread(() => ServeDesert(model.dinnerRoom.squares[s].lines[l].tables[t], model.dinnerRoom.squares[s].waiters[w], groupCommand));
+                                                    threadSDe.Start();
                                                 }
                                             }
-                                            break;
+                                            break; 
                                     }
                                 }
                             }
@@ -100,7 +114,31 @@ namespace MasterChefInfo
         /// </summary>
         private void ServeDesert(Table table, Waiter waiter, GroupCommand groupCommand)
         {
-            throw new NotImplementedException();
+            model.counter.waitingGroupCommand.Remove(groupCommand);
+            MoveToTable(table, waiter);
+            table.groupClient.dishState = DishState.EatingDesert;
+            foreach(Command command in groupCommand.commands)
+            {
+                table.groupClient.commands.Add(command);
+            }
+            MoveToCounter(waiter);
+            waiter.isAvailable = true;
+        }
+
+        /// <summary>
+        /// Méthode permettant de servir les plats
+        /// </summary>
+        public void ServeDish(Table table, Waiter waiter, GroupCommand groupCommand)
+        {
+            model.counter.waitingGroupCommand.Remove(groupCommand);
+            MoveToTable(table, waiter);
+            table.groupClient.dishState = DishState.EatingDish;
+            foreach (Command command in groupCommand.commands)
+            {
+                table.groupClient.commands.Add(command);
+            }
+            MoveToCounter(waiter);
+            waiter.isAvailable = true;
         }
 
         /// <summary>
@@ -108,13 +146,29 @@ namespace MasterChefInfo
         /// </summary>
         private void ServeApetizer(Table table, Waiter waiter, GroupCommand groupCommand)
         {
-            throw new NotImplementedException();
+            model.counter.waitingGroupCommand.Remove(groupCommand);
+            MoveToTable(table, waiter);
+            table.groupClient.dishState = DishState.EatingApetizer;
+            foreach (Command command in groupCommand.commands)
+            {
+                table.groupClient.commands.Add(command);
+            }
+            MoveToCounter(waiter);
+            waiter.isAvailable = true;
         }
 
         /// <summary>
-        /// Méthode permettant de se déplacer
+        /// Méthode permettant de se déplacer à une table
         /// </summary>
         public void MoveToTable(Table table, Waiter waiter)
+        {
+
+        }
+
+        /// <summary>
+        /// Méthode permettant de se déplacer au contoir
+        /// </summary>
+        public void MoveToCounter(Waiter waiter)
         {
 
         }
@@ -123,14 +177,6 @@ namespace MasterChefInfo
         /// Méthode permettant de servir le pain et l'eau
         /// </summary>
         public void PutBreadAndWater(Table table, Waiter waiter)
-        {
-
-        }
-
-        /// <summary>
-        /// Méthode permettant de servir les plats
-        /// </summary>
-        public void ServeDish(Table table, Waiter waiter, GroupCommand groupCommand)
         {
 
         }

@@ -57,7 +57,7 @@ namespace MasterChefInfo
                     {
                         for (int t = 0; t < model.dinnerRoom.squares[s].lines[l].tables.Count; t++)
                         {
-                            if(model.dinnerRoom.squares[s].lines[l].tables[t].groupClient.dishState == DishState.WaitNote)
+                            if((model.dinnerRoom.squares[s].lines[l].tables[t].groupClient != null) && (model.dinnerRoom.squares[s].lines[l].tables[t].groupClient.dishState == DishState.WaitNote))
                             {
                                 money += model.dinnerRoom.squares[s].lines[l].tables[t].groupClient.finalPrice;
                                 model.dinnerRoom.squares[s].lines[l].tables[t].groupClient = null;
@@ -83,6 +83,8 @@ namespace MasterChefInfo
                     {
                         if((groupClient.clientNumber <= model.dinnerRoom.squares[s].lines[l].tables[t].places) && (model.dinnerRoom.squares[s].lines[l].tables[t].groupClient == null))
                         {
+                            MessageBox.Show("Vous allez etre placé");
+                            model.dinnerRoom.waitingGroupClients.Remove(groupClient);
                             groupClient.dishState = DishState.WaitToBePlaced;
                         }
                     }
