@@ -18,9 +18,7 @@ namespace MasterChefInfo
         public Controller()
         {
             model = new Model();
-            clientGeneratorController = new ClientGeneratorController(model);
-            clientGeneratorController.CreateNewGroupClient();
-
+            dinnerRoomController = new DinnerRoomController(model);
         }
     }
 
