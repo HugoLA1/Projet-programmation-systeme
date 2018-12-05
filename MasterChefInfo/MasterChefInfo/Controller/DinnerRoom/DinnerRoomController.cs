@@ -18,18 +18,14 @@ namespace MasterChefInfo
         public WaiterController waiterController;
         public KitchenController kitchenController;
         public Model model;
+        public ScenarioController scenarioController;
 
         public DinnerRoomController(Model model)
         {
-            maitreHotelController = new MaitreHotelController(model);
             this.model = model;
-        }
+            maitreHotelController = new MaitreHotelController(model);
+            scenarioController = new ScenarioController(model);
 
-        public void NewGroupClient()
-        {
-            ClientGeneratorController clientGeneratorController = new ClientGeneratorController(model);
-            model.dinnerRoom.waitingGroupClients.Add(clientGeneratorController.CreateNewGroupClient());
         }
     }
-
 }
