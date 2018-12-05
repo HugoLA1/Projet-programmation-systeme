@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace MasterChefInfo
 {
+    /// <summary>
+    /// La classe permettant de controler les Square supervisor
+    /// </summary>
     class SquareSupervisorController
     {
         public SquareSupervisor GetSquareSupervisor(Square square)
@@ -17,21 +20,25 @@ namespace MasterChefInfo
         Model model;
         Thread threadS;
 
+        /// <summary>
+        /// Créer un thread
+        /// </summary>
         public void CreateThread()
         {
             threadS = new Thread(new ThreadStart(WatchLoop));
             threadS.Start();
         }
 
+        /// <summary>
+        /// Surveille les variations des états et lance la méthode adapté en fonction (Ici : Donner menus et les récupérer)
+        /// </summary>
         public void WatchLoop()
         {
             while (Thread.CurrentThread.IsAlive)
             {
                 for (int s = 0; s < model.dinnerRoom.squares.Count; s++)
                 {
-                    for (int w = 0; w < model.dinnerRoom.squares[s].waiters.Count; w++)
-                    {
-                        if (model.dinnerRoom.squares[s].waiters[w].isAvailable)
+                        if (model.dinnerRoom.squares[s].squareSupervisor.isAvailable)
                         {
                             for (int l = 0; l < model.dinnerRoom.squares[s].lines.Count; l++)
                             {
@@ -40,42 +47,56 @@ namespace MasterChefInfo
                                     switch (model.dinnerRoom.squares[s].lines[l].tables[t].groupClient.dishState)
                                     {
                                         case DishState.WaitMenu:
-                                            SearchMenu(model.dinnerRoom.squares[s].lines[l].tables[t], model.dinnerRoom.squares[s].waiters[w]);
+                                            SearchMenu(model.dinnerRoom.squares[s].lines[l].tables[t], model.dinnerRoom.squares[s].squareSupervisor);
                                             break;
                                         case DishState.Choosed:
-                                            CollectMenu(model.dinnerRoom.squares[s].lines[l].tables[t], model.dinnerRoom.squares[s].waiters[w]);
+                                            CollectMenu(model.dinnerRoom.squares[s].lines[l].tables[t], model.dinnerRoom.squares[s].squareSupervisor);
                                             break;
                                     }
                                 }
-                            }
+                            
                         }
                     }
                 }
                 Thread.Sleep(100);
             }
         }
-
+        /// <summary>
+        /// Méthode permettant d'amener les clients aux tables
+        /// </summary>
         public void EscortClient(GroupClient groupClient)
         {
 
         }
 
+        /// <summary>
+        /// Méthode permettant de faire bouger le personnage en fonction de la classe Clock
+        /// </summary>
         public void MoveToTable(Table table)
         {
 
         }
 
-        public void SearchMenu (Table table, Waiter waiter)
+        /// <summary>
+        /// Méthode pour aller récupérer les menus et les amener aux clients
+        /// </summary>
+        public void SearchMenu (Table table, SquareSupervisor squareSupervisor)
         {
 
         }
 
-        public void CollectMenu(Table table, Waiter waiter)
+        /// <summary>
+        /// Méthode pour aller récupérer les menus des clients et prendre leur commande en même temps
+        /// </summary>
+        public void CollectMenu(Table table, SquareSupervisor squareSupervisor)
         {
 
         }
 
-        public void GetCommande(Table table, Waiter waiter)
+        /// <summary>
+        /// Méthode pour récuperer la commande des clients
+        /// </summary>
+        public void GetCommande(Table table, SquareSupervisor squareSupervisor)
         {
 
         }
