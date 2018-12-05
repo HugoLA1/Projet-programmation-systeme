@@ -29,9 +29,9 @@ namespace MasterChefInfo
         {
             while (Thread.CurrentThread.IsAlive)
             {
-                if(model.dinnerRoom.waitingGroupClients != null)
+                if(model.dinnerRoom.waitingGroupClients.Count > 0)
                 {
-                    MessageBox.Show("Un group a été crée");
+                    MessageBox.Show("Un groupe a été crée");
                 }
                 Thread.Sleep(100);
             }
