@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Client :  127.0.0.1
--- Généré le :  Mar 04 Décembre 2018 à 09:14
--- Version du serveur :  5.7.14
--- Version de PHP :  5.6.25
+-- Hôte : 127.0.0.1:3306
+-- Généré le :  mer. 05 déc. 2018 à 07:44
+-- Version du serveur :  5.7.19
+-- Version de PHP :  7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -26,14 +28,17 @@ SET time_zone = "+00:00";
 -- Structure de la table `contient`
 --
 
-CREATE TABLE `contient` (
+DROP TABLE IF EXISTS `contient`;
+CREATE TABLE IF NOT EXISTS `contient` (
   `id` int(11) NOT NULL,
   `recetteNom` varchar(150) NOT NULL,
-  `quantite` int(11) NOT NULL
+  `quantite` int(11) NOT NULL,
+  PRIMARY KEY (`id`,`recetteNom`),
+  KEY `CONTIENT_Recette0_FK` (`recetteNom`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `contient`
+-- Déchargement des données de la table `contient`
 --
 
 INSERT INTO `contient` (`id`, `recetteNom`, `quantite`) VALUES
@@ -141,15 +146,17 @@ INSERT INTO `contient` (`id`, `recetteNom`, `quantite`) VALUES
 -- Structure de la table `produit`
 --
 
-CREATE TABLE `produit` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `produit`;
+CREATE TABLE IF NOT EXISTS `produit` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(150) DEFAULT NULL,
   `type` varchar(50) DEFAULT NULL,
-  `stock` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `stock` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `produit`
+-- Déchargement des données de la table `produit`
 --
 
 INSERT INTO `produit` (`id`, `nom`, `type`, `stock`) VALUES
@@ -198,48 +205,50 @@ INSERT INTO `produit` (`id`, `nom`, `type`, `stock`) VALUES
 -- Structure de la table `recette`
 --
 
-CREATE TABLE `recette` (
+DROP TABLE IF EXISTS `recette`;
+CREATE TABLE IF NOT EXISTS `recette` (
   `recetteNom` varchar(150) NOT NULL,
-  `prix` decimal(15,3) DEFAULT NULL,
+  `prix` int(11) DEFAULT NULL,
   `instructions` varchar(150) NOT NULL,
-  `categorie` varchar(50) NOT NULL
+  `categorie` varchar(50) NOT NULL,
+  PRIMARY KEY (`recetteNom`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `recette`
+-- Déchargement des données de la table `recette`
 --
 
 INSERT INTO `recette` (`recetteNom`, `prix`, `instructions`, `categorie`) VALUES
-('Glace Ananas', '5.000', 'Ajouter; Servir;', 'Dessert'),
-('Glace Caramel', '5.000', 'Ajouter; Servir;', 'Dessert'),
-('Glace Chocolat', '5.000', 'Ajouter; Servir;', 'Dessert'),
-('Glace Fraise', '5.000', 'Ajouter; Servir;', 'Dessert'),
-('Glace Framboise', '5.000', 'Ajouter; Servir;', 'Dessert'),
-('Glace Mangue', '5.000', 'Ajouter; Servir;', 'Dessert'),
-('Glace Pistache', '5.000', 'Ajouter; Servir;', 'Dessert'),
-('Glace Pomme', '5.000', 'Ajouter; Servir;', 'Dessert'),
-('Glace Vanille', '5.000', 'Ajouter; Servir;', 'Dessert'),
-('Glace Yaourt', '5.000', 'Ajouter; Servir;', 'Dessert'),
-('Pizza CCTL', '20.000', 'Ajouter; Four; Servir;', 'Plat'),
-('Pizza Gorath', '15.000', 'Ajouter; Four; Servir;', 'Plat'),
-('Pizza Jeva', '10.000', 'Ajouter; Four; Servir;', 'Plat'),
-('Pizza Juzzepe', '13.000', 'Ajouter; Four; Servir;', 'Plat'),
-('Pizza Londonienne', '12.000', 'Ajouter; Four; Servir;', 'Plat'),
-('Pizza Marguerite', '9.000', 'Ajouter; Four; Servir;', 'Plat'),
-('Pizza Mexicaine', '13.000', 'Ajouter; Four; Servir;', 'Plat'),
-('Pizza Montagnarde', '12.000', 'Ajouter; Four; Servir;', 'Plat'),
-('Pizza Reine', '10.000', 'Ajouter; Four; Servir;', 'Plat'),
-('Pizza Vegan', '11.000', 'Ajouter; Four; Servir;', 'Plat'),
-('Salade Anchois', '8.000', 'Ajouter ; Mélanger ;', 'Entrée'),
-('Salade Campagnarde', '10.000', 'Ajouter; Mélanger; Servir;', 'Entrée'),
-('Salade Cesar', '10.000', 'Ajouter; Mélanger; Servir;', 'Entrée'),
-('Salade Méditérranienne', '9.000', 'Ajouter; Mélanger; Servir;', 'Entrée'),
-('Salade Mixte', '12.000', 'Ajouter; Mélanger; Servir;', 'Entrée'),
-('Salade Nordique', '11.000', 'Ajouter; Mélanger; Servir;', 'Entrée'),
-('Salade Poulet', '9.000', 'Ajouter; Mélanger; Servir;', 'Entrée'),
-('Salade Royal', '13.000', 'Ajouter; Mélanger; Servir;', 'Entrée'),
-('Salade Simple', '6.500', 'Ajouter; Mélanger; Servir;', 'Entrée'),
-('Salade Végétarienne', '8.000', 'Ajouter; Mélanger; Servir;', 'Entrée');
+('Glace Ananas', 5, 'Ajouter- Servir-', 'Dessert'),
+('Glace Caramel', 5, 'Ajouter- Servir-', 'Dessert'),
+('Glace Chocolat', 5, 'Ajouter- Servir-', 'Dessert'),
+('Glace Fraise', 5, 'Ajouter- Servir-', 'Dessert'),
+('Glace Framboise', 5, 'Ajouter- Servir-', 'Dessert'),
+('Glace Mangue', 5, 'Ajouter- Servir-', 'Dessert'),
+('Glace Pistache', 5, 'Ajouter- Servir-', 'Dessert'),
+('Glace Pomme', 5, 'Ajouter- Servir-', 'Dessert'),
+('Glace Vanille', 5, 'Ajouter- Servir-', 'Dessert'),
+('Glace Yaourt', 5, 'Ajouter- Servir-', 'Dessert'),
+('Pizza CCTL', 20, 'Ajouter- Four- Servir-', 'Plat'),
+('Pizza Gorath', 15, 'Ajouter- Four- Servir-', 'Plat'),
+('Pizza Jeva', 10, 'Ajouter- Four- Servir-', 'Plat'),
+('Pizza Juzzepe', 13, 'Ajouter- Four- Servir-', 'Plat'),
+('Pizza Londonienne', 12, 'Ajouter- Four- Servir-', 'Plat'),
+('Pizza Marguerite', 9, 'Ajouter- Four- Servir-', 'Plat'),
+('Pizza Mexicaine', 13, 'Ajouter- Four- Servir-', 'Plat'),
+('Pizza Montagnarde', 12, 'Ajouter- Four- Servir-', 'Plat'),
+('Pizza Reine', 10, 'Ajouter- Four- Servir-', 'Plat'),
+('Pizza Vegan', 11, 'Ajouter- Four- Servir-', 'Plat'),
+('Salade Anchois', 8, 'Ajouter - Mélanger -', 'Entrée'),
+('Salade Campagnarde', 10, 'Ajouter- Mélanger- Servir-', 'Entrée'),
+('Salade Cesar', 10, 'Ajouter- Mélanger- Servir-', 'Entrée'),
+('Salade Méditérranienne', 9, 'Ajouter- Mélanger- Servir-', 'Entrée'),
+('Salade Mixte', 12, 'Ajouter- Mélanger- Servir-', 'Entrée'),
+('Salade Nordique', 11, 'Ajouter; Mélanger; Servir;', 'Entrée'),
+('Salade Poulet', 9, 'Ajouter; Mélanger; Servir;', 'Entrée'),
+('Salade Royal', 13, 'Ajouter; Mélanger; Servir;', 'Entrée'),
+('Salade Simple', 7, 'Ajouter; Mélanger; Servir;', 'Entrée'),
+('Salade Végétarienne', 8, 'Ajouter; Mélanger; Servir;', 'Entrée');
 
 -- --------------------------------------------------------
 
@@ -247,13 +256,15 @@ INSERT INTO `recette` (`recetteNom`, `prix`, `instructions`, `categorie`) VALUES
 -- Structure de la table `ustensibles`
 --
 
-CREATE TABLE `ustensibles` (
-  `id` int(11) NOT NULL,
-  `nom` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+DROP TABLE IF EXISTS `ustensibles`;
+CREATE TABLE IF NOT EXISTS `ustensibles` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `ustensibles`
+-- Déchargement des données de la table `ustensibles`
 --
 
 INSERT INTO `ustensibles` (`id`, `nom`) VALUES
@@ -266,13 +277,16 @@ INSERT INTO `ustensibles` (`id`, `nom`) VALUES
 -- Structure de la table `utiliser`
 --
 
-CREATE TABLE `utiliser` (
+DROP TABLE IF EXISTS `utiliser`;
+CREATE TABLE IF NOT EXISTS `utiliser` (
   `recetteNom` varchar(150) NOT NULL,
-  `id` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  PRIMARY KEY (`recetteNom`,`id`),
+  KEY `UTILISER_Ustensibles0_FK` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `utiliser`
+-- Déchargement des données de la table `utiliser`
 --
 
 INSERT INTO `utiliser` (`recetteNom`, `id`) VALUES
@@ -318,57 +332,7 @@ INSERT INTO `utiliser` (`recetteNom`, `id`) VALUES
 ('Pizza Vegan', 2);
 
 --
--- Index pour les tables exportées
---
-
---
--- Index pour la table `contient`
---
-ALTER TABLE `contient`
-  ADD PRIMARY KEY (`id`,`recetteNom`),
-  ADD KEY `CONTIENT_Recette0_FK` (`recetteNom`);
-
---
--- Index pour la table `produit`
---
-ALTER TABLE `produit`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `recette`
---
-ALTER TABLE `recette`
-  ADD PRIMARY KEY (`recetteNom`);
-
---
--- Index pour la table `ustensibles`
---
-ALTER TABLE `ustensibles`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `utiliser`
---
-ALTER TABLE `utiliser`
-  ADD PRIMARY KEY (`recetteNom`,`id`),
-  ADD KEY `UTILISER_Ustensibles0_FK` (`id`);
-
---
--- AUTO_INCREMENT pour les tables exportées
---
-
---
--- AUTO_INCREMENT pour la table `produit`
---
-ALTER TABLE `produit`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
---
--- AUTO_INCREMENT pour la table `ustensibles`
---
-ALTER TABLE `ustensibles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- Contraintes pour les tables exportées
+-- Contraintes pour les tables déchargées
 --
 
 --
@@ -384,6 +348,7 @@ ALTER TABLE `contient`
 ALTER TABLE `utiliser`
   ADD CONSTRAINT `UTILISER_Recette_FK` FOREIGN KEY (`recetteNom`) REFERENCES `recette` (`recetteNom`),
   ADD CONSTRAINT `UTILISER_Ustensibles0_FK` FOREIGN KEY (`id`) REFERENCES `ustensibles` (`id`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
