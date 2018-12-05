@@ -31,7 +31,7 @@ namespace MasterChefInfo
             {
                 if(model.dinnerRoom.waitingGroupClients.Count > 0)
                 {
-                    MessageBox.Show("Un groupe a été crée");
+                    MessageBox.Show(model.dinnerRoom.waitingGroupClients[0].clients[0].appetizer.name);
                 }
                 Thread.Sleep(100);
             }
