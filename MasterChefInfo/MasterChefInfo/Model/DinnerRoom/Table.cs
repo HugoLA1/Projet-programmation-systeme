@@ -23,6 +23,8 @@ namespace MasterChefInfo
             this.places = places;
             this.posX = posX;
             this.posY = posY;
+
+            groupClient = null;
         }
     }
 }
