@@ -67,6 +67,7 @@
     <Compile Include="Controller\DinnerRoom\TableController.cs" />
     <Compile Include="Controller\DinnerRoom\WaiterController.cs" />
     <Compile Include="Controller\CleaningRoom\WashingMachineController.cs" />
+    <Compile Include="Controller\ScenarioController.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
