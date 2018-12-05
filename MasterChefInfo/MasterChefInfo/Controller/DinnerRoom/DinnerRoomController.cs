@@ -12,7 +12,6 @@ namespace MasterChefInfo
     /// </summary>
     class DinnerRoomController
     {
-        public List<GroupClient> waitingGroupClients;
         public MaitreHotelController maitreHotelController;
         public SquareSupervisorController squareSupervisorController;
         public TableController tableController;
@@ -22,13 +21,14 @@ namespace MasterChefInfo
 
         public DinnerRoomController(Model model)
         {
+            maitreHotelController = new MaitreHotelController(model);
             this.model = model;
         }
 
         public void NewGroupClient()
         {
             ClientGeneratorController clientGeneratorController = new ClientGeneratorController(model);
-            waitingGroupClients.Add(clientGeneratorController.CreateNewGroupClient());
+            model.dinnerRoom.waitingGroupClients.Add(clientGeneratorController.CreateNewGroupClient());
         }
     }
 

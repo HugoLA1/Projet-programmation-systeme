@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace MasterChefInfo
 {
@@ -28,7 +29,10 @@ namespace MasterChefInfo
         {
             while (Thread.CurrentThread.IsAlive)
             {
-                //if(model.dinnerRoom.)
+                if(model.dinnerRoom.waitingGroupClients != null)
+                {
+                    MessageBox.Show("Un group a été crée");
+                }
                 Thread.Sleep(100);
             }
         }
