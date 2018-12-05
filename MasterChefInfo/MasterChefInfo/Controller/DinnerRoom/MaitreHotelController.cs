@@ -14,6 +14,7 @@ namespace MasterChefInfo
     {
         Model model;
         Thread threadMH;
+        int money;
 
         /// <summary>
         /// Constructeur
@@ -21,6 +22,7 @@ namespace MasterChefInfo
         public MaitreHotelController(Model model)
         {
             this.model = model;
+            money = new int();
             CreateThread();
         }
 
@@ -48,6 +50,22 @@ namespace MasterChefInfo
                     AssignToTable(groupClient);
 
                 }
+
+                for (int s = 0; s < model.dinnerRoom.squares.Count; s++)
+                {
+                    for (int l = 0; l < model.dinnerRoom.squares[s].lines.Count; l++)
+                    {
+                        for (int t = 0; t < model.dinnerRoom.squares[s].lines[l].tables.Count; t++)
+                        {
+                            if(model.dinnerRoom.squares[s].lines[l].tables[t].groupClient.dishState == DishState.WaitNote)
+                            {
+                                money += model.dinnerRoom.squares[s].lines[l].tables[t].groupClient.finalPrice;
+                                model.dinnerRoom.squares[s].lines[l].tables[t].groupClient = null;
+                            }
+                        }
+                    }
+                }
+
                 Thread.Sleep(100);
             }
         }
@@ -63,7 +81,7 @@ namespace MasterChefInfo
                 {
                     for (int t = 0; t < model.dinnerRoom.squares[s].lines[l].tables.Count; t++)
                     {
-                        if((groupClient.clientNumber == model.dinnerRoom.squares[s].lines[l].tables[t].places) && (model.dinnerRoom.squares[s].lines[l].tables[t].groupClient == null))
+                        if((groupClient.clientNumber <= model.dinnerRoom.squares[s].lines[l].tables[t].places) && (model.dinnerRoom.squares[s].lines[l].tables[t].groupClient == null))
                         {
                             groupClient.dishState = DishState.WaitToBePlaced;
                         }
