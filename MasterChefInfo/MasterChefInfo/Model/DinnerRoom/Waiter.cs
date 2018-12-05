@@ -11,9 +11,11 @@ namespace MasterChefInfo
         public int posX { get; set; }
         public int posY { get; set; }
 
+        public bool isAvailable;
+
         public Waiter()
         {
-
+            isAvailable = true;
         }
     }
 }
