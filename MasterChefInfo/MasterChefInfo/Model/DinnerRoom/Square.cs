@@ -12,14 +12,17 @@ namespace MasterChefInfo
         public List<Waiter> waiters { get; set; }
         public SquareSupervisor squareSupervisor { get; set; }
 
+        public int posX;
 
-        public Square()
+
+        public Square(int posX)
         {
+            this.posX = posX;
             lines = new List<Line> { };
             waiters = new List<Waiter> { };
 
-            lines.Add(new Line());
-            lines.Add(new Line());
+            lines.Add(new Line(posX, 1));
+            lines.Add(new Line(posX, 17));
 
             waiters.Add(new Waiter());
             waiters.Add(new Waiter());

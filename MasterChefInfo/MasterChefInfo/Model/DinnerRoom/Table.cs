@@ -17,5 +17,12 @@ namespace MasterChefInfo
         public int water { get; set; }
 
         public GroupClient groupClient { get; set; }
+
+        public Table(int posX, int posY, int places)
+        {
+            this.places = places;
+            this.posX = posX;
+            this.posY = posY;
+        }
     }
 }

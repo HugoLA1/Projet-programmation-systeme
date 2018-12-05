@@ -15,13 +15,12 @@ namespace MasterChefInfo
 
         public DinnerRoom()
         {
-
             waitingGroupClients = new List<GroupClient> { };
 
             squares = new List<Square> { };
 
-            squares.Add(new Square());
-            squares.Add(new Square());
+            squares.Add(new Square(17));
+            squares.Add(new Square(43 + 17));
             maitreHotel = new MaitreHotel();
             menu = 40;
         }
