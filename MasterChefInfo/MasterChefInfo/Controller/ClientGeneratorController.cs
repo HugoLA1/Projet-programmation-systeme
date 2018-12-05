@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
 namespace MasterChefInfo
@@ -38,7 +37,6 @@ namespace MasterChefInfo
             {
                 groupClient.clients[ctr] = new Client();
                 
-
                 /// Selectionne une entrée pour le client (Nom+instructions+prix)
                 commandRequest.CommandText = "SELECT * FROM recette WHERE categorie = 'Entrée' ORDER BY RAND() LIMIT 1";
                 temp = model.BDD.ExecuteRequest(commandRequest);
