@@ -16,6 +16,9 @@ namespace MasterChefInfo
 
         public MasterChef()
         {
+            sectionChefs = new List<SectionChef> { };
+            commandsToDo = new List<Command> { };
+
             sectionChefs.Add(new SectionChef());
             sectionChefs.Add(new SectionChef());
         }

@@ -7,7 +7,7 @@ namespace MasterChefInfo
     public class DataBaseExchanger
     {
         private const String server = "localhost";
-        private const String database = "prosit_5.2.8";
+        private const String database = "masterchefinfo";
         private const String uid = "root";
         private const String password = "";
 

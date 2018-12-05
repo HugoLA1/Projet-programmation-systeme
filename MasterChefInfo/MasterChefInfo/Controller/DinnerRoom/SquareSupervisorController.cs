@@ -10,7 +10,7 @@ namespace MasterChefInfo
     {
         public SquareSupervisor GetSquareSupervisor(Square square)
         {
-            return;
+            return new SquareSupervisor();
         }
 
         public void EscortClient(GroupClient groupClient)

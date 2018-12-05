@@ -14,6 +14,7 @@ namespace MasterChefInfo
         [STAThread]
         static void Main()
         {
+            Controller controller = new Controller();
             //Théo
             //Logan
             //Hugo

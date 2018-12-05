@@ -8,9 +8,16 @@ namespace MasterChefInfo
 {
     class GroupClient
     {
-        public List<Client> clients { get; set; }
+        public Client[] clients { get; set; }
         public int clientNumber { get; set; }
         public DishState dishState { get; set; }
         public int finalPrice { get; set; }
+
+        public GroupClient(int clientNumber)
+        {
+            clients = new Client[clientNumber];
+            this.clientNumber = clientNumber;
+
+        }
     }
 }

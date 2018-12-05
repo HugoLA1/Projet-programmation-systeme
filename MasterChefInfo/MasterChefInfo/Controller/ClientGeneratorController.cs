@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-
 
 namespace MasterChefInfo
 {
@@ -16,51 +13,62 @@ namespace MasterChefInfo
     /// </summary>
     class ClientGeneratorController
     {
-        Model model;
+        readonly Model model;
         Random rnd = new Random();
 
         public ClientGeneratorController (Model model)
         {
             this.model = model;
         }
+
         public GroupClient CreateNewGroupClient()
         {
             /// Génére un nombre aléatoire de client entre 1 et 10
-            int randomNumber = 0;
-            randomNumber = rnd.Next(1, 11);
-            GroupClient groupClient = new GroupClient();
-            groupClient.clientNumber = randomNumber;
-            for (int ctr = 1; ctr <= randomNumber; ctr++)
+            int randomNumber = rnd.Next(1, 11);
+
+            DataTable temp = new DataTable();
+            DataRow tempRow;
+            MySqlCommand commandRequest = new MySqlCommand();
+            GroupClient groupClient = new GroupClient(randomNumber)
+
             {
-                /// Selectionne une entrée pour le client (Nom+instructions+prix)
+                clientNumber = randomNumber
+            };
+            for (int ctr = 0; ctr < randomNumber; ctr++)
+            {
                 groupClient.clients[ctr] = new Client();
-                MySqlCommand commandRequestAppetizer = new MySqlCommand("SELECT * FROM `recette` WHERE categorie = \"Entrée\" ORDER BY RAND() LIMIT 1");
-                DataTable temp = this.model.BDD.ExecuteRequest(commandRequestAppetizer);
-                Command command = new Command();
-                DataRow tempRow = temp.Rows[0];
-                command.name= tempRow["recetteNom"].ToString();
-                command.recipe = new List<string>(tempRow["instructions"].ToString().Split(';'));
-                groupClient.finalPrice += int.Parse(tempRow["prix"].ToString());
-                groupClient.clients[ctr].appetizer = command;
+                
+
+                /// Selectionne une entrée pour le client (Nom+instructions+prix)
+                commandRequest.CommandText = "SELECT * FROM recette WHERE categorie = 'Entrée' ORDER BY RAND() LIMIT 1";
+                temp = model.BDD.ExecuteRequest(commandRequest);
+                groupClient.clients[ctr].appetizer = new Command();
+                tempRow = temp.Rows[0];
+                groupClient.clients[ctr].appetizer.name = tempRow["recetteNom"].ToString();
+                groupClient.clients[ctr].appetizer.recipe = new List<string>(tempRow["instructions"].ToString().Split('-'));
+                groupClient.finalPrice +=(int) double.Parse(tempRow["prix"].ToString());
 
                 /// Selectionne un plat pour le client (Nom+instructions+prix)
-                MySqlCommand commandRequestDish = new MySqlCommand("SELECT * FROM `recette` WHERE categorie = \"Plat\" ORDER BY RAND() LIMIT 1");
-                temp = this.model.BDD.ExecuteRequest(commandRequestDish);
+                commandRequest.CommandText = "SELECT * FROM recette WHERE categorie = 'Plat' ORDER BY RAND() LIMIT 1";
+                temp = model.BDD.ExecuteRequest(commandRequest);
+                groupClient.clients[ctr].dish = new Command();
                 tempRow = temp.Rows[0];
-                command.name = tempRow["recetteNom"].ToString();
-                command.recipe = new List<string>(tempRow["instructions"].ToString().Split(';'));
-                groupClient.finalPrice += int.Parse(tempRow["prix"].ToString());
-                groupClient.clients[ctr].dish = command;
+                groupClient.clients[ctr].dish.name = tempRow["recetteNom"].ToString();
+                groupClient.clients[ctr].dish.recipe = new List<string>(tempRow["instructions"].ToString().Split('-'));
+                groupClient.finalPrice += (int)double.Parse(tempRow["prix"].ToString());
 
                 /// Selectionne un dessert pour le client (Nom+instructions+prix)
-                MySqlCommand commandRequestDesert = new MySqlCommand("SELECT * FROM `recette` WHERE categorie = \"Dessert\" ORDER BY RAND() LIMIT 1");
-                temp = this.model.BDD.ExecuteRequest(commandRequestDesert);
+                commandRequest.CommandText = "SELECT * FROM recette WHERE categorie = 'Dessert' ORDER BY RAND() LIMIT 1";
+                temp = model.BDD.ExecuteRequest(commandRequest);
+                groupClient.clients[ctr].desert = new Command();
                 tempRow = temp.Rows[0];
-                command.name = tempRow["recetteNom"].ToString();
-                command.recipe = new List<string>(tempRow["instructions"].ToString().Split(';'));
-                groupClient.finalPrice = int.Parse(tempRow["prix"].ToString());
-                groupClient.clients[ctr].desert = command;
+                groupClient.clients[ctr].desert.name = tempRow["recetteNom"].ToString();
+                groupClient.clients[ctr].desert.recipe = new List<string>(tempRow["instructions"].ToString().Split('-'));
+                groupClient.finalPrice +=(int) double.Parse(tempRow["prix"].ToString());
             }
+            //MessageBox.Show(groupClient.clients[0].dish.name);
+            //MessageBox.Show(groupClient.clients[0].dish.recipe[2]);
+            //MessageBox.Show(groupClient.finalPrice.ToString());
             return groupClient;
         }
     }

@@ -11,14 +11,15 @@ namespace MasterChefInfo
 
     class Controller
     {
-        private Model model;
-        private IObserver view;
+        public Model model;
         public DinnerRoomController dinnerRoomController;
         public ClientGeneratorController clientGeneratorController;
 
         public Controller()
         {
+            model = new Model();
             clientGeneratorController = new ClientGeneratorController(model);
+            clientGeneratorController.CreateNewGroupClient();
 
         }
     }

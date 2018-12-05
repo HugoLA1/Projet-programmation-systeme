@@ -10,7 +10,7 @@ namespace MasterChefInfo
     {
         public SectionChef GetSectionChefAvailable()
         {
-            return;
+            return new SectionChef();
         }
 
         public void MakePartOfCommand(Command command)

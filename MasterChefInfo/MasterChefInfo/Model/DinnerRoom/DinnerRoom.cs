@@ -14,6 +14,8 @@ namespace MasterChefInfo
 
         public DinnerRoom()
         {
+            squares = new List<Square> { };
+
             squares.Add(new Square());
             squares.Add(new Square());
             maitreHotel = new MaitreHotel();

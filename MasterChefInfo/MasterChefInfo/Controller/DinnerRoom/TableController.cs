@@ -10,7 +10,7 @@ namespace MasterChefInfo
     {
         public Table GetTableAvailable(int client)
         {
-            return;
+            return new Table();
         }
 
         public void ChangeDishState(Table table)

@@ -15,6 +15,9 @@ namespace MasterChefInfo
 
         public Square()
         {
+            lines = new List<Line> { };
+            waiters = new List<Waiter> { };
+
             lines.Add(new Line());
             lines.Add(new Line());
 
