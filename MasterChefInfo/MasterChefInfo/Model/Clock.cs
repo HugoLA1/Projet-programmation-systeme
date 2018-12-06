@@ -8,6 +8,9 @@ using System.Windows.Forms;
 
 namespace MasterChefInfo
 {
+    /// <summary>
+    /// Classe de l'horloge permettant d'obtenir l'heure et la date
+    /// </summary>
     class Clock
     {
         private static System.Timers.Timer aTimer;

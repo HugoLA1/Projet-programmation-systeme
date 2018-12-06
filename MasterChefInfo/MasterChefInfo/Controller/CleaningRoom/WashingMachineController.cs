@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MasterChefInfo
 {
+    /// <summary>
+    /// Classe qui contrôle la machine à laver
+    /// </summary>
     class WashingMachineController
     {
 

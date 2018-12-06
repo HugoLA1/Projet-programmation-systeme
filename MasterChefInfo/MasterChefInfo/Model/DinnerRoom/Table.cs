@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MasterChefInfo
 {
+    /// <summary>
+    /// Classe des tables avec leurs positions
+    /// </summary>
     class Table
     {
         public int places { get; set; }

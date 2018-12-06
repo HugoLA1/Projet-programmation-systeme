@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MasterChefInfo
 {
+    /// <summary>
+    /// Classe de l'observer
+    /// </summary>
     interface IObserver
     {
         void Update();

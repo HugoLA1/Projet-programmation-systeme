@@ -8,7 +8,9 @@ namespace MasterChefInfo
 {
     class Line
     {
-
+        /// <summary>
+        /// Classe des rangs et contient les tables
+        /// </summary>
         public List<Table> tables { get; set; }
 
         public int posX;

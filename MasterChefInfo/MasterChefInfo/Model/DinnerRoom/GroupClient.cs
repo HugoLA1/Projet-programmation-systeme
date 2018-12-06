@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MasterChefInfo
 {
+    /// <summary>
+    /// Classe des groupes de clients
+    /// </summary>
     class GroupClient
     {
         public Client[] clients { get; set; }

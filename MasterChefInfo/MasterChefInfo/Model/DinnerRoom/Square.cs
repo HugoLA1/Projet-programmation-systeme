@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MasterChefInfo
 {
+    /// <summary>
+    /// Classe des carrés 
+    /// </summary>
     class Square
     {
         public List<Line> lines { get; set; }

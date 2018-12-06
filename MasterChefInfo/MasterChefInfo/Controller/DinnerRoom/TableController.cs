@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MasterChefInfo
 {
+    /// <summary>
+    /// Classe qui gére les tables
+    /// </summary>
     class TableController
     {
 

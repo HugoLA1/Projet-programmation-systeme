@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MasterChefInfo
 {
+    /// <summary>
+    /// Classe qui contrôle le plongeur
+    /// </summary>
     class KitchenPorterController
     {
         public void MoveToDishWater()

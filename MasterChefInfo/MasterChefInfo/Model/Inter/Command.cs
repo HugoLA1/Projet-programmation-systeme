@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MasterChefInfo
 {
+    /// <summary>
+    /// Classe des commandes
+    /// </summary>
     class Command
     {
         public int posX { get; set; }

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MasterChefInfo
 {
+    /// <summary>
+    /// Classe de la salle de stockage
+    /// </summary>
     class StorageRoom
     {
         public List<Ustensil> cleanUstensil { get; set; }
