@@ -147,5 +147,41 @@
       <Name>SpriteLibrary</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perso1sprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perso2sprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perso3sprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perso4sprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perso5sprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perso6sprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perso7sprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perso8sprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perso9sprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perso10sprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChefMale.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChefFemale.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
