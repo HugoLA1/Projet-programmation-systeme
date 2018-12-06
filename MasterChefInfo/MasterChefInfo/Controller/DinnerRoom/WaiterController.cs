@@ -48,6 +48,8 @@ namespace MasterChefInfo
                             {
                                 for (int t = 0; t < model.dinnerRoom.squares[s].lines[l].tables.Count; t++)
                                 {
+                                    if(model.dinnerRoom.squares[s].lines[l].tables[t].groupClient != null)
+                                    {
                                     switch (model.dinnerRoom.squares[s].lines[l].tables[t].groupClient.dishState)
                                     {
                                         case DishState.WaitBreadAndWater:
@@ -108,7 +110,8 @@ namespace MasterChefInfo
                                                     threadSDe.Start();
                                                 }
                                             }
-                                            break; 
+                                            break;
+                                        }
                                     }
                                 }
                             }
