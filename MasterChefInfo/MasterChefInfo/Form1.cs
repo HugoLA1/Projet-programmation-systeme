@@ -30,8 +30,9 @@ namespace MasterChefInfo
             Serveur.AutomaticallyMoves = true;
             Serveur.CannotMoveOutsideBox = true;
             //Serveur.SpriteHitsPictureBox += SpriteBounces;
-            Serveur.SetSpriteDirectionDegrees(80);
-            Serveur.PutBaseImageLocation(new Point(300, 300));
+            // 0 vers le haut, 90 droite, 180 gauche
+            Serveur.SetSpriteDirectionDegrees(180);
+            Serveur.PutBaseImageLocation(new Point(300, 600));
             Serveur.SetSize(new Size(32, 32));
             Serveur.MovementSpeed = 10;
         }

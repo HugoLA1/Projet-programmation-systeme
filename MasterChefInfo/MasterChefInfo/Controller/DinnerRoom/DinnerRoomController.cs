@@ -19,13 +19,15 @@ namespace MasterChefInfo
         public KitchenController kitchenController;
         public Model model;
         public ScenarioController scenarioController;
+        public GroupClientController groupClientController;
 
         public DinnerRoomController(Model model)
         {
             this.model = model;
 
+            groupClientController = new GroupClientController();
             maitreHotelController = new MaitreHotelController(model);
-            waiterController = new WaiterController(model);
+            waiterController = new WaiterController(model, groupClientController);
             squareSupervisorController = new SquareSupervisorController(model);
             scenarioController = new ScenarioController(model);
             kitchenController = new KitchenController(model);
