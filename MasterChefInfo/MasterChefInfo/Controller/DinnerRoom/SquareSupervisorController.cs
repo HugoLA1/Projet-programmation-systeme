@@ -84,7 +84,7 @@ namespace MasterChefInfo
         /// <summary>
         /// Méthode permettant de faire bouger le personnage en fonction de la classe Clock
         /// </summary>
-        public void MoveToTable(Table table)
+        public void MoveToTable(Table table, SquareSupervisor squareSupervisor)
         {
 
         }
@@ -94,7 +94,20 @@ namespace MasterChefInfo
         /// </summary>
         public void SearchMenu (Table table, SquareSupervisor squareSupervisor)
         {
+            MoveToTable(table, squareSupervisor);
+            table.groupClient.dishState = DishState.WaitMenu;
+            table.menus = table.groupClient.clientNumber;
+            MoveToWelcome(squareSupervisor);
+            Thread.Sleep(2000);
+            squareSupervisor.isAvailable = true;
+        }
 
+        /// <summary>
+        /// Méthode permettant de se déplacer à l'accueil
+        /// </summary>
+        private void MoveToWelcome(SquareSupervisor squareSupervisor)
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -102,15 +115,26 @@ namespace MasterChefInfo
         /// </summary>
         public void CollectMenu(Table table, SquareSupervisor squareSupervisor)
         {
-
+            MoveToTable(table, squareSupervisor);
+            table.groupClient.dishState = DishState.Choosed;
+            table.menus = 0;
+            GetCommande(table, squareSupervisor);
+            MoveToWelcome(squareSupervisor);
+            Thread.Sleep(2000);
+            squareSupervisor.isAvailable = true;
         }
-
         /// <summary>
         /// Méthode pour récuperer la commande des clients
         /// </summary>
         public void GetCommande(Table table, SquareSupervisor squareSupervisor)
         {
-
+            foreach (Client client in table.groupClient.clients)
+            {
+                model.kitchen.cookingRoom.masterChef.commandsToDo.Add(client.appetizer);
+            }
+            MoveToWelcome(squareSupervisor);
+            Thread.Sleep(2000);
+            squareSupervisor.isAvailable = true;
         }
     }
 }
