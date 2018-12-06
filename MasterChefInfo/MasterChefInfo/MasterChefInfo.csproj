@@ -132,12 +132,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Desktop\SpriteLibrary\SpriteLibrary.csproj">
-      <Project>{fc04405b-2bc1-42ca-8410-a30f9baf4b6c}</Project>
-      <Name>SpriteLibrary</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\perso1.png" />
   </ItemGroup>
   <ItemGroup>
