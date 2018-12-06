@@ -28,7 +28,7 @@ namespace MasterChefInfo
             groupClientController = new GroupClientController();
             maitreHotelController = new MaitreHotelController(model);
             waiterController = new WaiterController(model, groupClientController);
-            squareSupervisorController = new SquareSupervisorController(model);
+            squareSupervisorController = new SquareSupervisorController(model, groupClientController);
             scenarioController = new ScenarioController(model);
             kitchenController = new KitchenController(model);
 

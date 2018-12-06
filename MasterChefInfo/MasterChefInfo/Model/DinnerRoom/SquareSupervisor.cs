@@ -18,7 +18,7 @@ namespace MasterChefInfo
 
         public SquareSupervisor()
         {
-
+            isAvailable = true;
         }
     }
 }

@@ -40,6 +40,7 @@ namespace MasterChefInfo
             {
                 int randomNumber = rnd.Next(0, 5);
                 Thread.Sleep(randomNumber * 6000);
+                MessageBox.Show("Un groupe va etre crée (1)");
                 NewGroupClient();
             }
         }

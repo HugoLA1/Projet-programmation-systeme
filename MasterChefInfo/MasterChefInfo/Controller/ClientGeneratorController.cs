@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
 namespace MasterChefInfo
@@ -67,6 +68,8 @@ namespace MasterChefInfo
             //MessageBox.Show(groupClient.clients[0].dish.name);
             //MessageBox.Show(groupClient.clients[0].dish.recipe[2]);
             //MessageBox.Show(groupClient.finalPrice.ToString());
+
+            MessageBox.Show("Un groupe vient d'etre crée (2)");
             return groupClient;
         }
     }

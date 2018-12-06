@@ -56,7 +56,7 @@ namespace MasterChefInfo
                                     {
                                         case DishState.WaitBreadAndWater:
                                             model.dinnerRoom.squares[s].waiters[w].isAvailable = false;
-                                            Thread threadBAW = new Thread(() => CleanTable(model.dinnerRoom.squares[s].lines[l].tables[t], model.dinnerRoom.squares[s].waiters[w]));
+                                            Thread threadBAW = new Thread(() => PutBreadAndWater(model.dinnerRoom.squares[s].lines[l].tables[t], model.dinnerRoom.squares[s].waiters[w]));
                                             threadBAW.Start();
                                             break;
 
@@ -131,9 +131,11 @@ namespace MasterChefInfo
         {
             model.counter.waitingGroupCommand.Remove(groupCommand);
             MoveToTable(table, waiter);
+            
             table.groupClient.dishState = DishState.EatingDesert;
             groupClientController.ThreadEatDesert(table.groupClient);
-            foreach(Command command in groupCommand.commands)
+            
+            foreach (Command command in groupCommand.commands)
             {
                 table.groupClient.commands.Add(command);
             }
@@ -167,6 +169,7 @@ namespace MasterChefInfo
         {
             model.counter.waitingGroupCommand.Remove(groupCommand);
             MoveToTable(table, waiter);
+            MessageBox.Show("Entrée Arrivé (9)");
             table.groupClient.dishState = DishState.EatingApetizer;
             groupClientController.ThreadEatApetizer(table.groupClient);
             foreach (Command command in groupCommand.commands)
@@ -200,6 +203,7 @@ namespace MasterChefInfo
         public void PutBreadAndWater(Table table, Waiter waiter)
         {
             MoveToTable(table, waiter);
+            MessageBox.Show("Pain et eau arrivé(8)");
             table.groupClient.dishState = DishState.WaitGetApetizer;
             if(table.groupClient.clientNumber > 5)
             {
@@ -225,6 +229,7 @@ namespace MasterChefInfo
             switch (table.groupClient.dishState)
             {
                 case DishState.FinishedApetizer:
+                    MessageBox.Show("Entrée Terminée (10)");
                     table.groupClient.dishState = DishState.WaitGetDish;
                     break;
                 case DishState.FinishedDish:
