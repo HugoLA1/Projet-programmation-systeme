@@ -15,10 +15,12 @@ namespace MasterChefInfo
     {
         Model model;
         Thread threadW;
+        GroupClientController groupClientController;
 
-        public WaiterController(Model model)
+        public WaiterController(Model model, GroupClientController groupClientController)
         {
             this.model = model;
+            this.groupClientController = groupClientController;
             CreateThread();
         }
 
@@ -130,6 +132,7 @@ namespace MasterChefInfo
             model.counter.waitingGroupCommand.Remove(groupCommand);
             MoveToTable(table, waiter);
             table.groupClient.dishState = DishState.EatingDesert;
+            groupClientController.ThreadEatDesert(table.groupClient);
             foreach(Command command in groupCommand.commands)
             {
                 table.groupClient.commands.Add(command);
@@ -147,6 +150,7 @@ namespace MasterChefInfo
             model.counter.waitingGroupCommand.Remove(groupCommand);
             MoveToTable(table, waiter);
             table.groupClient.dishState = DishState.EatingDish;
+            groupClientController.ThreadEatDish(table.groupClient);
             foreach (Command command in groupCommand.commands)
             {
                 table.groupClient.commands.Add(command);
@@ -164,6 +168,7 @@ namespace MasterChefInfo
             model.counter.waitingGroupCommand.Remove(groupCommand);
             MoveToTable(table, waiter);
             table.groupClient.dishState = DishState.EatingApetizer;
+            groupClientController.ThreadEatApetizer(table.groupClient);
             foreach (Command command in groupCommand.commands)
             {
                 table.groupClient.commands.Add(command);
