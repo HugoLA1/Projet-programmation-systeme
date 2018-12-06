@@ -8,12 +8,19 @@ namespace MasterChefInfo
 {
     class SectionChefController
     {
+        private Model model;
+
+        public SectionChefController(Model model)
+        {
+            this.model = model;
+        }
+
         public SectionChef GetSectionChefAvailable()
         {
             return new SectionChef();
         }
 
-        public void MakePartOfCommand(Command command)
+        public Command MakePartOfCommand(SectionChef sectionChef, Command command)
         {
             
         }
