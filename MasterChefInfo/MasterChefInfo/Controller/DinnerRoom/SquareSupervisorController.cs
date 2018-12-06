@@ -47,11 +47,11 @@ namespace MasterChefInfo
                                     switch (model.dinnerRoom.squares[s].lines[l].tables[t].groupClient.dishState)
                                     {
                                         case DishState.WaitMenu:
-                                            Thread threadSM = new Thread(() => SearchMenu(model.dinnerRoom.squares[s].lines[l].tables[t], model.dinnerRoom.squares[s].squareSupervisor);
+                                            Thread threadSM = new Thread(() => SearchMenu(model.dinnerRoom.squares[s].lines[l].tables[t], model.dinnerRoom.squares[s].squareSupervisor));
                                             threadSM.Start();
                                             break;
                                         case DishState.Choosed:
-                                            Thread threadCM = new Thread(() =>  CollectMenu(model.dinnerRoom.squares[s].lines[l].tables[t], model.dinnerRoom.squares[s].squareSupervisor);
+                                            Thread threadCM = new Thread(() =>  CollectMenu(model.dinnerRoom.squares[s].lines[l].tables[t], model.dinnerRoom.squares[s].squareSupervisor));
                                             threadCM.Start();
                                             break;
                                         case DishState.WaitToBePlaced:

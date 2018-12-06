@@ -83,7 +83,6 @@ namespace MasterChefInfo
                     {
                         if((groupClient.clientNumber <= model.dinnerRoom.squares[s].lines[l].tables[t].places) && (model.dinnerRoom.squares[s].lines[l].tables[t].groupClient == null))
                         {
-                            MessageBox.Show("Vous allez etre placé");
                             model.dinnerRoom.waitingGroupClients.Remove(groupClient);
                             groupClient.dishState = DishState.WaitToBePlaced;
                         }
