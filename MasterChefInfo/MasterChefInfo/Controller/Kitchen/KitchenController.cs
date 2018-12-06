@@ -19,7 +19,6 @@ namespace MasterChefInfo
             this.model = model;
             sectionChefController = new SectionChefController(model);
             masterChefController = new MasterChefController(model, sectionChefController);
-            
         }
     }
 }

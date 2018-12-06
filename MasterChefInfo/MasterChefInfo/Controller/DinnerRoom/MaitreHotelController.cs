@@ -48,7 +48,6 @@ namespace MasterChefInfo
                     GroupClient groupClient = model.dinnerRoom.waitingGroupClients[0];
                     model.dinnerRoom.waitingGroupClients.Remove(groupClient);
                     AssignToTable(groupClient);
-
                 }
 
                 for (int s = 0; s < model.dinnerRoom.squares.Count; s++)
@@ -65,7 +64,6 @@ namespace MasterChefInfo
                         }
                     }
                 }
-
                 Thread.Sleep(100);
             }
         }
