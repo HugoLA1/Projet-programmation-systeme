@@ -38,6 +38,10 @@
     <Reference Include="MySQL.Data.EntityFrameworkCore, Version=8.0.13.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="MySQL.Data.EntityFrameworkCore.Design, Version=8.0.13.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="MySql.Web, Version=8.0.13.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="SpriteLibrary, Version=1.0.0.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\SpriteLibrary\bin\Debug\SpriteLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -142,6 +146,42 @@
       <Project>{fc04405b-2bc1-42ca-8410-a30f9baf4b6c}</Project>
       <Name>SpriteLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perso1sprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perso2sprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perso3sprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perso4sprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perso5sprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perso6sprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perso7sprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perso8sprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perso9sprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perso10sprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChefMale.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChefFemale.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

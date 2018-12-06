@@ -36,9 +36,9 @@
             // MainDrawingArea
             // 
             this.MainDrawingArea.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MainDrawingArea.BackgroundImage")));
-            this.MainDrawingArea.Location = new System.Drawing.Point(63, -13);
+            this.MainDrawingArea.Location = new System.Drawing.Point(0, 0);
             this.MainDrawingArea.Name = "MainDrawingArea";
-            this.MainDrawingArea.Size = new System.Drawing.Size(663, 426);
+            this.MainDrawingArea.Size = new System.Drawing.Size(1392, 504);
             this.MainDrawingArea.TabIndex = 0;
             this.MainDrawingArea.TabStop = false;
             this.MainDrawingArea.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -47,7 +47,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1397, 507);
             this.Controls.Add(this.MainDrawingArea);
             this.Name = "Form1";
             this.Text = "Form1";

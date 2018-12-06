@@ -63,9 +63,9 @@ namespace MasterChefInfo.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap cop_in_overalls_cr_pineda_and_grandmadeb_zpswv0etgbb {
+        internal static System.Drawing.Bitmap ChefFemale {
             get {
-                object obj = ResourceManager.GetObject("cop_in_overalls_cr_pineda_and_grandmadeb_zpswv0etgbb", resourceCulture);
+                object obj = ResourceManager.GetObject("ChefFemale", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,109 @@ namespace MasterChefInfo.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap perso1 {
+        internal static System.Drawing.Bitmap ChefMale {
             get {
-                object obj = ResourceManager.GetObject("perso1", resourceCulture);
+                object obj = ResourceManager.GetObject("ChefMale", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap perso10sprite {
+            get {
+                object obj = ResourceManager.GetObject("perso10sprite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap perso1sprite {
+            get {
+                object obj = ResourceManager.GetObject("perso1sprite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap perso2sprite {
+            get {
+                object obj = ResourceManager.GetObject("perso2sprite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap perso3sprite {
+            get {
+                object obj = ResourceManager.GetObject("perso3sprite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap perso4sprite {
+            get {
+                object obj = ResourceManager.GetObject("perso4sprite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap perso5sprite {
+            get {
+                object obj = ResourceManager.GetObject("perso5sprite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap perso6sprite {
+            get {
+                object obj = ResourceManager.GetObject("perso6sprite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap perso7sprite {
+            get {
+                object obj = ResourceManager.GetObject("perso7sprite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap perso8sprite {
+            get {
+                object obj = ResourceManager.GetObject("perso8sprite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap perso9sprite {
+            get {
+                object obj = ResourceManager.GetObject("perso9sprite", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
