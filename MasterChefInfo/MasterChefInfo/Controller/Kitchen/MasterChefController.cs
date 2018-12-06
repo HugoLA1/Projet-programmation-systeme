@@ -2,15 +2,62 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace MasterChefInfo
 {
     class MasterChefController
     {
-        public void GiveOrder()
-        {
+        public Model model;
+        public SectionChefController sectionChefController;
 
+        Thread threadMC;
+
+        public MasterChefController(Model model, SectionChefController sectionChefController)
+        {
+            this.model = model;
+            this.sectionChefController = sectionChefController;
+            CreateThread();
+        }
+
+        public void CreateThread()
+        {
+            threadMC = new Thread(new ThreadStart(WatchLoop));
+            threadMC.Start();
+        }
+
+        public void WatchLoop()
+        {
+            while (Thread.CurrentThread.IsAlive)
+            {
+                if (model.kitchen.cookingRoom.masterChef.commandsToDo.Count > 0)
+                {
+                    foreach(SectionChef sectionChef in model.kitchen.cookingRoom.masterChef.sectionChefs)
+                    {
+                        if (sectionChef.isAvailable)
+                        {
+                            sectionChef.isAvailable = false;
+                            Command tempCommand = model.kitchen.cookingRoom.masterChef.commandsToDo[0];
+                            model.kitchen.cookingRoom.masterChef.commandsToDo.Remove(tempCommand);
+                            Thread threadGO = new Thread(() => GiveOrder(sectionChef, tempCommand));
+                            threadGO.Start();
+                            break;
+                        }
+                    }
+                }
+                Thread.Sleep(100);
+            }
+        }
+
+        public void GiveOrder(SectionChef sectionChef, Command command)
+        {
+            Command newCommand = sectionChefController.MakePartOfCommand(sectionChef, command);
+
+            if(command.recipe.Count == 0)
+            {
+                
+            }
         }
     }
 }
