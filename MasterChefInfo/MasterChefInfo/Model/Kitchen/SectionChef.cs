@@ -14,9 +14,11 @@ namespace MasterChefInfo
         public int posX { get; set; }
         public int posY { get; set; }
 
+        public bool isAvailable { get; set; }
+
         public SectionChef()
         {
-
+            isAvailable = true;
         }
 
     }

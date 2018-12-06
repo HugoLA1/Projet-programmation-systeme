@@ -17,6 +17,8 @@ namespace MasterChefInfo
         public List<string> recipe { get; set; }
         public List<Ustensil> ustensils { get; set; }
 
+        public Table table;
+
         public string name { get; set; }
     }
 }

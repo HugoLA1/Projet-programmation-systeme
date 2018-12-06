@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SpriteLibrary;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,7 +15,35 @@ namespace MasterChefInfo
     {
         public Form1()
         {
+            SpriteController MySpriteController;
+
+
             InitializeComponent();
+
+            MainDrawingArea.BackgroundImageLayout = ImageLayout.Stretch;
+            MySpriteController = new SpriteController(MainDrawingArea);
+
+            Sprite Serveur = new Sprite(new Point(0, 100), MySpriteController,
+                    Properties.Resources.cop_in_overalls_cr_pineda_and_grandmadeb_zpswv0etgbb, 30, 30, 200, 3);
+            Serveur.SetName("Serveur");
+
+            Serveur.AutomaticallyMoves = true;
+            Serveur.CannotMoveOutsideBox = true;
+            //Serveur.SpriteHitsPictureBox += SpriteBounces;
+            Serveur.SetSpriteDirectionDegrees(80);
+            Serveur.PutBaseImageLocation(new Point(300, 300));
+            Serveur.SetSize(new Size(32, 32));
+            Serveur.MovementSpeed = 10;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

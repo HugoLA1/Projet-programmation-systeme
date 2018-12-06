@@ -48,7 +48,6 @@ namespace MasterChefInfo
                     GroupClient groupClient = model.dinnerRoom.waitingGroupClients[0];
                     model.dinnerRoom.waitingGroupClients.Remove(groupClient);
                     AssignToTable(groupClient);
-
                 }
 
                 for (int s = 0; s < model.dinnerRoom.squares.Count; s++)
@@ -65,7 +64,6 @@ namespace MasterChefInfo
                         }
                     }
                 }
-
                 Thread.Sleep(100);
             }
         }
@@ -83,9 +81,9 @@ namespace MasterChefInfo
                     {
                         if((groupClient.clientNumber <= model.dinnerRoom.squares[s].lines[l].tables[t].places) && (model.dinnerRoom.squares[s].lines[l].tables[t].groupClient == null))
                         {
-                            MessageBox.Show("Vous allez etre placé");
                             model.dinnerRoom.waitingGroupClients.Remove(groupClient);
                             groupClient.dishState = DishState.WaitToBePlaced;
+                            model.dinnerRoom.squares[s].lines[l].tables[t].groupClient = groupClient;
                         }
                     }
                 }

@@ -53,15 +53,15 @@ namespace MasterChefInfo
                                     switch (model.dinnerRoom.squares[s].lines[l].tables[t].groupClient.dishState)
                                     {
                                         case DishState.WaitMenu:
-                                            Thread threadSM = new Thread(() => SearchMenu(model.dinnerRoom.squares[s].lines[l].tables[t], model.dinnerRoom.squares[s].squareSupervisor);
+                                            Thread threadSM = new Thread(() => SearchMenu(model.dinnerRoom.squares[s].lines[l].tables[t], model.dinnerRoom.squares[s].squareSupervisor));
                                             threadSM.Start();
                                             break;
                                         case DishState.Choosed:
-                                            Thread threadCM = new Thread(() =>  CollectMenu(model.dinnerRoom.squares[s].lines[l].tables[t], model.dinnerRoom.squares[s].squareSupervisor);
+                                            Thread threadCM = new Thread(() =>  CollectMenu(model.dinnerRoom.squares[s].lines[l].tables[t], model.dinnerRoom.squares[s].squareSupervisor));
                                             threadCM.Start();
                                             break;
                                         case DishState.WaitToBePlaced:
-                                            Thread threadEC = new Thread(() => EscortClient(model.dinnerRoom.squares[s].lines[l].tables[t], model.dinnerRoom.squares[s].lines[l].tables[t].groupClient, model.dinnerRoom.squares[s].squareSupervisor));
+                                            Thread threadEC = new Thread(() => EscortClient( model.dinnerRoom.squares[s].lines[l].tables[t].groupClient, model.dinnerRoom.squares[s].squareSupervisor));
                                             threadEC.Start();
                                             break;
                                 }
@@ -76,7 +76,7 @@ namespace MasterChefInfo
         /// <summary>
         /// Méthode permettant d'amener les clients aux tables
         /// </summary>
-        public void EscortClient(Table table, GroupClient groupClient, SquareSupervisor squareSupervisor)
+        public void EscortClient(GroupClient groupClient, SquareSupervisor squareSupervisor)
         {
             
         }

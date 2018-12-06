@@ -48,6 +48,8 @@ namespace MasterChefInfo
                             {
                                 for (int t = 0; t < model.dinnerRoom.squares[s].lines[l].tables.Count; t++)
                                 {
+                                    if(model.dinnerRoom.squares[s].lines[l].tables[t].groupClient != null)
+                                    {
                                     switch (model.dinnerRoom.squares[s].lines[l].tables[t].groupClient.dishState)
                                     {
                                         case DishState.WaitBreadAndWater:
@@ -108,7 +110,8 @@ namespace MasterChefInfo
                                                     threadSDe.Start();
                                                 }
                                             }
-                                            break; 
+                                            break;
+                                        }
                                     }
                                 }
                             }
@@ -234,6 +237,9 @@ namespace MasterChefInfo
                     model.kitchen.cleanningRoom.dirtyUstensil.Add(ustensil);
                 }
             }
+
+            model.counter.waitingGroupCommand.Add(new GroupCommand(table.groupClient.clientNumber, table));
+
             foreach(Client client in table.groupClient.clients)
             {
                 switch (table.groupClient.dishState)
