@@ -22,7 +22,7 @@ namespace MasterChefInfo
 
         public Command MakePartOfCommand(SectionChef sectionChef, Command command)
         {
-            
+            return new Command();
         }
 
         public void MoveToBakery()
