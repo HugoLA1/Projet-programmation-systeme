@@ -31,6 +31,7 @@ namespace MasterChefInfo
         {
             while (Thread.CurrentThread.IsAlive)
             {
+                bool getOutOfLoop = false;
                 if (model.kitchen.cookingRoom.masterChef.commandsToDo.Count > 0)
                 {
                     foreach(SectionChef sectionChef in model.kitchen.cookingRoom.masterChef.sectionChefs)
@@ -41,9 +42,10 @@ namespace MasterChefInfo
                             Command tempCommand = model.kitchen.cookingRoom.masterChef.commandsToDo[0];
                             model.kitchen.cookingRoom.masterChef.commandsToDo.Remove(tempCommand);
                             Thread threadGO = new Thread(() => GiveOrder(sectionChef, tempCommand));
+                            getOutOfLoop = true;
                             threadGO.Start();
-                            break;
                         }
+                        if (getOutOfLoop) break;
                     }
                 }
                 Thread.Sleep(100);
@@ -54,7 +56,7 @@ namespace MasterChefInfo
         {
             Command newCommand = sectionChefController.MakePartOfCommand(sectionChef, command);
 
-            if(newCommand.recipe[0] == "Servir")
+            if(newCommand.recipe.Count == 1)
             {
                 foreach(GroupCommand groupCommand in model.counter.waitingGroupCommand)
                 {

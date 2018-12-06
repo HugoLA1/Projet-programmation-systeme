@@ -20,5 +20,10 @@ namespace MasterChefInfo
         public Table table;
 
         public string name { get; set; }
+
+        public Command()
+        {
+            recipe = new List<string> { };
+        }
     }
 }

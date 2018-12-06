@@ -61,7 +61,6 @@ namespace MasterChefInfo
                                         case DishState.WaitMenu:
                                             model.dinnerRoom.squares[s].squareSupervisor.isAvailable = false;
                                             Thread threadSM = new Thread(() => SearchMenu(model.dinnerRoom.squares[s].lines[l].tables[t], model.dinnerRoom.squares[s].squareSupervisor));
-                                            MessageBox.Show("Un groupe attend son menu (5)");
                                             getOutOfLoop = true;
                                             threadSM.Start();
                                             break;
@@ -74,7 +73,6 @@ namespace MasterChefInfo
                                         case DishState.WaitToBePlaced:
                                             model.dinnerRoom.squares[s].squareSupervisor.isAvailable = false;
                                             Thread threadEC = new Thread(() => EscortClient(model.dinnerRoom.squares[s].lines[l].tables[t].groupClient, model.dinnerRoom.squares[s].squareSupervisor));
-                                            MessageBox.Show("Un groupe va etre placer a sa table (4)");
                                             getOutOfLoop = true;
                                             threadEC.Start();
                                             break;
@@ -107,7 +105,8 @@ namespace MasterChefInfo
                             {
                                 MoveToTable(model.dinnerRoom.squares[s].lines[l].tables[t], model.dinnerRoom.squares[s].squareSupervisor);
                                 model.dinnerRoom.squares[s].lines[l].tables[t].groupClient.dishState = DishState.WaitMenu;
-                                Thread.Sleep(2000);
+                            MessageBox.Show("WaitMenu");
+                            Thread.Sleep(2000);
                                 MoveToWelcome(squareSupervisor);
                                 squareSupervisor.isAvailable = true;
                                 getOutOfLoop = true;
@@ -136,9 +135,9 @@ namespace MasterChefInfo
         {
             MoveToTable(table, squareSupervisor);
             table.groupClient.dishState = DishState.Choosing;
+            MessageBox.Show("Choosing");
             groupClientController.ThreadChoseMenu(table.groupClient);
             table.menus = table.groupClient.clientNumber;
-            MessageBox.Show("Un groupe vient de recevoir un menu (6)");
             Thread.Sleep(2000);
             MoveToWelcome(squareSupervisor);
             squareSupervisor.isAvailable = true;
@@ -159,8 +158,8 @@ namespace MasterChefInfo
         {
             MoveToTable(table, squareSupervisor);
             table.groupClient.dishState = DishState.WaitBreadAndWater;
+            MessageBox.Show("WaitBreadAndWater");
             table.menus = 0;
-            MessageBox.Show("Un groupe vient de choisir son entrée(7)");
             GetCommande(table, squareSupervisor);
             Thread.Sleep(2000);
             MoveToWelcome(squareSupervisor);
@@ -177,7 +176,6 @@ namespace MasterChefInfo
                 model.kitchen.cookingRoom.masterChef.commandsToDo.Add(client.appetizer);
             }
             Thread.Sleep(2000);
-            MessageBox.Show("Commande entrée prise(8)");
             MoveToWelcome(squareSupervisor);
             squareSupervisor.isAvailable = true;
         }

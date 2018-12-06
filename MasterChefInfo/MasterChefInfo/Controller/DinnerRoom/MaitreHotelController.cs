@@ -47,7 +47,6 @@ namespace MasterChefInfo
                 {
                     GroupClient groupClient = model.dinnerRoom.waitingGroupClients[0];
                     model.dinnerRoom.waitingGroupClients.Remove(groupClient);
-                    MessageBox.Show("Un groupe de client va etre assigné (3)");
                     AssignToTable(groupClient);
                 }
 
@@ -86,6 +85,7 @@ namespace MasterChefInfo
                             
                             model.dinnerRoom.waitingGroupClients.Remove(groupClient);
                             groupClient.dishState = DishState.WaitToBePlaced;
+                            MessageBox.Show("WaitToBePlaced");
                             model.dinnerRoom.squares[s].lines[l].tables[t].groupClient = groupClient;
                             getOutOfLoop = true;
                             if (getOutOfLoop) break;

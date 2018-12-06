@@ -27,6 +27,9 @@ namespace MasterChefInfo
             this.posX = posX;
             this.posY = posY;
 
+            bread = 0;
+            water = 0;
+
             groupClient = null;
         }
     }

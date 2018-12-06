@@ -19,7 +19,7 @@ namespace MasterChefInfo
 
         public Counter()
         {
-
+            waitingGroupCommand = new List<GroupCommand> { };
         }
     }
 }

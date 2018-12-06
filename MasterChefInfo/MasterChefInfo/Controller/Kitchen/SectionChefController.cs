@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 
 namespace MasterChefInfo
 {
@@ -19,6 +20,9 @@ namespace MasterChefInfo
         public Command MakePartOfCommand(SectionChef sectionChef, Command command)
         {
             string partOfCommand = command.recipe[0];
+
+            Console.WriteLine(command.name);
+            Console.WriteLine(partOfCommand);
 
             switch (partOfCommand)
             {
