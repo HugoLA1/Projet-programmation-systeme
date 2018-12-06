@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MasterChefInfo
 {
@@ -22,25 +18,37 @@ namespace MasterChefInfo
 
         public Command MakePartOfCommand(SectionChef sectionChef, Command command)
         {
-            return new Command();
+            string partOfCommand = command.recipe[0];
+
+            switch (partOfCommand)
+            {
+                case "Ajouter":
+                    MoveToWorkSurface(sectionChef);
+                    break;
+                case "Four":
+                    MoveToBakery(sectionChef);
+                    break;
+                case "Mélanger":
+                    MoveToStorageRoom(sectionChef);
+                    break;
+            }
+
+            command.recipe.Remove(partOfCommand);
+            return command;
+                
         }
 
-        public void MoveToBakery()
+        public void MoveToBakery(SectionChef sectionChef)
         {
 
         }
 
-        public void MoveToStorageRoom()
+        public void MoveToStorageRoom(SectionChef sectionChef)
         {
 
         }
 
-        public void MoveToWorkSurface()
-        {
-
-        }
-
-        public void MoveToCounter()
+        public void MoveToWorkSurface(SectionChef sectionChef)
         {
 
         }

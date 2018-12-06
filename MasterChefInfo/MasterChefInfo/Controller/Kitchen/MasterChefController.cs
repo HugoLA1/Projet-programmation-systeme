@@ -54,10 +54,20 @@ namespace MasterChefInfo
         {
             Command newCommand = sectionChefController.MakePartOfCommand(sectionChef, command);
 
-            if(command.recipe.Count == 0)
+            if(newCommand.recipe[0] == "Servir")
             {
-                
+                foreach(GroupCommand groupCommand in model.counter.waitingGroupCommand)
+                {
+                    if (groupCommand.table == command.table)
+                    {
+                        groupCommand.commands.Add(command);
+                    }
+                }
+            }else
+            {
+                model.kitchen.cookingRoom.masterChef.commandsToDo.Add(newCommand);
             }
+            sectionChef.isAvailable = true;
         }
     }
 }

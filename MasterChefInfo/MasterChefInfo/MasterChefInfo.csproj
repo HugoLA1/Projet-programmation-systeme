@@ -137,5 +137,11 @@
   <ItemGroup>
     <None Include="Resources\cop in overalls cr pineda and grandmadeb_zpswv0etgbb.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SpriteLibrary\SpriteLibrary.csproj">
+      <Project>{fc04405b-2bc1-42ca-8410-a30f9baf4b6c}</Project>
+      <Name>SpriteLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
