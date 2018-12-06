@@ -234,6 +234,9 @@ namespace MasterChefInfo
                     model.kitchen.cleanningRoom.dirtyUstensil.Add(ustensil);
                 }
             }
+
+            model.counter.waitingGroupCommand.Add(new GroupCommand(table.groupClient.clientNumber, table));
+
             foreach(Client client in table.groupClient.clients)
             {
                 switch (table.groupClient.dishState)
