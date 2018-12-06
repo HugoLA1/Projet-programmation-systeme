@@ -24,6 +24,8 @@ namespace MasterChefInfo
         {
             this.model = model;
             maitreHotelController = new MaitreHotelController(model);
+            waiterController = new WaiterController(model);
+            squareSupervisorController = new SquareSupervisorController(model);
             scenarioController = new ScenarioController(model);
 
         }

@@ -20,6 +20,12 @@ namespace MasterChefInfo
         Model model;
         Thread threadS;
 
+        public SquareSupervisorController(Model model)
+        {
+            this.model = model;
+            CreateThread();
+        }
+
         /// <summary>
         /// Créer un thread
         /// </summary>

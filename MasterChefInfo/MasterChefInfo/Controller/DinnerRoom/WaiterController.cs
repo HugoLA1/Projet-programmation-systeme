@@ -16,6 +16,12 @@ namespace MasterChefInfo
         Model model;
         Thread threadW;
 
+        public WaiterController(Model model)
+        {
+            this.model = model;
+            CreateThread();
+        }
+
         /// <summary>
         /// Créer un thread
         /// </summary>
@@ -49,21 +55,25 @@ namespace MasterChefInfo
                                             Thread threadBAW = new Thread(() => CleanTable(model.dinnerRoom.squares[s].lines[l].tables[t], model.dinnerRoom.squares[s].waiters[w]));
                                             threadBAW.Start();
                                             break;
+
                                         case DishState.FinishedApetizer:
                                             model.dinnerRoom.squares[s].waiters[w].isAvailable = false;
                                             Thread threadFA = new Thread(() => CleanTable(model.dinnerRoom.squares[s].lines[l].tables[t], model.dinnerRoom.squares[s].waiters[w]));
                                             threadFA.Start();
                                             break;
+
                                         case DishState.FinishedDish:
                                             model.dinnerRoom.squares[s].waiters[w].isAvailable = false;
                                             Thread threadFDi = new Thread(() => CleanTable(model.dinnerRoom.squares[s].lines[l].tables[t], model.dinnerRoom.squares[s].waiters[w]));
                                             threadFDi.Start();
                                             break;
+
                                         case DishState.FinishedDesert:
                                             model.dinnerRoom.squares[s].waiters[w].isAvailable = false;
                                             Thread threadFDe = new Thread(() => CleanTable(model.dinnerRoom.squares[s].lines[l].tables[t], model.dinnerRoom.squares[s].waiters[w]));
                                             threadFDe.Start();
                                             break;
+
                                         case DishState.WaitGetApetizer:
                                             foreach (GroupCommand groupCommand in model.counter.waitingGroupCommand)
                                             {
@@ -121,6 +131,7 @@ namespace MasterChefInfo
             {
                 table.groupClient.commands.Add(command);
             }
+            Thread.Sleep(5000);
             MoveToCounter(waiter);
             waiter.isAvailable = true;
         }
@@ -137,6 +148,7 @@ namespace MasterChefInfo
             {
                 table.groupClient.commands.Add(command);
             }
+            Thread.Sleep(5000);
             MoveToCounter(waiter);
             waiter.isAvailable = true;
         }
@@ -153,6 +165,7 @@ namespace MasterChefInfo
             {
                 table.groupClient.commands.Add(command);
             }
+            Thread.Sleep(5000);
             MoveToCounter(waiter);
             waiter.isAvailable = true;
         }
@@ -178,7 +191,21 @@ namespace MasterChefInfo
         /// </summary>
         public void PutBreadAndWater(Table table, Waiter waiter)
         {
-
+            MoveToTable(table, waiter);
+            table.groupClient.dishState = DishState.WaitGetApetizer;
+            if(table.groupClient.clientNumber > 5)
+            {
+                table.bread = 2;
+                table.water = 2;
+            }
+            else
+            {
+                table.bread = 1;
+                table.water = 1;
+            }
+            MoveToCounter(waiter);
+            Thread.Sleep(2000);
+            waiter.isAvailable = true;
         }
 
         /// <summary>
@@ -186,7 +213,42 @@ namespace MasterChefInfo
         /// </summary>
         public void CleanTable(Table table, Waiter waiter)
         {
-
+            MoveToTable(table, waiter);
+            switch (table.groupClient.dishState)
+            {
+                case DishState.FinishedApetizer:
+                    table.groupClient.dishState = DishState.WaitGetDish;
+                    break;
+                case DishState.FinishedDish:
+                    table.groupClient.dishState = DishState.WaitGetDesert;
+                    break;
+                case DishState.FinishedDesert:
+                    table.groupClient.dishState = DishState.WaitNote;
+                    break;
+            }
+            foreach (Command command in table.groupClient.commands)
+            {
+                table.groupClient.commands.Remove(command);
+                foreach(Ustensil ustensil in command.ustensils)
+                {
+                    model.kitchen.cleanningRoom.dirtyUstensil.Add(ustensil);
+                }
+            }
+            foreach(Client client in table.groupClient.clients)
+            {
+                switch (table.groupClient.dishState)
+                {
+                    case DishState.WaitGetDish:
+                        model.kitchen.cookingRoom.masterChef.commandsToDo.Add(client.dish);
+                        break;
+                    case DishState.WaitGetDesert:
+                        model.kitchen.cookingRoom.masterChef.commandsToDo.Add(client.desert);
+                        break;
+                }
+            }
+            Thread.Sleep(5000);
+            MoveToCounter(waiter);
+            waiter.isAvailable = true;
         }
     }
 }
