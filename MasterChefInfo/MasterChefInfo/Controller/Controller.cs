@@ -16,6 +16,7 @@ namespace MasterChefInfo
         public Model model;
         public DinnerRoomController dinnerRoomController;
         public ClientGeneratorController clientGeneratorController;
+        public ViewController viewController;
 
         public Controller()
         {
