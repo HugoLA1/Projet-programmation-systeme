@@ -34,7 +34,7 @@
             // 
             // MainDrawingArea
             // 
-            this.MainDrawingArea.BackgroundImage = global::MasterChefInfo.Properties.Resources.Map1;
+            this.MainDrawingArea.BackgroundImage = global::MasterChefInfo.Properties.Resources.Map;
             this.MainDrawingArea.Location = new System.Drawing.Point(0, 0);
             this.MainDrawingArea.Name = "MainDrawingArea";
             this.MainDrawingArea.Size = new System.Drawing.Size(1392, 504);
@@ -46,7 +46,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 507);
+            this.ClientSize = new System.Drawing.Size(1392, 507);
             this.Controls.Add(this.MainDrawingArea);
             this.Name = "Form1";
             this.Text = "Form1";
