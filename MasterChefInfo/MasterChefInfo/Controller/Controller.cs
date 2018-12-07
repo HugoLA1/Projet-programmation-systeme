@@ -17,14 +17,18 @@ namespace MasterChefInfo
         public DinnerRoomController dinnerRoomController;
         public ClientGeneratorController clientGeneratorController;
         public ViewController viewController;
+        public Form1 form;
 
         public Controller()
         {
             model = new Model();
-            dinnerRoomController = new DinnerRoomController(model);
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1(model));
+            form = new Form1(model);
+            Application.Run(form);
+
+            dinnerRoomController = new DinnerRoomController(model, form);
         }
     }
 

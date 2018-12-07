@@ -15,11 +15,13 @@ namespace MasterChefInfo
     {
         Model model;
         Thread threadW;
+        Form1 form;
         GroupClientController groupClientController;
 
-        public WaiterController(Model model, GroupClientController groupClientController)
+        public WaiterController(Model model, GroupClientController groupClientController, Form1 form)
         {
             this.model = model;
+            this.form = form;
             this.groupClientController = groupClientController;
             CreateThread();
         }
@@ -203,7 +205,7 @@ namespace MasterChefInfo
         /// </summary>
         public void MoveToTable(Table table, Waiter waiter)
         {
-
+            form.sprite.waiter2Sprite.MoveTo(table.travelList);
         }
 
         /// <summary>
