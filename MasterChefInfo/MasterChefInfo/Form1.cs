@@ -36,6 +36,7 @@ namespace MasterChefInfo
             sprite.maitreHotelSprite.MoveTo(ConstantPosition.maitreHotel);
             sprite.maitreHotelSprite.SetSize(new Size(16, 32));
             sprite.maitreHotelSprite.MovementSpeed = 2;
+            sprite.IdleAnimation(sprite.maitreHotelSprite, 16, 30);
 
             // Le superviseur de carré 1
             sprite.squareSupervisorSprite.AutomaticallyMoves = true;
@@ -45,6 +46,7 @@ namespace MasterChefInfo
             sprite.squareSupervisorSprite.MoveTo(ConstantPosition.initialSquare1Supervisor);
             sprite.squareSupervisorSprite.SetSize(new Size(16, 32));
             sprite.squareSupervisorSprite.MovementSpeed = 2;
+            sprite.IdleAnimation(sprite.squareSupervisorSprite, 16, 30);
 
             // Le superviseur de carré 2
             sprite.squareSupervisor2Sprite.AutomaticallyMoves = true;
@@ -54,6 +56,7 @@ namespace MasterChefInfo
             sprite.squareSupervisor2Sprite.MoveTo(ConstantPosition.initialSquare2Supervisor);
             sprite.squareSupervisor2Sprite.SetSize(new Size(16, 32));
             sprite.squareSupervisor2Sprite.MovementSpeed = 2;
+            sprite.IdleAnimation(sprite.squareSupervisor2Sprite, 16, 30);
 
             //Serveur 1
             sprite.waiterSprite.AutomaticallyMoves = true;
@@ -63,6 +66,7 @@ namespace MasterChefInfo
             sprite.waiterSprite.MoveTo(ConstantPosition.initialWaiter);
             sprite.waiterSprite.SetSize(new Size(16, 32));
             sprite.waiterSprite.MovementSpeed = 2;
+            sprite.IdleAnimation(sprite.waiterSprite, 16, 30);
 
             //Serveur 2
             sprite.waiter2Sprite.AutomaticallyMoves = true;
@@ -72,6 +76,7 @@ namespace MasterChefInfo
             sprite.waiter2Sprite.MoveTo(ConstantPosition.initialWaiter);
             sprite.waiter2Sprite.SetSize(new Size(16, 32));
             sprite.waiter2Sprite.MovementSpeed = 2;
+            sprite.IdleAnimation(sprite.waiter2Sprite, 16, 30);
 
             //Serveur 3
             sprite.waiter3Sprite.AutomaticallyMoves = true;
@@ -81,6 +86,7 @@ namespace MasterChefInfo
             sprite.waiter3Sprite.MoveTo(ConstantPosition.initialWaiter);
             sprite.waiter3Sprite.SetSize(new Size(16, 32));
             sprite.waiter3Sprite.MovementSpeed = 2;
+            sprite.IdleAnimation(sprite.waiter3Sprite, 16, 30);
 
             //Serveur 4
             sprite.waiter4Sprite.AutomaticallyMoves = true;
@@ -90,7 +96,7 @@ namespace MasterChefInfo
             sprite.waiter4Sprite.MoveTo(ConstantPosition.initialWaiter);
             sprite.waiter4Sprite.SetSize(new Size(16, 32));
             sprite.waiter4Sprite.MovementSpeed = 2;
-
+            sprite.IdleAnimation(sprite.waiter4Sprite, 16, 30);
 
             //Chef de la cuisine
             sprite.masterChefSprite.AutomaticallyMoves = true;
@@ -100,6 +106,7 @@ namespace MasterChefInfo
             sprite.masterChefSprite.MoveTo(ConstantPosition.masterChef);
             sprite.masterChefSprite.SetSize(new Size(16, 32));
             sprite.masterChefSprite.MovementSpeed = 2;
+            sprite.IdleAnimation(sprite.masterChefSprite, 16, 30);
 
             //Plogneur
             sprite.kitchenPorterSprite.AutomaticallyMoves = true;
@@ -109,6 +116,7 @@ namespace MasterChefInfo
             sprite.kitchenPorterSprite.MoveTo(ConstantPosition.kitchenPorter);
             sprite.kitchenPorterSprite.SetSize(new Size(16, 32));
             sprite.kitchenPorterSprite.MovementSpeed = 2;
+            sprite.IdleAnimation(sprite.kitchenPorterSprite, 16, 30);
 
             //// Le commis
             //sprite.kitchenAssistantSprite.AutomaticallyMoves = true;
@@ -117,6 +125,7 @@ namespace MasterChefInfo
             //sprite.kitchenAssistantSprite.PutBaseImageLocation(ConstantPosition.commis);
             //sprite.kitchenAssistantSprite.SetSize(new Size(30, 30));
             //sprite.kitchenAssistantSprite.MovementSpeed = 2;
+            //sprite.IdleAnimation(sprite.kitchenAssistantSprite, 16, 30);
 
             //Chef de section
             sprite.sectionChefSprite.AutomaticallyMoves = true;
@@ -126,6 +135,7 @@ namespace MasterChefInfo
             sprite.sectionChefSprite.MoveTo(ConstantPosition.sectionChef);
             sprite.sectionChefSprite.SetSize(new Size(25, 25));
             sprite.sectionChefSprite.MovementSpeed = 2;
+            sprite.IdleAnimation(sprite.sectionChefSprite, 50, 50);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

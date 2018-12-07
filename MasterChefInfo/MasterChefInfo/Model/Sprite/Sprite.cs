@@ -72,9 +72,13 @@ namespace MasterChefInfo
             groupClientSprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
                 Properties.Resources.perso10sprite, 16, 30, 200, 4);
             groupClientSprite.SetName("Groupe de client");
-
         }
 
+        public void IdleAnimation(SpriteLibrary.Sprite sprite, int width, int height)
+        {
+            sprite.AddAnimation(new Point(0, 0), sprite.GetImage(), width, height, 500, 1);
+            sprite.ChangeAnimation(1);
+        }
 
     }
 }
