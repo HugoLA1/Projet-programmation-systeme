@@ -66,7 +66,7 @@ namespace MasterChefInfo
             sprite.waiterSprite.MoveTo(ConstantPosition.initialWaiter);
             sprite.waiterSprite.SetSize(new Size(16, 32));
             sprite.waiterSprite.MovementSpeed = 2;
-            sprite.IdleAnimation(sprite.waiterSprite, 16, 30);
+            sprite.IdleAnimation(sprite.waiterSprite, 16, 27);
 
             //Serveur 2
             sprite.waiter2Sprite.AutomaticallyMoves = true;
@@ -76,7 +76,7 @@ namespace MasterChefInfo
             sprite.waiter2Sprite.MoveTo(ConstantPosition.initialWaiter);
             sprite.waiter2Sprite.SetSize(new Size(16, 32));
             sprite.waiter2Sprite.MovementSpeed = 2;
-            sprite.IdleAnimation(sprite.waiter2Sprite, 16, 30);
+            sprite.IdleAnimation(sprite.waiter2Sprite, 16, 27);
 
             //Serveur 3
             sprite.waiter3Sprite.AutomaticallyMoves = true;
@@ -86,7 +86,7 @@ namespace MasterChefInfo
             sprite.waiter3Sprite.MoveTo(ConstantPosition.initialWaiter);
             sprite.waiter3Sprite.SetSize(new Size(16, 32));
             sprite.waiter3Sprite.MovementSpeed = 2;
-            sprite.IdleAnimation(sprite.waiter3Sprite, 16, 30);
+            sprite.IdleAnimation(sprite.waiter3Sprite, 16, 27);
 
             //Serveur 4
             sprite.waiter4Sprite.AutomaticallyMoves = true;
@@ -96,7 +96,7 @@ namespace MasterChefInfo
             sprite.waiter4Sprite.MoveTo(ConstantPosition.initialWaiter);
             sprite.waiter4Sprite.SetSize(new Size(16, 32));
             sprite.waiter4Sprite.MovementSpeed = 2;
-            sprite.IdleAnimation(sprite.waiter4Sprite, 16, 30);
+            sprite.IdleAnimation(sprite.waiter4Sprite, 16, 27);
 
             //Chef de la cuisine
             sprite.masterChefSprite.AutomaticallyMoves = true;
