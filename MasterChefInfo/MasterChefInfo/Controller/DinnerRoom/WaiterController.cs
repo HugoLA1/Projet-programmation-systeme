@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -213,7 +214,7 @@ namespace MasterChefInfo
         /// </summary>
         public void MoveToCounter(Waiter waiter)
         {
-
+            form.sprite.waiter2Sprite.MoveTo(ConstantPosition.accessibleCounterDinnerRoom);
         }
 
         /// <summary>
