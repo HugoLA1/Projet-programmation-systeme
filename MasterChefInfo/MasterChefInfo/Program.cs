@@ -17,9 +17,6 @@ namespace MasterChefInfo
         static void Main()
         {
             Controller controller = new Controller();
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
         }
     }
 }
