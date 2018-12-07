@@ -205,7 +205,7 @@ namespace MasterChefInfo
         /// </summary>
         public void MoveToTable(Table table, Waiter waiter)
         {
-            //form.
+            form.sprite.waiter2Sprite.MoveTo(table.travelList);
         }
 
         /// <summary>

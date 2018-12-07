@@ -16,7 +16,7 @@ namespace MasterChefInfo
     {
         Model model;
         SpriteController mySpriteController;
-        Sprite sprite;
+        public Sprite sprite;
         public Form1(Model model)
         {
             this.model = model;
