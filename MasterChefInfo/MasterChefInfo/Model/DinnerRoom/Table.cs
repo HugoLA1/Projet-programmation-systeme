@@ -35,8 +35,8 @@ namespace MasterChefInfo
 
             groupClient = null;
 
-            //travelList.Add(Point());
-
+            travelList.Add(new Point(ConstantPosition.pixelSizeOfBlock * 12,posY));
+            travelList.Add(new Point(posX, posY));
         }
     }
 }
