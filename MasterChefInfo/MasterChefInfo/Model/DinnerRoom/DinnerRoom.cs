@@ -22,8 +22,8 @@ namespace MasterChefInfo
 
             squares = new List<Square> { };
 
-            squares.Add(new Square(17));
-            squares.Add(new Square(43 + 17));
+            squares.Add(new Square(15));
+            squares.Add(new Square(38));
             maitreHotel = new MaitreHotel();
             menu = 40;
         }

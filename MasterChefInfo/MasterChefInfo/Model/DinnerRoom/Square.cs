@@ -17,7 +17,6 @@ namespace MasterChefInfo
 
         public int posX;
 
-
         public Square(int posX)
         {
             this.posX = posX;

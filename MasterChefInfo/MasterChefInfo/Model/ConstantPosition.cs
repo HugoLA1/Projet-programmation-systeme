@@ -11,49 +11,53 @@ namespace MasterChefInfo
     {
         private const int pixelSizeOfBlock = 24;
 
-        public const int maitreHotelPosX = pixelSizeOfBlock * 0;
-        public const int maitreHotelPosY = pixelSizeOfBlock * 0;
+        public const int maitreHotelPosX = pixelSizeOfBlock * 33;
+        public const int maitreHotelPosY = pixelSizeOfBlock * 15;
 
-        public const int entryPosX = pixelSizeOfBlock * 0;
-        public const int entryPosY = pixelSizeOfBlock * 0;
+        public const int entryPosX = pixelSizeOfBlock * 34;
+        public const int entryPosY = pixelSizeOfBlock * 17;
 
-        public const int initialWaiterPosX = pixelSizeOfBlock * 0;
-        public const int initialWaiterPosY = pixelSizeOfBlock * 0;
+        public const int initialWaiterPosX = pixelSizeOfBlock * 12;
+        public const int initialWaiterPosY = pixelSizeOfBlock * 15;
 
-        public const int initialSquareSupervisorPosX = pixelSizeOfBlock * 0;
-        public const int initialSquareSupervisorPosY = pixelSizeOfBlock * 0;
+        public const int initialSquareSupervisor1PosX = pixelSizeOfBlock * 33;
+        public const int initialSquareSupervisor1PosY = pixelSizeOfBlock * 2;
 
-        public const int accessibleCounterDinnerRoomPosX = pixelSizeOfBlock * 0;
-        public const int accessibleCounterDinnerRoomPosY = pixelSizeOfBlock * 0;
+        public const int initialSquareSupervisor2PosX = pixelSizeOfBlock * 36;
+        public const int initialSquareSupervisor2PosY = pixelSizeOfBlock * 2;
 
-        public const int masterChefPosX = pixelSizeOfBlock * 0;
-        public const int masterChefPosY = pixelSizeOfBlock * 0;
+        public const int accessibleCounterDinnerRoomPosX = pixelSizeOfBlock * 12;
+        public const int accessibleCounterDinnerRoomPosY = pixelSizeOfBlock * 15;
 
-        public const int sectionChefPosX = pixelSizeOfBlock * 0;
-        public const int sectionChefPosY = pixelSizeOfBlock * 0;
+        public const int masterChefPosX = pixelSizeOfBlock * 4;
+        public const int masterChefPosY = pixelSizeOfBlock * 17;
 
-        public const int accessibleBakeryPosX = pixelSizeOfBlock * 0;
-        public const int accessibleBakeryPosY = pixelSizeOfBlock * 0;
+        public const int sectionChefPosX = pixelSizeOfBlock * 6;
+        public const int sectionChefPosY = pixelSizeOfBlock * 16;
 
-        public const int accessibleWorkSurfacePosX = pixelSizeOfBlock * 0;
-        public const int accessibleWorkSurfacePosY = pixelSizeOfBlock * 0;
+        public const int accessibleBakeryPosX = pixelSizeOfBlock * 2;
+        public const int accessibleBakeryPosY = pixelSizeOfBlock * 15;
 
-        public const int accessibleCounterKitchenPosX = pixelSizeOfBlock * 0;
-        public const int accessibleCounterKitchenPosY = pixelSizeOfBlock * 0;
+        public const int accessibleWorkSurfacePosX = pixelSizeOfBlock * 3;
+        public const int accessibleWorkSurfacePosY = pixelSizeOfBlock * 15;
 
-        public const int startPointLine1PosX = pixelSizeOfBlock * 0;
-        public const int startPointLine1PosY = pixelSizeOfBlock * 0;
+        public const int accessibleCounterKitchenPosX = pixelSizeOfBlock * 10;
+        public const int accessibleCounterKitchenPosY = pixelSizeOfBlock * 15;
 
-        public const int startPointLine2PosX = pixelSizeOfBlock * 0;
-        public const int startPointLine2PosY = pixelSizeOfBlock * 0;
+        public const int startPointLine1PosX = pixelSizeOfBlock * 12;
+        public const int startPointLine1PosY = pixelSizeOfBlock * 6;
 
-        public const int startPointLine3PosX = pixelSizeOfBlock * 0;
-        public const int startPointLine3PosY = pixelSizeOfBlock * 0;
+        public const int startPointLine2PosX = pixelSizeOfBlock * 12;
+        public const int startPointLine2PosY = pixelSizeOfBlock * 10;
+
+        public const int startPointLine3PosX = pixelSizeOfBlock * 12;
+        public const int startPointLine3PosY = pixelSizeOfBlock * 16;
 
         public static Point maitreHotel = new Point(maitreHotelPosX, maitreHotelPosY);
         public static Point entry = new Point(entryPosX, entryPosY);
         public static Point initialWaiter = new Point(initialWaiterPosX, initialWaiterPosY);
-        public static Point initialSquareSupervisor = new Point(initialSquareSupervisorPosX, initialSquareSupervisorPosY);
+        public static Point initialSquare1Supervisor = new Point(initialSquareSupervisor1PosX, initialSquareSupervisor1PosY);
+        public static Point initialSquare2Supervisor = new Point(initialSquareSupervisor2PosX, initialSquareSupervisor2PosY);
         public static Point accessibleCounterDinnerRoom = new Point(accessibleCounterDinnerRoomPosX, accessibleCounterDinnerRoomPosY);
         public static Point masterChef = new Point(masterChefPosX, masterChefPosY);
         public static Point sectionChef = new Point(sectionChefPosX, sectionChefPosY);
