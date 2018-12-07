@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Forms;
 
 namespace MasterChefInfo
 {
@@ -22,6 +22,9 @@ namespace MasterChefInfo
         {
             model = new Model();
             dinnerRoomController = new DinnerRoomController(model);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form1(model));
         }
     }
 
