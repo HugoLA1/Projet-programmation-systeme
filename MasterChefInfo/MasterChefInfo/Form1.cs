@@ -16,6 +16,7 @@ namespace MasterChefInfo
     {
         Model model;
         SpriteController mySpriteController;
+        Sprite sprite;
         public Form1(Model model)
         {
             this.model = model;
@@ -27,7 +28,7 @@ namespace MasterChefInfo
             MainDrawingArea.BackgroundImageLayout = ImageLayout.Stretch;
             //Défini la map comme controlleur
             mySpriteController = new SpriteController(MainDrawingArea);
-            Sprite sprite = new Sprite(mySpriteController);
+            sprite = new Sprite(mySpriteController);
             // Maitre d'hôtel
             sprite.maitreHotelSprite.AutomaticallyMoves = true;
             sprite.maitreHotelSprite.CannotMoveOutsideBox = true;
