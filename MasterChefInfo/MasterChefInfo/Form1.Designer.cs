@@ -41,7 +41,6 @@
             this.MainDrawingArea.Size = new System.Drawing.Size(1392, 504);
             this.MainDrawingArea.TabIndex = 0;
             this.MainDrawingArea.TabStop = false;
-            this.MainDrawingArea.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Form1
             // 
@@ -51,6 +50,7 @@
             this.Controls.Add(this.MainDrawingArea);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.MainDrawingArea)).EndInit();
             this.ResumeLayout(false);

@@ -6,7 +6,21 @@ using System.Threading.Tasks;
 
 namespace MasterChefInfo
 {
-    class KitchenAssistantController
+    class ViewController
     {
+
+        public ViewController()
+        {
+
+        }
+
+
+
+
+
+
+
+
+
     }
 }
