@@ -23,8 +23,8 @@ namespace MasterChefInfo
             lines = new List<Line> { };
             waiters = new List<Waiter> { };
 
-            lines.Add(new Line(posX, 1));
-            lines.Add(new Line(posX, 17));
+            lines.Add(new Line(ConstantPosition.pixelSizeOfBlock * posX, ConstantPosition.pixelSizeOfBlock * 6));
+            lines.Add(new Line(ConstantPosition.pixelSizeOfBlock * posX, ConstantPosition.pixelSizeOfBlock * 10));
 
             waiters.Add(new Waiter());
             waiters.Add(new Waiter());

@@ -23,53 +23,55 @@ namespace MasterChefInfo
 
             tables = new List<Table> { };
 
-            if((posX == 17) && (posY == 1)){
-                tables.Add(new Table(posX + 2, posY + 3, 4));
-                tables.Add(new Table(posX + 7, posY + 3, 8));
-                tables.Add(new Table(posX + 12, posY + 3, 2));
-                tables.Add(new Table(posX + 17, posY + 3, 6));
-                tables.Add(new Table(posX + 22, posY + 3, 4));
-                tables.Add(new Table(posX + 27, posY + 3, 2));
-                tables.Add(new Table(posX + 32, posY + 3, 6));
-                tables.Add(new Table(posX + 37, posY + 3, 4));
-            }
-
-            if ((posX == 17) && (posY == 17))
+            if ((posX == ConstantPosition.pixelSizeOfBlock * 15) && (posY == ConstantPosition.pixelSizeOfBlock * 6))
             {
-                tables.Add(new Table(posX + 2, posY + 3, 8));
-                tables.Add(new Table(posX + 7, posY + 3, 2));
-                tables.Add(new Table(posX + 12, posY + 3, 10));
-                tables.Add(new Table(posX + 17, posY + 3, 4));
-                tables.Add(new Table(posX + 22, posY + 3, 6));
-                tables.Add(new Table(posX + 27, posY + 3, 4));
-                tables.Add(new Table(posX + 32, posY + 3, 2));
-                tables.Add(new Table(posX + 37, posY + 3, 2));
+
+                tables.Add(new Table(posX, posY, 4));
+                tables.Add(new Table(posX + 5, posY, 8));
+                tables.Add(new Table(posX + 10, posY, 2));
+                tables.Add(new Table(posX + 15, posY, 6));
+                tables.Add(new Table(posX, posY, 4));
+                tables.Add(new Table(posX + 5, posY, 2));
+                tables.Add(new Table(posX + 10, posY, 6));
+                tables.Add(new Table(posX + 15, posY, 4));
             }
 
-            if ((posX == 17 + 43) && (posY == 1))
+            if ((posX == ConstantPosition.pixelSizeOfBlock * 15) && (posY == ConstantPosition.pixelSizeOfBlock * 10))
             {
-                tables.Add(new Table(posX + 2, posY + 3, 2));
-                tables.Add(new Table(posX + 7, posY + 3, 10));
-                tables.Add(new Table(posX + 12, posY + 3, 4));
-                tables.Add(new Table(posX + 17, posY + 3, 2));
-                tables.Add(new Table(posX + 22, posY + 3, 6));
-                tables.Add(new Table(posX + 27, posY + 3, 4));
-                tables.Add(new Table(posX + 32, posY + 3, 2));
-                tables.Add(new Table(posX + 37, posY + 3, 8));
+                tables.Add(new Table(posX, posY, 8));
+                tables.Add(new Table(posX + 5, posY, 2));
+                tables.Add(new Table(posX + 10, posY, 10));
+                tables.Add(new Table(posX + 15, posY, 4));
+                tables.Add(new Table(posX, posY + 6, 6));
+                tables.Add(new Table(posX + 5, posY + 6, 4));
+                tables.Add(new Table(posX + 10, posY + 6, 2));
+                tables.Add(new Table(posX + 15, posY + 6, 2));
             }
 
-            if ((posX == 17 + 43) && (posY == 17))
+            if ((posX == ConstantPosition.pixelSizeOfBlock * 38) && (posY == ConstantPosition.pixelSizeOfBlock * 6))
             {
-                tables.Add(new Table(posX + 2, posY + 3, 8));
-                tables.Add(new Table(posX + 7, posY + 3, 2));
-                tables.Add(new Table(posX + 12, posY + 3, 4));
-                tables.Add(new Table(posX + 17, posY + 3, 6));
-                tables.Add(new Table(posX + 22, posY + 3, 2));
-                tables.Add(new Table(posX + 27, posY + 3, 4));
-                tables.Add(new Table(posX + 32, posY + 3, 8));
-                tables.Add(new Table(posX + 37, posY + 3, 4));
+
+                tables.Add(new Table(posX, posY, 2));
+                tables.Add(new Table(posX + 5, posY, 8));
+                tables.Add(new Table(posX + 10, posY, 4));
+                tables.Add(new Table(posX + 15, posY, 2));
+                tables.Add(new Table(posX, posY, 6));
+                tables.Add(new Table(posX + 5, posY, 4));
+                tables.Add(new Table(posX + 10, posY, 2));
+                tables.Add(new Table(posX + 15, posY, 4));
             }
 
+            if ((posX == ConstantPosition.pixelSizeOfBlock * 38) && (posY == ConstantPosition.pixelSizeOfBlock * 10))
+            {
+                tables.Add(new Table(posX, posY, 10));
+                tables.Add(new Table(posX + 5, posY, 2));
+                tables.Add(new Table(posX + 10, posY, 8));
+                tables.Add(new Table(posX + 15, posY, 8));
+                tables.Add(new Table(posX, posY + 6, 2));
+                tables.Add(new Table(posX + 5, posY + 6, 4));
+                tables.Add(new Table(posX + 10, posY + 6, 6));
+                tables.Add(new Table(posX + 15, posY + 6, 4));
+            }
         }
     }
 }

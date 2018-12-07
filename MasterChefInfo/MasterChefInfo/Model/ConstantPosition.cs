@@ -9,7 +9,7 @@ namespace MasterChefInfo
 {
     static class ConstantPosition
     {
-        private const int pixelSizeOfBlock = 24;
+        public const int pixelSizeOfBlock = 24;
 
         public const int maitreHotelPosX = pixelSizeOfBlock * 33;
         public const int maitreHotelPosY = pixelSizeOfBlock * 15;
