@@ -34,12 +34,13 @@
             // 
             // MainDrawingArea
             // 
-            this.MainDrawingArea.BackgroundImage = global::MasterChefInfo.Properties.Resources.Map;
+            this.MainDrawingArea.BackgroundImage = global::MasterChefInfo.Properties.Resources.Map1;
             this.MainDrawingArea.Location = new System.Drawing.Point(0, 0);
             this.MainDrawingArea.Name = "MainDrawingArea";
             this.MainDrawingArea.Size = new System.Drawing.Size(1392, 504);
             this.MainDrawingArea.TabIndex = 0;
             this.MainDrawingArea.TabStop = false;
+            this.MainDrawingArea.Click += new System.EventHandler(this.MainDrawingArea_Click);
             // 
             // Form1
             // 
