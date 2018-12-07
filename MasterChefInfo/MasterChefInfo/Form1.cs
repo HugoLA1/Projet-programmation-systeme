@@ -24,7 +24,7 @@ namespace MasterChefInfo
             MySpriteController = new SpriteController(MainDrawingArea);
 
             Sprite Serveur = new Sprite(new Point(0, 100), MySpriteController,
-                    Properties.Resources.cop_in_overalls_cr_pineda_and_grandmadeb_zpswv0etgbb, 30, 30, 200, 3);
+                    Properties.Resources.ChefMale, 30, 30, 200, 3);
             Serveur.SetName("Serveur");
 
             Serveur.AutomaticallyMoves = true;
