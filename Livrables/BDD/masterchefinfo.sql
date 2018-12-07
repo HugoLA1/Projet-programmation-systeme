@@ -1,9 +1,9 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 05 déc. 2018 à 07:44
+-- Généré le :  ven. 07 déc. 2018 à 13:53
 -- Version du serveur :  5.7.19
 -- Version de PHP :  7.1.9
 
@@ -239,16 +239,16 @@ INSERT INTO `recette` (`recetteNom`, `prix`, `instructions`, `categorie`) VALUES
 ('Pizza Montagnarde', 12, 'Ajouter- Four- Servir-', 'Plat'),
 ('Pizza Reine', 10, 'Ajouter- Four- Servir-', 'Plat'),
 ('Pizza Vegan', 11, 'Ajouter- Four- Servir-', 'Plat'),
-('Salade Anchois', 8, 'Ajouter - Mélanger -', 'Entrée'),
+('Salade Anchois', 8, 'Ajouter- Mélanger- Servir-', 'Entrée'),
 ('Salade Campagnarde', 10, 'Ajouter- Mélanger- Servir-', 'Entrée'),
 ('Salade Cesar', 10, 'Ajouter- Mélanger- Servir-', 'Entrée'),
 ('Salade Méditérranienne', 9, 'Ajouter- Mélanger- Servir-', 'Entrée'),
 ('Salade Mixte', 12, 'Ajouter- Mélanger- Servir-', 'Entrée'),
-('Salade Nordique', 11, 'Ajouter; Mélanger; Servir;', 'Entrée'),
-('Salade Poulet', 9, 'Ajouter; Mélanger; Servir;', 'Entrée'),
-('Salade Royal', 13, 'Ajouter; Mélanger; Servir;', 'Entrée'),
-('Salade Simple', 7, 'Ajouter; Mélanger; Servir;', 'Entrée'),
-('Salade Végétarienne', 8, 'Ajouter; Mélanger; Servir;', 'Entrée');
+('Salade Nordique', 11, 'Ajouter- Mélanger- Servir-', 'Entrée'),
+('Salade Poulet', 9, 'Ajouter- Mélanger- Servir-', 'Entrée'),
+('Salade Royal', 13, 'Ajouter- Mélanger- Servir-', 'Entrée'),
+('Salade Simple', 7, 'Ajouter- Mélanger- Servir-', 'Entrée'),
+('Salade Végétarienne', 8, 'Ajouter- Mélanger- Servir-', 'Entrée');
 
 -- --------------------------------------------------------
 
