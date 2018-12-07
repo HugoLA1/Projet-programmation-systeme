@@ -189,5 +189,14 @@
   <ItemGroup>
     <None Include="Resources\Map.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Map1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Map2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ambiance.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
