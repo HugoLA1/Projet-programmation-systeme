@@ -20,55 +20,112 @@ namespace MasterChefInfo
         {
             this.model = model;
             InitializeComponent();
+            // Initialise le son
             SoundPlayer simpleSound = new SoundPlayer(Properties.Resources.Ambiance);
             simpleSound.Play();
+            //Défini la zone de jeu
             MainDrawingArea.BackgroundImageLayout = ImageLayout.Stretch;
+            //Défini la map comme controlleur
             mySpriteController = new SpriteController(MainDrawingArea);
             Sprite sprite = new Sprite(mySpriteController);
             // Maitre d'hôtel
             sprite.maitreHotelSprite.AutomaticallyMoves = true;
             sprite.maitreHotelSprite.CannotMoveOutsideBox = true;
-            // 0 vers le haut, 90 droite, 180 gauche
             sprite.maitreHotelSprite.SetSpriteDirectionDegrees(180);
-            sprite.maitreHotelSprite.PutBaseImageLocation(new Point(300, 600));
+            sprite.maitreHotelSprite.PutBaseImageLocation(ConstantPosition.maitreHotel);
+            sprite.maitreHotelSprite.MoveTo(ConstantPosition.maitreHotel);
             sprite.maitreHotelSprite.SetSize(new Size(16, 32));
             sprite.maitreHotelSprite.MovementSpeed = 2;
 
-            // squareSupervisorSprite
+            // Le superviseur de carré 1
             sprite.squareSupervisorSprite.AutomaticallyMoves = true;
             sprite.squareSupervisorSprite.CannotMoveOutsideBox = true;
-            // 0 vers le haut, 90 droite, 180 gauche, -90 bas
             sprite.squareSupervisorSprite.SetSpriteDirectionDegrees(-90);
-            sprite.squareSupervisorSprite.PutBaseImageLocation(new Point(300, -600));
+            sprite.squareSupervisorSprite.PutBaseImageLocation(ConstantPosition.initialSquare1Supervisor);
+            sprite.squareSupervisorSprite.MoveTo(ConstantPosition.initialSquare1Supervisor);
             sprite.squareSupervisorSprite.SetSize(new Size(16, 32));
             sprite.squareSupervisorSprite.MovementSpeed = 2;
 
-            // squareSupervisorSprite
-            sprite.kitchenAssistantSprite.AutomaticallyMoves = true;
-            sprite.kitchenAssistantSprite.CannotMoveOutsideBox = true;
-            // 0 vers le haut, 90 droite, 180 gauche, -90 bas
-            sprite.kitchenAssistantSprite.SetSpriteDirectionDegrees(-90);
-            sprite.kitchenAssistantSprite.PutBaseImageLocation(new Point(100, -400));
-            sprite.kitchenAssistantSprite.SetSize(new Size(30, 30));
-            sprite.kitchenAssistantSprite.MovementSpeed = 2;
+            // Le superviseur de carré 2
+            sprite.squareSupervisor2Sprite.AutomaticallyMoves = true;
+            sprite.squareSupervisor2Sprite.CannotMoveOutsideBox = true;
+            sprite.squareSupervisor2Sprite.SetSpriteDirectionDegrees(-90);
+            sprite.squareSupervisor2Sprite.PutBaseImageLocation(ConstantPosition.initialSquare2Supervisor);
+            sprite.squareSupervisor2Sprite.MoveTo(ConstantPosition.initialSquare2Supervisor);
+            sprite.squareSupervisor2Sprite.SetSize(new Size(16, 32));
+            sprite.squareSupervisor2Sprite.MovementSpeed = 2;
+
+            //Serveur 1
+            sprite.waiterSprite.AutomaticallyMoves = true;
+            sprite.waiterSprite.CannotMoveOutsideBox = true;
+            sprite.waiterSprite.SetSpriteDirectionDegrees(-90);
+            sprite.waiterSprite.PutBaseImageLocation(ConstantPosition.initialWaiter);
+            sprite.waiterSprite.MoveTo(ConstantPosition.initialWaiter);
+            sprite.waiterSprite.SetSize(new Size(16, 32));
+            sprite.waiterSprite.MovementSpeed = 2;
+
+            //Serveur 2
+            sprite.waiter2Sprite.AutomaticallyMoves = true;
+            sprite.waiter2Sprite.CannotMoveOutsideBox = true;
+            sprite.waiter2Sprite.SetSpriteDirectionDegrees(-90);
+            sprite.waiter2Sprite.PutBaseImageLocation(ConstantPosition.initialWaiter);
+            sprite.waiter2Sprite.MoveTo(ConstantPosition.initialWaiter);
+            sprite.waiter2Sprite.SetSize(new Size(16, 32));
+            sprite.waiter2Sprite.MovementSpeed = 2;
+
+            //Serveur 3
+            sprite.waiter3Sprite.AutomaticallyMoves = true;
+            sprite.waiter3Sprite.CannotMoveOutsideBox = true;
+            sprite.waiter3Sprite.SetSpriteDirectionDegrees(-90);
+            sprite.waiter3Sprite.PutBaseImageLocation(ConstantPosition.initialWaiter);
+            sprite.waiter3Sprite.MoveTo(ConstantPosition.initialWaiter);
+            sprite.waiter3Sprite.SetSize(new Size(16, 32));
+            sprite.waiter3Sprite.MovementSpeed = 2;
+
+            //Serveur 4
+            sprite.waiter4Sprite.AutomaticallyMoves = true;
+            sprite.waiter4Sprite.CannotMoveOutsideBox = true;
+            sprite.waiter4Sprite.SetSpriteDirectionDegrees(-90);
+            sprite.waiter4Sprite.PutBaseImageLocation(ConstantPosition.initialWaiter);
+            sprite.waiter4Sprite.MoveTo(ConstantPosition.initialWaiter);
+            sprite.waiter4Sprite.SetSize(new Size(16, 32));
+            sprite.waiter4Sprite.MovementSpeed = 2;
 
 
-            SpriteLibrary.Sprite sectionChef = new SpriteLibrary.Sprite(new Point(0, 50), mySpriteController,
-                Properties.Resources.ChefMale, 50, 50, 500, 3);
-            sectionChef.SetName("Chef de section");
-            sectionChef.SetSize(new Size(24, 24));
-            sectionChef.PutBaseImageLocation(new Point(240, 240));
-            sectionChef.AutomaticallyMoves = true;
-            sectionChef.CannotMoveOutsideBox = true;
-            //sectionChef.SetSpriteDirectionDegrees(180);
-            sectionChef.MovementSpeed = 2;
-            sectionChef.MoveTo(new Point(72, 239));
-            sectionChef.MoveTo(new Point(72, 192));
-            sectionChef.ChangeAnimation(3);
-            sectionChef.AddAnimation(new Point(50, 150), Properties.Resources.ChefMale, 50, 50, 500, 1);
-            sectionChef.ChangeAnimation(1);
+            //Chef de la cuisine
+            sprite.masterChefSprite.AutomaticallyMoves = true;
+            sprite.masterChefSprite.CannotMoveOutsideBox = true;
+            sprite.masterChefSprite.SetSpriteDirectionDegrees(-90);
+            sprite.masterChefSprite.PutBaseImageLocation(ConstantPosition.masterChef);
+            sprite.masterChefSprite.MoveTo(ConstantPosition.masterChef);
+            sprite.masterChefSprite.SetSize(new Size(16, 32));
+            sprite.masterChefSprite.MovementSpeed = 2;
 
+            //Plogneur
+            sprite.kitchenPorterSprite.AutomaticallyMoves = true;
+            sprite.kitchenPorterSprite.CannotMoveOutsideBox = true;
+            sprite.kitchenPorterSprite.SetSpriteDirectionDegrees(-90);
+            sprite.kitchenPorterSprite.PutBaseImageLocation(ConstantPosition.kitchenPorter);
+            sprite.kitchenPorterSprite.MoveTo(ConstantPosition.kitchenPorter);
+            sprite.kitchenPorterSprite.SetSize(new Size(16, 32));
+            sprite.kitchenPorterSprite.MovementSpeed = 2;
 
+            //// Le commis
+            //sprite.kitchenAssistantSprite.AutomaticallyMoves = true;
+            //sprite.kitchenAssistantSprite.CannotMoveOutsideBox = true;
+            //sprite.kitchenAssistantSprite.SetSpriteDirectionDegrees(-90);
+            //sprite.kitchenAssistantSprite.PutBaseImageLocation(ConstantPosition.commis);
+            //sprite.kitchenAssistantSprite.SetSize(new Size(30, 30));
+            //sprite.kitchenAssistantSprite.MovementSpeed = 2;
+
+            //Chef de section
+            sprite.sectionChefSprite.AutomaticallyMoves = true;
+            sprite.sectionChefSprite.CannotMoveOutsideBox = true;
+            sprite.sectionChefSprite.SetSpriteDirectionDegrees(-90);
+            sprite.sectionChefSprite.PutBaseImageLocation(ConstantPosition.sectionChef);
+            sprite.sectionChefSprite.MoveTo(ConstantPosition.sectionChef);
+            sprite.sectionChefSprite.SetSize(new Size(25, 25));
+            sprite.sectionChefSprite.MovementSpeed = 2;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

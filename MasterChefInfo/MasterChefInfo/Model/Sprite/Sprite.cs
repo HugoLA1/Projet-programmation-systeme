@@ -18,27 +18,47 @@ namespace MasterChefInfo
         public SpriteLibrary.Sprite kitchenAssistantSprite;
         public SpriteLibrary.Sprite kitchenPorterSprite;
         public SpriteLibrary.Sprite groupClientSprite;
+        public SpriteLibrary.Sprite squareSupervisor2Sprite;
+        public SpriteLibrary.Sprite waiter2Sprite;
+        public SpriteLibrary.Sprite waiter3Sprite;
+        public SpriteLibrary.Sprite waiter4Sprite;
 
         public Sprite(SpriteController mySpriteController)
         {
             maitreHotelSprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController, 
-                Properties.Resources.perso6sprite, 15, 32, 200, 4);
+                Properties.Resources.perso6sprite, 16, 30, 200, 4);
             maitreHotelSprite.SetName("Maître d'hôtel");
 
             squareSupervisorSprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
-                Properties.Resources.perso5sprite, 15, 32, 200, 4);
+                Properties.Resources.perso5sprite, 16, 30, 200, 4);
             squareSupervisorSprite.SetName("Chef de section");
 
+            squareSupervisor2Sprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
+                Properties.Resources.perso5sprite, 16, 30, 200, 4);
+            squareSupervisor2Sprite.SetName("Chef de section 2");
+
             waiterSprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
-                Properties.Resources.perso4sprite, 15, 32, 200, 4);
+                Properties.Resources.perso4sprite, 16, 27, 200, 4);
             waiterSprite.SetName("Serveur");
 
+            waiter2Sprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
+                Properties.Resources.perso4sprite, 16, 27, 200, 4);
+            waiter2Sprite.SetName("Serveur");
+
+            waiter3Sprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
+                Properties.Resources.perso4sprite, 16, 27, 200, 4);
+            waiter3Sprite.SetName("Serveur");
+
+            waiter4Sprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
+                Properties.Resources.perso4sprite, 16, 27, 200, 4);
+            waiter4Sprite.SetName("Serveur");
+
             masterChefSprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
-                Properties.Resources.perso1sprite, 15, 32, 200, 4);
+                Properties.Resources.perso1sprite, 16, 30, 200, 4);
             masterChefSprite.SetName("Chef de cuisine");
 
             sectionChefSprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
-                Properties.Resources.ChefFemale, 50, 50, 200, 3);
+                Properties.Resources.ChefFemale, 50, 50, 500, 3);
             sectionChefSprite.SetName("Chef de section");
 
             kitchenAssistantSprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
@@ -46,11 +66,11 @@ namespace MasterChefInfo
             kitchenAssistantSprite.SetName("Commis de cuisine");
 
             kitchenPorterSprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
-                Properties.Resources.perso7sprite, 15, 32, 200, 4);
+                Properties.Resources.perso7sprite, 16, 30, 200, 4);
             kitchenPorterSprite.SetName("Plongeur");
 
             groupClientSprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
-                Properties.Resources.perso10sprite, 15, 32, 200, 4);
+                Properties.Resources.perso10sprite, 16, 30, 200, 4);
             groupClientSprite.SetName("Groupe de client");
 
         }
