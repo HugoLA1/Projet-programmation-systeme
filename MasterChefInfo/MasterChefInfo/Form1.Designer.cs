@@ -57,7 +57,7 @@
             // money
             // 
             this.money.AutoSize = true;
-            this.money.Location = new System.Drawing.Point(179, 66);
+            this.money.Location = new System.Drawing.Point(177, 66);
             this.money.Name = "money";
             this.money.Size = new System.Drawing.Size(39, 13);
             this.money.TabIndex = 2;
