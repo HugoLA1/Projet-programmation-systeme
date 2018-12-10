@@ -39,7 +39,7 @@ namespace MasterChefInfo
             while (Thread.CurrentThread.IsAlive)
             {
                 int randomNumber = rnd.Next(0, 5);
-                Thread.Sleep(randomNumber * 5000);
+                Thread.Sleep(randomNumber * 1000);
                 NewGroupClient();
             }
         }

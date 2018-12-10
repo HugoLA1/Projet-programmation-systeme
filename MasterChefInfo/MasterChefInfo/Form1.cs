@@ -38,6 +38,19 @@ namespace MasterChefInfo
 
         public Sprite maitreHotelSprite;
         public Sprite masterChefSprite;
+        public Sprite kitchenPorterSprite;
+
+        public Image MH;
+        public Image MC;
+        public Image SS1;
+        public Image SS2;
+        public Image W1;
+        public Image W2;
+        public Image W3;
+        public Image W4;
+        public Image SC1;
+        public Image SC2;
+        public Image KP;
 
         public Form1(Model model)
         {
@@ -52,20 +65,22 @@ namespace MasterChefInfo
             //Défini la map comme controlleur
             mySpriteController = new SpriteController(MainDrawingArea);
 
-            Image MH = Properties.Resources.perso6sprite;
+            MH = Properties.Resources.perso6sprite;
 
-            Image MC = Properties.Resources.perso1sprite;
+            MC = Properties.Resources.perso1sprite;
 
-            Image SS1 = Properties.Resources.perso5sprite;
-            Image SS2 = Properties.Resources.perso5sprite;
+            SS1 = Properties.Resources.SS1;
+            SS2 = Properties.Resources.SS2;
 
-            Image W1 = Properties.Resources.perso4sprite;
-            Image W2 = Properties.Resources.perso4sprite;
-            Image W3 = Properties.Resources.perso4sprite;
-            Image W4 = Properties.Resources.perso4sprite;
+            W1 = Properties.Resources.waiter1;
+            W2 = Properties.Resources.waiter2;
+            W3 = Properties.Resources.waiter3;
+            W4 = Properties.Resources.waiter4;
 
-            Image SC1 = Properties.Resources.perso11sprite;
-            Image SC2 = Properties.Resources.perso11sprite;
+            SC1 = Properties.Resources.SC1;
+            SC2 = Properties.Resources.SC2;
+
+            KP = Properties.Resources.perso7sprite;
 
             squareSupervisor1SpriteLastPos = ConstantPosition.initialSquare1Supervisor;
             squareSupervisor2SpriteLastPos = ConstantPosition.initialSquare2Supervisor;
@@ -81,42 +96,90 @@ namespace MasterChefInfo
             maitreHotelSprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
                 MH, 16, 32, 200, 4);
             maitreHotelSprite.SetName("Maître d'hôtel");
+            maitreHotelSprite.AddAnimation(new Point(0, 64), MH, 16, 32, 200, 4);
+            maitreHotelSprite.AddAnimation(new Point(0, 0), MH, 16, 32, 200, 4);
+            maitreHotelSprite.AddAnimation(new Point(0, 96), MH, 16, 32, 200, 4);
+            maitreHotelSprite.AddAnimation(new Point(0, 32), MH, 16, 32, 200, 4);
 
             squareSupervisor1Sprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
                 SS1, 16, 32, 200, 4);
             squareSupervisor1Sprite.SetName("Chef de rang 1");
+            squareSupervisor1Sprite.AddAnimation(new Point(0, 64), SS1, 16, 32, 200, 4);
+            squareSupervisor1Sprite.AddAnimation(new Point(0, 0), SS1, 16, 32, 200, 4);
+            squareSupervisor1Sprite.AddAnimation(new Point(0, 96), SS1, 16, 32, 200, 4);
+            squareSupervisor1Sprite.AddAnimation(new Point(0, 32), SS1, 16, 32, 200, 4);
 
             squareSupervisor2Sprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
                 SS2, 16, 32, 200, 4);
             squareSupervisor2Sprite.SetName("Chef de rang 2");
+            squareSupervisor2Sprite.AddAnimation(new Point(0, 64), SS2, 16, 32, 200, 4);
+            squareSupervisor2Sprite.AddAnimation(new Point(0, 0), SS2, 16, 32, 200, 4);
+            squareSupervisor2Sprite.AddAnimation(new Point(0, 96), SS2, 16, 32, 200, 4);
+            squareSupervisor2Sprite.AddAnimation(new Point(0, 32), SS2, 16, 32, 200, 4);
 
             waiterSprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
                 W1, 16, 32, 200, 4);
             waiterSprite.SetName("Serveur 1");
+            waiterSprite.AddAnimation(new Point(0, 64), W1, 16, 32, 200, 4);
+            waiterSprite.AddAnimation(new Point(0, 0), W1, 16, 32, 200, 4);
+            waiterSprite.AddAnimation(new Point(0, 96), W1, 16, 32, 200, 4);
+            waiterSprite.AddAnimation(new Point(0, 32), W1, 16, 32, 200, 4);
 
             waiter2Sprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
                 W2, 16, 32, 200, 4);
             waiter2Sprite.SetName("Serveur 2");
+            waiter2Sprite.AddAnimation(new Point(0, 64), W2, 16, 32, 200, 4);
+            waiter2Sprite.AddAnimation(new Point(0, 0), W2, 16, 32, 200, 4);
+            waiter2Sprite.AddAnimation(new Point(0, 96), W2, 16, 32, 200, 4);
+            waiter2Sprite.AddAnimation(new Point(0, 32), W2, 16, 32, 200, 4);
 
             waiter3Sprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
                 W3, 16, 32, 200, 4);
             waiter3Sprite.SetName("Serveur 3");
+            waiter3Sprite.AddAnimation(new Point(0, 64), W3, 16, 32, 200, 4);
+            waiter3Sprite.AddAnimation(new Point(0, 0), W3, 16, 32, 200, 4);
+            waiter3Sprite.AddAnimation(new Point(0, 96), W3, 16, 32, 200, 4);
+            waiter3Sprite.AddAnimation(new Point(0, 32), W3, 16, 32, 200, 4);
 
             waiter4Sprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
                 W4, 16, 32, 200, 4);
             waiter4Sprite.SetName("Serveur 4");
+            waiter4Sprite.AddAnimation(new Point(0, 64), W4, 16, 32, 200, 4);
+            waiter4Sprite.AddAnimation(new Point(0, 0), W4, 16, 32, 200, 4);
+            waiter4Sprite.AddAnimation(new Point(0, 96), W4, 16, 32, 200, 4);
+            waiter4Sprite.AddAnimation(new Point(0, 32), W4, 16, 32, 200, 4);
 
             masterChefSprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
                 MC, 16, 32, 200, 4);
             masterChefSprite.SetName("Chef de cuisine");
+            masterChefSprite.AddAnimation(new Point(0, 64), MC, 16, 32, 200, 4);
+            masterChefSprite.AddAnimation(new Point(0, 0), MC, 16, 32, 200, 4);
+            masterChefSprite.AddAnimation(new Point(0, 96), MC, 16, 32, 200, 4);
+            masterChefSprite.AddAnimation(new Point(0, 32), MC, 16, 32, 200, 4);
 
             sectionChef1Sprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
-                SC1, 16, 32, 500, 3);
+                SC1, 16, 32, 200, 4);
             sectionChef1Sprite.SetName("Chef de section 1");
+            sectionChef1Sprite.AddAnimation(new Point(0, 64), SC1, 16, 32, 200, 4);
+            sectionChef1Sprite.AddAnimation(new Point(0, 0), SC1, 16, 32, 200, 4);
+            sectionChef1Sprite.AddAnimation(new Point(0, 96), SC1, 16, 32, 200, 4);
+            sectionChef1Sprite.AddAnimation(new Point(0, 32), SC1, 16, 32, 200, 4);
 
             sectionChef2Sprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
-                SC2, 16, 32, 500, 3);
+                SC2, 16, 32, 200, 4);
             sectionChef2Sprite.SetName("Chef de section 2");
+            sectionChef2Sprite.AddAnimation(new Point(0, 64), SC2, 16, 32, 200, 4);
+            sectionChef2Sprite.AddAnimation(new Point(0, 0), SC2, 16, 32, 200, 4);
+            sectionChef2Sprite.AddAnimation(new Point(0, 96), SC2, 16, 32, 200, 4);
+            sectionChef2Sprite.AddAnimation(new Point(0, 32), SC2, 16, 32, 200, 4);
+
+            kitchenPorterSprite = new Sprite(new Point(0, 0), mySpriteController,
+                KP, 16, 32, 200, 1);
+            kitchenPorterSprite.SetName("Plongeur");
+            kitchenPorterSprite.AddAnimation(new Point(0, 64), KP, 16, 32, 200, 4);
+            kitchenPorterSprite.AddAnimation(new Point(0, 0), KP, 16, 32, 200, 4);
+            kitchenPorterSprite.AddAnimation(new Point(0, 96), KP, 16, 32, 200, 4);
+            kitchenPorterSprite.AddAnimation(new Point(0, 32), KP, 16, 32, 200, 4);
 
             // Maitre d'hôtel
             maitreHotelSprite.CannotMoveOutsideBox = true;
@@ -190,37 +253,22 @@ namespace MasterChefInfo
             masterChefSprite.SetSize(new Size(16, 32));
             masterChefSprite.MovementSpeed = 5;
 
-            /*
             //Plogneur
-            //sprite.kitchenPorterSprite.AutomaticallyMoves = true;
             kitchenPorterSprite.CannotMoveOutsideBox = true;
             kitchenPorterSprite.SetSpriteDirectionDegrees(-90);
             kitchenPorterSprite.PutBaseImageLocation(ConstantPosition.kitchenPorter);
-            //sprite.kitchenPorterSprite.MoveTo(ConstantPosition.kitchenPorter);
+            kitchenPorterSprite.MoveTo(ConstantPosition.kitchenPorter);
             kitchenPorterSprite.SetSize(new Size(16, 32));
             kitchenPorterSprite.MovementSpeed = 5;
-            //sprite.IdleAnimation(sprite.kitchenPorterSprite, 16, 32);
 
-            //// Le commis
+            // Le commis
             //sprite.kitchenAssistantSprite.AutomaticallyMoves = true;
             //sprite.kitchenAssistantSprite.CannotMoveOutsideBox = true;
             //sprite.kitchenAssistantSprite.SetSpriteDirectionDegrees(-90);
             //sprite.kitchenAssistantSprite.PutBaseImageLocation(ConstantPosition.commis);
             //sprite.kitchenAssistantSprite.SetSize(new Size(16, 32));
             //sprite.kitchenAssistantSprite.MovementSpeed = 2;
-            //sprite.IdleAnimation(sprite.kitchenAssistantSprite, 16, 32);
 
-            
-            */
-
-            SS1.Dispose();
-            SS2.Dispose();
-            W1.Dispose();
-            W2.Dispose();
-            W3.Dispose();
-            W4.Dispose();
-            SC1.Dispose();
-            SC2.Dispose();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -260,7 +308,13 @@ namespace MasterChefInfo
 
                 case "Waiter1":
 
-                    NewSprite = mySpriteController.DuplicateSprite("Serveur 1");
+                    do
+                    {
+                        try
+                        {
+                            lock (W1)
+                            {
+                                NewSprite = mySpriteController.DuplicateSprite("Serveur 1");
 
                     NewSprite.PutBaseImageLocation(waiter1SpriteLastPos);
                     NewSprite.MovementSpeed = 15;
@@ -269,13 +323,7 @@ namespace MasterChefInfo
                     NewSprite.MoveTo(track);
                     while (!NewSprite.SpriteReachedEndPoint) { }
 
-                    Thread.Sleep(1000);
-                    do
-                        {
-                            try
-                            {
-                            lock (waiterSprite)
-                            {
+
                                 
                                 NewSprite.Destroy();
                                 NewSprite = null;
@@ -296,7 +344,13 @@ namespace MasterChefInfo
                     break;
 
                 case "Waiter2":
-                    NewSprite = mySpriteController.DuplicateSprite("Serveur 2");
+                    do
+                    {
+                        try
+                        {
+                            lock (W2)
+                            {
+                                NewSprite = mySpriteController.DuplicateSprite("Serveur 2");
                     NewSprite.PutBaseImageLocation(waiter2SpriteLastPos);
                     NewSprite.MovementSpeed = 15;
 
@@ -304,13 +358,7 @@ namespace MasterChefInfo
                     NewSprite.MoveTo(track);
                     while (!NewSprite.SpriteReachedEndPoint) { }
 
-                    Thread.Sleep(1000);
-                    do
-                    {
-                        try
-                        {
-                            lock (waiter2Sprite)
-                            {
+
                                 
                                 NewSprite.Destroy();
                                 NewSprite = null;
@@ -330,7 +378,13 @@ namespace MasterChefInfo
                     break;
 
                 case "Waiter3":
-                    NewSprite = mySpriteController.DuplicateSprite("Serveur 3");
+                    do
+                    {
+                        try
+                        {
+                            lock (W3)
+                            {
+                                NewSprite = mySpriteController.DuplicateSprite("Serveur 3");
                     NewSprite.PutBaseImageLocation(waiter3SpriteLastPos);
                     NewSprite.MovementSpeed = 15;
 
@@ -338,13 +392,7 @@ namespace MasterChefInfo
                     NewSprite.MoveTo(track);
                     while (!NewSprite.SpriteReachedEndPoint) { }
 
-                    Thread.Sleep(1000);
-                    do
-                    {
-                        try
-                        {
-                            lock (waiter3Sprite)
-                            {
+                    
                                 
                                 NewSprite.Destroy();
                                 NewSprite = null;
@@ -364,7 +412,13 @@ namespace MasterChefInfo
                     break;
 
                 case "Waiter4":
-                    NewSprite = mySpriteController.DuplicateSprite("Serveur 4");
+                    do
+                    {
+                        try
+                        {
+                            lock (W4)
+                            {
+                                NewSprite = mySpriteController.DuplicateSprite("Serveur 4");
 
                     NewSprite.PutBaseImageLocation(waiter4SpriteLastPos);
                     NewSprite.MovementSpeed = 15;
@@ -373,13 +427,7 @@ namespace MasterChefInfo
                     NewSprite.MoveTo(track);
                     while (!NewSprite.SpriteReachedEndPoint) { }
 
-                    Thread.Sleep(1000);
-                    do
-                    {
-                        try
-                        {
-                            lock (waiter4Sprite)
-                            {
+                    
                                 
                                 NewSprite.Destroy();
                                 NewSprite = null;
@@ -434,7 +482,13 @@ namespace MasterChefInfo
                     break;
 
                 case "SS1":
-                    NewSprite = mySpriteController.DuplicateSprite("Chef de rang 1");
+                    do
+                    {
+                        try
+                        {
+                            lock (SS1)
+                            {
+                                NewSprite = mySpriteController.DuplicateSprite("Chef de rang 1");
 
                     NewSprite.PutBaseImageLocation(squareSupervisor1SpriteLastPos);
                     NewSprite.MovementSpeed = 15;
@@ -444,13 +498,7 @@ namespace MasterChefInfo
 
                     while (!NewSprite.SpriteReachedEndPoint) { }
 
-                    Thread.Sleep(1000);
-                    do
-                    {
-                        try
-                        {
-                            lock (squareSupervisor1Sprite)
-                            {
+                    
                                 
                                 NewSprite.Destroy();
                                 NewSprite = null;
@@ -471,7 +519,13 @@ namespace MasterChefInfo
                     break;
 
                 case "SS2":
-                    NewSprite = mySpriteController.DuplicateSprite("Chef de rang 2");
+                    do
+                    {
+                        try
+                        {
+                            lock (SS2)
+                            {
+                                NewSprite = mySpriteController.DuplicateSprite("Chef de rang 2");
 
                     NewSprite.PutBaseImageLocation(squareSupervisor2SpriteLastPos);
                     NewSprite.MovementSpeed = 15;
@@ -480,13 +534,7 @@ namespace MasterChefInfo
                     NewSprite.MoveTo(track);
                     while (!NewSprite.SpriteReachedEndPoint) { }
 
-                    Thread.Sleep(1000);
-                    do
-                    {
-                        try
-                        {
-                            lock (squareSupervisor2Sprite)
-                            {
+                    
 
                                 
                                 NewSprite.Destroy();
@@ -508,7 +556,13 @@ namespace MasterChefInfo
                     break;
 
                 case "SC1":
-                    NewSprite = mySpriteController.DuplicateSprite("Chef de section 1");
+                    do
+                    {
+                        try
+                        {
+                            lock (SC1)
+                            {
+                                NewSprite = mySpriteController.DuplicateSprite("Chef de section 1");
 
                     NewSprite.PutBaseImageLocation(sectionChef1SpriteLastPos);
                     NewSprite.MovementSpeed = 15;
@@ -518,13 +572,7 @@ namespace MasterChefInfo
 
                     while (!NewSprite.SpriteReachedEndPoint) { }
 
-                    Thread.Sleep(1000);
-                    do
-                    {
-                        try
-                        {
-                            lock (sectionChef1Sprite)
-                            {
+                    
                                 
                                 NewSprite.Destroy();
                                 NewSprite = null;
@@ -545,7 +593,13 @@ namespace MasterChefInfo
                     break;
 
                 case "SC2":
-                    NewSprite = mySpriteController.DuplicateSprite("Chef de section 2");
+                    do
+                    {
+                        try
+                        {
+                            lock (SC2)
+                            {
+                                NewSprite = mySpriteController.DuplicateSprite("Chef de section 2");
 
                     NewSprite.PutBaseImageLocation(sectionChef2SpriteLastPos);
                     NewSprite.MovementSpeed = 15;
@@ -555,13 +609,7 @@ namespace MasterChefInfo
 
                     while (!NewSprite.SpriteReachedEndPoint) { }
 
-                    Thread.Sleep(1000);
-                    do
-                    {
-                        try
-                        {
-                            lock (sectionChef2Sprite)
-                            {
+                    
                                 
                                 NewSprite.Destroy();
                                 NewSprite = null;

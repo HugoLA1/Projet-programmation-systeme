@@ -17,8 +17,6 @@ namespace MasterChefInfo
         public DinnerRoom dinnerRoom { get; set; }
         public Kitchen kitchen { get; set; }
         public Counter counter { get; set; }
-        public SpriteView sprite { get; set; }
-
         public Model()
         {
             BDD = new DataBaseExchanger();

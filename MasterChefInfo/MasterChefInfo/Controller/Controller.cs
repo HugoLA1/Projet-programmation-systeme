@@ -34,18 +34,19 @@ namespace MasterChefInfo
 
             InvalidOperationException e = null;
 
-            do
-            {
                 try
                 {
+                lock (form)
+                {
                     Application.Run(form);
+                }
                     e = null;
                 }
                 catch (InvalidOperationException ex)
                 {
                     e = ex;
+                Console.WriteLine(e);
                 }
-            } while (e != null);
         }
 
         public void SetObserver()

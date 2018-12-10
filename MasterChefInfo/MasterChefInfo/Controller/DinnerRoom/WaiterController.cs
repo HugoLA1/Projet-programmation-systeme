@@ -89,43 +89,55 @@ namespace MasterChefInfo
                                                 break;
 
                                             case DishState.WaitGetApetizer:
-                                                foreach (GroupCommand groupCommand in model.counter.waitingGroupCommand)
+                                                lock (model.counter.waitingGroupCommand)
                                                 {
-                                                    if ((groupCommand.table == table) && (groupCommand.nbCommand == groupCommand.commands.Count))
+                                                    foreach (GroupCommand groupCommand in model.counter.waitingGroupCommand)
                                                     {
-                                                        Console.WriteLine("Apporter entrée");
-                                                        waiter.isAvailable = false;
-                                                        Task threadSA = new Task(() => ServeApetizer(table, waiter, groupCommand));
-                                                        getOutOfLoop = true;
-                                                        threadSA.Start();
+                                                        if ((groupCommand.table == table) && (groupCommand.nbCommand == groupCommand.commands.Count))
+                                                        {
+                                                            Console.WriteLine("Apporter entrée");
+                                                            waiter.isAvailable = false;
+                                                            Task threadSA = new Task(() => ServeApetizer(table, waiter, groupCommand));
+                                                            getOutOfLoop = true;
+                                                            threadSA.Start();
+                                                        }
                                                     }
                                                 }
+                                                
                                                 break;
 
                                             case DishState.WaitGetDish:
-                                                foreach (GroupCommand groupCommand in model.counter.waitingGroupCommand)
+                                                lock (model.counter.waitingGroupCommand)
                                                 {
-                                                    if ((groupCommand.table == table) && (groupCommand.nbCommand == groupCommand.commands.Count))
+                                                    foreach (GroupCommand groupCommand in model.counter.waitingGroupCommand)
                                                     {
-                                                        waiter.isAvailable = false;
-                                                        Task threadSDi = new Task(() => ServeDish(table, waiter, groupCommand));
-                                                        getOutOfLoop = true;
-                                                        threadSDi.Start();
+                                                        if ((groupCommand.table == table) && (groupCommand.nbCommand == groupCommand.commands.Count))
+                                                        {
+                                                            waiter.isAvailable = false;
+                                                            Task threadSDi = new Task(() => ServeDish(table, waiter, groupCommand));
+                                                            getOutOfLoop = true;
+                                                            threadSDi.Start();
+                                                        }
                                                     }
                                                 }
+                                                
                                                 break;
 
                                             case DishState.WaitGetDesert:
-                                                foreach (GroupCommand groupCommand in model.counter.waitingGroupCommand)
+                                                lock (model.counter.waitingGroupCommand)
                                                 {
-                                                    if ((groupCommand.table == table) && (groupCommand.nbCommand == groupCommand.commands.Count))
+                                                    foreach (GroupCommand groupCommand in model.counter.waitingGroupCommand)
                                                     {
-                                                        waiter.isAvailable = false;
-                                                        Task threadSDe = new Task(() => ServeDesert(table, waiter, groupCommand));
-                                                        getOutOfLoop = true;
-                                                        threadSDe.Start();
+                                                        if ((groupCommand.table == table) && (groupCommand.nbCommand == groupCommand.commands.Count))
+                                                        {
+                                                            waiter.isAvailable = false;
+                                                            Task threadSDe = new Task(() => ServeDesert(table, waiter, groupCommand));
+                                                            getOutOfLoop = true;
+                                                            threadSDe.Start();
+                                                        }
                                                     }
                                                 }
+                                                
                                                 break;
                                         }
                                     }
@@ -263,19 +275,7 @@ namespace MasterChefInfo
                     //MessageBox.Show("WaitNote");
                     break;
             }
-            foreach (Command command in table.groupClient.commands)
-            {
-                table.groupClient.commands.Remove(command);
-                if(command.ustensils != null)
-                {
-                    foreach (Ustensil ustensil in command.ustensils)
-                    {
-                        model.kitchen.cleanningRoom.dirtyUstensil.Add(ustensil);
-                    }
-                }
-                
-            }
-
+            
             model.counter.waitingGroupCommand.Add(new GroupCommand(table));
 
             foreach (Client client in table.groupClient.clients)

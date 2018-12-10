@@ -112,16 +112,6 @@ namespace MasterChefInfo.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap perso11sprite {
-            get {
-                object obj = ResourceManager.GetObject("perso11sprite", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap perso1sprite {
             get {
                 object obj = ResourceManager.GetObject("perso1sprite", resourceCulture);
@@ -145,26 +135,6 @@ namespace MasterChefInfo.Properties {
         internal static System.Drawing.Bitmap perso3sprite {
             get {
                 object obj = ResourceManager.GetObject("perso3sprite", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap perso4sprite {
-            get {
-                object obj = ResourceManager.GetObject("perso4sprite", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap perso5sprite {
-            get {
-                object obj = ResourceManager.GetObject("perso5sprite", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -215,6 +185,86 @@ namespace MasterChefInfo.Properties {
         internal static System.Drawing.Bitmap plate {
             get {
                 object obj = ResourceManager.GetObject("plate", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SC1 {
+            get {
+                object obj = ResourceManager.GetObject("SC1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SC2 {
+            get {
+                object obj = ResourceManager.GetObject("SC2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SS1 {
+            get {
+                object obj = ResourceManager.GetObject("SS1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SS2 {
+            get {
+                object obj = ResourceManager.GetObject("SS2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap waiter1 {
+            get {
+                object obj = ResourceManager.GetObject("waiter1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap waiter2 {
+            get {
+                object obj = ResourceManager.GetObject("waiter2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap waiter3 {
+            get {
+                object obj = ResourceManager.GetObject("waiter3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap waiter4 {
+            get {
+                object obj = ResourceManager.GetObject("waiter4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
