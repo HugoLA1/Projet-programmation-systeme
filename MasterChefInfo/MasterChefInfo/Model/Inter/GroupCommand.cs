@@ -18,7 +18,7 @@ namespace MasterChefInfo
         public GroupCommand(Table table)
         {
             nbCommand = table.groupClient.clientNumber;
-            commands = new List<Command> { };
+            commands = new List<Command>();
             this.table = table;
         }
     }

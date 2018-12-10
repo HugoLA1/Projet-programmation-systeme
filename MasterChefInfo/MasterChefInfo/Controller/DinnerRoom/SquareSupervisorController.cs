@@ -41,10 +41,10 @@ namespace MasterChefInfo
         {
             while (Thread.CurrentThread.IsAlive)
             {
-                if(model.dinnerRoom.squares[0].lines[0].tables[0].groupClient != null)
+                /*if(model.dinnerRoom.squares[0].lines[0].tables[0].groupClient != null)
                 {
                     Console.WriteLine(Convert.ToString(model.dinnerRoom.squares[0].lines[0].tables[0].groupClient.dishState));
-                }
+                }*/
                 bool getOutOfLoop = false;
                 foreach (Square square in model.dinnerRoom.squares)
                 {
@@ -168,6 +168,7 @@ namespace MasterChefInfo
 
             foreach (Client client in table.groupClient.clients)
             {
+                client.appetizer.table = table;
                 model.kitchen.cookingRoom.masterChef.commandsToDo.Add(client.appetizer);
             }
             Thread.Sleep(2000);
