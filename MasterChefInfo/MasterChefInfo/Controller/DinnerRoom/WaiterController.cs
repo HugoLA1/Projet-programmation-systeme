@@ -275,21 +275,6 @@ namespace MasterChefInfo
                     //MessageBox.Show("WaitNote");
                     break;
             }
-            lock (table.groupClient.commands)
-            {
-                foreach (Command command in table.groupClient.commands)
-                {
-                    table.groupClient.commands.Remove(command);
-                    if (command.ustensils != null)
-                    {
-                        foreach (Ustensil ustensil in command.ustensils)
-                        {
-                            model.kitchen.cleanningRoom.dirtyUstensil.Add(ustensil);
-                        }
-                    }
-
-                }
-            }
             
             model.counter.waitingGroupCommand.Add(new GroupCommand(table));
 

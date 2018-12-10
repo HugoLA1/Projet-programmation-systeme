@@ -108,23 +108,22 @@
     <Compile Include="Model\Inter\Ustensil.cs" />
     <Compile Include="Model\DinnerRoom\Waiter.cs" />
     <Compile Include="Model\Kitchen\WashingMachine.cs" />
-    <Compile Include="Model\Sprite\SpriteView.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Vue\IObserver.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -158,9 +157,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\perso3sprite.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\perso4sprite.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\perso5sprite.png" />
@@ -203,6 +199,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\plate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perso4sprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perso4sprite1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perso4sprite2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perso4sprite3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perso5sprite1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perso11sprite1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\Sprite\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

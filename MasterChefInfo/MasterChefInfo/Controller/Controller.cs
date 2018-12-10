@@ -36,7 +36,10 @@ namespace MasterChefInfo
 
                 try
                 {
+                lock (form)
+                {
                     Application.Run(form);
+                }
                     e = null;
                 }
                 catch (InvalidOperationException ex)

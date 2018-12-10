@@ -67,16 +67,16 @@ namespace MasterChefInfo
 
             MC = Properties.Resources.perso1sprite;
 
-            SS1 = Properties.Resources.perso5sprite;
-            SS2 = Properties.Resources.perso5sprite;
+            SS1 = Properties.Resources.SS1;
+            SS2 = Properties.Resources.SS2;
 
-            W1 = Properties.Resources.perso4sprite;
-            W2 = Properties.Resources.perso4sprite;
-            W3 = Properties.Resources.perso4sprite;
-            W4 = Properties.Resources.perso4sprite;
+            W1 = Properties.Resources.waiter1;
+            W2 = Properties.Resources.waiter2;
+            W3 = Properties.Resources.waiter3;
+            W4 = Properties.Resources.waiter4;
 
-            SC1 = Properties.Resources.perso11sprite;
-            SC2 = Properties.Resources.perso11sprite;
+            SC1 = Properties.Resources.SC1;
+            SC2 = Properties.Resources.SC2;
 
             squareSupervisor1SpriteLastPos = ConstantPosition.initialSquare1Supervisor;
             squareSupervisor2SpriteLastPos = ConstantPosition.initialSquare2Supervisor;
