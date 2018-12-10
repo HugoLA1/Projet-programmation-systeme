@@ -134,9 +134,9 @@ namespace MasterChefInfo
             sprite.sectionChefSprite.SetSpriteDirectionDegrees(-90);
             sprite.sectionChefSprite.PutBaseImageLocation(ConstantPosition.sectionChef);
             sprite.sectionChefSprite.MoveTo(ConstantPosition.sectionChef);
-            sprite.sectionChefSprite.SetSize(new Size(25, 25));
+            sprite.sectionChefSprite.SetSize(new Size(16, 32));
             sprite.sectionChefSprite.MovementSpeed = 2;
-            sprite.IdleAnimation(sprite.sectionChefSprite, 50, 50);
+            sprite.IdleAnimation(sprite.sectionChefSprite, 16, 28);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

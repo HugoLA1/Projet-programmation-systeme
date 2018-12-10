@@ -198,5 +198,8 @@
   <ItemGroup>
     <None Include="Resources\Ambiance.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perso11sprite.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
