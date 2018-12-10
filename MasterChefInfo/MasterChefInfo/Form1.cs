@@ -18,10 +18,6 @@ namespace MasterChefInfo
         SpriteController mySpriteController;
         public SpriteView sprite;
 
-
-
-
-
         public Sprite waiterSprite;
         public Sprite waiter2Sprite;
         public Sprite waiter3Sprite;
@@ -229,14 +225,6 @@ namespace MasterChefInfo
             //MessageBox.Show(name);
             InvalidOperationException e = null;
 
-            Image SS = Properties.Resources.perso5sprite;
-            Image SS1 = Properties.Resources.perso5sprite;
-
-            Image W1 = Properties.Resources.perso4sprite;
-            Image W2 = Properties.Resources.perso4sprite;
-            Image W3 = Properties.Resources.perso4sprite;
-            Image W4 = Properties.Resources.perso4sprite;
-
             switch (name)
             {
 
@@ -247,27 +235,11 @@ namespace MasterChefInfo
                             {
                             lock (waiterSprite)
                             {
-                                Point tempPoint = waiterSprite.GetSpriteBaseImageCenter();
-                                waiterSprite.Destroy();
-
-                                waiterSprite = new Sprite(new Point(0, 0), mySpriteController, W1, 16, 27, 200, 4)
-                                {
-                                    AutomaticallyMoves = false,
-                                    CannotMoveOutsideBox = true
-                                };
-                                waiterSprite.SetSpriteDirectionDegrees(-90);
-                                waiterSprite.PutBaseImageLocation(tempPoint);
-                                waiterSprite.MovementSpeed = 15;
-
                                 waiterSprite.AutomaticallyMoves = true;
 
                                 waiterSprite.MoveTo(track);
 
-
-
                                 while (!waiterSprite.SpriteReachedEndPoint) { }
-
-
                             }
                                 e = null;
                             }
@@ -384,17 +356,6 @@ namespace MasterChefInfo
                         {
                             lock (squareSupervisorSprite)
                             {
-                                Point tempPoint = squareSupervisorSprite.GetSpriteBaseImageCenter();
-                                squareSupervisorSprite.Destroy();
-
-                                squareSupervisorSprite = new Sprite(new Point(0, 0), mySpriteController, SS, 16, 27, 200, 4)
-                                {
-                                    AutomaticallyMoves = false,
-                                    CannotMoveOutsideBox = true
-                                };
-                                squareSupervisorSprite.SetSpriteDirectionDegrees(-90);
-                                squareSupervisorSprite.PutBaseImageLocation(tempPoint);
-                                squareSupervisorSprite.MovementSpeed = 15;
 
                                 squareSupervisorSprite.AutomaticallyMoves = true;
 
@@ -418,17 +379,6 @@ namespace MasterChefInfo
                         {
                             lock (squareSupervisor2Sprite)
                             {
-                                Point tempPoint = squareSupervisor2Sprite.GetSpriteBaseImageCenter();
-                                squareSupervisor2Sprite.Destroy();
-
-                                squareSupervisor2Sprite = new Sprite(new Point(0, 0), mySpriteController, SS1, 16, 27, 200, 4)
-                                {
-                                    AutomaticallyMoves = false,
-                                    CannotMoveOutsideBox = true
-                                };
-                                squareSupervisor2Sprite.SetSpriteDirectionDegrees(-90);
-                                squareSupervisor2Sprite.PutBaseImageLocation(tempPoint);
-                                squareSupervisor2Sprite.MovementSpeed = 15;
 
                                 squareSupervisor2Sprite.AutomaticallyMoves = true;
 
@@ -446,12 +396,6 @@ namespace MasterChefInfo
                     } while (e != null);
                     break;
             }
-            SS.Dispose();
-            SS1.Dispose();
-            W1.Dispose();
-            W2.Dispose();
-            W3.Dispose();
-            W4.Dispose();
 
         }
 
