@@ -59,6 +59,7 @@ namespace MasterChefInfo
                                     switch (table.groupClient.dishState)
                                     {
                                         case DishState.WaitMenu:
+                                            Console.WriteLine("Apporter le Menu");
                                             square.squareSupervisor.isAvailable = false;
                                             /*ThreadPool.QueueUserWorkItem(
                                               new WaitCallback(delegate (object state)
@@ -69,6 +70,7 @@ namespace MasterChefInfo
                                             threadSM.Start();
                                             break;
                                         case DishState.Choosed:
+                                            Console.WriteLine("Récupérer les commandes");
                                             square.squareSupervisor.isAvailable = false;
                                             /*ThreadPool.QueueUserWorkItem(
                                               new WaitCallback(delegate (object state)
@@ -78,6 +80,7 @@ namespace MasterChefInfo
                                             threadCM.Start();
                                             break;
                                         case DishState.WaitToBePlaced:
+                                            Console.WriteLine("Placer les clients");
                                             square.squareSupervisor.isAvailable = false;
                                             /*ThreadPool.QueueUserWorkItem(
                                               new WaitCallback(delegate (object state)
@@ -155,7 +158,6 @@ namespace MasterChefInfo
             //MessageBox.Show("WaitBreadAndWater");
             table.menus = 0;
             GetCommande(table, squareSupervisor);
-            Thread.Sleep(2000);
             MoveToWelcome(table, squareSupervisor);
             squareSupervisor.isAvailable = true;
         }
@@ -171,8 +173,6 @@ namespace MasterChefInfo
                 client.appetizer.table = table;
                 model.kitchen.cookingRoom.masterChef.commandsToDo.Add(client.appetizer);
             }
-            Thread.Sleep(2000);
-
             model.counter.waitingGroupCommand.Add(groupCommandTemp);
             MoveToWelcome(table, squareSupervisor);
             squareSupervisor.isAvailable = true;
