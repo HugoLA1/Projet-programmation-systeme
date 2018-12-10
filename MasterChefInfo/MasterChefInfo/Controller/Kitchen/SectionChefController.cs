@@ -28,16 +28,18 @@ namespace MasterChefInfo
             {
                 case "Ajouter":
                     MoveToWorkSurface(sectionChef);
+                    command.recipe.Remove(partOfCommand);
                     break;
                 case "Four":
                     MoveToBakery(sectionChef);
+                    command.recipe.Remove(partOfCommand);
                     break;
                 case "Mélanger":
                     MoveToStorageRoom(sectionChef);
+                    command.recipe.Remove(partOfCommand);
                     break;
             }
 
-            command.recipe.Remove(partOfCommand);
             return command;
                 
         }

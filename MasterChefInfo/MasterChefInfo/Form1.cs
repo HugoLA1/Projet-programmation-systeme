@@ -18,17 +18,19 @@ namespace MasterChefInfo
         SpriteController mySpriteController;
         public SpriteView sprite;
 
-
-
-
-
         public Sprite waiterSprite;
+        public Point waiter1SpriteLastPos;
         public Sprite waiter2Sprite;
+        public Point waiter2SpriteLastPos;
         public Sprite waiter3Sprite;
+        public Point waiter3SpriteLastPos;
         public Sprite waiter4Sprite;
+        public Point waiter4SpriteLastPos;
 
         public Sprite squareSupervisorSprite;
+        public Point squareSupervisorSpriteLastPos;
         public Sprite squareSupervisor2Sprite;
+        public Point squareSupervisor2SpriteLastPos;
 
         public Form1(Model model)
         {
@@ -51,30 +53,37 @@ namespace MasterChefInfo
             Image W3 = Properties.Resources.perso4sprite;
             Image W4 = Properties.Resources.perso4sprite;
 
+            squareSupervisorSpriteLastPos = ConstantPosition.initialSquare1Supervisor;
+            squareSupervisor2SpriteLastPos = ConstantPosition.initialSquare2Supervisor;
+
+            waiter1SpriteLastPos = ConstantPosition.initialWaiter;
+            waiter2SpriteLastPos = ConstantPosition.initialWaiter;
+            waiter3SpriteLastPos = ConstantPosition.initialWaiter;
+            waiter4SpriteLastPos = ConstantPosition.initialWaiter;
 
             squareSupervisorSprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
-                SS, 16, 32, 200, 4);
-            squareSupervisorSprite.SetName("Chef de section");
+                SS, 16, 30, 200, 4);
+            squareSupervisorSprite.SetName("Chef de section 1");
 
             squareSupervisor2Sprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
-                SS1, 16, 32, 200, 4);
+                SS1, 16, 30, 200, 4);
             squareSupervisor2Sprite.SetName("Chef de section 2");
 
             waiterSprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
-                W1, 16, 32, 200, 4);
-            waiterSprite.SetName("Serveur");
+                W1, 16, 27, 200, 4);
+            waiterSprite.SetName("Serveur 1");
 
             waiter2Sprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
-                W2, 16, 32, 200, 4);
-            waiter2Sprite.SetName("Serveur");
+                W2, 16, 27, 200, 4);
+            waiter2Sprite.SetName("Serveur 2");
 
             waiter3Sprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
-                W3, 16, 32, 200, 4);
-            waiter3Sprite.SetName("Serveur");
+                W3, 16, 27, 200, 4);
+            waiter3Sprite.SetName("Serveur 3");
 
             waiter4Sprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
-                W4, 16, 32, 200, 4);
-            waiter4Sprite.SetName("Serveur");
+                W4, 16, 27, 200, 4);
+            waiter4Sprite.SetName("Serveur 4");
 
             // Maitre d'hôtel
             //sprite.maitreHotelSprite.AutomaticallyMoves = true;
@@ -195,7 +204,7 @@ namespace MasterChefInfo
             sprite.sectionChefSprite.MoveTo(ConstantPosition.sectionChef);
             sprite.sectionChefSprite.SetSize(new Size(16, 32));
             sprite.sectionChefSprite.MovementSpeed = 2;
-            sprite.IdleAnimation(sprite.sectionChefSprite, 16, 32);
+            sprite.IdleAnimation(sprite.sectionChefSprite, 16, 28);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -229,14 +238,6 @@ namespace MasterChefInfo
             //MessageBox.Show(name);
             InvalidOperationException e = null;
 
-            Image SS = Properties.Resources.perso5sprite;
-            Image SS1 = Properties.Resources.perso5sprite;
-
-            Image W1 = Properties.Resources.perso4sprite;
-            Image W2 = Properties.Resources.perso4sprite;
-            Image W3 = Properties.Resources.perso4sprite;
-            Image W4 = Properties.Resources.perso4sprite;
-
             switch (name)
             {
 
@@ -247,27 +248,23 @@ namespace MasterChefInfo
                             {
                             lock (waiterSprite)
                             {
-                                Point tempPoint = waiterSprite.GetSpriteBaseImageCenter();
-                                waiterSprite.Destroy();
+                                Sprite NewSprite = mySpriteController.DuplicateSprite("Serveur 1");
 
-                                waiterSprite = new Sprite(new Point(0, 0), mySpriteController, W1, 16, 32, 200, 4)
+                                NewSprite.PutBaseImageLocation(waiter1SpriteLastPos);
+                                NewSprite.MovementSpeed = 15;
+
+                                NewSprite.AutomaticallyMoves = true;
+                                NewSprite.MoveTo(track);
+                                while (!NewSprite.SpriteReachedEndPoint) { }
+
+                                NewSprite.Destroy();
+                                NewSprite = null;
+                                if (track.Count > 0)
                                 {
-                                    AutomaticallyMoves = false,
-                                    CannotMoveOutsideBox = true
-                                };
-                                waiterSprite.SetSpriteDirectionDegrees(-90);
-                                waiterSprite.PutBaseImageLocation(tempPoint);
-                                waiterSprite.MovementSpeed = 15;
-
-                                waiterSprite.AutomaticallyMoves = true;
-
-                                waiterSprite.MoveTo(track);
-
-
-
-                                while (!waiterSprite.SpriteReachedEndPoint) { }
-
-
+                                    int cpt = track.Count;
+                                    waiter1SpriteLastPos = track[cpt - 1];
+                                }
+                                
                             }
                                 e = null;
                             }
@@ -278,29 +275,28 @@ namespace MasterChefInfo
                         } while (e != null); 
                     break;
 
-                /*case "Waiter2":
+                case "Waiter2":
                     do
                     {
                         try
                         {
                             lock (waiter2Sprite)
                             {
-                                Point tempPoint = waiter2Sprite.GetSpriteBaseImageCenter();
-                                waiter2Sprite.Destroy();
+                                Sprite NewSprite = mySpriteController.DuplicateSprite("Serveur 2");
+                                NewSprite.PutBaseImageLocation(waiter2SpriteLastPos);
+                                NewSprite.MovementSpeed = 15;
 
-                                waiter2Sprite = new Sprite(new Point(0, 0), mySpriteController, W2, 16, 32, 200, 4)
+                                NewSprite.AutomaticallyMoves = true;
+                                NewSprite.MoveTo(track);
+                                while (!NewSprite.SpriteReachedEndPoint) { }
+
+                                NewSprite.Destroy();
+                                NewSprite = null;
+                                if (track.Count > 0)
                                 {
-                                    AutomaticallyMoves = false,
-                                    CannotMoveOutsideBox = true
-                                };
-                                waiter2Sprite.SetSpriteDirectionDegrees(-90);
-                                waiter2Sprite.PutBaseImageLocation(tempPoint);
-                                waiter2Sprite.MovementSpeed = 15;
-
-                                waiter2Sprite.AutomaticallyMoves = true;
-
-                                waiter2Sprite.MoveTo(track);
-                                while (!waiter2Sprite.SpriteReachedEndPoint) { }
+                                    int cpt = track.Count;
+                                    waiter2SpriteLastPos = track[cpt - 1];
+                                }
                             }
                             e = null;
                         }
@@ -318,22 +314,21 @@ namespace MasterChefInfo
                         {
                             lock (waiter3Sprite)
                             {
-                                Point tempPoint = waiter3Sprite.GetSpriteBaseImageCenter();
-                                waiter3Sprite.Destroy();
+                                Sprite NewSprite = mySpriteController.DuplicateSprite("Serveur 3");
+                                NewSprite.PutBaseImageLocation(waiter3SpriteLastPos);
+                                NewSprite.MovementSpeed = 15;
 
-                                waiter3Sprite = new Sprite(new Point(0, 0), mySpriteController, W3, 16, 32, 200, 4)
+                                NewSprite.AutomaticallyMoves = true;
+                                NewSprite.MoveTo(track);
+                                while (!NewSprite.SpriteReachedEndPoint) { }
+
+                                NewSprite.Destroy();
+                                NewSprite = null;
+                                if (track.Count > 0)
                                 {
-                                    AutomaticallyMoves = false,
-                                    CannotMoveOutsideBox = true
-                                };
-                                waiter3Sprite.SetSpriteDirectionDegrees(-90);
-                                waiter3Sprite.PutBaseImageLocation(tempPoint);
-                                waiter3Sprite.MovementSpeed = 15;
-
-                                waiter3Sprite.AutomaticallyMoves = true;
-
-                                waiter3Sprite.MoveTo(track);
-                                while (!waiter3Sprite.SpriteReachedEndPoint) { }
+                                    int cpt = track.Count;
+                                    waiter3SpriteLastPos = track[cpt - 1];
+                                }
                             }
                             e = null;
                         }
@@ -351,22 +346,22 @@ namespace MasterChefInfo
                         {
                             lock (waiter4Sprite)
                             {
-                                Point tempPoint = waiter4Sprite.GetSpriteBaseImageCenter();
-                                waiter4Sprite.Destroy();
+                                Sprite NewSprite = mySpriteController.DuplicateSprite("Serveur 4");
 
-                                waiter4Sprite = new Sprite(new Point(0, 0), mySpriteController, W4, 16, 32, 200, 4)
+                                NewSprite.PutBaseImageLocation(waiter4SpriteLastPos);
+                                NewSprite.MovementSpeed = 15;
+
+                                NewSprite.AutomaticallyMoves = true;
+                                NewSprite.MoveTo(track);
+                                while (!NewSprite.SpriteReachedEndPoint) { }
+
+                                NewSprite.Destroy();
+                                NewSprite = null;
+                                if (track.Count > 0)
                                 {
-                                    AutomaticallyMoves = false,
-                                    CannotMoveOutsideBox = true
-                                };
-                                waiter4Sprite.SetSpriteDirectionDegrees(-90);
-                                waiter4Sprite.PutBaseImageLocation(tempPoint);
-                                waiter4Sprite.MovementSpeed = 15;
-
-                                waiter4Sprite.AutomaticallyMoves = true;
-
-                                waiter4Sprite.MoveTo(track);
-                                while (!waiterSprite.SpriteReachedEndPoint) { }
+                                    int cpt = track.Count;
+                                    waiter4SpriteLastPos = track[cpt - 1];
+                                }
                             }
                             e = null;
                         }
@@ -375,7 +370,7 @@ namespace MasterChefInfo
                             e = ex;
                         }
                     } while (e != null);
-                    break;*/
+                    break;
 
                 case "SS1":
                     do
@@ -384,22 +379,24 @@ namespace MasterChefInfo
                         {
                             lock (squareSupervisorSprite)
                             {
-                                Point tempPoint = squareSupervisorSprite.GetSpriteBaseImageCenter();
-                                squareSupervisorSprite.Destroy();
+                                Sprite NewSprite = mySpriteController.DuplicateSprite("Chef de section 1");
 
-                                squareSupervisorSprite = new Sprite(new Point(0, 0), mySpriteController, SS, 16, 32, 200, 4)
+                                NewSprite.PutBaseImageLocation(squareSupervisorSpriteLastPos);
+                                NewSprite.MovementSpeed = 15;
+
+                                NewSprite.AutomaticallyMoves = true;
+                                NewSprite.MoveTo(track);
+
+                                while (!NewSprite.SpriteReachedEndPoint) { }
+
+                                NewSprite.Destroy();
+                                NewSprite = null;
+                                if (track.Count > 0)
                                 {
-                                    AutomaticallyMoves = false,
-                                    CannotMoveOutsideBox = true
-                                };
-                                squareSupervisorSprite.SetSpriteDirectionDegrees(-90);
-                                squareSupervisorSprite.PutBaseImageLocation(tempPoint);
-                                squareSupervisorSprite.MovementSpeed = 15;
+                                    int cpt = track.Count;
+                                    squareSupervisorSpriteLastPos = track[cpt - 1];
+                                }
 
-                                squareSupervisorSprite.AutomaticallyMoves = true;
-
-                                squareSupervisorSprite.MoveTo(track);
-                                while (!squareSupervisorSprite.SpriteReachedEndPoint) { }
                             }
                             e = null;
                         }
@@ -418,22 +415,23 @@ namespace MasterChefInfo
                         {
                             lock (squareSupervisor2Sprite)
                             {
-                                Point tempPoint = squareSupervisor2Sprite.GetSpriteBaseImageCenter();
-                                squareSupervisor2Sprite.Destroy();
 
-                                squareSupervisor2Sprite = new Sprite(new Point(0, 0), mySpriteController, SS1, 16, 32, 200, 4)
+                                Sprite NewSprite = mySpriteController.DuplicateSprite("Chef de section 2");
+
+                                NewSprite.PutBaseImageLocation(squareSupervisor2SpriteLastPos);
+                                NewSprite.MovementSpeed = 15;
+
+                                NewSprite.AutomaticallyMoves = true;
+                                NewSprite.MoveTo(track);
+                                while (!NewSprite.SpriteReachedEndPoint) { }
+
+                                NewSprite.Destroy();
+                                NewSprite = null;
+                                if (track.Count > 0)
                                 {
-                                    AutomaticallyMoves = false,
-                                    CannotMoveOutsideBox = true
+                                    int cpt = track.Count;
+                                    squareSupervisor2SpriteLastPos = track[cpt - 1];
                                 };
-                                squareSupervisor2Sprite.SetSpriteDirectionDegrees(-90);
-                                squareSupervisor2Sprite.PutBaseImageLocation(tempPoint);
-                                squareSupervisor2Sprite.MovementSpeed = 15;
-
-                                squareSupervisor2Sprite.AutomaticallyMoves = true;
-
-                                squareSupervisor2Sprite.MoveTo(track);
-                                while (!squareSupervisor2Sprite.SpriteReachedEndPoint) { }
                             }
                             e = null;
                         }
@@ -446,12 +444,6 @@ namespace MasterChefInfo
                     } while (e != null);
                     break;
             }
-            SS.Dispose();
-            SS1.Dispose();
-            W1.Dispose();
-            W2.Dispose();
-            W3.Dispose();
-            W4.Dispose();
 
         }
 

@@ -29,11 +29,8 @@ namespace MasterChefInfo
             DataTable temp = new DataTable();
             DataRow tempRow;
             MySqlCommand commandRequest = new MySqlCommand();
-            GroupClient groupClient = new GroupClient(randomNumber)
+            GroupClient groupClient = new GroupClient(randomNumber);
 
-            {
-                clientNumber = randomNumber
-            };
             for (int ctr = 0; ctr < randomNumber; ctr++)
             {
                 groupClient.clients[ctr] = new Client();

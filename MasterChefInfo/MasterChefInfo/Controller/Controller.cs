@@ -46,9 +46,6 @@ namespace MasterChefInfo
                     e = ex;
                 }
             } while (e != null);
-
-            
-
         }
 
         public void SetObserver()
