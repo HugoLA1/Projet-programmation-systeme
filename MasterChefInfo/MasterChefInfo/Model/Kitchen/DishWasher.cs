@@ -18,5 +18,10 @@ namespace MasterChefInfo
         {
 
         }
+
+        internal void NotifyObservers(DishWasher dishWasher)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

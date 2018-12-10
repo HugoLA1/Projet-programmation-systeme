@@ -398,6 +398,41 @@ namespace MasterChefInfo
                     } while (e != null);
                     break;
 
+                case "KitchenPorter":
+                    NewSprite = mySpriteController.DuplicateSprite("Serveur 4");
+
+                    NewSprite.PutBaseImageLocation(waiter4SpriteLastPos);
+                    NewSprite.MovementSpeed = 15;
+
+                    NewSprite.AutomaticallyMoves = true;
+                    NewSprite.MoveTo(track);
+                    while (!NewSprite.SpriteReachedEndPoint) { }
+
+                    Thread.Sleep(1000);
+                    do
+                    {
+                        try
+                        {
+                            lock (waiter4Sprite)
+                            {
+
+                                NewSprite.Destroy();
+                                NewSprite = null;
+                                if (track.Count > 0)
+                                {
+                                    int cpt = track.Count;
+                                    waiter4SpriteLastPos = track[cpt - 1];
+                                }
+                            }
+                            e = null;
+                        }
+                        catch (InvalidOperationException ex)
+                        {
+                            e = ex;
+                        }
+                    } while (e != null);
+                    break;
+
                 case "SS1":
                     NewSprite = mySpriteController.DuplicateSprite("Chef de rang 1");
 

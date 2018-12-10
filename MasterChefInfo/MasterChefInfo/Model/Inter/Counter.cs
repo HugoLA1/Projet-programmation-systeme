@@ -15,11 +15,13 @@ namespace MasterChefInfo
 
         public Point counterPoint { get; set; }
         public List<GroupCommand> waitingGroupCommand { get; set; }
+        public List<Ustensil> useUsentils { get; set; }
 
         public Counter()
         {
             counterPoint = new Point();
             waitingGroupCommand = new List<GroupCommand> { };
+            useUsentils = new List<Ustensil> { };
         }
     }
 }
