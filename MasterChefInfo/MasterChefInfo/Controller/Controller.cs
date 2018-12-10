@@ -34,8 +34,6 @@ namespace MasterChefInfo
 
             InvalidOperationException e = null;
 
-            do
-            {
                 try
                 {
                     Application.Run(form);
@@ -44,8 +42,8 @@ namespace MasterChefInfo
                 catch (InvalidOperationException ex)
                 {
                     e = ex;
+                Console.WriteLine(e);
                 }
-            } while (e != null);
         }
 
         public void SetObserver()
