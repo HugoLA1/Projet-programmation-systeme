@@ -41,12 +41,10 @@ namespace MasterChefInfo
         {
             while (Thread.CurrentThread.IsAlive)
             {
-                if (model.dinnerRoom.squares[0].lines[0].tables[0].groupClient != null)
+                if(model.dinnerRoom.squares[0].lines[0].tables[0].groupClient != null)
                 {
-                    Console.WriteLine(model.dinnerRoom.squares[0].lines[0].tables[0].groupClient.dishState);
-
+                    Console.WriteLine(Convert.ToString(model.dinnerRoom.squares[0].lines[0].tables[0].groupClient.dishState));
                 }
-
                 bool getOutOfLoop = false;
                 foreach (Square square in model.dinnerRoom.squares)
                 {
@@ -62,39 +60,42 @@ namespace MasterChefInfo
                                     {
                                         case DishState.WaitMenu:
                                             square.squareSupervisor.isAvailable = false;
-                                            ThreadPool.QueueUserWorkItem(
+                                            /*ThreadPool.QueueUserWorkItem(
                                               new WaitCallback(delegate (object state)
-                                              { SearchMenu(table, square.squareSupervisor); }), null);
-                                            //Task threadSM = new Task(() => SearchMenu(table, square.squareSupervisor));
+                                              { SearchMenu(table, square.squareSupervisor); }), null);*/
+                                            Task threadSM = new Task(() => SearchMenu(table, square.squareSupervisor));
                                             getOutOfLoop = true;
                                             //threadSM.Name = "threadSM";
-                                            //threadSM.Start();
+                                            threadSM.Start();
                                             break;
                                         case DishState.Choosed:
                                             square.squareSupervisor.isAvailable = false;
-                                            Thread threadCM = new Thread(() => CollectMenu(table, square.squareSupervisor));
+                                            /*ThreadPool.QueueUserWorkItem(
+                                              new WaitCallback(delegate (object state)
+                                              { CollectMenu(table, square.squareSupervisor); }), null);*/
+                                            Task threadCM = new Task(() => CollectMenu(table, square.squareSupervisor));
                                             getOutOfLoop = true;
                                             threadCM.Start();
                                             break;
                                         case DishState.WaitToBePlaced:
                                             square.squareSupervisor.isAvailable = false;
-                                            ThreadPool.QueueUserWorkItem(
+                                            /*ThreadPool.QueueUserWorkItem(
                                               new WaitCallback(delegate (object state)
-                                              { EscortClient(table, square.squareSupervisor); }), null);                                           
-                                            //Task threadEC = new Task(() => EscortClient(table,square.squareSupervisor));
+                                              { EscortClient(table, square.squareSupervisor); }), null);    */                                       
+                                            Task threadEC = new Task(() => EscortClient(table,square.squareSupervisor));
                                             getOutOfLoop = true;
                                             //threadEC.Name = "threadEC";
-                                            //threadEC.Start();
+                                            threadEC.Start();
                                             break;
                                     }
                                 }
                                 if (getOutOfLoop) break;
                             }
                             if (getOutOfLoop) break;
-
                         }
                         if (getOutOfLoop) break;
                     }
+                    if (getOutOfLoop) break;
                 }
                 Thread.Sleep(100);
             }
@@ -163,12 +164,15 @@ namespace MasterChefInfo
         /// </summary>
         public void GetCommande(Table table, SquareSupervisor squareSupervisor)
         {
-            model.counter.waitingGroupCommand.Add(new GroupCommand(table.groupClient.clientNumber, table));
+            GroupCommand groupCommandTemp = new GroupCommand(table);
+
             foreach (Client client in table.groupClient.clients)
             {
                 model.kitchen.cookingRoom.masterChef.commandsToDo.Add(client.appetizer);
             }
             Thread.Sleep(2000);
+
+            model.counter.waitingGroupCommand.Add(groupCommandTemp);
             MoveToWelcome(table, squareSupervisor);
             squareSupervisor.isAvailable = true;
         }

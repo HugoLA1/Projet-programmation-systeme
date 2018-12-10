@@ -48,15 +48,17 @@ namespace MasterChefInfo
                         if (getOutOfLoop) break;
                     }
                 }
-                Thread.Sleep(100);
+                Thread.Sleep(1000);
             }
         }
 
         public void GiveOrder(SectionChef sectionChef, Command command)
         {
+
+
             Command newCommand = sectionChefController.MakePartOfCommand(sectionChef, command);
 
-            if(newCommand.recipe.Count == 1)
+            if(newCommand.recipe[0] == "Servir")
             {
                 foreach(GroupCommand groupCommand in model.counter.waitingGroupCommand)
                 {
