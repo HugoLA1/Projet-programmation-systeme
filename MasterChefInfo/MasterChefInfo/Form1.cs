@@ -38,6 +38,7 @@ namespace MasterChefInfo
 
         public Sprite maitreHotelSprite;
         public Sprite masterChefSprite;
+        public Sprite kitchenPorterSprite;
 
         public Image MH;
         public Image MC;
@@ -49,6 +50,7 @@ namespace MasterChefInfo
         public Image W4;
         public Image SC1;
         public Image SC2;
+        public Image KP;
 
         public Form1(Model model)
         {
@@ -77,6 +79,8 @@ namespace MasterChefInfo
 
             SC1 = Properties.Resources.perso11sprite;
             SC2 = Properties.Resources.perso11sprite;
+
+            KP = Properties.Resources.perso7sprite;
 
             squareSupervisor1SpriteLastPos = ConstantPosition.initialSquare1Supervisor;
             squareSupervisor2SpriteLastPos = ConstantPosition.initialSquare2Supervisor;
@@ -169,6 +173,14 @@ namespace MasterChefInfo
             sectionChef2Sprite.AddAnimation(new Point(0, 96), SC2, 16, 32, 200, 4);
             sectionChef2Sprite.AddAnimation(new Point(0, 32), SC2, 16, 32, 200, 4);
 
+            kitchenPorterSprite = new Sprite(new Point(0, 0), mySpriteController,
+                KP, 16, 32, 200, 1);
+            kitchenPorterSprite.SetName("Plongeur");
+            kitchenPorterSprite.AddAnimation(new Point(0, 64), KP, 16, 32, 200, 4);
+            kitchenPorterSprite.AddAnimation(new Point(0, 0), KP, 16, 32, 200, 4);
+            kitchenPorterSprite.AddAnimation(new Point(0, 96), KP, 16, 32, 200, 4);
+            kitchenPorterSprite.AddAnimation(new Point(0, 32), KP, 16, 32, 200, 4);
+
             // Maitre d'hôtel
             maitreHotelSprite.CannotMoveOutsideBox = true;
             maitreHotelSprite.SetSpriteDirectionDegrees(180);
@@ -241,17 +253,15 @@ namespace MasterChefInfo
             masterChefSprite.SetSize(new Size(16, 32));
             masterChefSprite.MovementSpeed = 5;
 
-            /*
             //Plogneur
-            //sprite.kitchenPorterSprite.AutomaticallyMoves = true;
             kitchenPorterSprite.CannotMoveOutsideBox = true;
             kitchenPorterSprite.SetSpriteDirectionDegrees(-90);
             kitchenPorterSprite.PutBaseImageLocation(ConstantPosition.kitchenPorter);
-            //sprite.kitchenPorterSprite.MoveTo(ConstantPosition.kitchenPorter);
+            kitchenPorterSprite.MoveTo(ConstantPosition.kitchenPorter);
             kitchenPorterSprite.SetSize(new Size(16, 32));
             kitchenPorterSprite.MovementSpeed = 5;
 
-            //// Le commis
+            // Le commis
             //sprite.kitchenAssistantSprite.AutomaticallyMoves = true;
             //sprite.kitchenAssistantSprite.CannotMoveOutsideBox = true;
             //sprite.kitchenAssistantSprite.SetSpriteDirectionDegrees(-90);
@@ -259,8 +269,6 @@ namespace MasterChefInfo
             //sprite.kitchenAssistantSprite.SetSize(new Size(16, 32));
             //sprite.kitchenAssistantSprite.MovementSpeed = 2;
 
-            
-            */
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
