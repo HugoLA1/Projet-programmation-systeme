@@ -81,42 +81,82 @@ namespace MasterChefInfo
             maitreHotelSprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
                 MH, 16, 32, 200, 4);
             maitreHotelSprite.SetName("Maître d'hôtel");
+            maitreHotelSprite.AddAnimation(new Point(0, 64), MH, 16, 32, 200, 4);
+            maitreHotelSprite.AddAnimation(new Point(0, 0), MH, 16, 32, 200, 4);
+            maitreHotelSprite.AddAnimation(new Point(0, 96), MH, 16, 32, 200, 4);
+            maitreHotelSprite.AddAnimation(new Point(0, 32), MH, 16, 32, 200, 4);
 
             squareSupervisor1Sprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
                 SS1, 16, 32, 200, 4);
             squareSupervisor1Sprite.SetName("Chef de rang 1");
+            squareSupervisor1Sprite.AddAnimation(new Point(0, 64), SS1, 16, 32, 200, 4);
+            squareSupervisor1Sprite.AddAnimation(new Point(0, 0), SS1, 16, 32, 200, 4);
+            squareSupervisor1Sprite.AddAnimation(new Point(0, 96), SS1, 16, 32, 200, 4);
+            squareSupervisor1Sprite.AddAnimation(new Point(0, 32), SS1, 16, 32, 200, 4);
 
             squareSupervisor2Sprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
                 SS2, 16, 32, 200, 4);
             squareSupervisor2Sprite.SetName("Chef de rang 2");
+            squareSupervisor2Sprite.AddAnimation(new Point(0, 64), SS2, 16, 32, 200, 4);
+            squareSupervisor2Sprite.AddAnimation(new Point(0, 0), SS2, 16, 32, 200, 4);
+            squareSupervisor2Sprite.AddAnimation(new Point(0, 96), SS2, 16, 32, 200, 4);
+            squareSupervisor2Sprite.AddAnimation(new Point(0, 32), SS2, 16, 32, 200, 4);
 
             waiterSprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
                 W1, 16, 32, 200, 4);
             waiterSprite.SetName("Serveur 1");
+            waiterSprite.AddAnimation(new Point(0, 64), W1, 16, 32, 200, 4);
+            waiterSprite.AddAnimation(new Point(0, 0), W1, 16, 32, 200, 4);
+            waiterSprite.AddAnimation(new Point(0, 96), W1, 16, 32, 200, 4);
+            waiterSprite.AddAnimation(new Point(0, 32), W1, 16, 32, 200, 4);
 
             waiter2Sprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
                 W2, 16, 32, 200, 4);
             waiter2Sprite.SetName("Serveur 2");
+            waiter2Sprite.AddAnimation(new Point(0, 64), W2, 16, 32, 200, 4);
+            waiter2Sprite.AddAnimation(new Point(0, 0), W2, 16, 32, 200, 4);
+            waiter2Sprite.AddAnimation(new Point(0, 96), W2, 16, 32, 200, 4);
+            waiter2Sprite.AddAnimation(new Point(0, 32), W2, 16, 32, 200, 4);
 
             waiter3Sprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
                 W3, 16, 32, 200, 4);
             waiter3Sprite.SetName("Serveur 3");
+            waiter3Sprite.AddAnimation(new Point(0, 64), W3, 16, 32, 200, 4);
+            waiter3Sprite.AddAnimation(new Point(0, 0), W3, 16, 32, 200, 4);
+            waiter3Sprite.AddAnimation(new Point(0, 96), W3, 16, 32, 200, 4);
+            waiter3Sprite.AddAnimation(new Point(0, 32), W3, 16, 32, 200, 4);
 
             waiter4Sprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
                 W4, 16, 32, 200, 4);
             waiter4Sprite.SetName("Serveur 4");
+            waiter4Sprite.AddAnimation(new Point(0, 64), W4, 16, 32, 200, 4);
+            waiter4Sprite.AddAnimation(new Point(0, 0), W4, 16, 32, 200, 4);
+            waiter4Sprite.AddAnimation(new Point(0, 96), W4, 16, 32, 200, 4);
+            waiter4Sprite.AddAnimation(new Point(0, 32), W4, 16, 32, 200, 4);
 
             masterChefSprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
                 MC, 16, 32, 200, 4);
             masterChefSprite.SetName("Chef de cuisine");
+            masterChefSprite.AddAnimation(new Point(0, 64), MC, 16, 32, 200, 4);
+            masterChefSprite.AddAnimation(new Point(0, 0), MC, 16, 32, 200, 4);
+            masterChefSprite.AddAnimation(new Point(0, 96), MC, 16, 32, 200, 4);
+            masterChefSprite.AddAnimation(new Point(0, 32), MC, 16, 32, 200, 4);
 
             sectionChef1Sprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
-                SC1, 16, 32, 500, 3);
+                SC1, 16, 32, 200, 4);
             sectionChef1Sprite.SetName("Chef de section 1");
+            sectionChef1Sprite.AddAnimation(new Point(0, 64), SC1, 16, 32, 200, 4);
+            sectionChef1Sprite.AddAnimation(new Point(0, 0), SC1, 16, 32, 200, 4);
+            sectionChef1Sprite.AddAnimation(new Point(0, 96), SC1, 16, 32, 200, 4);
+            sectionChef1Sprite.AddAnimation(new Point(0, 32), SC1, 16, 32, 200, 4);
 
             sectionChef2Sprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
-                SC2, 16, 32, 500, 3);
+                SC2, 16, 32, 200, 4);
             sectionChef2Sprite.SetName("Chef de section 2");
+            sectionChef2Sprite.AddAnimation(new Point(0, 64), SC2, 16, 32, 200, 4);
+            sectionChef2Sprite.AddAnimation(new Point(0, 0), SC2, 16, 32, 200, 4);
+            sectionChef2Sprite.AddAnimation(new Point(0, 96), SC2, 16, 32, 200, 4);
+            sectionChef2Sprite.AddAnimation(new Point(0, 32), SC2, 16, 32, 200, 4);
 
             // Maitre d'hôtel
             maitreHotelSprite.CannotMoveOutsideBox = true;
@@ -199,7 +239,6 @@ namespace MasterChefInfo
             //sprite.kitchenPorterSprite.MoveTo(ConstantPosition.kitchenPorter);
             kitchenPorterSprite.SetSize(new Size(16, 32));
             kitchenPorterSprite.MovementSpeed = 5;
-            //sprite.IdleAnimation(sprite.kitchenPorterSprite, 16, 32);
 
             //// Le commis
             //sprite.kitchenAssistantSprite.AutomaticallyMoves = true;
@@ -208,7 +247,6 @@ namespace MasterChefInfo
             //sprite.kitchenAssistantSprite.PutBaseImageLocation(ConstantPosition.commis);
             //sprite.kitchenAssistantSprite.SetSize(new Size(16, 32));
             //sprite.kitchenAssistantSprite.MovementSpeed = 2;
-            //sprite.IdleAnimation(sprite.kitchenAssistantSprite, 16, 32);
 
             
             */
