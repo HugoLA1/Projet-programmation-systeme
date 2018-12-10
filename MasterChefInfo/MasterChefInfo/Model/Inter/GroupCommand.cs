@@ -15,10 +15,10 @@ namespace MasterChefInfo
         public int nbCommand { get; set; }
         public Table table { get; set; }
 
-        public GroupCommand(int nbCommand, Table table)
+        public GroupCommand(Table table)
         {
-            this.nbCommand = nbCommand;
-            commands = new List<Command> { };
+            nbCommand = table.groupClient.clientNumber;
+            commands = new List<Command>();
             this.table = table;
         }
     }

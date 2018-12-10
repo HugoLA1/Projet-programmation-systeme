@@ -36,12 +36,12 @@ namespace MasterChefInfo
         /// </summary>
         public void ScenarioLoop()
         {
-            while (Thread.CurrentThread.IsAlive)
-            {
-                int randomNumber = rnd.Next(0, 5);
-                Thread.Sleep(randomNumber * 1000);
+            //while (Thread.CurrentThread.IsAlive)
+            //{
+                //int randomNumber = rnd.Next(0, 5);
+                //Thread.Sleep(randomNumber * 1000);
                 NewGroupClient();
-            }
+            //}
         }
 
     }

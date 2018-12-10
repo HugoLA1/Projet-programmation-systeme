@@ -41,28 +41,32 @@ namespace MasterChefInfo
                             sectionChef.isAvailable = false;
                             Command tempCommand = model.kitchen.cookingRoom.masterChef.commandsToDo[0];
                             model.kitchen.cookingRoom.masterChef.commandsToDo.Remove(tempCommand);
-                            Thread threadGO = new Thread(() => GiveOrder(sectionChef, tempCommand));
+                            Task threadGO = new Task(() => GiveOrder(sectionChef, tempCommand));
                             getOutOfLoop = true;
                             threadGO.Start();
                         }
                         if (getOutOfLoop) break;
                     }
                 }
-                Thread.Sleep(100);
+                Thread.Sleep(1000);
             }
         }
 
         public void GiveOrder(SectionChef sectionChef, Command command)
         {
+
+
             Command newCommand = sectionChefController.MakePartOfCommand(sectionChef, command);
 
-            if(newCommand.recipe.Count == 1)
+            if(newCommand.recipe.Count < 1)
             {
                 foreach(GroupCommand groupCommand in model.counter.waitingGroupCommand)
                 {
-                    if (groupCommand.table == command.table)
+                    if (groupCommand.table.places == newCommand.table.places)
                     {
-                        groupCommand.commands.Add(command);
+                        groupCommand.commands.Add(newCommand);
+                        Console.WriteLine(groupCommand.nbCommand);
+                        Console.WriteLine(groupCommand.commands.Count);
                     }
                 }
             }else
@@ -70,6 +74,8 @@ namespace MasterChefInfo
                 model.kitchen.cookingRoom.masterChef.commandsToDo.Add(newCommand);
             }
             sectionChef.isAvailable = true;
+
+
         }
     }
 }

@@ -24,20 +24,29 @@ namespace MasterChefInfo
             Console.WriteLine(command.name);
             Console.WriteLine(partOfCommand);
 
+
             switch (partOfCommand)
             {
                 case "Ajouter":
                     MoveToWorkSurface(sectionChef);
+                    command.recipe.Remove(partOfCommand);
                     break;
                 case "Four":
                     MoveToBakery(sectionChef);
+                    command.recipe.Remove(partOfCommand);
                     break;
                 case "Mélanger":
                     MoveToStorageRoom(sectionChef);
+                    command.recipe.Remove(partOfCommand);
+                    break;
+                case "Servir":
+                    command.recipe.Remove(partOfCommand);
+                    break;
+                default:
+                    command.recipe.Remove(partOfCommand);
                     break;
             }
 
-            command.recipe.Remove(partOfCommand);
             return command;
                 
         }

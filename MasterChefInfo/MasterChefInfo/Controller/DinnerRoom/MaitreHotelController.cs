@@ -75,7 +75,12 @@ namespace MasterChefInfo
         /// </summary>
         public void AssignToTable(GroupClient groupClient)
         {
-            bool getOutOfLoop = false;
+
+            model.dinnerRoom.waitingGroupClients.Remove(groupClient);
+            groupClient.dishState = DishState.WaitToBePlaced;
+            model.dinnerRoom.squares[0].lines[0].tables[0].groupClient = groupClient;
+
+            /*bool getOutOfLoop = false;
             for (int s = 0; s < model.dinnerRoom.squares.Count; s++)
             {
                 for (int l = 0; l < model.dinnerRoom.squares[s].lines.Count; l++)
@@ -96,7 +101,7 @@ namespace MasterChefInfo
                     if (getOutOfLoop) break;
                 }
                 if (getOutOfLoop) break;
-            }
+            }*/
         }
     }
 }
