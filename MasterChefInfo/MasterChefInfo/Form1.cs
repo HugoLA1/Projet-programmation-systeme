@@ -431,8 +431,16 @@ namespace MasterChefInfo
                     } while (e != null);
                     break;
             }
-
         }
 
+        public void Update(int moneytotal)
+        {
+            money.Text = moneytotal.ToString();
+        }
+
+        private void money_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

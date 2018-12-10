@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -60,6 +61,7 @@ namespace MasterChefInfo
                             {
                                 money += model.dinnerRoom.squares[s].lines[l].tables[t].groupClient.finalPrice;
                                 model.dinnerRoom.squares[s].lines[l].tables[t].groupClient = null;
+                                model.dinnerRoom.maitreHotel.NotifyObservers(money);
                             }
                         }
                     }

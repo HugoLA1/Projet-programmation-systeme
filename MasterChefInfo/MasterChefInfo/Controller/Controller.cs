@@ -59,6 +59,7 @@ namespace MasterChefInfo
 
                 square.squareSupervisor.RegisterObserver(form);
             }
+            model.dinnerRoom.maitreHotel.RegisterObserver(form);
         }
     }
 

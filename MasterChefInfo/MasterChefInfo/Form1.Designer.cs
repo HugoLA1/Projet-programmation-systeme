@@ -30,6 +30,7 @@
         {
             this.MainDrawingArea = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.money = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MainDrawingArea)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,11 +54,22 @@
             this.label1.Text = "label1";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // money
+            // 
+            this.money.AutoSize = true;
+            this.money.Location = new System.Drawing.Point(179, 66);
+            this.money.Name = "money";
+            this.money.Size = new System.Drawing.Size(39, 13);
+            this.money.TabIndex = 2;
+            this.money.Text = "Money";
+            this.money.Click += new System.EventHandler(this.money_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1392, 507);
+            this.ClientSize = new System.Drawing.Size(1370, 507);
+            this.Controls.Add(this.money);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.MainDrawingArea);
             this.Name = "Form1";
@@ -74,6 +86,7 @@
 
         public System.Windows.Forms.PictureBox MainDrawingArea;
         public System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label money;
     }
 }
 

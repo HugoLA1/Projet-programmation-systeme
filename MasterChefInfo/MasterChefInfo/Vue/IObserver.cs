@@ -13,5 +13,6 @@ namespace MasterChefInfo
     interface IObserver
     {
         void Update(String name,List<Point> track);
+        void Update(int money);
     }
 }
