@@ -60,6 +60,7 @@ namespace MasterChefInfo
                                         switch (table.groupClient.dishState)
                                         {
                                             case DishState.WaitBreadAndWater:
+                                                Console.WriteLine("Apporter le pain");
                                                 waiter.isAvailable = false;
                                                 Task threadBAWa = new Task(() => PutBreadAndWater(table, waiter));
                                                 getOutOfLoop = true;
@@ -90,14 +91,9 @@ namespace MasterChefInfo
                                             case DishState.WaitGetApetizer:
                                                 foreach (GroupCommand groupCommand in model.counter.waitingGroupCommand)
                                                 {
-                                                    /*if (groupCommand.table == table)
-                                                    {
-                                                        Console.WriteLine(groupCommand.nbCommand);
-                                                        Console.WriteLine(groupCommand.commands.Count);
-                                                    }*/
-                                                     
                                                     if ((groupCommand.table == table) && (groupCommand.nbCommand == groupCommand.commands.Count))
                                                     {
+                                                        Console.WriteLine("Apporter entrée");
                                                         waiter.isAvailable = false;
                                                         Task threadSA = new Task(() => ServeApetizer(table, waiter, groupCommand));
                                                         getOutOfLoop = true;
@@ -122,7 +118,6 @@ namespace MasterChefInfo
                                             case DishState.WaitGetDesert:
                                                 foreach (GroupCommand groupCommand in model.counter.waitingGroupCommand)
                                                 {
-                                                    
                                                     if ((groupCommand.table == table) && (groupCommand.nbCommand == groupCommand.commands.Count))
                                                     {
                                                         waiter.isAvailable = false;
@@ -162,7 +157,6 @@ namespace MasterChefInfo
             {
                 table.groupClient.commands.Add(command);
             }
-            Thread.Sleep(5000);
             MoveToCounter(table, waiter);
             waiter.isAvailable = true;
         }
@@ -197,9 +191,6 @@ namespace MasterChefInfo
             model.counter.waitingGroupCommand.Remove(groupCommand);
 
             MoveToTable(table, waiter);
-
-            Thread.Sleep(10000);
-
             table.groupClient.dishState = DishState.EatingApetizer;
 
             groupClientController.ThreadEatApetizer(table.groupClient);
@@ -209,7 +200,6 @@ namespace MasterChefInfo
             }
 
             MoveToCounter(table, waiter);
-            Thread.Sleep(5000);
             waiter.isAvailable = true;
         }
 
@@ -234,8 +224,8 @@ namespace MasterChefInfo
         /// </summary>
         public void PutBreadAndWater(Table table, Waiter waiter)
         {
-            MoveToTable(table, waiter);
             table.groupClient.dishState = DishState.WaitGetApetizer;
+            MoveToTable(table, waiter);
             //MessageBox.Show("WaitGetApetizer");
             if (table.groupClient.clientNumber > 5)
             {
@@ -276,10 +266,14 @@ namespace MasterChefInfo
             foreach (Command command in table.groupClient.commands)
             {
                 table.groupClient.commands.Remove(command);
-                foreach (Ustensil ustensil in command.ustensils)
+                if(command.ustensils != null)
                 {
-                    model.kitchen.cleanningRoom.dirtyUstensil.Add(ustensil);
+                    foreach (Ustensil ustensil in command.ustensils)
+                    {
+                        model.kitchen.cleanningRoom.dirtyUstensil.Add(ustensil);
+                    }
                 }
+                
             }
 
             model.counter.waitingGroupCommand.Add(new GroupCommand(table));

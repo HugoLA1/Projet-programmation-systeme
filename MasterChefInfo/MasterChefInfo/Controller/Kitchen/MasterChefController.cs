@@ -65,8 +65,8 @@ namespace MasterChefInfo
                     if (groupCommand.table.places == newCommand.table.places)
                     {
                         groupCommand.commands.Add(newCommand);
-                        Console.WriteLine(groupCommand.nbCommand);
-                        Console.WriteLine(groupCommand.commands.Count);
+                        /*Console.WriteLine(groupCommand.nbCommand);
+                        Console.WriteLine(groupCommand.commands.Count);*/
                     }
                 }
             }else

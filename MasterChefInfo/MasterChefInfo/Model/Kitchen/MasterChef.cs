@@ -21,8 +21,8 @@ namespace MasterChefInfo
             sectionChefs = new List<SectionChef> { };
             commandsToDo = new List<Command> { };
 
-            sectionChefs.Add(new SectionChef());
-            sectionChefs.Add(new SectionChef());
+            sectionChefs.Add(new SectionChef(1));
+            sectionChefs.Add(new SectionChef(2));
         }
 
     }

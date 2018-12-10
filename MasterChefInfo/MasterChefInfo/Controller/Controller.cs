@@ -59,6 +59,12 @@ namespace MasterChefInfo
 
                 square.squareSupervisor.RegisterObserver(form);
             }
+
+            foreach (SectionChef sectionChef in model.kitchen.cookingRoom.masterChef.sectionChefs)
+            {
+                sectionChef.RegisterObserver(form);
+            }
+
             model.dinnerRoom.maitreHotel.RegisterObserver(form);
         }
     }
