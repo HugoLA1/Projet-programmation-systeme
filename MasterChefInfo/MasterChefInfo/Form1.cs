@@ -53,27 +53,27 @@ namespace MasterChefInfo
 
 
             squareSupervisorSprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
-                SS, 16, 30, 200, 4);
+                SS, 16, 32, 200, 4);
             squareSupervisorSprite.SetName("Chef de section");
 
             squareSupervisor2Sprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
-                SS1, 16, 30, 200, 4);
+                SS1, 16, 32, 200, 4);
             squareSupervisor2Sprite.SetName("Chef de section 2");
 
             waiterSprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
-                W1, 16, 27, 200, 4);
+                W1, 16, 32, 200, 4);
             waiterSprite.SetName("Serveur");
 
             waiter2Sprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
-                W2, 16, 27, 200, 4);
+                W2, 16, 32, 200, 4);
             waiter2Sprite.SetName("Serveur");
 
             waiter3Sprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
-                W3, 16, 27, 200, 4);
+                W3, 16, 32, 200, 4);
             waiter3Sprite.SetName("Serveur");
 
             waiter4Sprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
-                W4, 16, 27, 200, 4);
+                W4, 16, 32, 200, 4);
             waiter4Sprite.SetName("Serveur");
 
             // Maitre d'hôtel
@@ -195,7 +195,7 @@ namespace MasterChefInfo
             sprite.sectionChefSprite.MoveTo(ConstantPosition.sectionChef);
             sprite.sectionChefSprite.SetSize(new Size(16, 32));
             sprite.sectionChefSprite.MovementSpeed = 2;
-            sprite.IdleAnimation(sprite.sectionChefSprite, 16, 28);
+            sprite.IdleAnimation(sprite.sectionChefSprite, 16, 32);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -250,7 +250,7 @@ namespace MasterChefInfo
                                 Point tempPoint = waiterSprite.GetSpriteBaseImageCenter();
                                 waiterSprite.Destroy();
 
-                                waiterSprite = new Sprite(new Point(0, 0), mySpriteController, W1, 16, 27, 200, 4)
+                                waiterSprite = new Sprite(new Point(0, 0), mySpriteController, W1, 16, 32, 200, 4)
                                 {
                                     AutomaticallyMoves = false,
                                     CannotMoveOutsideBox = true
@@ -288,7 +288,7 @@ namespace MasterChefInfo
                                 Point tempPoint = waiter2Sprite.GetSpriteBaseImageCenter();
                                 waiter2Sprite.Destroy();
 
-                                waiter2Sprite = new Sprite(new Point(0, 0), mySpriteController, W2, 16, 27, 200, 4)
+                                waiter2Sprite = new Sprite(new Point(0, 0), mySpriteController, W2, 16, 32, 200, 4)
                                 {
                                     AutomaticallyMoves = false,
                                     CannotMoveOutsideBox = true
@@ -321,7 +321,7 @@ namespace MasterChefInfo
                                 Point tempPoint = waiter3Sprite.GetSpriteBaseImageCenter();
                                 waiter3Sprite.Destroy();
 
-                                waiter3Sprite = new Sprite(new Point(0, 0), mySpriteController, W3, 16, 27, 200, 4)
+                                waiter3Sprite = new Sprite(new Point(0, 0), mySpriteController, W3, 16, 32, 200, 4)
                                 {
                                     AutomaticallyMoves = false,
                                     CannotMoveOutsideBox = true
@@ -354,7 +354,7 @@ namespace MasterChefInfo
                                 Point tempPoint = waiter4Sprite.GetSpriteBaseImageCenter();
                                 waiter4Sprite.Destroy();
 
-                                waiter4Sprite = new Sprite(new Point(0, 0), mySpriteController, W4, 16, 27, 200, 4)
+                                waiter4Sprite = new Sprite(new Point(0, 0), mySpriteController, W4, 16, 32, 200, 4)
                                 {
                                     AutomaticallyMoves = false,
                                     CannotMoveOutsideBox = true
@@ -387,7 +387,7 @@ namespace MasterChefInfo
                                 Point tempPoint = squareSupervisorSprite.GetSpriteBaseImageCenter();
                                 squareSupervisorSprite.Destroy();
 
-                                squareSupervisorSprite = new Sprite(new Point(0, 0), mySpriteController, SS, 16, 27, 200, 4)
+                                squareSupervisorSprite = new Sprite(new Point(0, 0), mySpriteController, SS, 16, 32, 200, 4)
                                 {
                                     AutomaticallyMoves = false,
                                     CannotMoveOutsideBox = true
@@ -421,7 +421,7 @@ namespace MasterChefInfo
                                 Point tempPoint = squareSupervisor2Sprite.GetSpriteBaseImageCenter();
                                 squareSupervisor2Sprite.Destroy();
 
-                                squareSupervisor2Sprite = new Sprite(new Point(0, 0), mySpriteController, SS1, 16, 27, 200, 4)
+                                squareSupervisor2Sprite = new Sprite(new Point(0, 0), mySpriteController, SS1, 16, 32, 200, 4)
                                 {
                                     AutomaticallyMoves = false,
                                     CannotMoveOutsideBox = true
