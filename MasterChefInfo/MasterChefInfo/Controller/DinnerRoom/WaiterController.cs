@@ -47,8 +47,6 @@ namespace MasterChefInfo
                 bool getOutOfLoop = false;
                 foreach(Square square in model.dinnerRoom.squares)
                 {
-
-
                     foreach (Waiter waiter in square.waiters)
                     {
                         if (waiter.isAvailable)
@@ -92,11 +90,11 @@ namespace MasterChefInfo
                                             case DishState.WaitGetApetizer:
                                                 foreach (GroupCommand groupCommand in model.counter.waitingGroupCommand)
                                                 {
-                                                    if (groupCommand.table == table)
+                                                    /*if (groupCommand.table == table)
                                                     {
                                                         Console.WriteLine(groupCommand.nbCommand);
                                                         Console.WriteLine(groupCommand.commands.Count);
-                                                    }
+                                                    }*/
                                                      
                                                     if ((groupCommand.table == table) && (groupCommand.nbCommand == groupCommand.commands.Count))
                                                     {
@@ -182,6 +180,7 @@ namespace MasterChefInfo
             groupClientController.ThreadEatDish(table.groupClient);
             foreach (Command command in groupCommand.commands)
             {
+
                 table.groupClient.commands.Add(command);
             }
             Thread.Sleep(5000);
@@ -290,9 +289,11 @@ namespace MasterChefInfo
                 switch (table.groupClient.dishState)
                 {
                     case DishState.WaitGetDish:
+                        client.dish.table = table;
                         model.kitchen.cookingRoom.masterChef.commandsToDo.Add(client.dish);
                         break;
                     case DishState.WaitGetDesert:
+                        client.desert.table = table;
                         model.kitchen.cookingRoom.masterChef.commandsToDo.Add(client.desert);
                         break;
                 }

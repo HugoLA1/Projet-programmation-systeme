@@ -24,6 +24,7 @@ namespace MasterChefInfo
             Console.WriteLine(command.name);
             Console.WriteLine(partOfCommand);
 
+
             switch (partOfCommand)
             {
                 case "Ajouter":
@@ -36,6 +37,12 @@ namespace MasterChefInfo
                     break;
                 case "Mélanger":
                     MoveToStorageRoom(sectionChef);
+                    command.recipe.Remove(partOfCommand);
+                    break;
+                case "Servir":
+                    command.recipe.Remove(partOfCommand);
+                    break;
+                default:
                     command.recipe.Remove(partOfCommand);
                     break;
             }
