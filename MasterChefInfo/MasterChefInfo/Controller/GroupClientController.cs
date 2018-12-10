@@ -41,14 +41,14 @@ namespace MasterChefInfo
         {
             Thread.Sleep(second * 1000);
             groupClient.dishState = DishState.FinishedApetizer;
-            MessageBox.Show("FinishedApetizer");
+            //MessageBox.Show("FinishedApetizer");
         }
 
         public void EatDish(int second, GroupClient groupClient)
         {
             Thread.Sleep(second * 1000);
             groupClient.dishState = DishState.FinishedDish;
-            MessageBox.Show("FinishedDish");
+            //MessageBox.Show("FinishedDish");
 
         }
 
@@ -56,7 +56,7 @@ namespace MasterChefInfo
         {
             Thread.Sleep(second * 1000);
             groupClient.dishState = DishState.FinishedDesert;
-            MessageBox.Show("FinishedDesert");
+            //MessageBox.Show("FinishedDesert");
 
         }
 
@@ -64,7 +64,7 @@ namespace MasterChefInfo
         {
             Thread.Sleep(second * 1000);
             groupClient.dishState = DishState.Choosed;
-            MessageBox.Show("Choosed");
+            //MessageBox.Show("Choosed");
 
         }
     }

@@ -7,117 +7,164 @@ using System.Drawing;
 using System.Linq;
 using System.Media;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace MasterChefInfo
 {
-    partial class Form1 : Form
+    partial class Form1 : Form, IObserver
     {
         Model model;
         SpriteController mySpriteController;
-        public Sprite sprite;
+        public SpriteView sprite;
+
+
+
+
+
+        public Sprite waiterSprite;
+        public Sprite waiter2Sprite;
+        public Sprite waiter3Sprite;
+        public Sprite waiter4Sprite;
+
+        public Sprite squareSupervisorSprite;
+        public Sprite squareSupervisor2Sprite;
+
         public Form1(Model model)
         {
             this.model = model;
             InitializeComponent();
+
             // Initialise le son
-            SoundPlayer simpleSound = new SoundPlayer(Properties.Resources.Ambiance);
-            simpleSound.Play();
+            //SoundPlayer simpleSound = new SoundPlayer(Properties.Resources.Ambiance);
+            //simpleSound.Play();
             //Défini la zone de jeu
             MainDrawingArea.BackgroundImageLayout = ImageLayout.Stretch;
             //Défini la map comme controlleur
             mySpriteController = new SpriteController(MainDrawingArea);
-            sprite = new Sprite(mySpriteController);
+
+            Image SS = Properties.Resources.perso5sprite;
+            Image SS1 = Properties.Resources.perso5sprite;
+
+            Image W1 = Properties.Resources.perso4sprite;
+            Image W2 = Properties.Resources.perso4sprite;
+            Image W3 = Properties.Resources.perso4sprite;
+            Image W4 = Properties.Resources.perso4sprite;
+
+
+            squareSupervisorSprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
+                SS, 16, 30, 200, 4);
+            squareSupervisorSprite.SetName("Chef de section");
+
+            squareSupervisor2Sprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
+                SS1, 16, 30, 200, 4);
+            squareSupervisor2Sprite.SetName("Chef de section 2");
+
+            waiterSprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
+                W1, 16, 27, 200, 4);
+            waiterSprite.SetName("Serveur");
+
+            waiter2Sprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
+                W2, 16, 27, 200, 4);
+            waiter2Sprite.SetName("Serveur");
+
+            waiter3Sprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
+                W3, 16, 27, 200, 4);
+            waiter3Sprite.SetName("Serveur");
+
+            waiter4Sprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
+                W4, 16, 27, 200, 4);
+            waiter4Sprite.SetName("Serveur");
+
             // Maitre d'hôtel
-            sprite.maitreHotelSprite.AutomaticallyMoves = true;
+            //sprite.maitreHotelSprite.AutomaticallyMoves = true;
+            sprite = new SpriteView(mySpriteController);
             sprite.maitreHotelSprite.CannotMoveOutsideBox = true;
             sprite.maitreHotelSprite.SetSpriteDirectionDegrees(180);
             sprite.maitreHotelSprite.PutBaseImageLocation(ConstantPosition.maitreHotel);
-            sprite.maitreHotelSprite.MoveTo(ConstantPosition.maitreHotel);
+            //sprite.maitreHotelSprite.MoveTo(ConstantPosition.maitreHotel);
             sprite.maitreHotelSprite.SetSize(new Size(16, 32));
             sprite.maitreHotelSprite.MovementSpeed = 2;
-            sprite.IdleAnimation(sprite.maitreHotelSprite, 16, 30);
+            //sprite.IdleAnimation(sprite.maitreHotelSprite, 16, 30);
 
             // Le superviseur de carré 1
-            sprite.squareSupervisorSprite.AutomaticallyMoves = true;
-            sprite.squareSupervisorSprite.CannotMoveOutsideBox = true;
-            sprite.squareSupervisorSprite.SetSpriteDirectionDegrees(-90);
-            sprite.squareSupervisorSprite.PutBaseImageLocation(ConstantPosition.initialSquare1Supervisor);
-            sprite.squareSupervisorSprite.MoveTo(ConstantPosition.initialSquare1Supervisor);
-            sprite.squareSupervisorSprite.SetSize(new Size(16, 32));
-            sprite.squareSupervisorSprite.MovementSpeed = 2;
-            sprite.IdleAnimation(sprite.squareSupervisorSprite, 16, 30);
+            //sprite.squareSupervisorSprite.AutomaticallyMoves = true;
+            squareSupervisorSprite.CannotMoveOutsideBox = true;
+            squareSupervisorSprite.SetSpriteDirectionDegrees(-90);
+            squareSupervisorSprite.PutBaseImageLocation(ConstantPosition.initialSquare1Supervisor);
+            //sprite.squareSupervisorSprite.MoveTo(ConstantPosition.initialSquare1Supervisor);
+            squareSupervisorSprite.SetSize(new Size(16, 32));
+            squareSupervisorSprite.MovementSpeed = 15;
+            //sprite.IdleAnimation(sprite.squareSupervisorSprite, 16, 30);
 
             // Le superviseur de carré 2
-            sprite.squareSupervisor2Sprite.AutomaticallyMoves = true;
-            sprite.squareSupervisor2Sprite.CannotMoveOutsideBox = true;
-            sprite.squareSupervisor2Sprite.SetSpriteDirectionDegrees(-90);
-            sprite.squareSupervisor2Sprite.PutBaseImageLocation(ConstantPosition.initialSquare2Supervisor);
-            sprite.squareSupervisor2Sprite.MoveTo(ConstantPosition.initialSquare2Supervisor);
-            sprite.squareSupervisor2Sprite.SetSize(new Size(16, 32));
-            sprite.squareSupervisor2Sprite.MovementSpeed = 2;
-            sprite.IdleAnimation(sprite.squareSupervisor2Sprite, 16, 30);
+            //sprite.squareSupervisor2Sprite.AutomaticallyMoves = true;
+            squareSupervisor2Sprite.CannotMoveOutsideBox = true;
+            squareSupervisor2Sprite.SetSpriteDirectionDegrees(-90);
+            squareSupervisor2Sprite.PutBaseImageLocation(ConstantPosition.initialSquare1Supervisor);
+            //sprite.squareSupervisor2Sprite.MoveTo(ConstantPosition.initialSquare2Supervisor);
+            squareSupervisor2Sprite.SetSize(new Size(16, 32));
+            squareSupervisor2Sprite.MovementSpeed = 15;
+            //sprite.IdleAnimation(sprite.squareSupervisor2Sprite, 16, 30);
 
             //Serveur 1
-            sprite.waiterSprite.AutomaticallyMoves = true;
-            sprite.waiterSprite.CannotMoveOutsideBox = true;
-            sprite.waiterSprite.SetSpriteDirectionDegrees(-90);
-            sprite.waiterSprite.PutBaseImageLocation(ConstantPosition.initialWaiter);
-            sprite.waiterSprite.MoveTo(ConstantPosition.initialWaiter);
-            sprite.waiterSprite.SetSize(new Size(16, 32));
-            sprite.waiterSprite.MovementSpeed = 2;
-            sprite.IdleAnimation(sprite.waiterSprite, 16, 27);
+            //sprite.waiterSprite.AutomaticallyMoves = true;
+            waiterSprite.CannotMoveOutsideBox = true;
+            waiterSprite.SetSpriteDirectionDegrees(-90);
+            waiterSprite.PutBaseImageLocation(ConstantPosition.initialWaiter);
+            //sprite.waiterSprite.MoveTo(ConstantPosition.initialWaiter);
+            waiterSprite.SetSize(new Size(16, 32));
+            waiterSprite.MovementSpeed = 15;
+            //sprite.IdleAnimation(sprite.waiterSprite, 16, 27);
 
             //Serveur 2
-            sprite.waiter2Sprite.AutomaticallyMoves = true;
             sprite.waiter2Sprite.CannotMoveOutsideBox = true;
             sprite.waiter2Sprite.SetSpriteDirectionDegrees(-90);
             sprite.waiter2Sprite.PutBaseImageLocation(ConstantPosition.initialWaiter);
-            sprite.waiter2Sprite.MoveTo(ConstantPosition.initialWaiter);
             sprite.waiter2Sprite.SetSize(new Size(16, 32));
-            sprite.waiter2Sprite.MovementSpeed = 2;
-            sprite.IdleAnimation(sprite.waiter2Sprite, 16, 27);
+            sprite.waiter2Sprite.MovementSpeed = 5;
+
+            //sprite.IdleAnimation(sprite.waiter2Sprite, 16, 27);
 
             //Serveur 3
-            sprite.waiter3Sprite.AutomaticallyMoves = true;
+            //sprite.waiter3Sprite.AutomaticallyMoves = true;
             sprite.waiter3Sprite.CannotMoveOutsideBox = true;
             sprite.waiter3Sprite.SetSpriteDirectionDegrees(-90);
             sprite.waiter3Sprite.PutBaseImageLocation(ConstantPosition.initialWaiter);
-            sprite.waiter3Sprite.MoveTo(ConstantPosition.initialWaiter);
+            //sprite.waiter3Sprite.MoveTo(ConstantPosition.initialWaiter);
             sprite.waiter3Sprite.SetSize(new Size(16, 32));
-            sprite.waiter3Sprite.MovementSpeed = 2;
-            sprite.IdleAnimation(sprite.waiter3Sprite, 16, 27);
+            sprite.waiter3Sprite.MovementSpeed = 5;
+            //sprite.IdleAnimation(sprite.waiter3Sprite, 16, 27);
 
             //Serveur 4
-            sprite.waiter4Sprite.AutomaticallyMoves = true;
+            //sprite.waiter4Sprite.AutomaticallyMoves = true;
             sprite.waiter4Sprite.CannotMoveOutsideBox = true;
             sprite.waiter4Sprite.SetSpriteDirectionDegrees(-90);
             sprite.waiter4Sprite.PutBaseImageLocation(ConstantPosition.initialWaiter);
-            sprite.waiter4Sprite.MoveTo(ConstantPosition.initialWaiter);
+            //sprite.waiter4Sprite.MoveTo(ConstantPosition.initialWaiter);
             sprite.waiter4Sprite.SetSize(new Size(16, 32));
-            sprite.waiter4Sprite.MovementSpeed = 2;
-            sprite.IdleAnimation(sprite.waiter4Sprite, 16, 27);
+            sprite.waiter4Sprite.MovementSpeed = 5;
+            //sprite.IdleAnimation(sprite.waiter4Sprite, 16, 27);
 
             //Chef de la cuisine
-            sprite.masterChefSprite.AutomaticallyMoves = true;
+            //sprite.masterChefSprite.AutomaticallyMoves = true;
             sprite.masterChefSprite.CannotMoveOutsideBox = true;
             sprite.masterChefSprite.SetSpriteDirectionDegrees(-90);
             sprite.masterChefSprite.PutBaseImageLocation(ConstantPosition.masterChef);
-            sprite.masterChefSprite.MoveTo(ConstantPosition.masterChef);
+            //sprite.masterChefSprite.MoveTo(ConstantPosition.masterChef);
             sprite.masterChefSprite.SetSize(new Size(16, 32));
-            sprite.masterChefSprite.MovementSpeed = 2;
-            sprite.IdleAnimation(sprite.masterChefSprite, 16, 30);
+            sprite.masterChefSprite.MovementSpeed = 5;
+            //sprite.IdleAnimation(sprite.masterChefSprite, 16, 30);
 
             //Plogneur
-            sprite.kitchenPorterSprite.AutomaticallyMoves = true;
+            //sprite.kitchenPorterSprite.AutomaticallyMoves = true;
             sprite.kitchenPorterSprite.CannotMoveOutsideBox = true;
             sprite.kitchenPorterSprite.SetSpriteDirectionDegrees(-90);
             sprite.kitchenPorterSprite.PutBaseImageLocation(ConstantPosition.kitchenPorter);
-            sprite.kitchenPorterSprite.MoveTo(ConstantPosition.kitchenPorter);
+            //sprite.kitchenPorterSprite.MoveTo(ConstantPosition.kitchenPorter);
             sprite.kitchenPorterSprite.SetSize(new Size(16, 32));
-            sprite.kitchenPorterSprite.MovementSpeed = 2;
-            sprite.IdleAnimation(sprite.kitchenPorterSprite, 16, 30);
+            sprite.kitchenPorterSprite.MovementSpeed = 5;
+            //sprite.IdleAnimation(sprite.kitchenPorterSprite, 16, 30);
 
             //// Le commis
             //sprite.kitchenAssistantSprite.AutomaticallyMoves = true;
@@ -129,14 +176,22 @@ namespace MasterChefInfo
             //sprite.IdleAnimation(sprite.kitchenAssistantSprite, 16, 30);
 
             //Chef de section
-            sprite.sectionChefSprite.AutomaticallyMoves = true;
+            //sprite.sectionChefSprite.AutomaticallyMoves = true;
             sprite.sectionChefSprite.CannotMoveOutsideBox = true;
             sprite.sectionChefSprite.SetSpriteDirectionDegrees(-90);
             sprite.sectionChefSprite.PutBaseImageLocation(ConstantPosition.sectionChef);
-            sprite.sectionChefSprite.MoveTo(ConstantPosition.sectionChef);
+            //sprite.sectionChefSprite.MoveTo(ConstantPosition.sectionChef);
             sprite.sectionChefSprite.SetSize(new Size(25, 25));
             sprite.sectionChefSprite.MovementSpeed = 2;
-            sprite.IdleAnimation(sprite.sectionChefSprite, 50, 50);
+            //sprite.IdleAnimation(sprite.sectionChefSprite, 50, 50);
+
+            SS.Dispose();
+            SS1.Dispose();
+            W1.Dispose();
+            W2.Dispose();
+            W3.Dispose();
+            W4.Dispose();
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -158,5 +213,243 @@ namespace MasterChefInfo
         {
 
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void Update(String name, List<Point> track)
+        {
+
+            //MessageBox.Show(name);
+            InvalidOperationException e = null;
+
+            Image SS = Properties.Resources.perso5sprite;
+            Image SS1 = Properties.Resources.perso5sprite;
+
+            Image W1 = Properties.Resources.perso4sprite;
+            Image W2 = Properties.Resources.perso4sprite;
+            Image W3 = Properties.Resources.perso4sprite;
+            Image W4 = Properties.Resources.perso4sprite;
+
+            switch (name)
+            {
+
+                case "Waiter1":
+                        do
+                        {
+                            try
+                            {
+                            lock (waiterSprite)
+                            {
+                                Point tempPoint = waiterSprite.GetSpriteBaseImageCenter();
+                                waiterSprite.Destroy();
+
+                                waiterSprite = new Sprite(new Point(0, 0), mySpriteController, W1, 16, 27, 200, 4)
+                                {
+                                    AutomaticallyMoves = false,
+                                    CannotMoveOutsideBox = true
+                                };
+                                waiterSprite.SetSpriteDirectionDegrees(-90);
+                                waiterSprite.PutBaseImageLocation(tempPoint);
+                                waiterSprite.MovementSpeed = 15;
+
+                                waiterSprite.AutomaticallyMoves = true;
+
+                                waiterSprite.MoveTo(track);
+
+
+
+                                while (!waiterSprite.SpriteReachedEndPoint) { }
+
+
+                            }
+                                e = null;
+                            }
+                            catch (InvalidOperationException ex)
+                            {
+                                e = ex;
+                            }
+                        } while (e != null); 
+                    break;
+
+                /*case "Waiter2":
+                    do
+                    {
+                        try
+                        {
+                            lock (waiter2Sprite)
+                            {
+                                Point tempPoint = waiter2Sprite.GetSpriteBaseImageCenter();
+                                waiter2Sprite.Destroy();
+
+                                waiter2Sprite = new Sprite(new Point(0, 0), mySpriteController, W2, 16, 27, 200, 4)
+                                {
+                                    AutomaticallyMoves = false,
+                                    CannotMoveOutsideBox = true
+                                };
+                                waiter2Sprite.SetSpriteDirectionDegrees(-90);
+                                waiter2Sprite.PutBaseImageLocation(tempPoint);
+                                waiter2Sprite.MovementSpeed = 15;
+
+                                waiter2Sprite.AutomaticallyMoves = true;
+
+                                waiter2Sprite.MoveTo(track);
+                                while (!waiter2Sprite.SpriteReachedEndPoint) { }
+                            }
+                            e = null;
+                        }
+                        catch (InvalidOperationException ex)
+                        {
+                            e = ex;
+                        }
+                    } while (e != null);
+                    break;
+
+                case "Waiter3":
+                    do
+                    {
+                        try
+                        {
+                            lock (waiter3Sprite)
+                            {
+                                Point tempPoint = waiter3Sprite.GetSpriteBaseImageCenter();
+                                waiter3Sprite.Destroy();
+
+                                waiter3Sprite = new Sprite(new Point(0, 0), mySpriteController, W3, 16, 27, 200, 4)
+                                {
+                                    AutomaticallyMoves = false,
+                                    CannotMoveOutsideBox = true
+                                };
+                                waiter3Sprite.SetSpriteDirectionDegrees(-90);
+                                waiter3Sprite.PutBaseImageLocation(tempPoint);
+                                waiter3Sprite.MovementSpeed = 15;
+
+                                waiter3Sprite.AutomaticallyMoves = true;
+
+                                waiter3Sprite.MoveTo(track);
+                                while (!waiter3Sprite.SpriteReachedEndPoint) { }
+                            }
+                            e = null;
+                        }
+                        catch (InvalidOperationException ex)
+                        {
+                            e = ex;
+                        }
+                    } while (e != null);
+                    break;
+
+                case "Waiter4":
+                    do
+                    {
+                        try
+                        {
+                            lock (waiter4Sprite)
+                            {
+                                Point tempPoint = waiter4Sprite.GetSpriteBaseImageCenter();
+                                waiter4Sprite.Destroy();
+
+                                waiter4Sprite = new Sprite(new Point(0, 0), mySpriteController, W4, 16, 27, 200, 4)
+                                {
+                                    AutomaticallyMoves = false,
+                                    CannotMoveOutsideBox = true
+                                };
+                                waiter4Sprite.SetSpriteDirectionDegrees(-90);
+                                waiter4Sprite.PutBaseImageLocation(tempPoint);
+                                waiter4Sprite.MovementSpeed = 15;
+
+                                waiter4Sprite.AutomaticallyMoves = true;
+
+                                waiter4Sprite.MoveTo(track);
+                                while (!waiterSprite.SpriteReachedEndPoint) { }
+                            }
+                            e = null;
+                        }
+                        catch (InvalidOperationException ex)
+                        {
+                            e = ex;
+                        }
+                    } while (e != null);
+                    break;*/
+
+                case "SS1":
+                    do
+                    {
+                        try
+                        {
+                            lock (squareSupervisorSprite)
+                            {
+                                Point tempPoint = squareSupervisorSprite.GetSpriteBaseImageCenter();
+                                squareSupervisorSprite.Destroy();
+
+                                squareSupervisorSprite = new Sprite(new Point(0, 0), mySpriteController, SS, 16, 27, 200, 4)
+                                {
+                                    AutomaticallyMoves = false,
+                                    CannotMoveOutsideBox = true
+                                };
+                                squareSupervisorSprite.SetSpriteDirectionDegrees(-90);
+                                squareSupervisorSprite.PutBaseImageLocation(tempPoint);
+                                squareSupervisorSprite.MovementSpeed = 15;
+
+                                squareSupervisorSprite.AutomaticallyMoves = true;
+
+                                squareSupervisorSprite.MoveTo(track);
+                                while (!squareSupervisorSprite.SpriteReachedEndPoint) { }
+                            }
+                            e = null;
+                        }
+                        catch (InvalidOperationException ex)
+                        {
+                            e = ex;
+                            Console.WriteLine(e);
+                        }
+                    } while (e != null);
+                    break;
+
+                case "SS2":
+                    do
+                    {
+                        try
+                        {
+                            lock (squareSupervisor2Sprite)
+                            {
+                                Point tempPoint = squareSupervisor2Sprite.GetSpriteBaseImageCenter();
+                                squareSupervisor2Sprite.Destroy();
+
+                                squareSupervisor2Sprite = new Sprite(new Point(0, 0), mySpriteController, SS1, 16, 27, 200, 4)
+                                {
+                                    AutomaticallyMoves = false,
+                                    CannotMoveOutsideBox = true
+                                };
+                                squareSupervisor2Sprite.SetSpriteDirectionDegrees(-90);
+                                squareSupervisor2Sprite.PutBaseImageLocation(tempPoint);
+                                squareSupervisor2Sprite.MovementSpeed = 15;
+
+                                squareSupervisor2Sprite.AutomaticallyMoves = true;
+
+                                squareSupervisor2Sprite.MoveTo(track);
+                                while (!squareSupervisor2Sprite.SpriteReachedEndPoint) { }
+                            }
+                            e = null;
+                        }
+                        catch (InvalidOperationException ex)
+                        {
+                            e = ex;
+                            Console.WriteLine(e);
+
+                        }
+                    } while (e != null);
+                    break;
+            }
+            SS.Dispose();
+            SS1.Dispose();
+            W1.Dispose();
+            W2.Dispose();
+            W3.Dispose();
+            W4.Dispose();
+
+        }
+
     }
 }

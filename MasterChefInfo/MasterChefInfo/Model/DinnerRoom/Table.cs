@@ -23,6 +23,9 @@ namespace MasterChefInfo
         public GroupClient groupClient { get; set; }
 
         public List<Point> travelList;
+        public List<Point> supervisorTravelList;
+        public List<Point> returnCounterList;
+        public List<Point> returnSquareList;
 
         public Table(int posX, int posY, int places)
         {
@@ -35,10 +38,12 @@ namespace MasterChefInfo
 
             groupClient = null;
 
-            travelList = new List<Point> { };
+            travelList = new List<Point> { new Point(ConstantPosition.pixelSizeOfBlock * 12, posY), new Point(posX, posY) };
+            supervisorTravelList = new List<Point> { new Point(ConstantPosition.initialSquareSupervisor1PosX, posY), new Point(posX, posY) };
 
-            travelList.Add(new Point(ConstantPosition.pixelSizeOfBlock * 12,posY));
-            travelList.Add(new Point(posX, posY));
+            returnCounterList = new List<Point> { new Point(ConstantPosition.pixelSizeOfBlock * 12, posY), ConstantPosition.accessibleCounterDinnerRoom };
+            returnSquareList = new List<Point> { new Point(ConstantPosition.initialSquareSupervisor1PosX, posY), ConstantPosition.initialSquare1Supervisor };
+            
         }
     }
 }

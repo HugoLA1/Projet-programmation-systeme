@@ -22,13 +22,46 @@ namespace MasterChefInfo
         public Controller()
         {
             model = new Model();
-            
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            form = new Form1(model);
-            Application.Run(form);
 
-            dinnerRoomController = new DinnerRoomController(model, form);
+            form = new Form1(model);
+
+            dinnerRoomController = new DinnerRoomController(model);
+
+            SetObserver();
+
+            InvalidOperationException e = null;
+
+            do
+            {
+                try
+                {
+                    Application.Run(form);
+                    e = null;
+                }
+                catch (InvalidOperationException ex)
+                {
+                    e = ex;
+                }
+            } while (e != null);
+
+            
+
+        }
+
+        public void SetObserver()
+        {
+            foreach (Square square in model.dinnerRoom.squares)
+            {
+                foreach (Waiter waiter in square.waiters)
+                {
+                    waiter.RegisterObserver(form);
+                }
+
+                square.squareSupervisor.RegisterObserver(form);
+            }
         }
     }
 

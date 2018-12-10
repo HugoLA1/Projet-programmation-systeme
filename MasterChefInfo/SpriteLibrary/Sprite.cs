@@ -994,6 +994,7 @@ namespace SpriteLibrary
             
             lock(ChangedImage) lock(OriginalImage)
             {
+
                 using (Graphics gx = Graphics.FromImage(ChangedImage))
                 {
                     gx.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;

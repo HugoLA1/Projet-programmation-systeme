@@ -1,4 +1,7 @@
 ﻿
+using System.Collections.Generic;
+using System.Drawing;
+
 namespace MasterChefInfo
 {
     /// <summary>
@@ -8,6 +11,6 @@ namespace MasterChefInfo
     {
         void RegisterObserver(IObserver observer); //Pour add un observer
         void UnregisterObserver(IObserver observer); //Pour désabonner un observeur
-        void NotifyObservers();
+        void NotifyObservers(List<Point> track);
     }
 }

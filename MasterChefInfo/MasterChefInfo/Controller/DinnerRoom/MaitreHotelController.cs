@@ -85,7 +85,7 @@ namespace MasterChefInfo
                             
                             model.dinnerRoom.waitingGroupClients.Remove(groupClient);
                             groupClient.dishState = DishState.WaitToBePlaced;
-                            MessageBox.Show("WaitToBePlaced");
+                            //MessageBox.Show("WaitToBePlaced");
                             model.dinnerRoom.squares[s].lines[l].tables[t].groupClient = groupClient;
                             getOutOfLoop = true;
                             if (getOutOfLoop) break;

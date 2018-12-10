@@ -8,22 +8,22 @@ using SpriteLibrary;
 
 namespace MasterChefInfo
 {
-    class Sprite
+    class SpriteView
     {
-        public SpriteLibrary.Sprite maitreHotelSprite;
-        public SpriteLibrary.Sprite squareSupervisorSprite;
-        public SpriteLibrary.Sprite waiterSprite;
-        public SpriteLibrary.Sprite masterChefSprite;
-        public SpriteLibrary.Sprite sectionChefSprite;
-        public SpriteLibrary.Sprite kitchenAssistantSprite;
-        public SpriteLibrary.Sprite kitchenPorterSprite;
-        public SpriteLibrary.Sprite groupClientSprite;
-        public SpriteLibrary.Sprite squareSupervisor2Sprite;
-        public SpriteLibrary.Sprite waiter2Sprite;
-        public SpriteLibrary.Sprite waiter3Sprite;
-        public SpriteLibrary.Sprite waiter4Sprite;
+        public Sprite maitreHotelSprite;
+        public Sprite squareSupervisorSprite;
+        public Sprite waiterSprite;
+        public Sprite masterChefSprite;
+        public Sprite sectionChefSprite;
+        public Sprite kitchenAssistantSprite;
+        public Sprite kitchenPorterSprite;
+        public Sprite groupClientSprite;
+        public Sprite squareSupervisor2Sprite;
+        public Sprite waiter2Sprite;
+        public Sprite waiter3Sprite;
+        public Sprite waiter4Sprite;
 
-        public Sprite(SpriteController mySpriteController)
+        public SpriteView(SpriteController mySpriteController)
         {
             maitreHotelSprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController, 
                 Properties.Resources.perso6sprite, 16, 30, 200, 4);

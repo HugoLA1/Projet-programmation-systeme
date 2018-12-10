@@ -26,10 +26,17 @@ namespace MasterChefInfo
             lines.Add(new Line(ConstantPosition.pixelSizeOfBlock * posX, ConstantPosition.pixelSizeOfBlock * 6));
             lines.Add(new Line(ConstantPosition.pixelSizeOfBlock * posX, ConstantPosition.pixelSizeOfBlock * 10));
 
-            waiters.Add(new Waiter());
-            waiters.Add(new Waiter());
-
-            squareSupervisor = new SquareSupervisor();
+            if (posX < 36){
+                squareSupervisor = new SquareSupervisor(1);
+                waiters.Add(new Waiter(1));
+                waiters.Add(new Waiter(2));
+            }
+            else{
+                squareSupervisor = new SquareSupervisor(2);
+                waiters.Add(new Waiter(3));
+                waiters.Add(new Waiter(4));
+            }
+            
         }
     }
 }
