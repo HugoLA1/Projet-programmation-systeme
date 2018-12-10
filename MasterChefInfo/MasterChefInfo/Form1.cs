@@ -180,6 +180,7 @@ namespace MasterChefInfo
             sprite.sectionChefSprite.CannotMoveOutsideBox = true;
             sprite.sectionChefSprite.SetSpriteDirectionDegrees(-90);
             sprite.sectionChefSprite.PutBaseImageLocation(ConstantPosition.sectionChef);
+<<<<<<< HEAD
             //sprite.sectionChefSprite.MoveTo(ConstantPosition.sectionChef);
             sprite.sectionChefSprite.SetSize(new Size(25, 25));
             sprite.sectionChefSprite.MovementSpeed = 2;
@@ -192,6 +193,12 @@ namespace MasterChefInfo
             W3.Dispose();
             W4.Dispose();
 
+=======
+            sprite.sectionChefSprite.MoveTo(ConstantPosition.sectionChef);
+            sprite.sectionChefSprite.SetSize(new Size(16, 32));
+            sprite.sectionChefSprite.MovementSpeed = 2;
+            sprite.IdleAnimation(sprite.sectionChefSprite, 16, 28);
+>>>>>>> 594a978b1902c907b68c8faf72c2b2bc4820db1e
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

@@ -58,11 +58,11 @@ namespace MasterChefInfo
             masterChefSprite.SetName("Chef de cuisine");
 
             sectionChefSprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
-                Properties.Resources.ChefFemale, 50, 50, 500, 3);
+                Properties.Resources.perso11sprite, 16, 28, 500, 3);
             sectionChefSprite.SetName("Chef de section");
 
             kitchenAssistantSprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
-                Properties.Resources.ChefMale, 50, 50, 200, 3);
+                Properties.Resources.perso11sprite, 16, 28, 200, 3);
             kitchenAssistantSprite.SetName("Commis de cuisine");
 
             kitchenPorterSprite = new SpriteLibrary.Sprite(new Point(0, 0), mySpriteController,
@@ -78,6 +78,26 @@ namespace MasterChefInfo
         {
             sprite.AddAnimation(new Point(0, 0), sprite.GetImage(), width, height, 500, 1);
             sprite.ChangeAnimation(1);
+        }
+
+        public void UpAnimation(SpriteLibrary.Sprite sprite, int width, int height)
+        {
+
+        }
+
+        public void DownAnimation(SpriteLibrary.Sprite sprite, int width, int height)
+        {
+
+        }
+
+        public void LeftAnimation(SpriteLibrary.Sprite sprite, int width, int height)
+        {
+
+        }
+
+        public void RightAnimation(SpriteLibrary.Sprite sprite, Point point, int width, int height)
+        {
+
         }
 
     }
