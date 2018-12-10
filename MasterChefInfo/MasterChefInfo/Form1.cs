@@ -269,7 +269,6 @@ namespace MasterChefInfo
                     NewSprite.MoveTo(track);
                     while (!NewSprite.SpriteReachedEndPoint) { }
 
-                    Thread.Sleep(1000);
                     do
                         {
                             try
@@ -304,7 +303,6 @@ namespace MasterChefInfo
                     NewSprite.MoveTo(track);
                     while (!NewSprite.SpriteReachedEndPoint) { }
 
-                    Thread.Sleep(1000);
                     do
                     {
                         try
@@ -338,7 +336,6 @@ namespace MasterChefInfo
                     NewSprite.MoveTo(track);
                     while (!NewSprite.SpriteReachedEndPoint) { }
 
-                    Thread.Sleep(1000);
                     do
                     {
                         try
@@ -373,7 +370,6 @@ namespace MasterChefInfo
                     NewSprite.MoveTo(track);
                     while (!NewSprite.SpriteReachedEndPoint) { }
 
-                    Thread.Sleep(1000);
                     do
                     {
                         try
@@ -409,7 +405,6 @@ namespace MasterChefInfo
 
                     while (!NewSprite.SpriteReachedEndPoint) { }
 
-                    Thread.Sleep(1000);
                     do
                     {
                         try
@@ -445,7 +440,6 @@ namespace MasterChefInfo
                     NewSprite.MoveTo(track);
                     while (!NewSprite.SpriteReachedEndPoint) { }
 
-                    Thread.Sleep(1000);
                     do
                     {
                         try
@@ -483,7 +477,6 @@ namespace MasterChefInfo
 
                     while (!NewSprite.SpriteReachedEndPoint) { }
 
-                    Thread.Sleep(1000);
                     do
                     {
                         try
@@ -520,7 +513,6 @@ namespace MasterChefInfo
 
                     while (!NewSprite.SpriteReachedEndPoint) { }
 
-                    Thread.Sleep(1000);
                     do
                     {
                         try
