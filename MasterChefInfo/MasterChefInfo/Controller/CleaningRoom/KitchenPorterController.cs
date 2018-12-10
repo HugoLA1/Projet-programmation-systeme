@@ -22,9 +22,10 @@ namespace MasterChefInfo
             this.model = model;
             CreateThread();
         }
-        public void MoveToDishWater(DishWasher dishWasher)
+        public void MoveToDishWater(KitchenPorter kitchenPorter)
         {
-            dishWasher.NotifyObservers(model.kitchen.cleanningRoom.dishWasher);
+            kitchenPorter.NotifyObservers(model.kitchen.cleanningRoom.travelToDW);
+
         }
 
         public void MoveToWashingMachine()
@@ -32,19 +33,19 @@ namespace MasterChefInfo
 
         }
 
-        public void WashUstensil(List<Ustensil> useUstensil)
+        public void WashUstensil(List<Ustensil> useUstensil, KitchenPorter kitchenPorter)
         {
             if (model.counter.useUsentils[0] != null)
             {
-                MoveToCounter(model.counter.counterPoint);
-                MoveToDishWater(model.kitchen.cleanningRoom.dishWasher);
+                MoveToCounter(kitchenPorter);
+                MoveToDishWater(kitchenPorter);
                 StartDishWasher(useUstensil);
             }
         }
 
-        private void MoveToCounter(Point counterPoint)
+        private void MoveToCounter(KitchenPorter kitchenPorter)
         {
-            
+            kitchenPorter.NotifyObservers(model.kitchen.cleanningRoom.travelToCounter);
         }
 
         public void StartDishWasher(List<Ustensil> ustensils)

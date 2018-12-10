@@ -39,6 +39,8 @@ namespace MasterChefInfo
         public Sprite maitreHotelSprite;
         public Sprite masterChefSprite;
         public Sprite kitchenPorterSprite;
+        public Point kitchenPorterSpriteLastPos;
+
 
         public Image MH;
         public Image MC;
@@ -447,9 +449,9 @@ namespace MasterChefInfo
                     break;
 
                 case "KitchenPorter":
-                    NewSprite = mySpriteController.DuplicateSprite("Serveur 4");
+                    NewSprite = mySpriteController.DuplicateSprite("Plongeur");
 
-                    NewSprite.PutBaseImageLocation(waiter4SpriteLastPos);
+                    NewSprite.PutBaseImageLocation(kitchenPorterSpriteLastPos);
                     NewSprite.MovementSpeed = 15;
 
                     NewSprite.AutomaticallyMoves = true;
@@ -461,7 +463,7 @@ namespace MasterChefInfo
                     {
                         try
                         {
-                            lock (waiter4Sprite)
+                            lock (kitchenPorterSprite)
                             {
 
                                 NewSprite.Destroy();
@@ -469,7 +471,7 @@ namespace MasterChefInfo
                                 if (track.Count > 0)
                                 {
                                     int cpt = track.Count;
-                                    waiter4SpriteLastPos = track[cpt - 1];
+                                    kitchenPorterSpriteLastPos = track[cpt - 1];
                                 }
                             }
                             e = null;
@@ -639,6 +641,11 @@ namespace MasterChefInfo
         private void money_Click(object sender, EventArgs e)
         {
             
+        }
+
+        public void Update(List<Point> track)
+        {
+            throw new NotImplementedException();
         }
     }
 }
