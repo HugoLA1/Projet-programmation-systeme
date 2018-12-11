@@ -12,12 +12,9 @@ namespace MasterChefInfo
     /// </summary>
     class Waiter : ISubject
     {
-
-        private string name;
-
         private List<IObserver> observers;
-
         public bool isAvailable;
+        private int ID;
 
         /// <summary>
         /// Contient la disponibilité des serveurs
@@ -25,23 +22,8 @@ namespace MasterChefInfo
         public Waiter(int ID)
         {
             observers = new List<IObserver>();
-
-            switch (ID)
-            {
-                case 1:
-                    name = "Waiter1";
-                    break;
-                case 2:
-                    name = "Waiter2";
-                    break;
-                case 3:
-                    name = "Waiter3";
-                    break;
-                case 4:
-                    name = "Waiter4";
-                    break;
-            }
             isAvailable = true;
+            this.ID = ID;
         }
 
         public void RegisterObserver(IObserver observer)
@@ -58,7 +40,7 @@ namespace MasterChefInfo
         {
             foreach (IObserver observer in observers)
             {
-                observer.Update(name, track);
+                observer.Update("waiter", ID, track);
             }
         }
     }

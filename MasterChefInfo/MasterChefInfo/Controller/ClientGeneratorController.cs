@@ -62,10 +62,6 @@ namespace MasterChefInfo
                 groupClient.clients[ctr].desert.recipe = new List<string>(tempRow["instructions"].ToString().Split('-'));
                 groupClient.finalPrice +=(int) double.Parse(tempRow["prix"].ToString());
             }
-            //MessageBox.Show(groupClient.clients[0].dish.name);
-            //MessageBox.Show(groupClient.clients[0].dish.recipe[2]);
-            //MessageBox.Show(groupClient.finalPrice.ToString());
-
             return groupClient;
         }
     }

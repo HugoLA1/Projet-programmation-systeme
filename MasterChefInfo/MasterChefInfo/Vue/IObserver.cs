@@ -12,7 +12,7 @@ namespace MasterChefInfo
     /// </summary>
     interface IObserver
     {
-        void Update(String name,List<Point> track);
+        void Update(string name, int nb, List<Point> track);
         void Update(int money);
     }
 }

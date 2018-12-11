@@ -289,8 +289,7 @@ namespace SpriteLibrary
         /// This is true unless we are using MoveTo(point) or MoveTo(list of points) to tell the sprite to move
         /// from one place to the next.  This boolean tells us if it has finished or not.
         /// </summary>
-        public bool SpriteReachedEndPoint { get { return _SpriteReachedEndPoint; } internal set { _SpriteReachedEndPoint = value; } }
-        bool _SpriteReachedEndPoint = true;
+        public bool SpriteReachedEndPoint { get; set; } = true;
 
         /// <summary>
         /// The visible Height as seen in the PictureBox.  It may be stretched, or shrunk from the actual
@@ -991,16 +990,15 @@ namespace SpriteLibrary
             Image ChangedImage = MySpriteController.BackgroundImage; //This is the image itself.  Changes to this affect what is displayed
             Image OriginalImage = MySpriteController.OriginalImage;
             System.Drawing.Rectangle oldPlace = new System.Drawing.Rectangle(tLocation.X, tLocation.Y, Width, Height);
-            
-            lock(ChangedImage) lock(OriginalImage)
-            {
 
-                using (Graphics gx = Graphics.FromImage(ChangedImage))
-                {
+            Image imgtemp = (Image) ChangedImage.Clone();
+            Image imgtemp2 = (Image) OriginalImage.Clone();
+
+            Graphics gx = Graphics.FromImage(imgtemp);
                     gx.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
-                    gx.DrawImage(OriginalImage, oldPlace, oldPlace, GraphicsUnit.Pixel);
-                }
-            }
+                    gx.DrawImage(imgtemp2, oldPlace, oldPlace, GraphicsUnit.Pixel);
+            gx.Dispose();
+            
             if (!SkipInvalidate)
                 MySpriteController.Invalidate(oldPlace);
             //Tell any sprite we overlap with that it needs to redraw

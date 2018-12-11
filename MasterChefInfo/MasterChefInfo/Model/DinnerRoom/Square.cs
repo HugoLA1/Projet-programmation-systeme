@@ -12,29 +12,30 @@ namespace MasterChefInfo
     class Square
     {
         public List<Line> lines { get; set; }
-        public List<Waiter> waiters { get; set; }
-        public SquareSupervisor squareSupervisor { get; set; }
+        public List<SquareSupervisor> squareSupervisors { get; set; }
 
         public int posX;
 
         public Square(int posX)
         {
             this.posX = posX;
-            lines = new List<Line> { };
-            waiters = new List<Waiter> { };
+            lines = new List<Line>();
+            squareSupervisors = new List<SquareSupervisor>();
 
             lines.Add(new Line(ConstantPosition.pixelSizeOfBlock * posX, ConstantPosition.pixelSizeOfBlock * 6));
             lines.Add(new Line(ConstantPosition.pixelSizeOfBlock * posX, ConstantPosition.pixelSizeOfBlock * 10));
 
             if (posX < 36){
-                squareSupervisor = new SquareSupervisor(1);
-                waiters.Add(new Waiter(1));
-                waiters.Add(new Waiter(2));
+                for(int i = 0; i < ConstantGeneral.numberOfSSPerSquare; i++)
+                {
+                    squareSupervisors.Insert(i, new SquareSupervisor(i, 1));
+                }
             }
             else{
-                squareSupervisor = new SquareSupervisor(2);
-                waiters.Add(new Waiter(3));
-                waiters.Add(new Waiter(4));
+                for (int i = 0; i < ConstantGeneral.numberOfSSPerSquare; i++)
+                {
+                    squareSupervisors.Insert(i, new SquareSupervisor(i, 2));
+                }
             }
             
         }

@@ -16,10 +16,19 @@ namespace MasterChefInfo
     {
         Model model;
         Thread threadS;
+
         GroupClientController groupClientController;
+
+        Semaphore threadSMSemaphore;
+        Semaphore threadCMSemaphore;
+        Semaphore threadECSemaphore;
 
         public SquareSupervisorController(Model model, GroupClientController groupClientController)
         {
+            threadSMSemaphore = new Semaphore(1, 2);
+            threadCMSemaphore = new Semaphore(1, 2);
+            threadECSemaphore = new Semaphore(1, 2);
+
             this.model = model;
             this.groupClientController = groupClientController;
             CreateThread();
@@ -48,49 +57,59 @@ namespace MasterChefInfo
                 bool getOutOfLoop = false;
                 foreach (Square square in model.dinnerRoom.squares)
                 {
-                    if (square.squareSupervisor.isAvailable)
+                    foreach (SquareSupervisor squareSupervisor in square.squareSupervisors)
                     {
-                        foreach (Line line in square.lines)
+                        if (squareSupervisor.isAvailable)
                         {
-                            foreach (Table table in line.tables)
+                            foreach (Line line in square.lines)
                             {
-                                if(table.groupClient != null)
+                                foreach (Table table in line.tables)
                                 {
-                                    switch (table.groupClient.dishState)
+                                    if (table.groupClient != null)
                                     {
-                                        case DishState.WaitMenu:
-                                            Console.WriteLine("Apporter le Menu");
-                                            square.squareSupervisor.isAvailable = false;
-                                            /*ThreadPool.QueueUserWorkItem(
-                                              new WaitCallback(delegate (object state)
-                                              { SearchMenu(table, square.squareSupervisor); }), null);*/
-                                            Task threadSM = new Task(() => SearchMenu(table, square.squareSupervisor));
-                                            getOutOfLoop = true;
-                                            //threadSM.Name = "threadSM";
-                                            threadSM.Start();
-                                            break;
-                                        case DishState.Choosed:
-                                            Console.WriteLine("Récupérer les commandes");
-                                            square.squareSupervisor.isAvailable = false;
-                                            /*ThreadPool.QueueUserWorkItem(
-                                              new WaitCallback(delegate (object state)
-                                              { CollectMenu(table, square.squareSupervisor); }), null);*/
-                                            Task threadCM = new Task(() => CollectMenu(table, square.squareSupervisor));
-                                            getOutOfLoop = true;
-                                            threadCM.Start();
-                                            break;
-                                        case DishState.WaitToBePlaced:
-                                            Console.WriteLine("Placer les clients");
-                                            square.squareSupervisor.isAvailable = false;
-                                            /*ThreadPool.QueueUserWorkItem(
-                                              new WaitCallback(delegate (object state)
-                                              { EscortClient(table, square.squareSupervisor); }), null);    */                                       
-                                            Task threadEC = new Task(() => EscortClient(table,square.squareSupervisor));
-                                            getOutOfLoop = true;
-                                            //threadEC.Name = "threadEC";
-                                            threadEC.Start();
-                                            break;
+                                        switch (table.groupClient.dishState)
+                                        {
+                                            case DishState.WaitMenu:
+                                                table.groupClient.dishState = DishState.Choosing;
+                                                Console.WriteLine("Apporter le Menu");
+                                                squareSupervisor.isAvailable = false;
+                                                /*ThreadPool.QueueUserWorkItem(
+                                                  new WaitCallback(delegate (object state)
+                                                  { SearchMenu(table, square.squareSupervisor); }), null);*/
+                                                threadSMSemaphore.WaitOne();
+                                                Task threadSM = new Task(() => SearchMenu(table, squareSupervisor));
+                                                getOutOfLoop = true;
+                                                //threadSM.Name = "threadSM";
+                                                threadSM.Start();
+                                                break;
+                                            case DishState.Choosed:
+                                                table.groupClient.dishState = DishState.WaitBreadAndWater;
+                                                Console.WriteLine("Récupérer les commandes");
+                                                squareSupervisor.isAvailable = false;
+                                                /*ThreadPool.QueueUserWorkItem(
+                                                  new WaitCallback(delegate (object state)
+                                                  { CollectMenu(table, square.squareSupervisor); }), null);*/
+                                                threadCMSemaphore.WaitOne();
+                                                Task threadCM = new Task(() => CollectMenu(table, squareSupervisor));
+                                                getOutOfLoop = true;
+                                                threadCM.Start();
+                                                break;
+                                            case DishState.WaitToBePlaced:
+                                                table.groupClient.dishState = DishState.WaitMenu;
+                                                Console.WriteLine("Placer les clients");
+                                                squareSupervisor.isAvailable = false;
+                                                /*ThreadPool.QueueUserWorkItem(
+                                                  new WaitCallback(delegate (object state)
+                                                  { EscortClient(table, square.squareSupervisor); }), null);    */
+                                                threadECSemaphore.WaitOne();
+                                                Task threadEC = new Task(() => EscortClient(table, squareSupervisor));
+                                                getOutOfLoop = true;
+                                                //threadEC.Name = "threadEC";
+                                                threadEC.Start();
+                                                break;
+                                        }
                                     }
+                                    if (getOutOfLoop) break;
                                 }
                                 if (getOutOfLoop) break;
                             }
@@ -109,9 +128,9 @@ namespace MasterChefInfo
         public void EscortClient(Table table, SquareSupervisor squareSupervisor)
         {
             MoveToTable(table, squareSupervisor);
-            table.groupClient.dishState = DishState.WaitMenu;
             MoveToWelcome(table, squareSupervisor);
             squareSupervisor.isAvailable = true;
+            threadECSemaphore.Release();
         }
 
         /// <summary>
@@ -119,8 +138,6 @@ namespace MasterChefInfo
         /// </summary>
         public void MoveToTable(Table table, SquareSupervisor squareSupervisor)
         {
-            //MessageBox.Show(Thread.CurrentThread.Name);
-
             squareSupervisor.NotifyObservers(table.supervisorTravelList);
         }
 
@@ -129,22 +146,20 @@ namespace MasterChefInfo
         /// </summary>
         private void MoveToWelcome(Table table, SquareSupervisor squareSupervisor)
         {
-            //MessageBox.Show(Thread.CurrentThread.Name);
-
             squareSupervisor.NotifyObservers(table.returnSquareList);
         }
 
         /// <summary>
         /// Méthode pour aller récupérer les menus et les amener aux clients
         /// </summary>
-        public void SearchMenu (Table table, SquareSupervisor squareSupervisor)
+        public void SearchMenu(Table table, SquareSupervisor squareSupervisor)
         {
             MoveToTable(table, squareSupervisor);
-            table.groupClient.dishState = DishState.Choosing;
             groupClientController.ThreadChoseMenu(table.groupClient);
             table.menus = table.groupClient.clientNumber;
             MoveToWelcome(table, squareSupervisor);
             squareSupervisor.isAvailable = true;
+            threadSMSemaphore.Release();
         }
 
 
@@ -154,12 +169,12 @@ namespace MasterChefInfo
         public void CollectMenu(Table table, SquareSupervisor squareSupervisor)
         {
             MoveToTable(table, squareSupervisor);
-            table.groupClient.dishState = DishState.WaitBreadAndWater;
             //MessageBox.Show("WaitBreadAndWater");
             table.menus = 0;
             GetCommande(table, squareSupervisor);
             MoveToWelcome(table, squareSupervisor);
             squareSupervisor.isAvailable = true;
+            threadCMSemaphore.Release();
         }
         /// <summary>
         /// Méthode pour récuperer la commande des clients

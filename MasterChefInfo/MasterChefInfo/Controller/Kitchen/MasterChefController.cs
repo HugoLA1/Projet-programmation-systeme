@@ -48,33 +48,26 @@ namespace MasterChefInfo
                         if (getOutOfLoop) break;
                     }
                 }
-                Thread.Sleep(1000);
+                Thread.Sleep(100);
             }
         }
 
         public void GiveOrder(SectionChef sectionChef, Command command)
         {
-
-
-            Command newCommand = sectionChefController.MakePartOfCommand(sectionChef, command);
-
-            if(newCommand.recipe.Count < 1)
+            if(command.recipe.Count == 1)
             {
                 foreach(GroupCommand groupCommand in model.counter.waitingGroupCommand)
                 {
-                    if (groupCommand.table.places == newCommand.table.places)
+                    if (groupCommand.table.places == command.table.places)
                     {
-                        groupCommand.commands.Add(newCommand);
-                        /*Console.WriteLine(groupCommand.nbCommand);
-                        Console.WriteLine(groupCommand.commands.Count);*/
+                        groupCommand.commands.Add(command);
                     }
                 }
             }else
             {
-                model.kitchen.cookingRoom.masterChef.commandsToDo.Add(newCommand);
+                model.kitchen.cookingRoom.masterChef.commandsToDo.Add(sectionChefController.MakePartOfCommand(sectionChef, command));
             }
             sectionChef.isAvailable = true;
-
 
         }
     }

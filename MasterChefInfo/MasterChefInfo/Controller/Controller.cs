@@ -32,33 +32,25 @@ namespace MasterChefInfo
 
             SetObserver();
 
-            InvalidOperationException e = null;
-
-                try
-                {
-                lock (form)
-                {
-                    Application.Run(form);
-                }
-                    e = null;
-                }
-                catch (InvalidOperationException ex)
-                {
-                    e = ex;
-                Console.WriteLine(e);
-                }
+            Application.Run(form);
+            
+           
+            
         }
 
         public void SetObserver()
         {
+            foreach (Waiter waiter in model.dinnerRoom.waiters)
+            {
+                waiter.RegisterObserver(form);
+            }
+
             foreach (Square square in model.dinnerRoom.squares)
             {
-                foreach (Waiter waiter in square.waiters)
+                foreach( SquareSupervisor squareSupervisor in square.squareSupervisors)
                 {
-                    waiter.RegisterObserver(form);
+                    squareSupervisor.RegisterObserver(form);
                 }
-
-                square.squareSupervisor.RegisterObserver(form);
             }
 
             foreach (SectionChef sectionChef in model.kitchen.cookingRoom.masterChef.sectionChefs)

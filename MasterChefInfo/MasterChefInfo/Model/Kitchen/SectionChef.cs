@@ -12,49 +12,34 @@ namespace MasterChefInfo
     /// </summary>
     class SectionChef : ISubject
     {
-        public int posX { get; set; }
-        public int posY { get; set; }
-
-        public bool isAvailable { get; set; }
-
-        String name;
-
         List<IObserver> observers;
+        public bool isAvailable { get; set; }
+        public int ID;
 
         public SectionChef(int ID)
         {
+            observers = new List<IObserver>();
             isAvailable = true;
+            this.ID = ID;
+        }
 
-                observers = new List<IObserver>();
+        public void RegisterObserver(IObserver observer)
+        {
+            observers.Add(observer);
+        }
 
-                switch (ID)
-                {
-                    case 1:
-                        name = "SC1";
-                        break;
-                    case 2:
-                        name = "SC2";
-                        break;
-                }
-            }
+        public void UnregisterObserver(IObserver observer)
+        {
+            observers.Remove(observer);
+        }
 
-            public void RegisterObserver(IObserver observer)
+        public void NotifyObservers(List<Point> track)
+        {
+            foreach (IObserver observer in observers)
             {
-                observers.Add(observer);
+                observer.Update("sectionChef", ID, track);
             }
-
-            public void UnregisterObserver(IObserver observer)
-            {
-                observers.Remove(observer);
-            }
-
-            public void NotifyObservers(List<Point> track)
-            {
-                foreach (IObserver observer in observers)
-                {
-                    observer.Update(name, track);
-                }
-            }
+        }
 
     }
 

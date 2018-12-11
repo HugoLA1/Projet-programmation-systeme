@@ -14,42 +14,35 @@ namespace MasterChefInfo
 
         public Command MakePartOfCommand(SectionChef sectionChef, Command command)
         {
-            string partOfCommand = command.recipe[0];
-
-           /* Console.WriteLine(command.name);
-            Console.WriteLine(partOfCommand);*/
-
-
-            switch (partOfCommand)
+            if(command.recipe[0] != null)
             {
-                case "Ajouter":
-                    MoveToStorageRoom(sectionChef);
-                    command.recipe.Remove(partOfCommand);
-                    ReturnSR(sectionChef);
-                    break;
-                case "Four":
-                    MoveToBakery(sectionChef);
-                    command.recipe.Remove(partOfCommand);
-                    ReturnClassic(sectionChef);
-                    break;
-                case "Mélanger":
-                    MoveToWorkSurface(sectionChef);
-                    command.recipe.Remove(partOfCommand);
-                    ReturnClassic(sectionChef);
-                    break;
-                case "Servir":
-                    MoveToWorkSurface(sectionChef);
-                    command.recipe.Remove(partOfCommand);
-                    ReturnClassic(sectionChef);
-                    break;
-                default:
-                    MoveToWorkSurface(sectionChef);
-                    command.recipe.Remove(partOfCommand);
-                    ReturnClassic(sectionChef);
-                    break;
+                string partOfCommand = command.recipe[0];
+                switch (partOfCommand)
+                {
+                    case "Ajouter":
+                        MoveToStorageRoom(sectionChef);
+                        command.recipe.Remove(partOfCommand);
+                        ReturnSR(sectionChef);
+                        break;
+                    case " Four":
+                        MoveToBakery(sectionChef);
+                        command.recipe.Remove(partOfCommand);
+                        ReturnClassic(sectionChef);
+                        break;
+                    case " Mélanger":
+                        MoveToWorkSurface(sectionChef);
+                        command.recipe.Remove(partOfCommand);
+                        ReturnClassic(sectionChef);
+                        break;
+                    case " Servir":
+                        command.recipe.Remove(partOfCommand);
+                        break;
+                    default:
+                        command.recipe.Remove(partOfCommand);
+                        break;
+                }
             }
             return command;
-                
         }
 
         public void MoveToBakery(SectionChef sectionChef)

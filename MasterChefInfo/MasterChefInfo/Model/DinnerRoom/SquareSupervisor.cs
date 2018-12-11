@@ -12,27 +12,17 @@ namespace MasterChefInfo
     /// </summary>
     class SquareSupervisor : ISubject
     {
-        public bool isAvailable { get; set; }
-
-        public string name;
-
         private List<IObserver> observers;
+        public bool isAvailable { get; set; }
+        public int sqr;
+        public int ID;
 
-
-        public SquareSupervisor(int ID)
+        public SquareSupervisor(int ID, int sqr)
         {
             observers = new List<IObserver>();
             isAvailable = true;
-
-            switch (ID)
-            {
-                case 1:
-                    name = "SS1";
-                    break;
-                case 2:
-                    name = "SS2";
-                    break;
-            }
+            this.sqr = sqr;
+            this.ID = ID;
         }
 
         public void RegisterObserver(IObserver observer)
@@ -49,7 +39,7 @@ namespace MasterChefInfo
         {
             foreach (IObserver observer in observers)
             {
-                observer.Update(name, track);
+                observer.Update("squareSupervisor" + sqr.ToString(), ID, track);
             }
         }
     }

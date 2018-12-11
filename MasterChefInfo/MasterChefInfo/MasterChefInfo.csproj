@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\ConstantGeneral.cs" />
     <Compile Include="Model\ConstantPosition.cs" />
     <Compile Include="Controller\CleaningRoom\CleanningRoomController.cs" />
     <Compile Include="Controller\ClientGeneratorController.cs" />

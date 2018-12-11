@@ -11,9 +11,11 @@ namespace MasterChefInfo
     /// </summary>
     class DinnerRoom
     {
-        public List<GroupClient> waitingGroupClients;
+        public List<GroupClient> waitingGroupClients { get; set; }
         public List<Square> squares { get; set; }
         public MaitreHotel maitreHotel { get; set; }
+        public List<Waiter> waiters { get; set; }
+
         public int menu { get; set; }
 
         public DinnerRoom()
@@ -25,7 +27,13 @@ namespace MasterChefInfo
             squares.Add(new Square(15));
             squares.Add(new Square(38));
             maitreHotel = new MaitreHotel();
+            waiters = new List<Waiter>();
             menu = 40;
+
+            for (int i = 0; i < ConstantGeneral.numberOfWaiter; i++)
+            {
+                waiters.Insert(i, new Waiter(i));
+            }
         }
 
         public void AddGroupClient(GroupClient groupClient)

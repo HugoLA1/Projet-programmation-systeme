@@ -48,6 +48,7 @@ namespace MasterChefInfo
                 {
                     GroupClient groupClient = model.dinnerRoom.waitingGroupClients[0];
                     model.dinnerRoom.waitingGroupClients.Remove(groupClient);
+                    Console.WriteLine("Assigner une table");
                     AssignToTable(groupClient);
                 }
 
@@ -59,6 +60,8 @@ namespace MasterChefInfo
                         {
                             if((model.dinnerRoom.squares[s].lines[l].tables[t].groupClient != null) && (model.dinnerRoom.squares[s].lines[l].tables[t].groupClient.dishState == DishState.WaitNote))
                             {
+                                Console.WriteLine("Récupérer argent");
+
                                 money += model.dinnerRoom.squares[s].lines[l].tables[t].groupClient.finalPrice;
                                 model.dinnerRoom.squares[s].lines[l].tables[t].groupClient = null;
                                 model.dinnerRoom.maitreHotel.NotifyObservers(money);
@@ -75,11 +78,6 @@ namespace MasterChefInfo
         /// </summary>
         public void AssignToTable(GroupClient groupClient)
         {
-
-            /*model.dinnerRoom.waitingGroupClients.Remove(groupClient);
-            groupClient.dishState = DishState.WaitToBePlaced;
-            model.dinnerRoom.squares[0].lines[0].tables[0].groupClient = groupClient;*/
-
             bool getOutOfLoop = false;
             for (int s = 0; s < model.dinnerRoom.squares.Count; s++)
             {
@@ -92,7 +90,6 @@ namespace MasterChefInfo
                             
                             model.dinnerRoom.waitingGroupClients.Remove(groupClient);
                             groupClient.dishState = DishState.WaitToBePlaced;
-                            //MessageBox.Show("WaitToBePlaced");
                             model.dinnerRoom.squares[s].lines[l].tables[t].groupClient = groupClient;
                             getOutOfLoop = true;
                             if (getOutOfLoop) break;

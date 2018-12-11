@@ -23,7 +23,6 @@ namespace MasterChefInfo
             this.model = model;
             this.groupClientController = groupClientController;
             CreateThread();
-
         }
 
         /// <summary>
@@ -31,7 +30,6 @@ namespace MasterChefInfo
         /// </summary>
         public void CreateThread()
         {
-
             threadW = new Thread(() => WatchLoop());
             threadW.Start();
         }
@@ -41,27 +39,27 @@ namespace MasterChefInfo
         /// </summary>
         public void WatchLoop()
         {
-
             while (Thread.CurrentThread.IsAlive)
             {
                 bool getOutOfLoop = false;
-                foreach(Square square in model.dinnerRoom.squares)
+                foreach (Waiter waiter in model.dinnerRoom.waiters)
                 {
-                    foreach (Waiter waiter in square.waiters)
+                    if (waiter.isAvailable)
                     {
-                        if (waiter.isAvailable)
+                        foreach (Square square in model.dinnerRoom.squares)
                         {
-                            foreach(Line line in square.lines)
+                            foreach (Line line in square.lines)
                             {
-                                foreach(Table table in line.tables)
+                                foreach (Table table in line.tables)
                                 {
                                     if (table.groupClient != null)
                                     {
                                         switch (table.groupClient.dishState)
                                         {
                                             case DishState.WaitBreadAndWater:
-                                                Console.WriteLine("Apporter le pain");
                                                 waiter.isAvailable = false;
+                                                Console.WriteLine("Apporter le pain");
+                                                table.groupClient.dishState = DishState.WaitGetApetizer;
                                                 Task threadBAWa = new Task(() => PutBreadAndWater(table, waiter));
                                                 getOutOfLoop = true;
                                                 threadBAWa.Start();
@@ -69,6 +67,8 @@ namespace MasterChefInfo
 
                                             case DishState.FinishedApetizer:
                                                 waiter.isAvailable = false;
+                                                Console.WriteLine("débarasser entrée");
+                                                table.groupClient.dishState = DishState.WaitGetDish;
                                                 Task threadFA = new Task(() => CleanTable(table, waiter));
                                                 getOutOfLoop = true;
                                                 threadFA.Start();
@@ -76,6 +76,8 @@ namespace MasterChefInfo
 
                                             case DishState.FinishedDish:
                                                 waiter.isAvailable = false;
+                                                Console.WriteLine("débarasser plat");
+                                                table.groupClient.dishState = DishState.WaitGetDesert;
                                                 Task threadFDi = new Task(() => CleanTable(table, waiter));
                                                 getOutOfLoop = true;
                                                 threadFDi.Start();
@@ -83,6 +85,8 @@ namespace MasterChefInfo
 
                                             case DishState.FinishedDesert:
                                                 waiter.isAvailable = false;
+                                                Console.WriteLine("débarasser dessert");
+                                                table.groupClient.dishState = DishState.WaitNote;
                                                 Task threadFDe = new Task(() => CleanTable(table, waiter));
                                                 getOutOfLoop = true;
                                                 threadFDe.Start();
@@ -95,15 +99,16 @@ namespace MasterChefInfo
                                                     {
                                                         if ((groupCommand.table == table) && (groupCommand.nbCommand == groupCommand.commands.Count))
                                                         {
-                                                            Console.WriteLine("Apporter entrée");
                                                             waiter.isAvailable = false;
+                                                            Console.WriteLine("Apporter entrée");
+                                                            table.groupClient.dishState = DishState.EatingApetizer;
                                                             Task threadSA = new Task(() => ServeApetizer(table, waiter, groupCommand));
                                                             getOutOfLoop = true;
                                                             threadSA.Start();
                                                         }
                                                     }
                                                 }
-                                                
+
                                                 break;
 
                                             case DishState.WaitGetDish:
@@ -114,13 +119,15 @@ namespace MasterChefInfo
                                                         if ((groupCommand.table == table) && (groupCommand.nbCommand == groupCommand.commands.Count))
                                                         {
                                                             waiter.isAvailable = false;
+                                                            Console.WriteLine("Apporter plat");
+                                                            table.groupClient.dishState = DishState.EatingDish;
                                                             Task threadSDi = new Task(() => ServeDish(table, waiter, groupCommand));
                                                             getOutOfLoop = true;
                                                             threadSDi.Start();
                                                         }
                                                     }
                                                 }
-                                                
+
                                                 break;
 
                                             case DishState.WaitGetDesert:
@@ -131,13 +138,15 @@ namespace MasterChefInfo
                                                         if ((groupCommand.table == table) && (groupCommand.nbCommand == groupCommand.commands.Count))
                                                         {
                                                             waiter.isAvailable = false;
+                                                            Console.WriteLine("Apporter dessert");
+                                                            table.groupClient.dishState = DishState.EatingDesert;
                                                             Task threadSDe = new Task(() => ServeDesert(table, waiter, groupCommand));
                                                             getOutOfLoop = true;
                                                             threadSDe.Start();
                                                         }
                                                     }
                                                 }
-                                                
+
                                                 break;
                                         }
                                     }
@@ -145,8 +154,8 @@ namespace MasterChefInfo
                                 }
                                 if (getOutOfLoop) break;
                             }
+                            if (getOutOfLoop) break;
                         }
-                        if (getOutOfLoop) break;
                     }
                     if (getOutOfLoop) break;
                 }
@@ -162,7 +171,6 @@ namespace MasterChefInfo
             model.counter.waitingGroupCommand.Remove(groupCommand);
             MoveToTable(table, waiter);
 
-            table.groupClient.dishState = DishState.EatingDesert;
             groupClientController.ThreadEatDesert(table.groupClient);
 
             foreach (Command command in groupCommand.commands)
@@ -179,9 +187,7 @@ namespace MasterChefInfo
         public void ServeDish(Table table, Waiter waiter, GroupCommand groupCommand)
         {
             model.counter.waitingGroupCommand.Remove(groupCommand);
-
             MoveToTable(table, waiter);
-            table.groupClient.dishState = DishState.EatingDish;
 
             groupClientController.ThreadEatDish(table.groupClient);
             foreach (Command command in groupCommand.commands)
@@ -189,7 +195,6 @@ namespace MasterChefInfo
 
                 table.groupClient.commands.Add(command);
             }
-            Thread.Sleep(5000);
             MoveToCounter(table, waiter);
             waiter.isAvailable = true;
         }
@@ -201,9 +206,7 @@ namespace MasterChefInfo
         {
 
             model.counter.waitingGroupCommand.Remove(groupCommand);
-
             MoveToTable(table, waiter);
-            table.groupClient.dishState = DishState.EatingApetizer;
 
             groupClientController.ThreadEatApetizer(table.groupClient);
             foreach (Command command in groupCommand.commands)
@@ -236,9 +239,7 @@ namespace MasterChefInfo
         /// </summary>
         public void PutBreadAndWater(Table table, Waiter waiter)
         {
-            table.groupClient.dishState = DishState.WaitGetApetizer;
             MoveToTable(table, waiter);
-            //MessageBox.Show("WaitGetApetizer");
             if (table.groupClient.clientNumber > 5)
             {
                 table.bread = 2;
@@ -250,7 +251,6 @@ namespace MasterChefInfo
                 table.water = 1;
             }
             MoveToCounter(table, waiter);
-            Thread.Sleep(2000);
             waiter.isAvailable = true;
         }
 
@@ -260,39 +260,29 @@ namespace MasterChefInfo
         public void CleanTable(Table table, Waiter waiter)
         {
             MoveToTable(table, waiter);
-            switch (table.groupClient.dishState)
-            {
-                case DishState.FinishedApetizer:
-                    table.groupClient.dishState = DishState.WaitGetDish;
-                    //MessageBox.Show("WaitGetDish");
-                    break;
-                case DishState.FinishedDish:
-                    table.groupClient.dishState = DishState.WaitGetDesert;
-                    //MessageBox.Show("WaitGetDesert");
-                    break;
-                case DishState.FinishedDesert:
-                    table.groupClient.dishState = DishState.WaitNote;
-                    //MessageBox.Show("WaitNote");
-                    break;
-            }
-            
-            model.counter.waitingGroupCommand.Add(new GroupCommand(table));
-
-            foreach (Client client in table.groupClient.clients)
+            if(table.groupClient != null)
             {
                 switch (table.groupClient.dishState)
                 {
                     case DishState.WaitGetDish:
-                        client.dish.table = table;
-                        model.kitchen.cookingRoom.masterChef.commandsToDo.Add(client.dish);
+                        model.counter.waitingGroupCommand.Add(new GroupCommand(table));
+                        foreach (Client client in table.groupClient.clients)
+                        {
+                            client.dish.table = table;
+                            model.kitchen.cookingRoom.masterChef.commandsToDo.Add(client.dish);
+                        }
+
                         break;
                     case DishState.WaitGetDesert:
-                        client.desert.table = table;
-                        model.kitchen.cookingRoom.masterChef.commandsToDo.Add(client.desert);
+                        model.counter.waitingGroupCommand.Add(new GroupCommand(table));
+                        foreach (Client client in table.groupClient.clients)
+                        {
+                            client.desert.table = table;
+                            model.kitchen.cookingRoom.masterChef.commandsToDo.Add(client.desert);
+                        }
                         break;
                 }
             }
-            Thread.Sleep(5000);
             MoveToCounter(table, waiter);
             waiter.isAvailable = true;
         }

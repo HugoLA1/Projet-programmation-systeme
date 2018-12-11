@@ -950,7 +950,8 @@ namespace SpriteLibrary
                         tSprite.ActuallyDraw();
                     }
                 }
-                foreach(Rectangle rec in InvalidateList)
+                List<Rectangle> temp = InvalidateList;
+                foreach(Rectangle rec in temp)
                 {
                     Invalidate(rec, false);
                 }
