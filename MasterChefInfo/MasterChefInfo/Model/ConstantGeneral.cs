@@ -13,9 +13,7 @@ namespace MasterChefInfo
         public const int globalTimeSpeedMultiplicator = 1000;
 
         public const int numberOfWaiter = 3;
-
         public const int numberOfSSPerSquare = 2;
-
         public const int numberOfSC = 2;
     }
 }
