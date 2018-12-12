@@ -252,13 +252,15 @@ namespace MasterChefInfo
                 {
                     if ((cpt % 2) == 0)
                     {
-                        sprite.MoveTo(new Point(track[1].X - 2 * ConstantPosition.pixelSizeOfBlock, track[1].Y - (1 + oddCpt) * ConstantPosition.pixelSizeOfBlock));
+                        sprite.MoveTo(new Point(track[1].X - 2 * ConstantPosition.pixelSizeOfBlock, 
+                            track[1].Y - (1 + oddCpt) * ConstantPosition.pixelSizeOfBlock));
                         sprite.AutomaticallyMoves = true;
                         sprite.MovementSpeed = ConstantGeneral.globalSpeedOfSprite;                       
                     }
                     else
                     {
-                        sprite.MoveTo(new Point(track[1].X + 1 * ConstantPosition.pixelSizeOfBlock, track[1].Y - (1 + oddCpt) * ConstantPosition.pixelSizeOfBlock));
+                        sprite.MoveTo(new Point(track[1].X + 1 * ConstantPosition.pixelSizeOfBlock, 
+                            track[1].Y - (1 + oddCpt) * ConstantPosition.pixelSizeOfBlock));
                         sprite.AutomaticallyMoves = true;
                         sprite.MovementSpeed = ConstantGeneral.globalSpeedOfSprite;
                         oddCpt++;
@@ -269,14 +271,16 @@ namespace MasterChefInfo
                 {
                     if ((cpt % 2) == 0)
                     {
-                        sprite.MoveTo(new Point(track[1].X - 1 * ConstantPosition.pixelSizeOfBlock, track[1].Y + (1 + oddCpt) * ConstantPosition.pixelSizeOfBlock));
+                        sprite.MoveTo(new Point(track[1].X - 1 * ConstantPosition.pixelSizeOfBlock, 
+                            track[1].Y + (1 + oddCpt) * ConstantPosition.pixelSizeOfBlock));
                         sprite.AutomaticallyMoves = true;
                         sprite.MovementSpeed = ConstantGeneral.globalSpeedOfSprite;
 
                     }
                     else
                     {
-                        sprite.MoveTo(new Point(track[1].X + 2 * ConstantPosition.pixelSizeOfBlock, track[1].Y + (1 + oddCpt) * ConstantPosition.pixelSizeOfBlock));
+                        sprite.MoveTo(new Point(track[1].X + 2 * ConstantPosition.pixelSizeOfBlock, 
+                            track[1].Y + (1 + oddCpt) * ConstantPosition.pixelSizeOfBlock));
                         sprite.AutomaticallyMoves = true;
                         sprite.MovementSpeed = ConstantGeneral.globalSpeedOfSprite;
                         oddCpt++;
@@ -295,14 +299,25 @@ namespace MasterChefInfo
             {
                 sprite.Pause();
             }
+        }
 
+        public Image chooseRandomSprite()
+        {
+            Image[] CC = { Properties.Resources.perso2spriteVersion2,
+                Properties.Resources.perso3spriteVersion2,
+                Properties.Resources.perso8spriteVersion8,
+                Properties.Resources.perso9spriteVersion2};
+            Random random = new Random();
+            int CCIndex = random.Next(CC.Length);
 
+            return CC[CCIndex];
         }
 
         public void CreateSpriteClient(Table table)
         {
             for(int i = 0; i < table.groupClient.clientNumber; i++)
             {
+                //C = chooseRandomSprite();
                 Sprite tempSprite = new Sprite(new Point(0, 0), mySpriteController,
                 C, 24, 24, 200, 1);
                 tempSprite.SetName("client");
