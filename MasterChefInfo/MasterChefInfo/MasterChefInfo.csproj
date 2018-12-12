@@ -226,10 +226,13 @@
     <None Include="Resources\pasbienfait.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\pasbienfait2.png" />
+    <None Include="Resources\Game Boy Advance - Mega Man Battle Network - Fire Animations.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\pasbienfait3.png" />
+    <None Include="Resources\fire.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fire1.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Glace.png" />

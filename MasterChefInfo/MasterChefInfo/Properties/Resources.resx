@@ -166,14 +166,26 @@
   <data name="waiter1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\perso4sprite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pasbienfait" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pasbienfait.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="perso10spriteVersion2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\perso10spriteVersion2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pasbienfait2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pasbienfait2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="perso2spriteVersion2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\perso2spriteVersion2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pasbienfait3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pasbienfait3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="perso3spriteVersion2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\perso3spriteVersion2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="perso8spriteVersion8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\perso8spriteVersion8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="perso9spriteVersion2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\perso9spriteVersion2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fire" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fire.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fire1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fire1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Glace" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Glace.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

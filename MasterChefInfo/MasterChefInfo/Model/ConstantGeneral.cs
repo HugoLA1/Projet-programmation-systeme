@@ -20,5 +20,6 @@ namespace MasterChefInfo
         public const int numberOfWaiter = 2;
         public const int numberOfSSPerSquare = 2;
         public const int numberOfSC = 2;
+        public const int numberOfF = 2;
     }
 }

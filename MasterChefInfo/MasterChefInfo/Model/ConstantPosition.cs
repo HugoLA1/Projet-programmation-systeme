@@ -62,6 +62,11 @@ namespace MasterChefInfo
         public const int initialClientPosX = pixelSizeOfBlock * 35;
         public const int initialClientPosY = pixelSizeOfBlock * 18;
 
+        public const int fire1PosX = pixelSizeOfBlock * 23;
+        public const int fire1PosY = pixelSizeOfBlock * 1;
+
+        public const int fire2PosX = pixelSizeOfBlock * 46;
+        public const int fire2PosY = pixelSizeOfBlock * 1;
 
         public static Point maitreHotel = new Point(maitreHotelPosX, maitreHotelPosY);
         public static Point entry = new Point(entryPosX, entryPosY);
@@ -82,5 +87,8 @@ namespace MasterChefInfo
         public static Point startPointLine1 = new Point(startPointLine1PosX, startPointLine1PosY);
         public static Point startPointLine2 = new Point(startPointLine2PosX, startPointLine2PosY);
         public static Point startPointLine3 = new Point(startPointLine3PosX, startPointLine3PosY);
+        public static Point fire1 = new Point(fire1PosX, fire1PosY);
+        public static Point fire2 = new Point(fire2PosX, fire2PosY);
+
     }
 }
