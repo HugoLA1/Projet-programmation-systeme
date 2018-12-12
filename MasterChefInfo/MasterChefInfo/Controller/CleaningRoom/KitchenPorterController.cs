@@ -93,5 +93,10 @@ namespace MasterChefInfo
                 observer.Update(counter);
             }
         }
+
+        public void NotifyObservers(List<Point> track, Table table)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

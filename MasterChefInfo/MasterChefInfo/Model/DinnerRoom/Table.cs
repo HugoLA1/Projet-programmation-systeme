@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SpriteLibrary;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -22,6 +23,8 @@ namespace MasterChefInfo
 
         public GroupClient groupClient { get; set; }
 
+        public List<Sprite> clientsSprite;
+
         public List<Point> travelList;
         public List<Point> supervisorTravelList;
         public List<Point> returnCounterList;
@@ -37,6 +40,8 @@ namespace MasterChefInfo
             water = 0;
 
             groupClient = null;
+             
+            clientsSprite = new List<Sprite>();
 
             travelList = new List<Point> { new Point(ConstantPosition.pixelSizeOfBlock * 12, posY), new Point(posX, posY) };
             supervisorTravelList = new List<Point> { new Point(ConstantPosition.initialSquareSupervisor1PosX, posY), new Point(posX, posY) };

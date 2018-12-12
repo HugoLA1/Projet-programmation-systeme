@@ -43,5 +43,10 @@ namespace MasterChefInfo
                 observer.Update("waiter", ID, track);
             }
         }
+
+        public void NotifyObservers(List<Point> track, Table table)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -12,5 +12,6 @@ namespace MasterChefInfo
         void RegisterObserver(IObserver observer); //Pour add un observer
         void UnregisterObserver(IObserver observer); //Pour désabonner un observeur
         void NotifyObservers(List<Point> track);
+        void NotifyObservers(List<Point> track, Table table);
     }
 }

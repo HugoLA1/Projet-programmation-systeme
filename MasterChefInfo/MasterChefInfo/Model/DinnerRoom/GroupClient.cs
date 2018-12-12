@@ -20,7 +20,7 @@ namespace MasterChefInfo
 
         public GroupClient(int clientNumber)
         {
-            dishState = DishState.Wating;
+            dishState = DishState.Waiting;
             clients = new Client[clientNumber];
             this.clientNumber = clientNumber;
             commands = new List<Command> { };

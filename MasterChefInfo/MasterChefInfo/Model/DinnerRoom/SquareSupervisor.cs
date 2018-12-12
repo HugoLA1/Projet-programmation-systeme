@@ -42,5 +42,13 @@ namespace MasterChefInfo
                 observer.Update("squareSupervisor" + sqr.ToString(), ID, track);
             }
         }
+
+        public void NotifyObservers(List<Point> track, Table table)
+        {
+            foreach (IObserver observer in observers)
+            {
+                observer.Update(track, table);
+            }
+        }
     }
 }

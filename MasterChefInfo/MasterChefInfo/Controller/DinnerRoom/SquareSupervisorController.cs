@@ -25,9 +25,9 @@ namespace MasterChefInfo
 
         public SquareSupervisorController(Model model, GroupClientController groupClientController)
         {
-            threadSMSemaphore = new Semaphore(1, 2);
-            threadCMSemaphore = new Semaphore(1, 2);
-            threadECSemaphore = new Semaphore(1, 2);
+            threadSMSemaphore = new Semaphore(2, 4);
+            threadCMSemaphore = new Semaphore(2, 4);
+            threadECSemaphore = new Semaphore(2, 4);
 
             this.model = model;
             this.groupClientController = groupClientController;
@@ -95,7 +95,7 @@ namespace MasterChefInfo
                                                 threadCM.Start();
                                                 break;
                                             case DishState.WaitToBePlaced:
-                                                table.groupClient.dishState = DishState.WaitMenu;
+                                                table.groupClient.dishState = DishState.Waiting;
                                                 Console.WriteLine("Placer les clients");
                                                 squareSupervisor.isAvailable = false;
                                                 /*ThreadPool.QueueUserWorkItem(
@@ -127,7 +127,11 @@ namespace MasterChefInfo
         /// </summary>
         public void EscortClient(Table table, SquareSupervisor squareSupervisor)
         {
+            MoveToClient(squareSupervisor);
+            Task threadClient = new Task(() => MoveClient(table, squareSupervisor));
+            threadClient.Start();
             MoveToTable(table, squareSupervisor);
+            table.groupClient.dishState = DishState.WaitMenu;
             MoveToWelcome(table, squareSupervisor);
             squareSupervisor.isAvailable = true;
             threadECSemaphore.Release();
@@ -139,6 +143,16 @@ namespace MasterChefInfo
         public void MoveToTable(Table table, SquareSupervisor squareSupervisor)
         {
             squareSupervisor.NotifyObservers(table.supervisorTravelList);
+        }
+
+        public void MoveToClient(SquareSupervisor squareSupervisor)
+        {
+            squareSupervisor.NotifyObservers(new List<Point> { ConstantPosition.initialClient });
+        }
+
+        public void MoveClient(Table table, SquareSupervisor squareSupervisor)
+        {
+            squareSupervisor.NotifyObservers(table.supervisorTravelList, table);
         }
 
         /// <summary>

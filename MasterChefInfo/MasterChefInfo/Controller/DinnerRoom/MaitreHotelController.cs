@@ -14,15 +14,17 @@ namespace MasterChefInfo
     class MaitreHotelController
     {
         Model model;
+        Form1 form;
         Thread threadMH;
         int money;
 
         /// <summary>
         /// Constructeur
         /// </summary>
-        public MaitreHotelController(Model model)
+        public MaitreHotelController(Model model, Form1 form)
         {
             this.model = model;
+            this.form = form;
             money = new int();
             CreateThread();
         }
@@ -79,18 +81,19 @@ namespace MasterChefInfo
         public void AssignToTable(GroupClient groupClient)
         {
             bool getOutOfLoop = false;
-            for (int s = 0; s < model.dinnerRoom.squares.Count; s++)
+            foreach(Square square in model.dinnerRoom.squares)
             {
-                for (int l = 0; l < model.dinnerRoom.squares[s].lines.Count; l++)
+                foreach(Line line in square.lines)
                 {
-                    for (int t = 0; t < model.dinnerRoom.squares[s].lines[l].tables.Count; t++)
+                    foreach(Table table in line.tables)
                     {
-                        if((groupClient.clientNumber <= model.dinnerRoom.squares[s].lines[l].tables[t].places) && (model.dinnerRoom.squares[s].lines[l].tables[t].groupClient == null))
+                        if((groupClient.clientNumber <= table.places) && (table.groupClient == null))
                         {
-                            
+                            table.groupClient = groupClient;
                             model.dinnerRoom.waitingGroupClients.Remove(groupClient);
+                            groupClient.dishState = DishState.Waiting;
+                            form.CreateSpriteClient(table);
                             groupClient.dishState = DishState.WaitToBePlaced;
-                            model.dinnerRoom.squares[s].lines[l].tables[t].groupClient = groupClient;
                             getOutOfLoop = true;
                             if (getOutOfLoop) break;
                         }

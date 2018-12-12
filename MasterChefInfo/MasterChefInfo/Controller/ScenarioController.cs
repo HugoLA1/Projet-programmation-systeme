@@ -13,7 +13,7 @@ namespace MasterChefInfo
     /// </summary>
     class ScenarioController
     {
-        Random rnd = new Random();
+        readonly Random rnd = new Random();
         Thread threadScenario;
         Model model;
         ClientGeneratorController clientGeneratorController;
@@ -36,16 +36,12 @@ namespace MasterChefInfo
         /// </summary>
         public void ScenarioLoop()
         {
-            //while (Thread.CurrentThread.IsAlive)
-            //{
-                //int randomNumber = rnd.Next(0, 5);
-                //Thread.Sleep(randomNumber * 1000);
+            while (Thread.CurrentThread.IsAlive)
+            {
+                int randomNumber = rnd.Next(0, 5);
+                Thread.Sleep(randomNumber * 3000);
                 NewGroupClient();
-            NewGroupClient();
-            NewGroupClient();
-            NewGroupClient();
-
-            //}
+            }
         }
 
     }

@@ -41,6 +41,10 @@ namespace MasterChefInfo
             }
         }
 
+        public void NotifyObservers(List<Point> track, Table table)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

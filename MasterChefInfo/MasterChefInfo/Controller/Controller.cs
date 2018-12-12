@@ -15,8 +15,6 @@ namespace MasterChefInfo
     {
         public Model model;
         public DinnerRoomController dinnerRoomController;
-        public ClientGeneratorController clientGeneratorController;
-        public ViewController viewController;
         public Form1 form;
 
         public Controller()
@@ -28,14 +26,11 @@ namespace MasterChefInfo
 
             form = new Form1(model);
 
-            dinnerRoomController = new DinnerRoomController(model);
+            dinnerRoomController = new DinnerRoomController(model, form);
 
             SetObserver();
 
             Application.Run(form);
-            
-           
-            
         }
 
         public void SetObserver()

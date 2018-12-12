@@ -24,7 +24,8 @@ namespace MasterChefInfo
         public GroupClient CreateNewGroupClient()
         {
             /// Génére un nombre aléatoire de client entre 1 et 10
-            int randomNumber = rnd.Next(1, 11);
+            //int randomNumber = rnd.Next(1, 11);
+            int randomNumber = 1;
 
             DataTable temp = new DataTable();
             DataRow tempRow;

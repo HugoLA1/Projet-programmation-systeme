@@ -43,8 +43,13 @@ namespace MasterChefInfo
         {
             foreach (IObserver observer in observers)
             {
-                observer.Update(name, track);
+                //observer.Update(name, track);
             }
+        }
+
+        public void NotifyObservers(List<Point> track, Table table)
+        {
+            throw new NotImplementedException();
         }
     }
 }

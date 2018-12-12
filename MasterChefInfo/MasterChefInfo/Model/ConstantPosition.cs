@@ -20,10 +20,10 @@ namespace MasterChefInfo
         public const int initialWaiterPosX = pixelSizeOfBlock * 12;
         public const int initialWaiterPosY = pixelSizeOfBlock * 15;
 
-        public const int initialSquareSupervisor1PosX = pixelSizeOfBlock * 33;
+        public const int initialSquareSupervisor1PosX = pixelSizeOfBlock * 34;
         public const int initialSquareSupervisor1PosY = pixelSizeOfBlock * 2;
 
-        public const int initialSquareSupervisor2PosX = pixelSizeOfBlock * 36;
+        public const int initialSquareSupervisor2PosX = pixelSizeOfBlock * 34;
         public const int initialSquareSupervisor2PosY = pixelSizeOfBlock * 2;
 
         public const int accessibleCounterDinnerRoomPosX = pixelSizeOfBlock * 12;
@@ -59,6 +59,8 @@ namespace MasterChefInfo
         public const int washingMachinePosX = pixelSizeOfBlock * 1;
         public const int washingMachinePosY = pixelSizeOfBlock * 8;
 
+        public const int initialClientPosX = pixelSizeOfBlock * 35;
+        public const int initialClientPosY = pixelSizeOfBlock * 18;
 
 
         public static Point maitreHotel = new Point(maitreHotelPosX, maitreHotelPosY);
@@ -75,6 +77,7 @@ namespace MasterChefInfo
         public static Point accessibleCounterKitchen = new Point(accessibleCounterKitchenPosX, accessibleCounterKitchenPosY);
         public static Point washingMachine = new Point(washingMachinePosX, washingMachinePosY);
         public static Point dishWasher = new Point(kitchenPorterPosX, kitchenPorterPosY);
+        public static Point initialClient = new Point(initialClientPosX, initialClientPosY);
 
         public static Point startPointLine1 = new Point(startPointLine1PosX, startPointLine1PosY);
         public static Point startPointLine2 = new Point(startPointLine2PosX, startPointLine2PosY);

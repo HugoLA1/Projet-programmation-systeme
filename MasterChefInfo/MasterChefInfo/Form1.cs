@@ -34,6 +34,7 @@ namespace MasterChefInfo
         public Image W;
         public Image SC;
         public Image KP;
+        public Image C;
 
         public Form1(Model model)
         {
@@ -57,6 +58,7 @@ namespace MasterChefInfo
             W = Properties.Resources.waiter1;
             SC = Properties.Resources.SC1;
             KP = Properties.Resources.perso7sprite;
+            C = Properties.Resources.perso9sprite;
 
             for (int i = 0; i < ConstantGeneral.numberOfWaiter; i++)
             {
@@ -204,6 +206,36 @@ namespace MasterChefInfo
             }
         }
 
+        public void Update(List<Point> track, Table table)
+        {
+            foreach(Sprite sprite in table.clientsSprite)
+            {
+                sprite.MoveTo(track);
+                sprite.AutomaticallyMoves = true;
+                sprite.MovementSpeed = ConstantGeneral.globalSpeedOfSprite - 4;
+            }
+        }
+
+        public void CreateSpriteClient(Table table)
+        {
+            for(int i = 0; i < table.groupClient.clientNumber; i++)
+            {
+                Sprite tempSprite = new Sprite(new Point(0, 0), mySpriteController,
+                C, 16, 32, 200, 1);
+                tempSprite.SetName("client");
+
+                tempSprite.CannotMoveOutsideBox = true;
+                tempSprite.SetSpriteDirectionDegrees(-90);
+                tempSprite.PutBaseImageLocation(ConstantPosition.initialClient);
+                tempSprite.MoveTo(ConstantPosition.initialClient);
+                tempSprite.SetSize(new Size(16, 32));
+                tempSprite.AutomaticallyMoves = true;
+                tempSprite.MovementSpeed = ConstantGeneral.globalSpeedOfSprite - 4;
+
+                table.clientsSprite.Add(tempSprite);
+            }
+        }
+
         public void Update(int moneytotal)
         {
             if (money.InvokeRequired)
@@ -270,6 +302,11 @@ namespace MasterChefInfo
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public void Update(List<Point> track)
+        {
+            throw new NotImplementedException();
         }
     }
 }
