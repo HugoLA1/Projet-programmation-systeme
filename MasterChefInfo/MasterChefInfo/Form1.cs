@@ -27,6 +27,8 @@ namespace MasterChefInfo
         public Sprite maitreHotelSprite;
         public Sprite masterChefSprite;
         public Sprite kitchenPorterSprite;
+        public Sprite fireSprite1;
+        public Sprite fireSprite2;
 
         public Image MH;
         public Image MC;
@@ -35,6 +37,8 @@ namespace MasterChefInfo
         public Image SC;
         public Image KP;
         public Image C;
+        public Image F1;
+        public Image F2;
 
         public Form1(Model model)
         {
@@ -58,7 +62,9 @@ namespace MasterChefInfo
             W = Properties.Resources.waiter1;
             SC = Properties.Resources.SC1;
             KP = Properties.Resources.perso7sprite;
-            C = Properties.Resources.perso9spriteVersion2;
+            //C = Properties.Resources.perso9spriteVersion2;
+            F1 = Properties.Resources.fire;
+            F2 = Properties.Resources.fire1;
 
             for (int i = 0; i < ConstantGeneral.numberOfWaiter; i++)
             {
@@ -176,6 +182,27 @@ namespace MasterChefInfo
             kitchenPorterSprite.SetSize(new Size(16, 32));
             kitchenPorterSprite.MovementSpeed = ConstantGeneral.globalSpeedOfSprite;
             kitchenPorterSprite.Pause();
+
+            // Feux
+            fireSprite1 = new Sprite(ConstantPosition.fire1, mySpriteController,
+            F1, 128, 128, 200, 64);
+            fireSprite1.SetName("Feu 1");
+            fireSprite1.CannotMoveOutsideBox = true;
+            fireSprite1.SetSpriteDirectionDegrees(-90);
+            fireSprite1.PutBaseImageLocation(ConstantPosition.fire1);
+            fireSprite1.MoveTo(ConstantPosition.fire1);
+            fireSprite1.SetSize(new Size(24, 24));
+            fireSprite1.MovementSpeed = ConstantGeneral.globalSpeedOfSprite;
+
+            fireSprite2 = new Sprite(ConstantPosition.fire2, mySpriteController,
+            F2, 128, 128, 200, 64);
+            fireSprite2.SetName("Feu 2");
+            fireSprite2.CannotMoveOutsideBox = true;
+            fireSprite2.SetSpriteDirectionDegrees(-90);
+            fireSprite2.PutBaseImageLocation(ConstantPosition.fire2);
+            fireSprite2.MoveTo(ConstantPosition.fire2);
+            fireSprite2.SetSize(new Size(24, 24));
+            fireSprite2.MovementSpeed = ConstantGeneral.globalSpeedOfSprite;
 
         }
 
@@ -317,7 +344,7 @@ namespace MasterChefInfo
         {
             for(int i = 0; i < table.groupClient.clientNumber; i++)
             {
-                //C = chooseRandomSprite();
+                C = chooseRandomSprite();
                 Sprite tempSprite = new Sprite(new Point(0, 0), mySpriteController,
                 C, 24, 24, 200, 1);
                 tempSprite.SetName("client");
