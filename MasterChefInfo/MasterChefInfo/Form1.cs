@@ -357,9 +357,8 @@ namespace MasterChefInfo
         {
             for(int i = 0; i < table.groupClient.clientNumber; i++)
             {
-                C = chooseRandomSprite();
                 Sprite tempSprite = new Sprite(new Point(0, 0), mySpriteController,
-                C, 24, 24, 200, 1);
+                chooseRandomSprite(), 24, 24, 200, 1);
                 tempSprite.SetName("client");
 
                 tempSprite.CannotMoveOutsideBox = true;
