@@ -1,0 +1,13 @@
+@startuml
+class Waiter {
+    - observers : List<IObserver>
+    + isAvailable : bool
+    - ID : int
+    + Waiter(ID:int)
+    + RegisterObserver(observer:IObserver) : void
+    + UnregisterObserver(observer:IObserver) : void
+    + NotifyObservers(track:List<Point>) : void
+    + NotifyObservers(track:List<Point>, table:Table) : void
+}
+ISubject <|-- Waiter
+@enduml

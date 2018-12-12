@@ -1,0 +1,9 @@
+@startuml
+class MasterChef {
+    + sectionChefs : List<SectionChef> <<get>> <<set>>
+    + commandsToDo : List<Command> <<get>> <<set>>
+    + posX : int <<get>> <<set>>
+    + posY : int <<get>> <<set>>
+    + MasterChef()
+}
+@enduml

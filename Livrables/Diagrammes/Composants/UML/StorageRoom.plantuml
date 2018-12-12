@@ -1,0 +1,10 @@
+@startuml
+class StorageRoom {
+    + cleanUstensil : List<Ustensil> <<get>> <<set>>
+    + StorageRoom()
+    + RemoveFood(name:String) : void
+    + UseUstentil(ustensil:Ustensil) : void
+    + GetUstentil(type:UstensilType) : Ustensil
+    + AddCleanUstensil() : void
+}
+@enduml

@@ -1,0 +1,8 @@
+@startuml
+class Square {
+    + lines : List<Line> <<get>> <<set>>
+    + squareSupervisors : List<SquareSupervisor> <<get>> <<set>>
+    + posX : int
+    + Square(posX:int)
+}
+@enduml

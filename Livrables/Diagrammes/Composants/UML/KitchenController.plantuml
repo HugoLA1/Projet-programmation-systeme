@@ -1,0 +1,9 @@
+@startuml
+class KitchenController {
+    + model : Model
+    + masterChefController : MasterChefController <<get>> <<set>>
+    + sectionChefController : SectionChefController <<get>> <<set>>
+    + cleanningRoomController : CleanningRoomController <<get>> <<set>>
+    + KitchenController(model:Model)
+}
+@enduml

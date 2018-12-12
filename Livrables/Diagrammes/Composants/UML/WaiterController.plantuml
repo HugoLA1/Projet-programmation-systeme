@@ -1,0 +1,17 @@
+@startuml
+class WaiterController {
+    model : Model
+    threadW : Thread
+    groupClientController : GroupClientController
+    + WaiterController(model:Model, groupClientController:GroupClientController)
+    + CreateThread() : void
+    + WatchLoop() : void
+    - ServeDesert(table:Table, waiter:Waiter, groupCommand:GroupCommand) : void
+    + ServeDish(table:Table, waiter:Waiter, groupCommand:GroupCommand) : void
+    - ServeApetizer(table:Table, waiter:Waiter, groupCommand:GroupCommand) : void
+    + MoveToTable(table:Table, waiter:Waiter) : void
+    + MoveToCounter(table:Table, waiter:Waiter) : void
+    + PutBreadAndWater(table:Table, waiter:Waiter) : void
+    + CleanTable(table:Table, waiter:Waiter) : void
+}
+@enduml

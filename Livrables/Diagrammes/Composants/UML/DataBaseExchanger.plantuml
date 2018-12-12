@@ -1,0 +1,12 @@
+@startuml
+class DataBaseExchanger {
+    - <<const>> server : String = "localhost"
+    - <<const>> database : String = "masterchefinfo"
+    - <<const>> uid : String = "root"
+    - <<const>> password : String = ""
+    - <<const>> fullConnectionString : String
+    + Connection() : MySqlConnection
+    + ExecuteRequest(command:MySqlCommand) : DataTable
+    + ExecuteAction(command:MySqlCommand) : void
+}
+@enduml

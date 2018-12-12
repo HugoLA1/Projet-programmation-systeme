@@ -1,0 +1,27 @@
+@startuml
+enum DishState {
+    Waiting,
+    WaitToBePlaced,
+    WaitMenu,
+    Choosing,
+    Choosed,
+    WaitBreadAndWater,
+    WaitGetApetizer,
+    EatingApetizer,
+    FinishedApetizer,
+    WaitGetDish,
+    EatingDish,
+    FinishedDish,
+    WaitGetDesert,
+    EatingDesert,
+    FinishedDesert,
+    WaitNote,
+}
+enum UstensilType {
+    assiete,
+    couteau,
+    fourchette,
+    cuillere,
+    casserolle,
+}
+@enduml

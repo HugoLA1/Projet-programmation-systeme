@@ -1,0 +1,10 @@
+@startuml
+class CleanningRoom {
+    + dirtyUstensil : List<Ustensil> <<get>> <<set>>
+    + washingMachine : WashingMachine <<get>> <<set>>
+    + dishWasher : DishWasher <<get>> <<set>>
+    + travelToCounter : List<Point> <<get>> <<set>>
+    + travelToDW : List<Point> <<get>> <<set>>
+    + CleanningRoom()
+}
+@enduml

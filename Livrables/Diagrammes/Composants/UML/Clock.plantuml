@@ -1,0 +1,6 @@
+@startuml
+class Clock {
+    - {static} aTimer : System.Timers.Timer
+    + GetDate() : DateTime
+}
+@enduml

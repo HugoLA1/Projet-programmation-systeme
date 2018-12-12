@@ -1,0 +1,7 @@
+@startuml
+class CookingRoom {
+    + masterChef : MasterChef <<get>> <<set>>
+    + usedUstensil : List<Ustensil> <<get>> <<set>>
+    + CookingRoom()
+}
+@enduml

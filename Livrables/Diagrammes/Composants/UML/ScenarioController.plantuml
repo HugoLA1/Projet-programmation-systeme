@@ -1,0 +1,11 @@
+@startuml
+class ScenarioController {
+    <<readonly>> rnd : Random
+    threadScenario : Thread
+    model : Model
+    clientGeneratorController : ClientGeneratorController
+    + ScenarioController(model:Model)
+    + NewGroupClient() : void
+    + ScenarioLoop() : void
+}
+@enduml

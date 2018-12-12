@@ -1,0 +1,8 @@
+@startuml
+interface IObserver {
+    Update(name:string, nb:int, track:List<Point>) : void
+    Update(money:int) : void
+    Update(track:List<Point>) : void
+    Update(track:List<Point>, table:Table) : void
+}
+@enduml

@@ -1,0 +1,11 @@
+@startuml
+class Command {
+    + posX : int <<get>> <<set>>
+    + posY : int <<get>> <<set>>
+    + recipe : List<string> <<get>> <<set>>
+    + ustensils : List<Ustensil> <<get>> <<set>>
+    + table : Table
+    + name : string <<get>> <<set>>
+    + Command()
+}
+@enduml
