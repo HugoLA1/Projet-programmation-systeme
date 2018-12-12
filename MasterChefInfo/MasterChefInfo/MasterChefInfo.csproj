@@ -225,5 +225,14 @@
   <ItemGroup>
     <None Include="Resources\pasbienfait.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Game Boy Advance - Mega Man Battle Network - Fire Animations.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fire.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fire1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
