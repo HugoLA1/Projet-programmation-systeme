@@ -58,7 +58,7 @@ namespace MasterChefInfo
             W = Properties.Resources.waiter1;
             SC = Properties.Resources.SC1;
             KP = Properties.Resources.perso7sprite;
-            C = Properties.Resources.pasbienfait;
+            C = Properties.Resources.perso9spriteVersion2;
 
             for (int i = 0; i < ConstantGeneral.numberOfWaiter; i++)
             {

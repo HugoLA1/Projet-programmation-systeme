@@ -231,5 +231,20 @@
   <ItemGroup>
     <None Include="Resources\pasbienfait3.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perso2spriteVersion2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perso3spriteVersion2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perso8spriteVersion8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perso9spriteVersion2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perso10spriteVersion2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
