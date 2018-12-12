@@ -1,0 +1,11 @@
+@startuml
+class DinnerRoom {
+    + waitingGroupClients : List<GroupClient> <<get>> <<set>>
+    + squares : List<Square> <<get>> <<set>>
+    + maitreHotel : MaitreHotel <<get>> <<set>>
+    + waiters : List<Waiter> <<get>> <<set>>
+    + menu : int <<get>> <<set>>
+    + DinnerRoom()
+    + AddGroupClient(groupClient:GroupClient) : void
+}
+@enduml

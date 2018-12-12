@@ -1,0 +1,8 @@
+@startuml
+class GroupCommand {
+    + commands : List<Command> <<get>> <<set>>
+    + nbCommand : int <<get>> <<set>>
+    + table : Table <<get>> <<set>>
+    + GroupCommand(table:Table)
+}
+@enduml

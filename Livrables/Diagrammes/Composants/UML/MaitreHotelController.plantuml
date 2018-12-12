@@ -1,0 +1,12 @@
+@startuml
+class MaitreHotelController {
+    model : Model
+    form : Form1
+    threadMH : Thread
+    money : int
+    + MaitreHotelController(model:Model, form:Form1)
+    + CreateThread() : void
+    + WatchLoop() : void
+    + AssignToTable(groupClient:GroupClient) : void
+}
+@enduml

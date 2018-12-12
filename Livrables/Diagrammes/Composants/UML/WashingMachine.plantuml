@@ -1,0 +1,7 @@
+@startuml
+class WashingMachine {
+    + posX : int <<get>> <<set>>
+    + posY : int <<get>> <<set>>
+    + WashingMachine()
+}
+@enduml

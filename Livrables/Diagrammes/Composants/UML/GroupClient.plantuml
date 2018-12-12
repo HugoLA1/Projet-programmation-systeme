@@ -1,0 +1,10 @@
+@startuml
+class GroupClient {
+    + clients : Client[] <<get>> <<set>>
+    + clientNumber : int <<get>> <<set>>
+    + dishState : DishState <<get>> <<set>>
+    + finalPrice : int <<get>> <<set>>
+    + commands : List<Command>
+    + GroupClient(clientNumber:int)
+}
+@enduml

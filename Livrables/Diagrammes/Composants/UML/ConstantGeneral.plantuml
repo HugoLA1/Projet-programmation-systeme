@@ -1,0 +1,13 @@
+@startuml
+class ConstantGeneral <<static>> {
+    + <<const>> globalSpeedOfSprite : int = 10
+    + <<const>> globalTimeSpeedMultiplicator : int = 1000
+    + <<const>> choseFromMenuTime : int = 5
+    + <<const>> eatingApetizerTime : int = 5
+    + <<const>> eatingDishTime : int = 5
+    + <<const>> eatingDesertTime : int = 5
+    + <<const>> numberOfWaiter : int = 2
+    + <<const>> numberOfSSPerSquare : int = 2
+    + <<const>> numberOfSC : int = 2
+}
+@enduml

@@ -1,0 +1,11 @@
+@startuml
+class MasterChefController {
+    + model : Model
+    + sectionChefController : SectionChefController
+    threadMC : Thread
+    + MasterChefController(model:Model, sectionChefController:SectionChefController)
+    + CreateThread() : void
+    + WatchLoop() : void
+    + GiveOrder(sectionChef:SectionChef, command:Command) : void
+}
+@enduml

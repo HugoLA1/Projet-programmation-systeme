@@ -1,0 +1,57 @@
+@startuml
+class ConstantPosition <<static>> {
+    + <<const>> pixelSizeOfBlock : int = 24
+    + <<const>> maitreHotelPosX : int
+    + <<const>> maitreHotelPosY : int
+    + <<const>> entryPosX : int
+    + <<const>> entryPosY : int
+    + <<const>> initialWaiterPosX : int
+    + <<const>> initialWaiterPosY : int
+    + <<const>> initialSquareSupervisor1PosX : int
+    + <<const>> initialSquareSupervisor1PosY : int
+    + <<const>> initialSquareSupervisor2PosX : int
+    + <<const>> initialSquareSupervisor2PosY : int
+    + <<const>> accessibleCounterDinnerRoomPosX : int
+    + <<const>> accessibleCounterDinnerRoomPosY : int
+    + <<const>> masterChefPosX : int
+    + <<const>> masterChefPosY : int
+    + <<const>> sectionChefPosX : int
+    + <<const>> sectionChefPosY : int
+    + <<const>> accessibleBakeryPosX : int
+    + <<const>> accessibleBakeryPosY : int
+    + <<const>> accessibleWorkSurfacePosX : int
+    + <<const>> accessibleWorkSurfacePosY : int
+    + <<const>> accessibleCounterKitchenPosX : int
+    + <<const>> accessibleCounterKitchenPosY : int
+    + <<const>> startPointLine1PosX : int
+    + <<const>> startPointLine1PosY : int
+    + <<const>> startPointLine2PosX : int
+    + <<const>> startPointLine2PosY : int
+    + <<const>> startPointLine3PosX : int
+    + <<const>> startPointLine3PosY : int
+    + <<const>> kitchenPorterPosX : int
+    + <<const>> kitchenPorterPosY : int
+    + <<const>> washingMachinePosX : int
+    + <<const>> washingMachinePosY : int
+    + <<const>> initialClientPosX : int
+    + <<const>> initialClientPosY : int
+    + {static} maitreHotel : Point
+    + {static} entry : Point
+    + {static} initialWaiter : Point
+    + {static} initialSquare1Supervisor : Point
+    + {static} initialSquare2Supervisor : Point
+    + {static} accessibleCounterDinnerRoom : Point
+    + {static} masterChef : Point
+    + {static} sectionChef : Point
+    + {static} accessibleBakery : Point
+    + {static} accessibleWorkSurface : Point
+    + {static} kitchenPorter : Point
+    + {static} accessibleCounterKitchen : Point
+    + {static} washingMachine : Point
+    + {static} dishWasher : Point
+    + {static} initialClient : Point
+    + {static} startPointLine1 : Point
+    + {static} startPointLine2 : Point
+    + {static} startPointLine3 : Point
+}
+@enduml

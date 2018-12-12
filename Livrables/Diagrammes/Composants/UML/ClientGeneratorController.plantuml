@@ -1,0 +1,8 @@
+@startuml
+class ClientGeneratorController {
+    <<readonly>> model : Model
+    rnd : Random
+    + ClientGeneratorController(model:Model)
+    + CreateNewGroupClient() : GroupClient
+}
+@enduml

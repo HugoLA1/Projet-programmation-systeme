@@ -1,0 +1,14 @@
+@startuml
+class KitchenPorter {
+    - name : string
+    - observers : List<IObserver>
+    + posX : int <<get>> <<set>>
+    + posY : int <<get>> <<set>>
+    + KitchenPorter(ID:int)
+    + RegisterObserver(observer:IObserver) : void
+    + UnregisterObserver(observer:IObserver) : void
+    + NotifyObservers(track:List<Point>) : void
+    + NotifyObservers(track:List<Point>, table:Table) : void
+}
+ISubject <|-- KitchenPorter
+@enduml

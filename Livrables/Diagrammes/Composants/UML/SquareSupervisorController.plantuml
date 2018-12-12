@@ -1,0 +1,21 @@
+@startuml
+class SquareSupervisorController {
+    model : Model
+    threadS : Thread
+    groupClientController : GroupClientController
+    threadSMSemaphore : Semaphore
+    threadCMSemaphore : Semaphore
+    threadECSemaphore : Semaphore
+    + SquareSupervisorController(model:Model, groupClientController:GroupClientController)
+    + CreateThread() : void
+    + WatchLoop() : void
+    + EscortClient(table:Table, squareSupervisor:SquareSupervisor) : void
+    + MoveToTable(table:Table, squareSupervisor:SquareSupervisor) : void
+    + MoveToClient(squareSupervisor:SquareSupervisor) : void
+    + MoveClient(table:Table, squareSupervisor:SquareSupervisor) : void
+    - MoveToWelcome(table:Table, squareSupervisor:SquareSupervisor) : void
+    + SearchMenu(table:Table, squareSupervisor:SquareSupervisor) : void
+    + CollectMenu(table:Table, squareSupervisor:SquareSupervisor) : void
+    + GetCommande(table:Table, squareSupervisor:SquareSupervisor) : void
+}
+@enduml

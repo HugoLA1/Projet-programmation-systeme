@@ -1,0 +1,12 @@
+@startuml
+class SectionChefController {
+    - model : Model
+    + SectionChefController(model:Model)
+    + MakePartOfCommand(sectionChef:SectionChef, command:Command) : Command
+    + MoveToBakery(sectionChef:SectionChef) : void
+    + MoveToStorageRoom(sectionChef:SectionChef) : void
+    + MoveToWorkSurface(sectionChef:SectionChef) : void
+    + ReturnClassic(sectionChef:SectionChef) : void
+    + ReturnSR(sectionChef:SectionChef) : void
+}
+@enduml

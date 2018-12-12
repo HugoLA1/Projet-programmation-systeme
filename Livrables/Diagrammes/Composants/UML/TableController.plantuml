@@ -1,0 +1,5 @@
+@startuml
+class TableController {
+    + ChangeDishState(table:Table) : void
+}
+@enduml

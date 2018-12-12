@@ -1,0 +1,10 @@
+@startuml
+class Model {
+    + BDD : DataBaseExchanger <<get>> <<set>>
+    + requestMapper : RequestMapper <<get>> <<set>>
+    + dinnerRoom : DinnerRoom <<get>> <<set>>
+    + kitchen : Kitchen <<get>> <<set>>
+    + counter : Counter <<get>> <<set>>
+    + Model()
+}
+@enduml

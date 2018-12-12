@@ -1,0 +1,17 @@
+@startuml
+class Table {
+    + places : int <<get>> <<set>>
+    + posX : int <<get>> <<set>>
+    + posY : int <<get>> <<set>>
+    + menus : int <<get>> <<set>>
+    + bread : int <<get>> <<set>>
+    + water : int <<get>> <<set>>
+    + groupClient : GroupClient <<get>> <<set>>
+    + clientsSprite : List<Sprite>
+    + travelList : List<Point>
+    + supervisorTravelList : List<Point>
+    + returnCounterList : List<Point>
+    + returnSquareList : List<Point>
+    + Table(posX:int, posY:int, places:int)
+}
+@enduml

@@ -1,0 +1,21 @@
+@startuml
+class KitchenPorterController {
+    model : Model
+    threadK : Thread
+    - observers : List<IObserver>
+    + KitchenPorterController()
+    + MoveToDishWater(kitchenPorter:KitchenPorter) : void
+    + MoveToWashingMachine() : void
+    + WashUstensil(useUstensil:List<Ustensil>, kitchenPorter:KitchenPorter) : void
+    - MoveToCounter(kitchenPorter:KitchenPorter) : void
+    + StartDishWasher(ustensils:List<Ustensil>) : void
+    + StartWashingMachine(ustensils:List<Ustensil>) : void
+    + CreateThread() : void
+    + WatchLoop() : void
+    + RegisterObserver(observer:IObserver) : void
+    + UnregisterObserver(observer:IObserver) : void
+    + NotifyObservers(counter:List<Point>) : void
+    + NotifyObservers(track:List<Point>, table:Table) : void
+}
+ISubject <|-- KitchenPorterController
+@enduml

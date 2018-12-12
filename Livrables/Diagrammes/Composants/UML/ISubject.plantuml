@@ -1,0 +1,8 @@
+@startuml
+interface ISubject {
+    RegisterObserver(observer:IObserver) : void
+    UnregisterObserver(observer:IObserver) : void
+    NotifyObservers(track:List<Point>) : void
+    NotifyObservers(track:List<Point>, table:Table) : void
+}
+@enduml

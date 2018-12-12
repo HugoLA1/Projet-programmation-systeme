@@ -1,0 +1,7 @@
+@startuml
+class CleanningRoomController {
+    + washingMachineController : WashingMachineController
+    + dishWasherController : DishWasherController
+    + kitchenPorterController : KitchenPorterController
+}
+@enduml

@@ -1,0 +1,13 @@
+@startuml
+class Kitchen {
+    + cleanningRoom : CleanningRoom <<get>> <<set>>
+    + cookingRoom : CookingRoom <<get>> <<set>>
+    + storageRoom : StorageRoom <<get>> <<set>>
+    + travelToBakery : List<Point> <<get>> <<set>>
+    + travelToWS : List<Point> <<get>> <<set>>
+    + travelToSR : List<Point> <<get>> <<set>>
+    + returnClassic : List<Point> <<get>> <<set>>
+    + returnFrmoSR : List<Point> <<get>> <<set>>
+    + Kitchen()
+}
+@enduml

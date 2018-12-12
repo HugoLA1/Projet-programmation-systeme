@@ -1,0 +1,8 @@
+@startuml
+class Counter {
+    + counterPoint : Point <<get>> <<set>>
+    + waitingGroupCommand : List<GroupCommand> <<get>> <<set>>
+    + useUsentils : List<Ustensil> <<get>> <<set>>
+    + Counter()
+}
+@enduml

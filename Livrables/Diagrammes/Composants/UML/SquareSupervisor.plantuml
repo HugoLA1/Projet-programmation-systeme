@@ -1,0 +1,14 @@
+@startuml
+class SquareSupervisor {
+    - observers : List<IObserver>
+    + isAvailable : bool <<get>> <<set>>
+    + sqr : int
+    + ID : int
+    + SquareSupervisor(ID:int, sqr:int)
+    + RegisterObserver(observer:IObserver) : void
+    + UnregisterObserver(observer:IObserver) : void
+    + NotifyObservers(track:List<Point>) : void
+    + NotifyObservers(track:List<Point>, table:Table) : void
+}
+ISubject <|-- SquareSupervisor
+@enduml

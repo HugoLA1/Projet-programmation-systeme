@@ -1,0 +1,8 @@
+@startuml
+class Line {
+    + tables : List<Table> <<get>> <<set>>
+    + posX : int
+    + posY : int
+    + Line(posX:int, posY:int)
+}
+@enduml

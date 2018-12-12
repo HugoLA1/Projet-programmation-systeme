@@ -1,0 +1,30 @@
+@startuml
+class Resources {
+    - {static} resourceMan : global::System.Resources.ResourceManager
+    - {static} resourceCulture : global::System.Globalization.CultureInfo
+    <<internal>> Resources()
+    <<internal>> {static} ResourceManager : global::System.Resources.ResourceManager <<get>>
+    <<internal>> {static} Culture : global::System.Globalization.CultureInfo <<get>> <<set>>
+    <<internal>> {static} Ambiance : System.IO.UnmanagedMemoryStream <<get>>
+    <<internal>> {static} ChefFemale : System.Drawing.Bitmap <<get>>
+    <<internal>> {static} ChefMale : System.Drawing.Bitmap <<get>>
+    <<internal>> {static} Map : System.Drawing.Bitmap <<get>>
+    <<internal>> {static} perso10sprite : System.Drawing.Bitmap <<get>>
+    <<internal>> {static} perso1sprite : System.Drawing.Bitmap <<get>>
+    <<internal>> {static} perso2sprite : System.Drawing.Bitmap <<get>>
+    <<internal>> {static} perso3sprite : System.Drawing.Bitmap <<get>>
+    <<internal>> {static} perso6sprite : System.Drawing.Bitmap <<get>>
+    <<internal>> {static} perso7sprite : System.Drawing.Bitmap <<get>>
+    <<internal>> {static} perso8sprite : System.Drawing.Bitmap <<get>>
+    <<internal>> {static} perso9sprite : System.Drawing.Bitmap <<get>>
+    <<internal>> {static} plate : System.Drawing.Bitmap <<get>>
+    <<internal>> {static} SC1 : System.Drawing.Bitmap <<get>>
+    <<internal>> {static} SC2 : System.Drawing.Bitmap <<get>>
+    <<internal>> {static} SS1 : System.Drawing.Bitmap <<get>>
+    <<internal>> {static} SS2 : System.Drawing.Bitmap <<get>>
+    <<internal>> {static} waiter1 : System.Drawing.Bitmap <<get>>
+    <<internal>> {static} waiter2 : System.Drawing.Bitmap <<get>>
+    <<internal>> {static} waiter3 : System.Drawing.Bitmap <<get>>
+    <<internal>> {static} waiter4 : System.Drawing.Bitmap <<get>>
+}
+@enduml

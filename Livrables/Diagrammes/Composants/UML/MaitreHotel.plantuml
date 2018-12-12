@@ -1,0 +1,14 @@
+@startuml
+class MaitreHotel {
+    - observers : List<IObserver>
+    + posX : int <<get>> <<set>>
+    + posY : int <<get>> <<set>>
+    + MaitreHotel()
+    + RegisterObserver(observer:IObserver) : void
+    + UnregisterObserver(observer:IObserver) : void
+    + NotifyObservers(moneytotal:int) : void
+    + NotifyObservers(track:List<Point>) : void
+    + NotifyObservers(track:List<Point>, table:Table) : void
+}
+ISubject <|-- MaitreHotel
+@enduml

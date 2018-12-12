@@ -1,0 +1,7 @@
+@startuml
+class DishWasher {
+    + posX : int <<get>> <<set>>
+    + posY : int <<get>> <<set>>
+    + DishWasher()
+}
+@enduml

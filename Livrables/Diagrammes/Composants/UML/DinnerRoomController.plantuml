@@ -1,0 +1,13 @@
+@startuml
+class DinnerRoomController {
+    + maitreHotelController : MaitreHotelController
+    + squareSupervisorController : SquareSupervisorController
+    + waiterController : WaiterController
+    + kitchenController : KitchenController
+    + model : Model
+    + form : Form1
+    + scenarioController : ScenarioController
+    + groupClientController : GroupClientController
+    + DinnerRoomController(model:Model, form:Form1)
+}
+@enduml

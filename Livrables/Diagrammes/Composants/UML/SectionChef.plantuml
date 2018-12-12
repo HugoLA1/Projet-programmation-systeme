@@ -1,0 +1,13 @@
+@startuml
+class SectionChef {
+    observers : List<IObserver>
+    + isAvailable : bool <<get>> <<set>>
+    + ID : int
+    + SectionChef(ID:int)
+    + RegisterObserver(observer:IObserver) : void
+    + UnregisterObserver(observer:IObserver) : void
+    + NotifyObservers(track:List<Point>) : void
+    + NotifyObservers(track:List<Point>, table:Table) : void
+}
+ISubject <|-- SectionChef
+@enduml

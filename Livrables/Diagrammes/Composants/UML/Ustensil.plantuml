@@ -1,0 +1,7 @@
+@startuml
+class Ustensil {
+    + posX : int <<get>> <<set>>
+    + posY : int <<get>> <<set>>
+    + type : UstensilType <<get>> <<set>>
+}
+@enduml

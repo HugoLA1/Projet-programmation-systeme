@@ -1,0 +1,34 @@
+@startuml
+class Form1 <<partial>> {
+    model : Model
+    mySpriteController : SpriteController
+    waitersList : List<Sprite>
+    square1SupervisorsList : List<Sprite>
+    square2SupervisorsList : List<Sprite>
+    sectionChefsList : List<Sprite>
+    + maitreHotelSprite : Sprite
+    + masterChefSprite : Sprite
+    + kitchenPorterSprite : Sprite
+    + MH : Image
+    + MC : Image
+    + SS : Image
+    + W : Image
+    + SC : Image
+    + KP : Image
+    + C : Image
+    + Form1(model:Model)
+    + Update(name:string, nb:int, track:List<Point>) : void
+    + Update(track:List<Point>, table:Table) : void
+    + CreateSpriteClient(table:Table) : void
+    + Update(moneytotal:int) : void
+    - money_Click(sender:object, e:EventArgs) : void
+    - pictureBox1_Click(sender:object, e:EventArgs) : void
+    - Form1_Load(sender:object, e:EventArgs) : void
+    - Form1_FormClosed(sender:object, e:FormClosedEventArgs) : void
+    - MainDrawingArea_Click(sender:object, e:EventArgs) : void
+    - label1_Click(sender:object, e:EventArgs) : void
+    + Update(track:List<Point>) : void
+}
+Form <|-- Form1
+IObserver <|-- Form1
+@enduml

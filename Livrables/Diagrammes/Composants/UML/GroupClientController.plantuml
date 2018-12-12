@@ -1,0 +1,12 @@
+@startuml
+class GroupClientController {
+    + ThreadEatApetizer(groupClient:GroupClient) : void
+    + ThreadEatDish(groupClient:GroupClient) : void
+    + ThreadEatDesert(groupClient:GroupClient) : void
+    + ThreadChoseMenu(groupClient:GroupClient) : void
+    + EatApetizer(second:int, groupClient:GroupClient) : void
+    + EatDish(second:int, groupClient:GroupClient) : void
+    + EatDesert(second:int, groupClient:GroupClient) : void
+    + ChoseMenu(second:int, groupClient:GroupClient) : void
+}
+@enduml

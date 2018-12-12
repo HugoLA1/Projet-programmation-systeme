@@ -1,0 +1,9 @@
+@startuml
+class Controller {
+    + model : Model
+    + dinnerRoomController : DinnerRoomController
+    + form : Form1
+    + Controller()
+    + SetObserver() : void
+}
+@enduml
