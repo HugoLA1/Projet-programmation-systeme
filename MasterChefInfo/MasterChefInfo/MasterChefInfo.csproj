@@ -222,5 +222,8 @@
   <ItemGroup>
     <Folder Include="Model\Sprite\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pasbienfait.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

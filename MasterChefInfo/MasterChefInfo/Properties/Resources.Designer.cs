@@ -102,6 +102,16 @@ namespace MasterChefInfo.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pasbienfait {
+            get {
+                object obj = ResourceManager.GetObject("pasbienfait", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap perso10sprite {
             get {
                 object obj = ResourceManager.GetObject("perso10sprite", resourceCulture);

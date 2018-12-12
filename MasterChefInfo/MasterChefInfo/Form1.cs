@@ -58,7 +58,7 @@ namespace MasterChefInfo
             W = Properties.Resources.waiter1;
             SC = Properties.Resources.SC1;
             KP = Properties.Resources.perso7sprite;
-            C = Properties.Resources.perso9sprite;
+            C = Properties.Resources.pasbienfait;
 
             for (int i = 0; i < ConstantGeneral.numberOfWaiter; i++)
             {
@@ -113,7 +113,7 @@ namespace MasterChefInfo
             {
 
                 sectionChefsList.Insert(i, new Sprite(new Point(0, 0), mySpriteController,
-                MC, 16, 32, 200, 4));
+                SC, 16, 32, 200, 4));
                 sectionChefsList[i].SetName("Chef de section " + (i + 1).ToString());
                 sectionChefsList[i].AddAnimation(new Point(0, 64), SC, 16, 32, 200, 4);
                 sectionChefsList[i].AddAnimation(new Point(0, 0), SC, 16, 32, 200, 4);
@@ -208,12 +208,66 @@ namespace MasterChefInfo
 
         public void Update(List<Point> track, Table table)
         {
-            foreach(Sprite sprite in table.clientsSprite)
+            foreach (Sprite sprite in table.clientsSprite)
             {
                 sprite.MoveTo(track);
                 sprite.AutomaticallyMoves = true;
                 sprite.MovementSpeed = ConstantGeneral.globalSpeedOfSprite - 4;
             }
+
+            while (!table.clientsSprite[table.clientsSprite.Count-1].SpriteReachedEndPoint) { }
+
+            int cpt = 0;
+            int oddCpt = 0;
+            foreach (Sprite sprite in table.clientsSprite)
+            {
+                if ( table.travelList[1].X == (15 + 1) * ConstantPosition.pixelSizeOfBlock
+                    || table.travelList[1].X == (15 + 6) * ConstantPosition.pixelSizeOfBlock
+                    || table.travelList[1].X == (15 + 11) * ConstantPosition.pixelSizeOfBlock
+                    || table.travelList[1].X == (15 + 16) * ConstantPosition.pixelSizeOfBlock
+                    || table.travelList[1].X == (38 + 1) * ConstantPosition.pixelSizeOfBlock
+                    || table.travelList[1].X == (38 + 6) * ConstantPosition.pixelSizeOfBlock
+                    || table.travelList[1].X == (38 + 11) * ConstantPosition.pixelSizeOfBlock
+                    || table.travelList[1].X == (38 + 16) * ConstantPosition.pixelSizeOfBlock)
+                {
+                    if ((cpt % 2) == 0)
+                    {
+                        sprite.MoveTo(new Point(track[1].X - 2 * ConstantPosition.pixelSizeOfBlock, track[1].Y - (1 + oddCpt) * ConstantPosition.pixelSizeOfBlock));
+                        sprite.AutomaticallyMoves = true;
+                        sprite.MovementSpeed = ConstantGeneral.globalSpeedOfSprite - 4;
+                       
+                    }
+                    else
+                    {
+                        sprite.MoveTo(new Point(track[1].X + 1 * ConstantPosition.pixelSizeOfBlock, track[1].Y - (1 + oddCpt) * ConstantPosition.pixelSizeOfBlock));
+                        sprite.AutomaticallyMoves = true;
+                        sprite.MovementSpeed = ConstantGeneral.globalSpeedOfSprite - 4;
+                        oddCpt++;
+                    }
+                    
+                }
+                else
+                {
+                    if ((cpt % 2) == 0)
+                    {
+                        sprite.MoveTo(new Point(track[1].X - 1 * ConstantPosition.pixelSizeOfBlock, track[1].Y + (1 + oddCpt) * ConstantPosition.pixelSizeOfBlock));
+                        sprite.AutomaticallyMoves = true;
+                        sprite.MovementSpeed = ConstantGeneral.globalSpeedOfSprite - 4;
+
+                    }
+                    else
+                    {
+                        sprite.MoveTo(new Point(track[1].X + 2 * ConstantPosition.pixelSizeOfBlock, track[1].Y + (1 + oddCpt) * ConstantPosition.pixelSizeOfBlock));
+                        sprite.AutomaticallyMoves = true;
+                        sprite.MovementSpeed = ConstantGeneral.globalSpeedOfSprite - 4;
+                        oddCpt++;
+                    }
+                }
+
+                cpt++;
+            }
+
+
         }
 
         public void CreateSpriteClient(Table table)
@@ -221,14 +275,14 @@ namespace MasterChefInfo
             for(int i = 0; i < table.groupClient.clientNumber; i++)
             {
                 Sprite tempSprite = new Sprite(new Point(0, 0), mySpriteController,
-                C, 16, 32, 200, 1);
+                C, 24, 24, 200, 1);
                 tempSprite.SetName("client");
 
                 tempSprite.CannotMoveOutsideBox = true;
                 tempSprite.SetSpriteDirectionDegrees(-90);
                 tempSprite.PutBaseImageLocation(ConstantPosition.initialClient);
                 tempSprite.MoveTo(ConstantPosition.initialClient);
-                tempSprite.SetSize(new Size(16, 32));
+                tempSprite.SetSize(new Size(24, 24));
                 tempSprite.AutomaticallyMoves = true;
                 tempSprite.MovementSpeed = ConstantGeneral.globalSpeedOfSprite - 4;
 

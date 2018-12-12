@@ -25,10 +25,10 @@ namespace MasterChefInfo
 
             if ((posX == ConstantPosition.pixelSizeOfBlock * 15) && (posY == ConstantPosition.pixelSizeOfBlock * 6))
             {
-                tables.Add(new Table(posX, posY, 4));
-                tables.Add(new Table(posX + 5 * ConstantPosition.pixelSizeOfBlock, posY, 8));
-                tables.Add(new Table(posX + 10 * ConstantPosition.pixelSizeOfBlock, posY, 2));
-                tables.Add(new Table(posX + 15 * ConstantPosition.pixelSizeOfBlock, posY, 6));
+                tables.Add(new Table(posX + 1 * ConstantPosition.pixelSizeOfBlock, posY, 4));
+                tables.Add(new Table(posX + 6 * ConstantPosition.pixelSizeOfBlock, posY, 8));
+                tables.Add(new Table(posX + 11 * ConstantPosition.pixelSizeOfBlock, posY, 2));
+                tables.Add(new Table(posX + 16 * ConstantPosition.pixelSizeOfBlock, posY, 6));
                 tables.Add(new Table(posX, posY, 4));
                 tables.Add(new Table(posX + 5 * ConstantPosition.pixelSizeOfBlock, posY, 2));
                 tables.Add(new Table(posX + 10 * ConstantPosition.pixelSizeOfBlock, posY, 6));
@@ -50,10 +50,10 @@ namespace MasterChefInfo
             if ((posX == ConstantPosition.pixelSizeOfBlock * 38) && (posY == ConstantPosition.pixelSizeOfBlock * 6))
             {
 
-                tables.Add(new Table(posX, posY, 2));
-                tables.Add(new Table(posX + 5 * ConstantPosition.pixelSizeOfBlock, posY, 8));
-                tables.Add(new Table(posX + 10 * ConstantPosition.pixelSizeOfBlock, posY, 4));
-                tables.Add(new Table(posX + 15 * ConstantPosition.pixelSizeOfBlock, posY, 2));
+                tables.Add(new Table(posX + 1 * ConstantPosition.pixelSizeOfBlock, posY, 2));
+                tables.Add(new Table(posX + 6 * ConstantPosition.pixelSizeOfBlock, posY, 8));
+                tables.Add(new Table(posX + 11 * ConstantPosition.pixelSizeOfBlock, posY, 4));
+                tables.Add(new Table(posX + 16 * ConstantPosition.pixelSizeOfBlock, posY, 2));
                 tables.Add(new Table(posX, posY, 6));
                 tables.Add(new Table(posX + 5 * ConstantPosition.pixelSizeOfBlock, posY, 4));
                 tables.Add(new Table(posX + 10 * ConstantPosition.pixelSizeOfBlock, posY, 2));
