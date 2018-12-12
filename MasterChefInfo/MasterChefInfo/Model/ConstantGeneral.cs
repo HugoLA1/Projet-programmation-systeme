@@ -8,7 +8,7 @@ namespace MasterChefInfo
 {
     static class ConstantGeneral
     {
-        public const int globalSpeedOfSprite = 10;
+        public const int globalSpeedOfSprite = 5;
 
         public const int globalTimeSpeedMultiplicator = 1000; //1000 = 1s
 
