@@ -75,6 +75,7 @@ namespace MasterChefInfo
                 waitersList[i].PutBaseImageLocation(ConstantPosition.initialWaiter);
                 waitersList[i].SetSize(new Size(16, 32));
                 waitersList[i].MovementSpeed = ConstantGeneral.globalSpeedOfSprite;
+                waitersList[i].Pause();
             }
 
             for(int i = 0; i < ConstantGeneral.numberOfSSPerSquare; i++)
@@ -101,12 +102,15 @@ namespace MasterChefInfo
                 square1SupervisorsList[i].PutBaseImageLocation(ConstantPosition.initialSquare1Supervisor);
                 square1SupervisorsList[i].SetSize(new Size(16, 32));
                 square1SupervisorsList[i].MovementSpeed = ConstantGeneral.globalSpeedOfSprite;
+                square1SupervisorsList[i].Pause();
 
                 square2SupervisorsList[i].CannotMoveOutsideBox = true;
                 square2SupervisorsList[i].SetSpriteDirectionDegrees(-90);
                 square2SupervisorsList[i].PutBaseImageLocation(ConstantPosition.initialSquare1Supervisor);
                 square2SupervisorsList[i].SetSize(new Size(16, 32));
                 square2SupervisorsList[i].MovementSpeed = ConstantGeneral.globalSpeedOfSprite;
+                square2SupervisorsList[i].Pause();
+                
             }
 
             for (int i = 0; i < ConstantGeneral.numberOfSC; i++)
@@ -125,6 +129,7 @@ namespace MasterChefInfo
                 sectionChefsList[i].PutBaseImageLocation(ConstantPosition.sectionChef);
                 sectionChefsList[i].SetSize(new Size(16, 32));
                 sectionChefsList[i].MovementSpeed = ConstantGeneral.globalSpeedOfSprite;
+                sectionChefsList[i].Pause();
             }
 
             // Maitre d'hôtel
@@ -139,6 +144,7 @@ namespace MasterChefInfo
             maitreHotelSprite.PutBaseImageLocation(ConstantPosition.maitreHotel);
             maitreHotelSprite.SetSize(new Size(16, 32));
             maitreHotelSprite.MovementSpeed = ConstantGeneral.globalSpeedOfSprite;
+            maitreHotelSprite.Pause();
 
             //Chef de la cuisine
             masterChefSprite = new Sprite(new Point(0, 0), mySpriteController, MC, 16, 32, 200, 4);
@@ -153,6 +159,7 @@ namespace MasterChefInfo
             masterChefSprite.MoveTo(ConstantPosition.masterChef);
             masterChefSprite.SetSize(new Size(16, 32));
             masterChefSprite.MovementSpeed = ConstantGeneral.globalSpeedOfSprite;
+            masterChefSprite.Pause();
 
             //Plogneur
             kitchenPorterSprite = new Sprite(new Point(0, 0), mySpriteController,
@@ -168,6 +175,7 @@ namespace MasterChefInfo
             kitchenPorterSprite.MoveTo(ConstantPosition.kitchenPorter);
             kitchenPorterSprite.SetSize(new Size(16, 32));
             kitchenPorterSprite.MovementSpeed = ConstantGeneral.globalSpeedOfSprite;
+            kitchenPorterSprite.Pause();
 
         }
 
@@ -176,32 +184,40 @@ namespace MasterChefInfo
             switch (name)
             {
                 case "waiter":
+                    waitersList[nb].UnPause();
                     waitersList[nb].MoveTo(track);
                     waitersList[nb].AutomaticallyMoves = true;
                     waitersList[nb].MovementSpeed = ConstantGeneral.globalSpeedOfSprite;
                     while (!waitersList[nb].SpriteReachedEndPoint) { }
+                    waitersList[nb].Pause();
                     break;
 
                 case "squareSupervisor1":
+                    square1SupervisorsList[nb].UnPause();
                     square1SupervisorsList[nb].MoveTo(track);
                     square1SupervisorsList[nb].AutomaticallyMoves = true;
                     square1SupervisorsList[nb].MovementSpeed = ConstantGeneral.globalSpeedOfSprite;
                     while (!square1SupervisorsList[nb].SpriteReachedEndPoint) { }
+                    square1SupervisorsList[nb].Pause();
                     break;
 
                
                 case "squareSupervisor2":
+                    square2SupervisorsList[nb].UnPause();
                     square2SupervisorsList[nb].MoveTo(track);
                     square2SupervisorsList[nb].AutomaticallyMoves = true;
                     square2SupervisorsList[nb].MovementSpeed = ConstantGeneral.globalSpeedOfSprite;
                     while (!square2SupervisorsList[nb].SpriteReachedEndPoint) { }
+                    square2SupervisorsList[nb].UnPause();
                     break;
 
                 case "sectionChef":
+                    sectionChefsList[nb].UnPause();
                     sectionChefsList[nb].MoveTo(track);
                     sectionChefsList[nb].AutomaticallyMoves = true;
                     sectionChefsList[nb].MovementSpeed = ConstantGeneral.globalSpeedOfSprite;
                     while (!sectionChefsList[nb].SpriteReachedEndPoint) { }
+                    sectionChefsList[nb].Pause();
                     break;
             }
         }
@@ -212,10 +228,14 @@ namespace MasterChefInfo
             {
                 sprite.MoveTo(track);
                 sprite.AutomaticallyMoves = true;
-                sprite.MovementSpeed = ConstantGeneral.globalSpeedOfSprite - 4;
+                sprite.MovementSpeed = ConstantGeneral.globalSpeedOfSprite;
             }
 
-            while (!table.clientsSprite[table.clientsSprite.Count-1].SpriteReachedEndPoint) { }
+            foreach (Sprite sprite in table.clientsSprite)
+            {
+                while (!sprite.SpriteReachedEndPoint) { }
+            }
+                
 
             int cpt = 0;
             int oddCpt = 0;
@@ -234,14 +254,13 @@ namespace MasterChefInfo
                     {
                         sprite.MoveTo(new Point(track[1].X - 2 * ConstantPosition.pixelSizeOfBlock, track[1].Y - (1 + oddCpt) * ConstantPosition.pixelSizeOfBlock));
                         sprite.AutomaticallyMoves = true;
-                        sprite.MovementSpeed = ConstantGeneral.globalSpeedOfSprite - 4;
-                       
+                        sprite.MovementSpeed = ConstantGeneral.globalSpeedOfSprite;                       
                     }
                     else
                     {
                         sprite.MoveTo(new Point(track[1].X + 1 * ConstantPosition.pixelSizeOfBlock, track[1].Y - (1 + oddCpt) * ConstantPosition.pixelSizeOfBlock));
                         sprite.AutomaticallyMoves = true;
-                        sprite.MovementSpeed = ConstantGeneral.globalSpeedOfSprite - 4;
+                        sprite.MovementSpeed = ConstantGeneral.globalSpeedOfSprite;
                         oddCpt++;
                     }
                     
@@ -252,19 +271,29 @@ namespace MasterChefInfo
                     {
                         sprite.MoveTo(new Point(track[1].X - 1 * ConstantPosition.pixelSizeOfBlock, track[1].Y + (1 + oddCpt) * ConstantPosition.pixelSizeOfBlock));
                         sprite.AutomaticallyMoves = true;
-                        sprite.MovementSpeed = ConstantGeneral.globalSpeedOfSprite - 4;
+                        sprite.MovementSpeed = ConstantGeneral.globalSpeedOfSprite;
 
                     }
                     else
                     {
                         sprite.MoveTo(new Point(track[1].X + 2 * ConstantPosition.pixelSizeOfBlock, track[1].Y + (1 + oddCpt) * ConstantPosition.pixelSizeOfBlock));
                         sprite.AutomaticallyMoves = true;
-                        sprite.MovementSpeed = ConstantGeneral.globalSpeedOfSprite - 4;
+                        sprite.MovementSpeed = ConstantGeneral.globalSpeedOfSprite;
                         oddCpt++;
                     }
                 }
 
                 cpt++;
+            }
+
+            foreach (Sprite sprite in table.clientsSprite)
+            {
+                while (!sprite.SpriteReachedEndPoint) { }
+            }
+
+            foreach (Sprite sprite in table.clientsSprite)
+            {
+                sprite.Pause();
             }
 
 
@@ -284,8 +313,7 @@ namespace MasterChefInfo
                 tempSprite.MoveTo(ConstantPosition.initialClient);
                 tempSprite.SetSize(new Size(24, 24));
                 tempSprite.AutomaticallyMoves = true;
-                tempSprite.MovementSpeed = ConstantGeneral.globalSpeedOfSprite - 4;
-
+                tempSprite.MovementSpeed = ConstantGeneral.globalSpeedOfSprite;
                 table.clientsSprite.Add(tempSprite);
             }
         }
