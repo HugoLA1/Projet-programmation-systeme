@@ -16,5 +16,6 @@ namespace MasterChefInfo
         void Update(int money);
         void Update(List<Point> track);
         void Update(List<Point> track, Table table);
+        void Update(Table table, string type);
     }
 }

@@ -170,7 +170,7 @@ namespace MasterChefInfo
         {
             model.counter.waitingGroupCommand.Remove(groupCommand);
             MoveToTable(table, waiter);
-
+            assignItemToTable(waiter, table, "glace");
             groupClientController.ThreadEatDesert(table.groupClient);
 
             foreach (Command command in groupCommand.commands)
@@ -188,7 +188,7 @@ namespace MasterChefInfo
         {
             model.counter.waitingGroupCommand.Remove(groupCommand);
             MoveToTable(table, waiter);
-
+            assignItemToTable(waiter, table, "pizza");
             groupClientController.ThreadEatDish(table.groupClient);
             foreach (Command command in groupCommand.commands)
             {
@@ -207,7 +207,7 @@ namespace MasterChefInfo
 
             model.counter.waitingGroupCommand.Remove(groupCommand);
             MoveToTable(table, waiter);
-
+            assignItemToTable(waiter, table, "salade");
             groupClientController.ThreadEatApetizer(table.groupClient);
             foreach (Command command in groupCommand.commands)
             {
@@ -254,12 +254,18 @@ namespace MasterChefInfo
             waiter.isAvailable = true;
         }
 
+        public void assignItemToTable(Waiter waiter, Table table, string type)
+        {
+            waiter.NotifyObservers(table, type);
+        }
+
         /// <summary>
         /// Méthode permettant de débarasser la table
         /// </summary>
         public void CleanTable(Table table, Waiter waiter)
         {
             MoveToTable(table, waiter);
+            assignItemToTable(waiter, table, "noitem");
             if(table.groupClient != null)
             {
                 switch (table.groupClient.dishState)

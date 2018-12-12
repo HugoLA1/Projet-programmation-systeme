@@ -77,7 +77,7 @@ namespace SpriteLibrary
         /// no name, but will have a SpriteOriginName.
         /// </summary>
         public string SpriteOriginName { get; private set; }
-        SmartImage MyImage;
+        public SmartImage MyImage;
         private double SpeedAdjust = 1;
         DateTime LastResetImage = DateTime.UtcNow;
         int _FrameIndex = -1;
@@ -111,7 +111,7 @@ namespace SpriteLibrary
         /// </summary>
         public bool AnimationDone { get { return _AnimationDone; } private set { _AnimationDone = value; } }
         private bool ForceRedraw = false;
-        private bool NeedsDrawingAtEndOfTick = false; //We use this to say that we need to draw at end
+        public bool NeedsDrawingAtEndOfTick = false; //We use this to say that we need to draw at end
         private System.Windows.Vector SpriteVector;
         /// <summary>
         /// The movement speed of the sprite.  To make a Sprite move, you need to set the MovementSpeed,

@@ -36,6 +36,13 @@ namespace MasterChefInfo
         public Image KP;
         public Image C;
 
+        public Image glace;
+        public Image pizza;
+        public Image menu;
+        public Image salade;
+        public Image blank;
+
+
         public Form1(Model model)
         {
             this.model = model;
@@ -59,6 +66,12 @@ namespace MasterChefInfo
             SC = Properties.Resources.SC1;
             KP = Properties.Resources.perso7sprite;
             C = Properties.Resources.pasbienfait;
+
+            glace = Properties.Resources.Glace;
+            pizza = Properties.Resources.Pizza;
+            menu = Properties.Resources.Menu;
+            salade = Properties.Resources.Salade;
+            blank = Properties.Resources.blank;
 
             for (int i = 0; i < ConstantGeneral.numberOfWaiter; i++)
             {
@@ -332,6 +345,131 @@ namespace MasterChefInfo
                 money.Text = moneytotal.ToString();
             }
         }
+
+        public void Update(Table table, string type)
+        {
+            switch (type)
+            {
+                case "menu":
+                    foreach (Sprite sprite in table.clientsSprite)
+                    {
+                        Sprite tempSprite = new Sprite(new Point(0, 0), mySpriteController,
+                        menu, 24, 24, 200, 1);
+                        tempSprite.SetName("menu");
+
+                        tempSprite.CannotMoveOutsideBox = true;
+                        tempSprite.SetSpriteDirectionDegrees(-90);
+                        if (sprite.PictureBoxLocation.X > table.travelList[1].X)
+                        {
+                            Point tempPoint = new Point(sprite.PictureBoxLocation.X - 1 * ConstantPosition.pixelSizeOfBlock, sprite.PictureBoxLocation.Y);
+                            tempSprite.PutBaseImageLocation(tempPoint);
+                        }
+                        else
+                        {
+                            Point tempPoint = new Point(sprite.PictureBoxLocation.X + 1 * ConstantPosition.pixelSizeOfBlock, sprite.PictureBoxLocation.Y);
+                            tempSprite.PutBaseImageLocation(tempPoint);
+                        }
+
+                        tempSprite.MoveTo(ConstantPosition.initialClient);
+                        tempSprite.SetSize(new Size(24, 24));
+                        tempSprite.Pause();
+                        table.itemsSprite.Add(tempSprite);
+                    }
+                    break;
+
+                case "salade":
+                    foreach (Sprite sprite in table.clientsSprite)
+                    {
+                        Sprite tempSprite = new Sprite(new Point(0, 0), mySpriteController,
+                        salade, 24, 24, 200, 1);
+                        tempSprite.SetName("menu");
+
+                        tempSprite.CannotMoveOutsideBox = true;
+                        tempSprite.SetSpriteDirectionDegrees(-90);
+                        if (sprite.PictureBoxLocation.X > table.travelList[1].X)
+                        {
+                            Point tempPoint = new Point(sprite.PictureBoxLocation.X - 1 * ConstantPosition.pixelSizeOfBlock, sprite.PictureBoxLocation.Y);
+                            tempSprite.PutBaseImageLocation(tempPoint);
+                        }
+                        else
+                        {
+                            Point tempPoint = new Point(sprite.PictureBoxLocation.X + 1 * ConstantPosition.pixelSizeOfBlock, sprite.PictureBoxLocation.Y);
+                            tempSprite.PutBaseImageLocation(tempPoint);
+                        }
+
+                        tempSprite.MoveTo(ConstantPosition.initialClient);
+                        tempSprite.SetSize(new Size(24, 24));
+                        tempSprite.Pause();
+                        table.itemsSprite.Add(tempSprite);
+                    }
+                    break;
+
+                case "pizza":
+                    foreach (Sprite sprite in table.clientsSprite)
+                    {
+                        Sprite tempSprite = new Sprite(new Point(0, 0), mySpriteController,
+                        pizza, 24, 24, 200, 1);
+                        tempSprite.SetName("menu");
+
+                        tempSprite.CannotMoveOutsideBox = true;
+                        tempSprite.SetSpriteDirectionDegrees(-90);
+                        if (sprite.PictureBoxLocation.X > table.travelList[1].X)
+                        {
+                            Point tempPoint = new Point(sprite.PictureBoxLocation.X - 1 * ConstantPosition.pixelSizeOfBlock, sprite.PictureBoxLocation.Y);
+                            tempSprite.PutBaseImageLocation(tempPoint);
+                        }
+                        else
+                        {
+                            Point tempPoint = new Point(sprite.PictureBoxLocation.X + 1 * ConstantPosition.pixelSizeOfBlock, sprite.PictureBoxLocation.Y);
+                            tempSprite.PutBaseImageLocation(tempPoint);
+                        }
+
+                        tempSprite.MoveTo(ConstantPosition.initialClient);
+                        tempSprite.SetSize(new Size(24, 24));
+                        tempSprite.Pause();
+                        table.itemsSprite.Add(tempSprite);
+                    }
+                    break;
+
+                case "glace":
+                    foreach (Sprite sprite in table.clientsSprite)
+                    {
+                        Sprite tempSprite = new Sprite(new Point(0, 0), mySpriteController,
+                        glace, 24, 24, 200, 1);
+                        tempSprite.SetName("menu");
+
+                        tempSprite.CannotMoveOutsideBox = true;
+                        tempSprite.SetSpriteDirectionDegrees(-90);
+                        if (sprite.PictureBoxLocation.X > table.travelList[1].X)
+                        {
+                            Point tempPoint = new Point(sprite.PictureBoxLocation.X - 1 * ConstantPosition.pixelSizeOfBlock, sprite.PictureBoxLocation.Y);
+                            tempSprite.PutBaseImageLocation(tempPoint);
+                        }
+                        else
+                        {
+                            Point tempPoint = new Point(sprite.PictureBoxLocation.X + 1 * ConstantPosition.pixelSizeOfBlock, sprite.PictureBoxLocation.Y);
+                            tempSprite.PutBaseImageLocation(tempPoint);
+                        }
+
+                        tempSprite.MoveTo(ConstantPosition.initialClient);
+                        tempSprite.SetSize(new Size(24, 24));
+                        tempSprite.Pause();
+                        table.itemsSprite.Add(tempSprite);
+                    }
+                    break;
+
+                case "noitem":
+                    foreach (Sprite sprite in table.itemsSprite)
+                    {
+                        Invoke(new MethodInvoker(delegate
+                        {
+                            sprite.Destroy();
+                        }));
+                    }
+                    break;
+            }
+            
+        }
         //-------------------------------------------------------------
 
 
@@ -390,5 +528,7 @@ namespace MasterChefInfo
         {
             throw new NotImplementedException();
         }
+
+        
     }
 }

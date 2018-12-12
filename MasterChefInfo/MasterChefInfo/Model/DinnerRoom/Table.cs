@@ -23,6 +23,7 @@ namespace MasterChefInfo
 
         public GroupClient groupClient { get; set; }
 
+        public List<Sprite> itemsSprite;
         public List<Sprite> clientsSprite;
 
         public List<Point> travelList;
@@ -42,6 +43,7 @@ namespace MasterChefInfo
             groupClient = null;
              
             clientsSprite = new List<Sprite>();
+            itemsSprite = new List<Sprite>();
 
             travelList = new List<Point> { new Point(ConstantPosition.pixelSizeOfBlock * 12, posY), new Point(posX, posY) };
             supervisorTravelList = new List<Point> { new Point(ConstantPosition.initialSquareSupervisor1PosX, posY), new Point(posX, posY) };
