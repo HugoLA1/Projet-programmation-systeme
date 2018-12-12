@@ -163,25 +163,16 @@
   <data name="plate" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\plate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SC2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\perso11sprite1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="SS2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\perso5sprite1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="waiter1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\perso4sprite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="waiter2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\perso4sprite1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="waiter3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\perso4sprite2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="waiter4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\perso4sprite3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="pasbienfait" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pasbienfait.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pasbienfait2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pasbienfait2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pasbienfait3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pasbienfait3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
