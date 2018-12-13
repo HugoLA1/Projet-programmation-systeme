@@ -4,7 +4,7 @@
 
 # MasterChef Info 👨‍🍳🍽️
 
-> Projet de 3ème année en EXIA, réalisé en 7 jours.
+> Projet de 3ème année en EXIA, réalisé en 9 jours.
 
 
 **Badges**
