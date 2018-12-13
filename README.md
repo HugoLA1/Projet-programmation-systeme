@@ -1,4 +1,4 @@
-<a href="" ><img src="https://github.com/Theogorath/Projet-programmation-systeme/blob/master/Sprites/Map.png?raw=true"></a>
+<a href="" ><img src="https://i.twic.pics/v1/https://s3-eu-west-1.amazonaws.com/assets.atout-on-line.com/images/ingenieur/2016/logos_ecoles/exia_cesi_360.jpg"></a>
 
 ***Projet programmation Système A3***
 
@@ -11,13 +11,12 @@
 
 
 [![Build Status](https://img.shields.io/maven-metadata/v/http/central.maven.org/maven2/com/google/code/gson/gson/maven-metadata.xml.svg)](https://travis-ci.org/badges/badgerbadgerbadger) ![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg)
-![Steam Collection Files](https://img.shields.io/steam/collection-files/:id.svg)
-![GitHub repo size in bytes](https://img.shields.io/github/size/webcaetano/craft/build/phaser-craft.min.js.svg)
+![Size](https://github-size-badge.herokuapp.com/:owner/:repo.svg)
 
 
-***Vue d'ensemble du projet XMIND*** 📊
+***Visuel du programme*** 
 
-[![XMIND](https://github.com/Theogorath/Projet-programmation-systeme/blob/master/Livrables/Objectifs%20du%20projet/XMind.png?raw=true)]()
+<a href="" ><img src="https://github.com/Theogorath/Projet-programmation-systeme/blob/master/Sprites/Map.png?raw=true"></a>
 
 
 
@@ -42,14 +41,15 @@
 
 ## Installation
 
-- A venir
+- Vous pouvez télécharger directement le github etl'ouvrir avec votre IDE (dans le cas du projet nous avons choisi Visual Code)
+  Vous pouvez générer le programme
 
 ### Clone
 
 - Cloner le repo vers la machine local en utilisant le lien suivant : `https://github.com/Theogorath/Projet-programmation-systeme.git`
 
 ### Setup
-- Il faut tout d'abord installer la base de donnée, vous devez crée une table "masterchefinfo" sur un serveur Mysql, puis lancer le script d'exécution (`https://github.com/Theogorath/Projet-programmation-systeme/Livrables/BDD/masterchefinfo.sql`)</br>
+- Il faut tout d'abord installer la base de donnée, vous devez crée une table "masterchefinfo" sur un serveur Mysql, puis lancer le script d'exécution : [Cliquez ici](https://github.com/Theogorath/Projet-programmation-systeme/Livrables/BDD/masterchefinfo.sql)</br>
 
 
 ---
@@ -59,7 +59,7 @@
 ### BDD
 
 Voici l'architecture MDC/MLD : </br>
-- ![](MCD-MLD.gif)
+ ![](MCD-MLD.gif)
 
 ### Desgin Patterns
 Choix techniques :
@@ -67,16 +67,20 @@ Choix techniques :
 - MVC : Pour structurer le programme
 - Singleton : Pour eviter plusieurs instanciations d'une classe
 - Facade : Pour simplifier l'utilisation des méthodes
-- #
 
+### Diagrammes
+ - La majorités des diagrammes sont en png, cependant les diagramme de composant à des fichiers .plantuml qui permettent de la réadapter    simplement pour les futures améliorations
+ - Le diagramme de classe peut aussi être modifié via StarUML
 ---
 
 ## Ameliorations
-- Créer ...
-- ...
+- Rajouter plus d'actions possibles 
+- Plus de recettes
+- Meilleur visualisation de la préparation des commandes
+- Connecter à distance avec des IPC la DinnerRoom et la Kitchen
 
 ## Documentation 
-- Lien vers les docs :link: 
+- Lien vers les docs [ici](https://github.com/Theogorath/Projet-programmation-systeme/tree/master/Livrables) :link: 
 
 
 ## Team
@@ -96,6 +100,9 @@ Choix techniques :
 
 - **Je n'arrive pas à installer la BDD, comment faire ?**
 - Veuillez vérifier que la table a bien le bon nom et que vous exécutez le script SQL dans cette derniére.
+
+- **J'ai un souci avec les références concernant la SpriteLibrary, comment faire?**
+- Si cela arrive vous devez faire un clique droit sur les références du projet "MasterChefInfo" puis "Ajouter une référence" et ensuite   dans projet il suffit de cocher SpriteLibrary.
 ---
 
 ## License
