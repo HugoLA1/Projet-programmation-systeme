@@ -48,5 +48,16 @@ namespace MasterChefInfo
         {
             throw new NotImplementedException();
         }
+
+        public void NotifyObservers(Table table, string type)
+        {
+            foreach (IObserver observer in observers)
+            {
+                lock (table)
+                {
+                    observer.Update(table, type);
+                }
+            }
+        }
     }
 }

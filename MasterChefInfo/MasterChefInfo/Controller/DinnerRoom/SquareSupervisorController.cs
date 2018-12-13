@@ -170,7 +170,8 @@ namespace MasterChefInfo
         {
             MoveToTable(table, squareSupervisor);
             groupClientController.ThreadChoseMenu(table.groupClient);
-            table.menus = table.groupClient.clientNumber;
+            Task threadItemMenu = new Task(() => assignItemToTable(squareSupervisor, table, "menu"));
+            threadItemMenu.Start();
             MoveToWelcome(table, squareSupervisor);
             squareSupervisor.isAvailable = true;
             threadSMSemaphore.Release();
@@ -185,6 +186,8 @@ namespace MasterChefInfo
             MoveToTable(table, squareSupervisor);
             //MessageBox.Show("WaitBreadAndWater");
             table.menus = 0;
+            Task threadItemNoMenu = new Task(() => assignItemToTable(squareSupervisor, table, "noitem"));
+            threadItemNoMenu.Start();
             GetCommande(table, squareSupervisor);
             MoveToWelcome(table, squareSupervisor);
             squareSupervisor.isAvailable = true;
@@ -205,6 +208,11 @@ namespace MasterChefInfo
             model.counter.waitingGroupCommand.Add(groupCommandTemp);
             MoveToWelcome(table, squareSupervisor);
             squareSupervisor.isAvailable = true;
+        }
+
+        public void assignItemToTable(SquareSupervisor squareSupervisor, Table table, string type)
+        {
+            squareSupervisor.NotifyObservers(table, type);
         }
     }
 }

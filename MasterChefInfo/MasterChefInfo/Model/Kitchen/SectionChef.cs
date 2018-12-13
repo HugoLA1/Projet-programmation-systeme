@@ -45,6 +45,11 @@ namespace MasterChefInfo
         {
             throw new NotImplementedException();
         }
+
+        public void NotifyObservers(Table table, string type)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

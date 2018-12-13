@@ -28,11 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.MainDrawingArea = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.money = new System.Windows.Forms.Label();
-            this.MainDrawingArea = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.MainDrawingArea)).BeginInit();
             this.SuspendLayout();
+            // 
+            // MainDrawingArea
+            // 
+            this.MainDrawingArea.BackgroundImage = global::MasterChefInfo.Properties.Resources.Map;
+            this.MainDrawingArea.Location = new System.Drawing.Point(0, 0);
+            this.MainDrawingArea.Name = "MainDrawingArea";
+            this.MainDrawingArea.Size = new System.Drawing.Size(1392, 504);
+            this.MainDrawingArea.TabIndex = 0;
+            this.MainDrawingArea.TabStop = false;
+            this.MainDrawingArea.Click += new System.EventHandler(this.MainDrawingArea_Click);
             // 
             // label1
             // 
@@ -54,22 +64,12 @@
             this.money.Text = "Money";
             this.money.Click += new System.EventHandler(this.money_Click);
             // 
-            // MainDrawingArea
-            // 
-            this.MainDrawingArea.BackgroundImage = global::MasterChefInfo.Properties.Resources.Map;
-            this.MainDrawingArea.Location = new System.Drawing.Point(0, 0);
-            this.MainDrawingArea.Name = "MainDrawingArea";
-            this.MainDrawingArea.Size = new System.Drawing.Size(1392, 504);
-            this.MainDrawingArea.TabIndex = 0;
-            this.MainDrawingArea.TabStop = false;
-            this.MainDrawingArea.Click += new System.EventHandler(this.MainDrawingArea_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1392, 507);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1370, 507);
             this.Controls.Add(this.money);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.MainDrawingArea);

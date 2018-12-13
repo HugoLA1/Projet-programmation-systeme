@@ -10,7 +10,7 @@ namespace SpriteLibrary
     /// <summary>
     /// A single frame of an animation
     /// </summary>
-    internal class AnimationSingleFrame
+    public class AnimationSingleFrame
     {
         public Image Frame;
         public Image ResizedFrame;
@@ -22,7 +22,7 @@ namespace SpriteLibrary
             ResizedFrame = null;
         }
     }
-    internal class AnimationFrame
+    public class AnimationFrame
     {
         public int SingleFrameID;       //The ID number of the image we want to view
         public TimeSpan Duration; //How long does this image stay there.
@@ -37,7 +37,7 @@ namespace SpriteLibrary
     /// <summary>
     /// One animation.  A series of images.
     /// </summary>
-    internal class Animation
+    public class Animation
     {
         public int AnimationID;
         public List<AnimationFrame> Frames = new List<AnimationFrame>();
@@ -199,7 +199,7 @@ namespace SpriteLibrary
     /// It allows you to store and access animations.  A smart image might be a "troll"
     /// that has a series of animations for up, down, left, right, and die.
     /// </summary>
-    internal class SmartImage
+    public class SmartImage
     {
         SpriteController MyController;
         List<Animation> Animations = new List<Animation>();
