@@ -12,15 +12,6 @@
 
 [![Build Status](https://img.shields.io/maven-metadata/v/http/central.maven.org/maven2/com/google/code/gson/gson/maven-metadata.xml.svg)](https://travis-ci.org/badges/badgerbadgerbadger) 
 
-[![](https://img.shields.io/dub/dw/vibe-d.svg)](https://github.com/Theogorath/Projet-programmation-systeme)
-
-
-***Visuel du programme :sparkles:*** 
-
-<a href="" ><img src="https://github.com/Theogorath/Projet-programmation-systeme/blob/master/Sprites/Map.png?raw=true"></a>
-
-
-
 ## Table des matières 🏷️
 
 - [Installation](#installation)
@@ -29,14 +20,12 @@
 - [Team](#team)
 - [FAQ](#faq)
 
-
 ---
+***Visuel du programme :sparkles:*** 
 
-## Example (Optional)
+<a href="" ><img src="https://github.com/Theogorath/Projet-programmation-systeme/blob/master/Sprites/Map.png?raw=true"></a>
 
-```C#
-// Rien à voir pour le moment !
-```
+
 
 ---
 
