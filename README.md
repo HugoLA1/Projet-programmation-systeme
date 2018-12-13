@@ -69,6 +69,7 @@ Choix techniques :
 - Plus de recettes
 - Meilleur visualisation de la préparation des commandes
 - Connecter à distance avec des IPC la DinnerRoom et la Kitchen
+- Avoir une latence moindre quand il y a beaucoup de clients
 
 
 ## Documentation 
