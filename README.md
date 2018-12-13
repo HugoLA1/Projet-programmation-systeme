@@ -10,11 +10,12 @@
 **Badges**
 
 
-[![Build Status](https://img.shields.io/maven-metadata/v/http/central.maven.org/maven2/com/google/code/gson/gson/maven-metadata.xml.svg)](https://travis-ci.org/badges/badgerbadgerbadger) ![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg)
-![Size](https://github-size-badge.herokuapp.com/:owner/:repo.svg)
+[![Build Status](https://img.shields.io/maven-metadata/v/http/central.maven.org/maven2/com/google/code/gson/gson/maven-metadata.xml.svg)](https://travis-ci.org/badges/badgerbadgerbadger) 
+
+[![](https://img.shields.io/dub/dw/vibe-d.svg)](https://github.com/Theogorath/Projet-programmation-systeme)
 
 
-***Visuel du programme*** 
+***Visuel du programme :sparkles:*** 
 
 <a href="" ><img src="https://github.com/Theogorath/Projet-programmation-systeme/blob/master/Sprites/Map.png?raw=true"></a>
 
@@ -42,7 +43,7 @@
 ## Installation
 
 - Vous pouvez télécharger directement le github etl'ouvrir avec votre IDE (dans le cas du projet nous avons choisi Visual Code)
-  Vous pouvez générer le programme
+- Vous pouvez aussi générer le programme si vous préférez un .exe
 
 ### Clone
 
@@ -74,10 +75,12 @@ Choix techniques :
 ---
 
 ## Ameliorations
+> Nous sommes ouvert à toutes modifications ou proposition concernant le projet :thumbsup:
 - Rajouter plus d'actions possibles 
 - Plus de recettes
 - Meilleur visualisation de la préparation des commandes
 - Connecter à distance avec des IPC la DinnerRoom et la Kitchen
+
 
 ## Documentation 
 - Lien vers les docs [ici](https://github.com/Theogorath/Projet-programmation-systeme/tree/master/Livrables) :link: 
@@ -97,7 +100,7 @@ Choix techniques :
 ---
 
 ## FAQ
-
+> Des soucis pour l'installation :question:
 - **Je n'arrive pas à installer la BDD, comment faire ?**
 - Veuillez vérifier que la table a bien le bon nom et que vous exécutez le script SQL dans cette derniére.
 
